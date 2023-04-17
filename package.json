@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://goitacademy.github.io/react-homework-template/",
   "dependencies": {
+    "@emotion/styled": "^11.10.6",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
