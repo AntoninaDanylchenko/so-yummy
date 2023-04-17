@@ -9,8 +9,8 @@ import PrivateRoute from './PrivateRoute';
 import { Layout } from './Layout';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
-const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
-const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
+// const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+// const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const CategoriesPage = lazy(() =>
   import('../pages/CategoriesPage/CategoriesPage')
@@ -38,18 +38,21 @@ const App = () => {
   return (
     // !isRefreshing && (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<WelcomePage />} />
-        <Route
-          path="/register"
-          element={
-            <RestricteRoute component={RegisterPage} redirectTo="/main" />
-          }
-        />
-        <Route
-          path="/signin"
-          element={<RestricteRoute component={SigninPage} redirectTo="/main" />}
-        />
+      <Route
+        path="/"
+        element={<RestricteRoute component={WelcomePage} redirectTo="/main" />}
+      />
+      {/* <Route index path="/" element={<WelcomePage />} /> */}
+      {/* <Route
+        path="/register"
+        element={<RestricteRoute component={RegisterPage} redirectTo="/main" />}
+      />
+      <Route
+        path="/signin"
+        element={<RestricteRoute component={SigninPage} redirectTo="/main" />}
+      /> */}
+
+      <Route path="/main" element={<Layout />}>
         <Route
           path="/main"
           element={<PrivateRoute component={MainPage} redirectTo="/" />}
