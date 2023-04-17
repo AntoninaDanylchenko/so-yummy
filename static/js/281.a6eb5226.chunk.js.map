@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/281.a6eb5226.chunk.js","mappings":"4HAGA,UAHmB,WACjB,OAAO,uCACR,C","sources":["pages/SearchPage/SearchPage.js"],"sourcesContent":["const SearchPage = () => {\n  return <div>SearchPage</div>;\n};\nexport default SearchPage;\n"],"names":[],"sourceRoot":""}
