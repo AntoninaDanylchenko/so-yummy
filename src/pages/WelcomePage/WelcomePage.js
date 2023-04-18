@@ -1,4 +1,15 @@
+import AuthNav from 'components/WelcomePage/AuthNav';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+
 const WelcomePage = () => {
-  return <div>WelcomePage</div>;
+  return (
+    <>
+      <AuthNav />
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </>
+  );
 };
 export default WelcomePage;

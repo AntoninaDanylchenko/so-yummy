@@ -8,7 +8,7 @@ const AuthNav = () => {
         <NavLink to="/register">Register</NavLink>
       </li>
       <li>
-        <NavLink to="/singin">Sing in</NavLink>
+        <NavLink to="/signin">Sing in</NavLink>
       </li>
     </ul>
   );
