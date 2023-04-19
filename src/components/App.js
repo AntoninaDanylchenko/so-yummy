@@ -2,30 +2,31 @@ import { Route, Routes } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 // import { refreshCurrentUser } from 'redux/auth/operations';
-import { lazy } from 'react';
+// import { lazy } from 'react';
 import RestricteRoute from './RestricteRoute';
 // import { useAuth } from 'hooks/useAuth';
-import PrivateRoute from './PrivateRoute';
-import { Layout } from './Layout';
+// import PrivateRoute from './PrivateRoute';
+// import { Layout } from './Layout';
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
 
-const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
+// const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 // const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 // const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
-const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
-const CategoriesPage = lazy(() =>
-  import('../pages/CategoriesPage/CategoriesPage')
-);
-const AddRecipePage = lazy(() =>
-  import('../pages/AddRecipePage/AddRecipePage')
-);
-const MyRecipesPage = lazy(() =>
-  import('../pages/MyRecipesPage/MyRecipesPage')
-);
-const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
-const ShoppingListPage = lazy(() =>
-  import('../pages/ShoppingListPage/ShoppingListPage')
-);
-const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
+// const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
+// const CategoriesPage = lazy(() =>
+//   import('../pages/CategoriesPage/CategoriesPage')
+// );
+// const AddRecipePage = lazy(() =>
+//   import('../pages/AddRecipePage/AddRecipePage')
+// );
+// const MyRecipesPage = lazy(() =>
+//   import('../pages/MyRecipesPage/MyRecipesPage')
+// );
+// const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
+// const ShoppingListPage = lazy(() =>
+//   import('../pages/ShoppingListPage/ShoppingListPage')
+// );
+// const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
 const App = () => {
   // const dispatch = useDispatch();
@@ -34,16 +35,16 @@ const App = () => {
   // useEffect(() => {
   //   dispatch(refreshCurrentUser());
   // }, [dispatch]);
-
+  const isLoggedIn = true;
   return (
-    // !isRefreshing && (
+    isLoggedIn  && (
     <Routes>
       <Route
         path="/"
         element={<RestricteRoute component={WelcomePage} redirectTo="/main" />}
       />
-      {/* <Route index path="/" element={<WelcomePage />} /> */}
-      {/* <Route
+      {/* <Route index path="/" element={<WelcomePage />} /> */} 
+       {/* <Route
         path="/register"
         element={<RestricteRoute component={RegisterPage} redirectTo="/main" />}
       />
@@ -52,7 +53,7 @@ const App = () => {
         element={<RestricteRoute component={SigninPage} redirectTo="/main" />}
       /> */}
 
-      <Route path="/main" element={<Layout />}>
+      {/* <Route path="/main" element={<Layout />}>
         <Route
           path="/main"
           element={<PrivateRoute component={MainPage} redirectTo="/" />}
@@ -81,8 +82,8 @@ const App = () => {
           path="/search"
           element={<PrivateRoute component={SearchPage} redirectTo="/" />}
         />
-      </Route>
-    </Routes>
+      </Route> */}
+    </Routes>)
   );
 };
 
