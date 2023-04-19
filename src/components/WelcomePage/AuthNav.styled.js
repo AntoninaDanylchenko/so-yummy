@@ -29,6 +29,7 @@ export const Box = styled.ul`
   align-items: center;
   gap: 12px;
   margin: 0 auto;
+  padding: 0;
   @media screen and (min-width: 768) {
     gap: 18px;
   }
