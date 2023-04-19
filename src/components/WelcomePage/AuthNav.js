@@ -8,7 +8,7 @@ const AuthNav = () => {
         <Link to="/register">Registration</Link>
       </Item>
       <Item>
-        <Link to="/singin">Sign in</Link>
+        <Link to="/signin">Sign in</Link>
       </Item>
     </Box>
   );

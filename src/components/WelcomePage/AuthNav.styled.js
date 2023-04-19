@@ -13,6 +13,7 @@ export const Link = styled(NavLink)`
   &:hover,
   &:focus {
     background-color: rgba(139, 170, 54, 1);
+    border: transparent;
   }
   @media screen and (min-width: 768) and (max-width: 1199px) {
     padding: 22px 44px;
