@@ -55,54 +55,54 @@ const App = () => {
       <Route
         path="/"
         element={
-          <PrivateRoute component={SharedLayout} redirectTo="/welcome" />
+          <PrivateRoute component={SharedLayout} redirectTo="/" />
         }
       >
         <Route
           path="/main"
-          element={<PrivateRoute component={MainPage} redirectTo="/welcome" />}
+          element={<PrivateRoute component={MainPage} redirectTo="/" />}
         />
 
         <Route
           path="/categories/:category-name"
           element={
-            <PrivateRoute component={CategoriesPage} redirectTo="/welcome" />
+            <PrivateRoute component={CategoriesPage} redirectTo="/" />
           }
         />
         <Route
           path="/add"
           element={
-            <PrivateRoute component={AddRecipePage} redirectTo="/welcome" />
+            <PrivateRoute component={AddRecipePage} redirectTo="/" />
           }
         />
         <Route
           path="/my"
           element={
-            <PrivateRoute component={MyRecipesPage} redirectTo="/welcome" />
+            <PrivateRoute component={MyRecipesPage} redirectTo="/" />
           }
         />
         <Route
           path="recipe/:recipeId"
           element={
-            <PrivateRoute component={RecipePage} redirectTo="/welcome" />
+            <PrivateRoute component={RecipePage} redirectTo="/" />
           }
         />
         <Route
           path="/favorite"
           element={
-            <PrivateRoute component={FavoritePage} redirectTo="/welcome" />
+            <PrivateRoute component={FavoritePage} redirectTo="/" />
           }
         />
         <Route
           path="/shopping-list"
           element={
-            <PrivateRoute component={ShoppingListPage} redirectTo="/welcome" />
+            <PrivateRoute component={ShoppingListPage} redirectTo="/" />
           }
         />
         <Route
           path="/search"
           element={
-            <PrivateRoute component={SearchPage} redirectTo="/welcome" />
+            <PrivateRoute component={SearchPage} redirectTo="/" />
           }
         />
       </Route>
