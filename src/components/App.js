@@ -22,6 +22,9 @@ const AddRecipePage = lazy(() =>
 const MyRecipesPage = lazy(() =>
   import('../pages/MyRecipesPage/MyRecipesPage')
 );
+const RecipePage = lazy(() =>
+  import('../pages/RecipePage/RecipePage')
+);
 const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
 const ShoppingListPage = lazy(() =>
   import('../pages/ShoppingListPage/ShoppingListPage')
@@ -76,6 +79,12 @@ const App = () => {
           path="/my"
           element={
             <PrivateRoute component={MyRecipesPage} redirectTo="/welcome" />
+          }
+        />
+        <Route
+          path="recipe/:recipeId"
+          element={
+            <PrivateRoute component={RecipePage} redirectTo="/welcome" />
           }
         />
         <Route
