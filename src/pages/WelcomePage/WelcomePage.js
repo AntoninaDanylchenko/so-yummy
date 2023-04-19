@@ -1,6 +1,6 @@
 import AuthNav from 'components/WelcomePage/AuthNav';
 import { Box, Title, Text, Container, Icon } from './WelcomePage.styled';
-import Logo from '../../images/icon/logo-desk-tab.svg';
+import Logo from '../../images/icon/logo.svg';
 
 const WelcomePage = () => {
   return (
