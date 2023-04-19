@@ -4,7 +4,9 @@
   "private": true,
   "homepage": "https://antoninadanylchenko.github.io/so-yummy/",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.12.1",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
