@@ -1,4 +1,6 @@
+import { RecipePageHero } from 'components/RecipePage/RecipePageHero/RecipePageHero';
+
 const RecipePage = () => {
-  return <div>RecipePage</div>;
+  return <RecipePageHero></RecipePageHero>;
 };
 export default RecipePage;

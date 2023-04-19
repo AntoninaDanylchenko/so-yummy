@@ -22,6 +22,9 @@ const AddRecipePage = lazy(() =>
 const MyRecipesPage = lazy(() =>
   import('../pages/MyRecipesPage/MyRecipesPage')
 );
+const RecipePage = lazy(() =>
+  import('../pages/RecipePage/RecipePage')
+);
 const FavoritePage = lazy(() => import('../pages/FavoritePage/FavoritePage'));
 const ShoppingListPage = lazy(() =>
   import('../pages/ShoppingListPage/ShoppingListPage')
@@ -51,7 +54,9 @@ const App = () => {
       </Route>
       <Route
         path="/"
-        element={<PrivateRoute component={SharedLayout} redirectTo="/" />}
+        element={
+          <PrivateRoute component={SharedLayout} redirectTo="/" />}
+
       >
         <Route
           path="/main"
@@ -60,27 +65,46 @@ const App = () => {
 
         <Route
           path="/categories/:category-name"
-          element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}
+          element={
+            <PrivateRoute component={CategoriesPage} redirectTo="/" />
+          }
         />
         <Route
           path="/add"
-          element={<PrivateRoute component={AddRecipePage} redirectTo="/" />}
+          element={
+            <PrivateRoute component={AddRecipePage} redirectTo="/" />
+          }
         />
         <Route
           path="/my"
-          element={<PrivateRoute component={MyRecipesPage} redirectTo="/" />}
+          element={
+            <PrivateRoute component={MyRecipesPage} redirectTo="/" />
+          }
+        />
+        <Route
+          path="recipe/:recipeId"
+          element={
+            <PrivateRoute component={RecipePage} redirectTo="/" />
+          }
         />
         <Route
           path="/favorite"
-          element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
+          element={
+            <PrivateRoute component={FavoritePage} redirectTo="/" />
+          }
         />
         <Route
           path="/shopping-list"
-          element={<PrivateRoute component={ShoppingListPage} redirectTo="/" />}
+          element={
+            <PrivateRoute component={ShoppingListPage} redirectTo="/" />
+          }
         />
         <Route
           path="/search"
-          element={<PrivateRoute component={SearchPage} redirectTo="/" />}
+          element={
+            <PrivateRoute component={SearchPage} redirectTo="/" />
+          }
+
         />
       </Route>
     </Routes>
