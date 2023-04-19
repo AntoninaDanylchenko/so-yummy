@@ -51,50 +51,36 @@ const App = () => {
       </Route>
       <Route
         path="/"
-        element={
-          <PrivateRoute component={SharedLayout} redirectTo="/welcome" />
-        }
+        element={<PrivateRoute component={SharedLayout} redirectTo="/" />}
       >
         <Route
           path="/main"
-          element={<PrivateRoute component={MainPage} redirectTo="/welcome" />}
+          element={<PrivateRoute component={MainPage} redirectTo="/" />}
         />
 
         <Route
           path="/categories/:category-name"
-          element={
-            <PrivateRoute component={CategoriesPage} redirectTo="/welcome" />
-          }
+          element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}
         />
         <Route
           path="/add"
-          element={
-            <PrivateRoute component={AddRecipePage} redirectTo="/welcome" />
-          }
+          element={<PrivateRoute component={AddRecipePage} redirectTo="/" />}
         />
         <Route
           path="/my"
-          element={
-            <PrivateRoute component={MyRecipesPage} redirectTo="/welcome" />
-          }
+          element={<PrivateRoute component={MyRecipesPage} redirectTo="/" />}
         />
         <Route
           path="/favorite"
-          element={
-            <PrivateRoute component={FavoritePage} redirectTo="/welcome" />
-          }
+          element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
         />
         <Route
           path="/shopping-list"
-          element={
-            <PrivateRoute component={ShoppingListPage} redirectTo="/welcome" />
-          }
+          element={<PrivateRoute component={ShoppingListPage} redirectTo="/" />}
         />
         <Route
           path="/search"
-          element={
-            <PrivateRoute component={SearchPage} redirectTo="/welcome" />
-          }
+          element={<PrivateRoute component={SearchPage} redirectTo="/" />}
         />
       </Route>
     </Routes>
