@@ -1,4 +1,6 @@
+import Title from '../../components/Title/Title'
+
 const FavoritePage = () => {
-  return <div>FavoritePage</div>;
+  return <Title title="Favorites" />;
 };
 export default FavoritePage;

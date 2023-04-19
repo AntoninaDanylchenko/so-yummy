@@ -55,8 +55,8 @@ const App = () => {
       <Route
         path="/"
         element={
-          <PrivateRoute component={SharedLayout} redirectTo="/" />
-        }
+          <PrivateRoute component={SharedLayout} redirectTo="/" />}
+
       >
         <Route
           path="/main"
@@ -104,6 +104,7 @@ const App = () => {
           element={
             <PrivateRoute component={SearchPage} redirectTo="/" />
           }
+
         />
       </Route>
     </Routes>
