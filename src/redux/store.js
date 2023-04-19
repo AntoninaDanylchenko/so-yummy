@@ -12,16 +12,23 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/authSlice';
+import { favoriteReducer } from './favorite/favSlice';
+
 
 const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
+const favoritePersistConfig = {
+  key: 'fav',
+  storage
+}
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    favorite: persistReducer(favoritePersistConfig, favoriteReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
