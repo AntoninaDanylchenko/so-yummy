@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/so-yummy/static/css/main.bfd3ad63.css",
+    "main.css": "/so-yummy/static/css/main.a5b0e4b0.css",
     "main.js": "/so-yummy/static/js/main.a68ccced.js",
     "static/js/960.90bda0c8.chunk.js": "/so-yummy/static/js/960.90bda0c8.chunk.js",
     "static/js/480.409e8639.chunk.js": "/so-yummy/static/js/480.409e8639.chunk.js",
@@ -28,7 +28,7 @@
     "static/media/flat-lay-assortment_mobile.jpg": "/so-yummy/static/media/flat-lay-assortment_mobile.cf2377363edc63ef0f02.jpg",
     "index.html": "/so-yummy/index.html",
     "static/media/logo.svg": "/so-yummy/static/media/logo.d2174c2ad55a6fd324b43c568b091b3e.svg",
-    "main.bfd3ad63.css.map": "/so-yummy/static/css/main.bfd3ad63.css.map",
+    "main.a5b0e4b0.css.map": "/so-yummy/static/css/main.a5b0e4b0.css.map",
     "main.a68ccced.js.map": "/so-yummy/static/js/main.a68ccced.js.map",
     "960.90bda0c8.chunk.js.map": "/so-yummy/static/js/960.90bda0c8.chunk.js.map",
     "480.409e8639.chunk.js.map": "/so-yummy/static/js/480.409e8639.chunk.js.map",
@@ -44,7 +44,7 @@
     "934.10a7dbfe.chunk.js.map": "/so-yummy/static/js/934.10a7dbfe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfd3ad63.css",
+    "static/css/main.a5b0e4b0.css",
     "static/js/main.a68ccced.js"
   ]
 }
