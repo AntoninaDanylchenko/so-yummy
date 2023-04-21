@@ -1,3 +1,4 @@
+import React from 'react';
 import AuthNav from 'components/WelcomePage/AuthNav';
 import { Box, Title, Text, Container, Icon } from './WelcomePage.styled';
 import Logo from '../../images/icon/logo.svg';
