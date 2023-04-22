@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { selectShoppingList } from 'redux/ShoppingList/selectors';
-import { fetchShoppingList } from 'redux/ShoppingList/operations';
+import { selectShoppingList } from 'redux/shoppingList/selectors';
+import { fetchShoppingList } from 'redux/shoppingList/operations';
+import { List } from './ShoppingList.styled';
+import ListItem from '../ListItem/ListItem';
 
 export default function ShoppingList() {
   const dispatch = useDispatch();
@@ -12,10 +14,10 @@ export default function ShoppingList() {
   const shoppingList = useSelector(selectShoppingList);
 
   return (
-    <ul>
+    <List>
       {shoppingList?.map(shoppingItem => (
-        <li key={shoppingItem.id}>shoppingItem</li>
+        <ListItem key={shoppingItem.id} shoppingItem={shoppingItem}></ListItem>
       ))}
-    </ul>
+    </List>
   );
 }

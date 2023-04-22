@@ -38,11 +38,11 @@ const defaultTheme = createTheme({
 
   transition: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
 
-  //   device: {
-  //     mobile: '(min-width: 375px)',
-  //     tablet: '(min-width: 768px)',
-  //     desktop: '(min-width: 1440px)',
-  //   },
+  device: {
+    mobile: '(min-width: 375px)',
+    tablet: '(min-width: 768px)',
+    desktop: '(min-width: 1440px)',
+  },
 
   breakpoints: {
     values: {
