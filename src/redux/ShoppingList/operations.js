@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:5500';
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDM5OGZjMzJkZDU4ZGMwOGI2YmIyNyIsImVtYWlsIjoicGlja2FjdUBtYWlsLmNvbSIsImlhdCI6MTY4MjE2OTI0OSwiZXhwIjoxNjgyMTcyODQ5fQ.JTUA5KHa8dWwxNcrymuYbeTuzqO9SueMH__SOnTm2aA';
-axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// axios.defaults.baseURL = 'http://localhost:5500';
+// const token =
+//  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDM5OGZjMzJkZDU4ZGMwOGI2YmIyNyIsImVtYWlsIjoicGlja2FjdUBtYWlsLmNvbSIsImlhdCI6MTY4MjE2OTI0OSwiZXhwIjoxNjgyMTcyODQ5fQ.JTUA5KHa8dWwxNcrymuYbeTuzqO9SueMH__SOnTm2aA';
+// axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export const fetchShoppingList = createAsyncThunk(
   'shoppingList/fetchAll',
