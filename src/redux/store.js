@@ -14,7 +14,10 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 
 import { recipeReducer } from './recipe/recipeSlice';
-import { shoppingListReducer } from './shoppingList/slice';
+
+import { shoppingListReducer } from './ShoppingList/slice';
+import { themeReducer } from './theme/themeSlice';
+
 
 const authPersistConfig = {
   key: 'auth',
@@ -27,6 +30,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     recipe: recipeReducer,
     shoppingList: shoppingListReducer,
+    theme: themeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
