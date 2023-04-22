@@ -14,8 +14,10 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 
 import { recipeReducer } from './recipe/recipeSlice';
+
 import { shoppingListReducer } from './ShoppingList/slice';
 import { themeReducer } from './theme/themeSlice';
+
 
 const authPersistConfig = {
   key: 'auth',

@@ -1,26 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchShoppingList } from './operations';
+import {
+  fetchShoppingList,
+  addIngredientToShoppingList,
+  removeIngredientFromShoppingList,
+} from './operations';
 
 const shoppingListSlice = createSlice({
   name: 'shoppingList',
   initialState: {
     items: [],
-    isFetchingShoppingList: false,
     error: null,
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchShoppingList.pending, state => {
-        state.isFetchingShoppingList = true;
-        state.error = null;
-      })
       .addCase(fetchShoppingList.fulfilled, (state, action) => {
         state.items = action.payload;
-        state.isFetchingShoppingList = false;
         state.error = null;
       })
       .addCase(fetchShoppingList.rejected, (state, action) => {
-        state.isFetchingShoppingList = false;
+        state.error = action.payload;
+      })
+      .addCase(addIngredientToShoppingList.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+        state.error = null;
+      })
+      .addCase(addIngredientToShoppingList.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(removeIngredientFromShoppingList.fulfilled, (state, action) => {
+        state.items = state.items.filter(
+          ingredient => ingredient.id !== action.payload
+        );
+        state.error = null;
+      })
+      .addCase(removeIngredientFromShoppingList.rejected, (state, action) => {
         state.error = action.payload;
       });
   },
