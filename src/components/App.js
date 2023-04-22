@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 // import { refreshCurrentUser } from 'redux/auth/operations';
+import { useSelector } from 'react-redux';
 import { lazy } from 'react';
 import RestricteRoute from './RestricteRoute';
 // import { useAuth } from 'hooks/useAuth';
@@ -9,7 +10,7 @@ import PrivateRoute from './PrivateRoute';
 import { SharedLayout } from './SharedLayout';
 import { Layout } from './Layout';
 import { ThemeProvider } from '@mui/material';
-import { lightTheme } from 'theme/theme';
+import { lightTheme, darkTheme } from 'theme/theme';
 
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -32,8 +33,11 @@ const ShoppingListPage = lazy(() =>
 const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
 const App = () => {
+  const darkMode = useSelector(state => state.theme.darkMode);
+  const theme = darkMode ? darkTheme : lightTheme;
+
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
