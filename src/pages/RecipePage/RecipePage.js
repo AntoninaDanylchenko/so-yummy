@@ -1,29 +1,32 @@
 import { RecipePageHero } from 'components/RecipePage/RecipePageHero/RecipePageHero';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
 import { getRecipeById } from 'redux/recipe/operations';
 import { selectRecipeById } from 'redux/recipe/selectors';
 
 const RecipePage = () => {
   const dispatch = useDispatch();
-
-  const id = '640cd5ac2d9fecf12e8897fc';
+  const { recipeId } = useParams();
+  const recipe = useSelector(selectRecipeById);
 
   useEffect(() => {
-    dispatch(getRecipeById(id));
+    dispatch(getRecipeById(recipeId));
   }, [dispatch]);
 
-  const recipe = useSelector(selectRecipeById);
   console.log(recipe);
-  
-  const { title, description, time } = recipe.recipe;
+  console.log(recipeId);
 
   return (
-    <RecipePageHero
-      title={title}
-      description={description}
-      time={time}
-    ></RecipePageHero>
+    <>
+      {recipe !== null && (
+        <RecipePageHero
+          title={recipe.recipe.title}
+          description={recipe.recipe.description}
+          time={recipe.recipe.time}
+        ></RecipePageHero>
+      )}
+    </>
   );
 };
 

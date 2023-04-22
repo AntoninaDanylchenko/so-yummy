@@ -7,6 +7,8 @@ import {
 } from './RecipePageHero.styled';
 
 export const RecipePageHero = ({ title, description, time }) => {
+ 
+
   return (
     <Container>
       <Title>{title}</Title>

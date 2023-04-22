@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   recipe: {
-    item: [],
+    item: null,
     isLoading: false,
     error: null,
   },

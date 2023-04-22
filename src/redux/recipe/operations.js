@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // axios.defaults.baseURL = 'http://localhost:5500';
 // const token =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDI0YmZjZjEyZjY1YmY0MTNiZWFkMCIsImVtYWlsIjoibjhzdHVzaWtrQG1haWwuY29tIiwiaWF0IjoxNjgyMTQ4MzU0LCJleHAiOjE2ODQ3NDAzNTR9.mLEwtu7_3mH80ioZ4Xu3xk6MoyOOArliFTf8YiPY1m8';
+//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDI0YmZjZjEyZjY1YmY0MTNiZWFkMCIsImVtYWlsIjoibjhzdHVzaWtrQG1haWwuY29tIiwiaWF0IjoxNjgyMTc1ODE3LCJleHAiOjE2ODIxNzk0MTd9.0GgWKWeymCezJ1H_KyMdPfXog1Zu3IuPVqgoWqVnAaM';
 // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 export const getRecipeById = createAsyncThunk(
