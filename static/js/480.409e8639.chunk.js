@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkso_yummy=self.webpackChunkso_yummy||[]).push([[480],{480:function(e,u,s){s.r(u);var n=s(184);u.default=function(){return(0,n.jsx)("div",{children:"RegisterPage"})}}}]);
-//# sourceMappingURL=480.409e8639.chunk.js.map

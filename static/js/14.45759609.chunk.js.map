@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/14.45759609.chunk.js","mappings":"4HAGA,UAHmB,WACjB,OAAO,uCACR,C","sources":["pages/SigninPage/SigninPage.js"],"sourcesContent":["const SigninPage = () => {\n  return <div>SigninPage</div>;\n};\nexport default SigninPage;\n"],"names":[],"sourceRoot":""}
