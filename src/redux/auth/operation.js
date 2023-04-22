@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
 
-axios.defaults.baseURL = 'https://localhost:3000';
+axios.defaults.baseURL = 'https://soyummy-backend-first-team.onrender.com';
 
 const token = {
   set(token) {
@@ -17,7 +17,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const r = await axios.post('/users/signup', credentials);
+      const r = await axios.post('/auth/signup', credentials);
       token.set(r.data.token);
       return r.data;
     } catch (error) {
@@ -30,7 +30,7 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const r = await axios.post('/users/login', credentials);
+      const r = await axios.post('/auth/login', credentials);
       token.set(r.data.token);
       return r.data;
     } catch (error) {
@@ -42,7 +42,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('/auth/logout');
     token.unset();
   } catch (error) {}
 });
@@ -57,7 +57,7 @@ export const refreshCurrentUser = createAsyncThunk(
     }
     token.set(persistedToken);
     try {
-      const r = await axios.get('/users/current');
+      const r = await axios.get('/auth/current');
 
       return r.data;
     } catch (e) {
