@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshCurrentUser } from 'redux/auth/operation';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { lazy } from 'react';
 import { useAuth } from 'hooks/useAuth';
@@ -36,10 +36,8 @@ const ShoppingListPage = lazy(() =>
 const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
 const App = () => {
-
   const darkMode = useSelector(state => state.theme.darkMode);
   const theme = darkMode ? darkTheme : lightTheme;
-
 
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
@@ -51,7 +49,6 @@ const App = () => {
   return isRefreshing ? (
     <b>Refreshing contact...</b>
   ) : (
-    
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -100,7 +97,6 @@ const App = () => {
             element={<PrivateRoute component={RecipePage} redirectTo="/" />}
           />
           <Route
-
             path="/favorite"
             element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
           />
@@ -116,7 +112,6 @@ const App = () => {
           />
         </Route>
       </Routes>
-
     </ThemeProvider>
   );
 };
