@@ -1,3 +1,4 @@
+
 import { useDispatch } from 'react-redux';
 import { switchTheme } from '../../redux/theme/operations';
 
@@ -10,3 +11,4 @@ export const ThemeToggler = () => {
     </button>
   );
 };
+

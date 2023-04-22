@@ -1,5 +1,6 @@
 import Navigation from 'components/Header/Navigation';
 import UserMenu from 'components/Header/UserMenu';
+
 // import { useAuth } from 'hooks/useAuth';
 import { ThemeToggler } from './ThemeToggler';
 
@@ -8,7 +9,6 @@ const Header = () => {
   return (
     <header>
       <Navigation />
-
       <UserMenu />
       <ThemeToggler />
     </header>
