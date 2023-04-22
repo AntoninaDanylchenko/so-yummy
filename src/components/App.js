@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { useEffect } from 'react';
-// import { refreshCurrentUser } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshCurrentUser } from 'redux/auth/operation';
 import { lazy } from 'react';
+import { useAuth } from 'hooks/useAuth';
+
 import RestricteRoute from './RestricteRoute';
-// import { useAuth } from 'hooks/useAuth';
 import PrivateRoute from './PrivateRoute';
 import { SharedLayout } from './SharedLayout';
 import { Layout } from './Layout';
@@ -29,61 +30,76 @@ const ShoppingListPage = lazy(() =>
 const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
 const App = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route
-          index
-          element={
-            <RestricteRoute component={WelcomePage} redirectTo="/main" />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <RestricteRoute component={RegisterPage} redirectTo="/main" />
-          }
-        />
-        <Route
-          path="/signin"
-          element={<RestricteRoute component={SigninPage} redirectTo="/main" />}
-        />
-      </Route>
-      <Route
-        path="/"
-        element={<PrivateRoute component={SharedLayout} redirectTo="/" />}
-      >
-        <Route
-          path="/main"
-          element={<PrivateRoute component={MainPage} redirectTo="/" />}
-        />
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
+  useEffect(() => {
+    dispatch(refreshCurrentUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <b>Refreshing contact...</b>
+  ) : (
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <RestricteRoute component={WelcomePage} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestricteRoute component={RegisterPage} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <RestricteRoute component={SigninPage} redirectTo="/main" />
+            }
+          />
+        </Route>
         <Route
-          path="/categories/:category-name"
-          element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}
-        />
-        <Route
-          path="/add"
-          element={<PrivateRoute component={AddRecipePage} redirectTo="/" />}
-        />
-        <Route
-          path="/my"
-          element={<PrivateRoute component={MyRecipesPage} redirectTo="/" />}
-        />
-        <Route
-          path="/favorite"
-          element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
-        />
-        <Route
-          path="/shopping-list"
-          element={<PrivateRoute component={ShoppingListPage} redirectTo="/" />}
-        />
-        <Route
-          path="/search"
-          element={<PrivateRoute component={SearchPage} redirectTo="/" />}
-        />
-      </Route>
-    </Routes>
+          path="/"
+          element={<PrivateRoute component={SharedLayout} redirectTo="/" />}
+        >
+          <Route
+            path="/main"
+            element={<PrivateRoute component={MainPage} redirectTo="/" />}
+          />
+
+          <Route
+            path="/categories/:category-name"
+            element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}
+          />
+          <Route
+            path="/add"
+            element={<PrivateRoute component={AddRecipePage} redirectTo="/" />}
+          />
+          <Route
+            path="/my"
+            element={<PrivateRoute component={MyRecipesPage} redirectTo="/" />}
+          />
+          <Route
+            path="/favorite"
+            element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
+          />
+          <Route
+            path="/shopping-list"
+            element={
+              <PrivateRoute component={ShoppingListPage} redirectTo="/" />
+            }
+          />
+          <Route
+            path="/search"
+            element={<PrivateRoute component={SearchPage} redirectTo="/" />}
+          />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
