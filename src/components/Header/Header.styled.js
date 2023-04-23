@@ -51,7 +51,7 @@ export const Nav = styled.nav`
   /* gap: 166px; */
   justify-content: space-between;
   background-color: #ececec;
-  position: fixed;
+  /* position: fixed; */
 `;
 
 export const NavBarInnerContainer = styled.div`
