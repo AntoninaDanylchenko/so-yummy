@@ -14,12 +14,10 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { favoriteReducer } from './favorite/favSlice';
 
-
 import { recipeReducer } from './recipe/recipeSlice';
 
-import { shoppingListReducer } from './ShoppingList/slice';
+import { shoppingListReducer } from './shoppingList/slice';
 import { themeReducer } from './theme/themeSlice';
-
 
 const authPersistConfig = {
   key: 'auth',
@@ -28,8 +26,8 @@ const authPersistConfig = {
 };
 const favoritePersistConfig = {
   key: 'fav',
-  storage
-}
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
