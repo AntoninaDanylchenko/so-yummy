@@ -82,7 +82,7 @@ const App = () => {
           />
 
           <Route
-            path="/categories/:category-name"
+            path="/categories/:category"
             element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}
           />
           <Route
