@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -112,6 +113,7 @@ const App = () => {
           />
         </Route>
       </Routes>
+      <Toaster />
     </ThemeProvider>
   );
 };
