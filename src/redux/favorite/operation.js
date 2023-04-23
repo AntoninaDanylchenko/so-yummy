@@ -2,20 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 
-// axios.defaults.baseURL = 'http://localhost:3000';
-
-const token = {
-    set(token) {
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    },
-    unset() {
-        axios.defaults.headers.common.Authorization = '';
-    },
-};
-
-const persistedToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2Q5OTEyYTdkZjRiOThjNmRmMGJhZiIsImVtYWlsIjoicmhpbm9AZ21haWwuY29tIiwiaWF0IjoxNjgyMDE5ODEzLCJleHAiOjE2ODIwMjM0MTN9.k5mpktV4XVhpwKLDUQBhPFVFphJ_w0uXUMTJZCiNs6Y";
-
-
 export const addFavoriteOp = createAsyncThunk(
     'fav/add',
     async (recipeId, thunkAPI) => {
