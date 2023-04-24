@@ -11,11 +11,11 @@ export const AddRecipeSection = styled.section`
 `;
 
 export const Title = styled.h2`
-  /* font-weight: ${p => p.theme.fontWeights.semibold}; */
+  font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: 28px;
-  /* line-height: ${p => p.theme.lineHeights.single}; */
+  line-height: 1;
   letter-spacing: -0.02em;
-  /* color: ${p => p.theme.colors.textTitle}; */
+  color: ${p => p.theme.title.subtittle};
   margin-top: 30px;
   margin-bottom: 72px;
   @media screen and (min-width: 768px) {
@@ -34,15 +34,15 @@ export const AddButton = styled.button`
   height: 46px;
   border-radius: 24px 44px;
   border: none;
-  /* background-color: ${p => p.theme.colors.textDarckGrey}; */
-  /* color: ${p => p.theme.colors.backgroundPrimary}; */
-  /* font-size: ${p => p.theme.fontSizes.m}px; */
-  /* line-height: ${p => p.theme.lineHeights.large}; */
+  background-color: '#22252A';
+  color: ${p => p.theme.primary.background};
+  font-size: ${p => p.theme.fontSizes[4]};
+  line-height: 1.43;
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   :hover,
   :focus {
-    /* background-color: ${p => p.theme.colors.accent}; */
+    background-color: ${p => p.theme.accent.mainBtnBg};
   }
   @media screen and (min-width: 768px) {
     width: 161px;

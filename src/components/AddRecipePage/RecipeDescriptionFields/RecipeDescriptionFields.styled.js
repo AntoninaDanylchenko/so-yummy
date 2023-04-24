@@ -38,7 +38,7 @@ export const RecipeImage = styled.img`
   width: 279px;
   height: 268px;
   object-fit: cover;
-  /* border-radius: ${p => p.theme.radius.regular}; */
+  border-radius: ${p => p.theme.radii[2]};
   position: absolute;
   top: 0;
   @media screen and (min-width: 1440px) {
@@ -67,25 +67,25 @@ export const DescrInput = styled.input`
   border-bottom: 1px solid #e0e0e0;
   padding-bottom: 18px;
   outline: none;
-  /* font-size: ${p => p.theme.fontSizes.s}px; */
-  /* line-height: ${p => p.theme.lineHeights.large}; */
+  font-size: ${p => p.theme.fontSizes[3]};
+  line-height: 1.43;
   letter-spacing: -0.02em;
-  /* color: ${p => p.theme.colors.inputText}; */
+  color: 'rgba(0, 0, 0, 0.8)';
   opacity: 0.5;
   ::placeholder {
-    /* font-size: ${p => p.theme.fontSizes.s}px; */
-    /* line-height: ${p => p.theme.lineHeights.large}; */
+    font-size: ${p => p.theme.fontSizes[3]};
+    line-height: 1.43;
     letter-spacing: -0.02em;
-    /* color: ${p => p.theme.colors.inputText}; */
+    color: 'rgba(0, 0, 0, 0.8)';
     opacity: 1;
     @media screen and (min-width: 768px) {
-      /* font-size: ${p => p.theme.fontSizes.m}px; */
+      font-size: ${p => p.theme.fontSizes[4]};
     }
   }
   @media screen and (min-width: 768px) {
     width: 393px;
     height: 43px;
-    /* font-size: ${p => p.theme.fontSizes.m}px; */
+    font-size: ${p => p.theme.fontSizes[4]};
   }
 `;
 
@@ -107,13 +107,13 @@ export const SelectWrap = styled.div`
 `;
 
 export const DescrLabel = styled.div`
-  /* font-size: ${p => p.theme.fontSizes.s}px; */
-  /* line-height: ${p => p.theme.lineHeights.large}; */
+  font-size: ${p => p.theme.fontSizes[3]};
+  line-height: 1.43;
   letter-spacing: -0.02em;
-  /* color: ${p => p.theme.colors.inputText}; */
+  color: 'rgba(0, 0, 0, 0.8)';
   opacity: 0.5;
   @media screen and (min-width: 768px) {
-    /* font-size: ${p => p.theme.fontSizes.m}px; */
+    font-size: ${p => p.theme.fontSizes[3]};
   }
 `;
 
@@ -128,7 +128,7 @@ export const DescrSelect = styled.div`
   border: none;
   cursor: pointer;
   svg {
-    /* color: ${p => p.theme.colors.accent}; */
+    color: ${p => p.theme.accent.mainBtnBg};
     @media screen and (min-width: 768px) {
       width: 20px;
       height: 20px;
@@ -136,31 +136,31 @@ export const DescrSelect = styled.div`
   }
   @media screen and (min-width: 768px) {
     width: 140px;
-    /* font-size: ${p => p.theme.fontSizes.s}px; */
+    font-size: ${p => p.theme.fontSizes[3]}px;
   }
 `;
 
 export const SelectText = styled.span`
-  /* font-size: ${p => p.theme.fontSizes.s}px; */
-  /* line-height: ${p => p.theme.lineHeights.large}; */
+  font-size: ${p => p.theme.fontSizes[3]}px;
+  line-height: 1.43;
   letter-spacing: -0.02em;
-  /* color: ${p => p.theme.colors.textPrimary}; */
+  color: ${p => p.theme.primaryText.text};
   cursor: pointer;
   @media screen and (min-width: 768px) {
-    /* font-size: ${p => p.theme.fontSizes.m}px; */
+    font-size: ${p => p.theme.fontSizes[4]}px;
   }
 `;
 
 export const CategoryList = styled.ul`
   width: 123px;
   height: 144px;
-  /* background-color: ${p => p.theme.colors.mainLight}; */
+  background-color: ${p => p.theme.title.searchIcon};
   position: absolute;
   right: 0;
   top: 70%;
   padding: 8px 14px;
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
-  /* border-radius: ${p => p.theme.radius.small}; */
+  border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   z-index: 3;
   @media screen and (min-width: 768px) {
@@ -171,32 +171,32 @@ export const CategoryList = styled.ul`
 
 export const CategoryItem = styled.li`
   font-size: 12px;
-  /* line-height: ${p => p.theme.lineHeights.large}; */
+  line-height: 1.43;
   letter-spacing: -0.02em;
-  color: #000000;
+  color: ${p => p.theme.input.input};
   opacity: 0.5;
   cursor: pointer;
   :not(:last-child) {
     margin-bottom: 4px;
   }
   :hover {
-    /* color: ${p => p.theme.colors.accent}; */
+    color: ${p => p.theme.accent.mainBtnBg};
   }
   @media screen and (min-width: 768px) {
-    /* font-size: ${p => p.theme.fontSizes.s}px; */
+    font-size: ${p => p.theme.fontSizes[3]}px;
   }
 `;
 
 export const TimeList = styled.ul`
   width: 98px;
   height: 144px;
-  /* background-color: ${p => p.theme.colors.mainLight}; */
+  background-color: ${p => p.theme.title.searchIcon};
   position: absolute;
   right: 0;
   top: 70%;
   padding: 8px 14px;
   box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
-  /* border-radius: ${p => p.theme.radius.small}; */
+  border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   cursor: pointer;
   @media screen and (min-width: 768px) {
@@ -207,18 +207,18 @@ export const TimeList = styled.ul`
 
 export const TimeItem = styled.li`
   font-size: 12px;
-  /* line-height: ${p => p.theme.lineHeights.large}; */
+  line-height: 1.43;
   letter-spacing: -0.02em;
-  color: #000000;
+  color: ${p => p.theme.input.input};
   opacity: 0.5;
   :not(:last-child) {
     margin-bottom: 4px;
   }
   :hover {
-    /* color: ${p => p.theme.colors.accent}; */
+    color: ${p => p.theme.accent.mainBtnBg};
   }
   @media screen and (min-width: 768px) {
-    /* font-size: ${p => p.theme.fontSizes.s}px; */
+    font-size: ${p => p.theme.fontSizes[3]}px;
   }
 `;
 
@@ -235,8 +235,8 @@ export const OneInputWrap = styled.div`
 export const Error = styled.p`
   margin-top: 8px;
   color: brown;
-  /* font-size: ${p => p.theme.fontSizes.s}px; */
+  font-size: ${p => p.theme.fontSizes[3]}px;
   @media screen and (min-width: 768px) {
-    /* font-size: ${p => p.theme.fontSizes.m}px; */
+    font-size: ${p => p.theme.fontSizes[4]}px;
   }
 `;

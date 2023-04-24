@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 
 export const FormSubtitle = styled.p`
-  /* font-weight: ${p => p.theme.fontWeights.semibold}; */
+  font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: 24px;
-  /* line-height: ${p => p.theme.lineHeights.single}; */
+  line-height: 1;
   letter-spacing: -0.02em;
-  /* color: ${p => p.theme.colors.textSubTitle}; */
-  //
+  color: ${p => p.theme.primaryText.text};
 `;
 
 export const RecipeText = styled.textarea`
@@ -14,21 +13,21 @@ export const RecipeText = styled.textarea`
   min-height: 154px;
   padding: 10px 16px;
   margin: 24px 0 18px;
-  /* background-color: ${p => p.theme.colors.inputBackground}; */
+  background-color: 'rgba(217, 217, 217, 0.25)';
   outline: none;
   border: none;
-  /* border-radius: ${p => p.theme.radius.small}; */
+  border-radius: ${p => p.theme.radii[1]};
   resize: none;
-  /* font-size: ${p => p.theme.fontSizes.s}px; */
-  /* line-height: ${p => p.theme.lineHeights.large}; */
+  font-size: ${p => p.theme.fontSizes[3]};
+  line-height: 1;
   letter-spacing: -0.02em;
-  /* color: ${p => p.theme.colors.mainDark}; */
+  color: ${p => p.theme.colors.mainDark};
   opacity: 0.5;
   ::placeholder {
-    /* font-size: ${p => p.theme.fontSizes.s}px; */
-    /* line-height: ${p => p.theme.lineHeights.large}; */
+    font-size: ${p => p.theme.fontSizes[3]};
+    line-height: 1;
     letter-spacing: -0.02em;
-    /* color: ${p => p.theme.colors.mainDark}; */
+    color: 'rgba(0, 0, 0, 0.8)';
     opacity: 1;
   }
   @media screen and (min-width: 768px) {
@@ -37,7 +36,7 @@ export const RecipeText = styled.textarea`
     padding: 16px 22px;
     margin: 32px 0;
     ::placeholder {
-      /* font-size: ${p => p.theme.fontSizes.l}px; */
+      font-size: ${p => p.theme.fontSizes[5]};
     }
   }
 `;
@@ -45,9 +44,9 @@ export const RecipeText = styled.textarea`
 export const Error = styled.p`
   margin-bottom: 18px;
   color: brown;
-  font-size: ${p => p.theme.fontSizes.s}px;
+  font-size: ${p => p.theme.fontSizes[3]};
   @media screen and (min-width: 768px) {
-    font-size: ${p => p.theme.fontSizes.m}px;
+    font-size: ${p => p.theme.fontSizes[4]};
     margin-bottom: 32px;
   }
 `;

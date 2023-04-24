@@ -2,15 +2,18 @@ import React from 'react';
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addRecipe } from 'redux/addRecipes/operations';
-import { selectLoading, selectError } from 'redux/addRecipes/selectors';
+import { getRecipeById } from '../../../redux/recipe/operations';
+import {
+  selectRecipeIsLoading,
+  selectRecipeError,
+} from '../../../redux/recipe/selectors';
 import { nanoid } from 'nanoid';
 import { yupSchema } from './yupSchema';
 import { RecipeDescriptionFields } from '../RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from '../RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparation } from '../RecipePreparationFields/RecipePreparationFields';
-// import { AddRecipeSection, Form, AddButton } from './AddRecipeForm.styled';
-import Loader from 'components/Loader';
+import { AddRecipeSection, Form, AddButton } from './AddRecipeForm.styled';
+import Loader from '../../../components/Loader';
 import { toast } from 'react-hot-toast';
 
 export const AddRecipeForm = () => {
@@ -126,15 +129,15 @@ export const AddRecipeForm = () => {
   formData.append('instructions', preparation);
 
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
-  const isLoad = useSelector(selectLoading);
+  const error = useSelector(selectRecipeError);
+  const isLoad = useSelector(selectRecipeIsLoading);
 
   const handleSubmit = e => {
     e.preventDefault();
     yupSchema
       .validate(initialValues, { abortEarly: false })
       .then(() => {
-        dispatch(addRecipe(formData))
+        dispatch(getRecipeById(formData))
           .unwrap()
           .then(() => {
             navigate('/my', { replace: true });
@@ -154,8 +157,8 @@ export const AddRecipeForm = () => {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
+    <AddRecipeSection>
+      <Form onSubmit={handleSubmit}>
         <RecipeDescriptionFields
           title={title}
           description={description}
@@ -184,9 +187,9 @@ export const AddRecipeForm = () => {
           preparation={preparation}
           errors={errors}
         />
-        <button type="submit">Add</button>
-      </form>
+        <AddButton type="submit">Add</AddButton>
+      </Form>
       {isLoad && !error && <Loader />}
-    </section>
+    </AddRecipeSection>
   );
 };

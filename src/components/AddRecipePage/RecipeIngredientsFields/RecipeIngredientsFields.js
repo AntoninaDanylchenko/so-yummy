@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { selectShoppingListError } from '../../../redux/recipe/selectors';
+import { addIngredientToShoppingList } from '../../../redux/recipe/operations';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from '@mui/icons-material/Close';
@@ -30,12 +31,6 @@ import {
   NumberError,
 } from './RecipeIngredientsFields.styled';
 
-const fetchIngredientsList = () => {
-  console.log('Ingredients list');
-};
-
-const getIngredientsList = state => state.ingredients.ingredients;
-
 export const RecipeIngredients = ({
   ingredients,
   incrementIngrList,
@@ -56,10 +51,10 @@ export const RecipeIngredients = ({
   );
 
   const dispatch = useDispatch();
-  const ingredientsList = useSelector(getIngredientsList);
+  const ingredientsList = useSelector(selectShoppingListError);
 
   useEffect(() => {
-    dispatch(fetchIngredientsList());
+    dispatch(addIngredientToShoppingList());
   }, [dispatch]);
 
   const [filteredIngredients, setFilteredIngredients] =

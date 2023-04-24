@@ -25,12 +25,6 @@ import {
   Error,
 } from './RecipeDescriptionFields.styled';
 
-const fetchCategoryList = () => {
-  console.log('Categori list');
-};
-
-const selectCategoryList = state => state.categories.categoryList;
-
 export const RecipeDescriptionFields = ({
   title,
   description,
@@ -44,10 +38,10 @@ export const RecipeDescriptionFields = ({
   errors,
 }) => {
   const dispatch = useDispatch();
-  const categoriesList = useSelector(selectCategoryList);
+  // const categoriesList = useSelector();
 
   useEffect(() => {
-    dispatch(fetchCategoryList());
+    dispatch();
   }, [dispatch]);
 
   const [image, setImage] = useState('');
@@ -130,7 +124,7 @@ export const RecipeDescriptionFields = ({
             <SelectText>{category}</SelectText>
             <KeyboardArrowDownIcon size="18" />
           </DescrSelect>
-          {categoryIsActive && (
+          {/* {categoryIsActive && (
             <CategoryList>
               {categoriesList.map((item, index) => (
                 <CategoryItem key={index} onClick={() => setCategory(item)}>
@@ -138,7 +132,7 @@ export const RecipeDescriptionFields = ({
                 </CategoryItem>
               ))}
             </CategoryList>
-          )}
+          )} */}
         </SelectWrap>
         <SelectWrap onClick={toggleTimeList}>
           <DescrLabel>Cooking time</DescrLabel>

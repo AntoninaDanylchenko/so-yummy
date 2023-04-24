@@ -13,11 +13,11 @@ export const Section = styled.section`
 `;
 
 export const Title = styled.h2`
-  /* font-weight: ${p => p.theme.fontWeights.semibold}; */
+  font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: 28px;
-  /* line-height: ${p => p.theme.lineHeights.single}; */
+  line-height: 1;
   letter-spacing: -0.02em;
-  /* color: ${p => p.theme.colors.textTitle}; */
+  color: '#001833';
   margin-bottom: 72px;
   @media screen and (min-width: 768px) {
     margin-bottom: 100px;

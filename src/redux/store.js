@@ -12,7 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/authSlice';
-import { favoriteReducer } from './favorite/favSlice';
+// import { favoriteReducer } from './favorite/favSlice';
 
 import { recipeReducer } from './recipe/recipeSlice';
 
@@ -24,15 +24,15 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
-const favoritePersistConfig = {
-  key: 'fav',
-  storage,
-};
+// const favoritePersistConfig = {
+//   key: 'fav',
+//   storage,
+// };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    favorite: persistReducer(favoritePersistConfig, favoriteReducer),
+    // favorite: persistReducer(favoritePersistConfig, favoriteReducer),
     recipe: recipeReducer,
     // shoppingList: shoppingListReducer,
     theme: themeReducer,
