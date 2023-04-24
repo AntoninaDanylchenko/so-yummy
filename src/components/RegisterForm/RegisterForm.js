@@ -5,6 +5,12 @@ import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import { Button, TextField } from '@mui/material';
 
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+// import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { InputAdornment } from '@mui/material';
+
 import { register } from 'redux/auth/operation';
 
 const schema = object().shape({
@@ -44,7 +50,15 @@ export const RegisterForm = () => {
           fullWidth
           id="name"
           name="username"
-          label="Name"
+          placeholder="Name"
+          multiline
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <PermIdentityIcon />
+              </InputAdornment>
+            ),
+          }}
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.touched.name && Boolean(formik.errors.name)}
@@ -55,7 +69,15 @@ export const RegisterForm = () => {
           fullWidth
           id="email"
           name="email"
-          label="Email"
+          placeholder="Email"
+          multiline
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <MailOutlineIcon />
+              </InputAdornment>
+            ),
+          }}
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
@@ -65,8 +87,16 @@ export const RegisterForm = () => {
           fullWidth
           id="password"
           name="password"
-          label="Password"
+          placeholder="Password"
           type="password"
+          multiline
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockOpenIcon />
+              </InputAdornment>
+            ),
+          }}
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
