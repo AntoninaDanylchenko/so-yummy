@@ -6,17 +6,19 @@ import {
   Title,
 } from './RecipePageHero.styled';
 
-export const RecipePageHero = ({ title, description, time }) => {
- 
+export const RecipePageHero = ({ recipe }) => {
+  const { title, description, time } = recipe.recipe;
 
   return (
-    <Container>
-      <Title>{title}</Title>
-      <Description>{description}</Description>
+    <>
+      <Container>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
 
-      <Button type="button">Add to favorite</Button>
+        <Button type="button">Add to favorite</Button>
 
-      <Time>{time} min</Time>
-    </Container>
+        <Time>{time} min</Time>
+      </Container>
+    </>
   );
 };
