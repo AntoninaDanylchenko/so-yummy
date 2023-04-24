@@ -1,4 +1,24 @@
+import {
+  Section,
+  Container,
+  Title,
+  Wrap,
+  SideWrap,
+} from './AddRecipePage.styled';
+import { AddRecipeForm } from '../../components/AddRecipePage/AddRecipeForm/AddRecipeForm';
+
 const AddRecipePage = () => {
-  return <div>AddRecipePage</div>;
+  return (
+    <Container>
+      <Section>
+        <Title>Add recipe</Title>
+        <Wrap>
+          <AddRecipeForm />
+          <SideWrap></SideWrap>
+        </Wrap>
+      </Section>
+    </Container>
+  );
 };
+
 export default AddRecipePage;
