@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { Helmet } from 'react-helmet-async';
 
 import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
@@ -13,7 +13,7 @@ const RegisterPage = () => {
         </Helmet> */}
         <RegisterForm />
       </WrapperForm>
-      {/* <Link to="signin">Sign In</Link> */}
+      <Link to="/signin">Sign In</Link>
     </>
   );
 };
