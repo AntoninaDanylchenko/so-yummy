@@ -23,6 +23,7 @@ export const favoriteSlice = createSlice({
       state.error = action.payload;
       toast.error(action.payload);
     },
+
     [addFavoriteOp.pending](state) {
       state.isLoading = true;
     },

@@ -14,7 +14,9 @@ const FavoriteList = () => {
   useEffect(() => {
     dispatch(getFavoriteOp());
   }, [dispatch]);
-
+  console.log('====================================');
+  console.log(favorite);
+  console.log('====================================');
   return (
     <ul>
       {favorite.map(({ _id, title, description, preview, time }) => (
