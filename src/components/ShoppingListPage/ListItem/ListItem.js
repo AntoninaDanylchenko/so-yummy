@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { removeIngredientFromShoppingList } from 'redux/shoppingList/operations';
+import { removeIngredientFromShoppingList } from 'redux/ShoppingList/operation';
 import {
   Item,
   PosterWrapper,

@@ -6,7 +6,7 @@ const initialStateAuth = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  avatar: '',
+  avatarURL: '',
 };
 
 const handleExitFulfilled = (state, action) => {
@@ -27,7 +27,7 @@ const authSlice = createSlice({
         state.user.email = null;
         state.token = null;
         state.isLoggedIn = false;
-        state.avatar = null;
+        // state.avatarURL = null;
       })
       .addCase(refreshCurrentUser.pending, state => {
         state.isRefreshing = true;

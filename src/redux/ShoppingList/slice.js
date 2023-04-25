@@ -3,7 +3,7 @@ import {
   fetchShoppingList,
   addIngredientToShoppingList,
   removeIngredientFromShoppingList,
-} from './operations';
+} from './operation';
 
 const shoppingListSlice = createSlice({
   name: 'shoppingList',

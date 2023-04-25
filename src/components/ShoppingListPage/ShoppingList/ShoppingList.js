@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { selectShoppingList } from 'redux/shoppingList/selectors';
-import { fetchShoppingList } from 'redux/shoppingList/operations';
+import { selectShoppingList } from 'redux/ShoppingList/selector';
+import { fetchShoppingList } from 'redux/ShoppingList/operation';
 import { List } from './ShoppingList.styled';
 import ListItem from '../ListItem/ListItem';
 
