@@ -5,7 +5,7 @@ export const PreviewCategories = ({ recipes, category }) => {
     <ul>
       {recipes.map(({ id, title, preview, categoryRecipe }) => {
         return categoryRecipe === category ? (
-          <RecipeItem to={`/recipe/${id}}`} key={id}>
+          <RecipeItem to={`/recipe/${id}`} key={id}>
             <RecipeTitle>{title}</RecipeTitle>
             <RecipeImg src={preview} alt={title} />
           </RecipeItem>

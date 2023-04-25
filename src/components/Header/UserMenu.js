@@ -1,4 +1,6 @@
+const { UserLogo } = require('./UserLogo');
+
 const UserMenu = () => {
-  return <div>UserMenu</div>;
+  return <UserLogo />;
 };
 export default UserMenu;
