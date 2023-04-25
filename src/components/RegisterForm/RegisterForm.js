@@ -35,10 +35,6 @@ export const RegisterForm = () => {
       dispatch(register(values));
       formikHelpers.resetForm();
     },
-
-    //       values => {
-    //   alert(JSON.stringify(values, null, 2));
-    // },
   });
 
   return (

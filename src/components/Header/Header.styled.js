@@ -72,6 +72,7 @@ export const Nav = styled.nav`
   justify-content: flex-start;
   align-items: center;
   background-color: #ececec;
+
   padding-top: 21px;
 
   @media screen and (min-width: 760px) {

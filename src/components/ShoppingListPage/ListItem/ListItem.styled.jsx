@@ -84,7 +84,7 @@ export const CloseButton = styled.button`
   margin: 0;
   padding: 0;
   border: none;
-  border-radius: 50%;
+  border-radius: 6px;
   background-color: transparent;
   width: 14px;
   height: 14px;
@@ -93,6 +93,7 @@ export const CloseButton = styled.button`
     right: 45px;
     width: 20px;
     height: 20px;
+    border-radius: 8px;
   }
 
   @media (${p => p.theme.device.desktop}) {
@@ -102,7 +103,8 @@ export const CloseButton = styled.button`
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #8baa36;
   }
 `;

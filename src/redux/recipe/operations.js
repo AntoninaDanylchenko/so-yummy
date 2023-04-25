@@ -1,10 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'http://localhost:5500';
-// const token =
-//   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDI0YmZjZjEyZjY1YmY0MTNiZWFkMCIsImVtYWlsIjoibjhzdHVzaWtrQG1haWwuY29tIiwiaWF0IjoxNjgyMTc1ODE3LCJleHAiOjE2ODIxNzk0MTd9.0GgWKWeymCezJ1H_KyMdPfXog1Zu3IuPVqgoWqVnAaM';
-// axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+axios.defaults.baseURL = 'https://soyummy-backend-first-team.onrender.com';
 
 export const getRecipeById = createAsyncThunk(
   'recipe/getRecipeById',

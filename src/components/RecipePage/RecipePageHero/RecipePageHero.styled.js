@@ -13,8 +13,8 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 144px;
   padding-bottom: 90px;
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  /* top: 0; */
   background-image: url(${bgImageMobile});
   background-repeat: no-repeat;
   background-position: center;
@@ -26,7 +26,7 @@ export const Container = styled.div`
     background-image: url(${bgImageMobile2x});
   }
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     padding-top: 136px;
     padding-bottom: 32px;
     background-image: url(${bgImageTablet});
@@ -38,7 +38,7 @@ export const Container = styled.div`
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media (${p => p.theme.device.desktop}) {
     padding-top: 164px;
     background-image: url(${bgImageDesctop});
 
@@ -61,7 +61,7 @@ export const Title = styled.h1`
   color: #8baa36;
   margin: 0 auto 24px auto;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     font-size: 44px;
     line-height: 44px;
   }
@@ -78,12 +78,12 @@ export const Description = styled.p`
   color: #22252a;
   margin: 0 auto 24px auto;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     font-size: 18px;
     line-height: 24px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media (${p => p.theme.device.desktop}) {
     margin-bottom: 30px;
   }
 `;
@@ -104,7 +104,7 @@ export const Button = styled.button`
   padding: 10px 18px;
   margin: 0 auto 42px auto;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     font-size: 16px;
     line-height: 24px;
 
@@ -113,7 +113,7 @@ export const Button = styled.button`
     margin-bottom: 60px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media (${p => p.theme.device.desktop}) {
     margin-bottom: 48px;
   }
   :hover,
@@ -133,7 +133,7 @@ export const Time = styled.p`
   color: #23262a;
   margin: 0 auto;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     font-size: 14px;
     line-height: 20px;
   }

@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -82,7 +83,7 @@ const App = () => {
           />
 
           <Route
-            path="/categories/:category-name"
+            path="/categories/:category"
             element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}
           />
           <Route
@@ -115,6 +116,7 @@ const App = () => {
           <Route path="*" element={<NotFound/>} />
 
       </Routes>
+      <Toaster />
     </ThemeProvider>
   );
 };
