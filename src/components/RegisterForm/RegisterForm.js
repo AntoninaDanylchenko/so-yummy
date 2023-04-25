@@ -5,9 +5,20 @@ import { useFormik } from 'formik';
 import { object, string } from 'yup';
 import { Button, TextField } from '@mui/material';
 
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+// import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { InputAdornment } from '@mui/material';
+
+// import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
+// import CancelSharpIcon from '@mui/icons-material/CancelSharp';
+// import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
+
 import { register } from 'redux/auth/operation';
 
 const schema = object().shape({
+
   username: string()
     .min(2, 'Must be more than 2 characters')
     .max(32, 'Must be less than 32 characters')
@@ -35,10 +46,6 @@ export const RegisterForm = () => {
       dispatch(register(values));
       formikHelpers.resetForm();
     },
-
-    //       values => {
-    //   alert(JSON.stringify(values, null, 2));
-    // },
   });
 
   return (
@@ -46,20 +53,36 @@ export const RegisterForm = () => {
       <form onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth
-          id="name"
+          id="username"
           name="username"
-          label="Name"
-          value={formik.values.name}
+          placeholder="Name"
+          multiline
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <PermIdentityIcon />
+              </InputAdornment>
+            ),
+          }}
+          value={formik.values.username}
           onChange={formik.handleChange}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
+          error={formik.touched.username && Boolean(formik.errors.username)}
+          helperText={formik.touched.username && formik.errors.username}
         />
 
         <TextField
           fullWidth
           id="email"
           name="email"
-          label="Email"
+          placeholder="Email"
+          multiline
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <MailOutlineIcon />
+              </InputAdornment>
+            ),
+          }}
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
@@ -69,8 +92,16 @@ export const RegisterForm = () => {
           fullWidth
           id="password"
           name="password"
-          label="Password"
+          placeholder="Password"
           type="password"
+          multiline
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockOpenIcon />
+              </InputAdornment>
+            ),
+          }}
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}

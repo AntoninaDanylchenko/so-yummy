@@ -11,12 +11,13 @@ import { useAuth } from 'hooks/useAuth';
 
 import RestricteRoute from './RestricteRoute';
 import PrivateRoute from './PrivateRoute';
-import { SharedLayout } from './SharedLayout';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Layout } from './Layout';
 import { ThemeProvider } from '@mui/material';
 import { lightTheme, darkTheme } from 'theme/theme';
-
-const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
+import NotFound  from 'pages/NotFound/NotFound';
+// const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
@@ -111,7 +112,9 @@ const App = () => {
             path="/search"
             element={<PrivateRoute component={SearchPage} redirectTo="/" />}
           />
-        </Route>
+          </Route>
+          <Route path="*" element={<NotFound/>} />
+
       </Routes>
       <Toaster />
     </ThemeProvider>

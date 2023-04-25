@@ -4,29 +4,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getFavorite } from 'redux/favorite/selector';
 import { getFavoriteOp } from 'redux/favorite/operation';
 // import { Loader } from 'components/Spinner/Spinner';
-import RecipeCard from 'components/RecipeCard/RecipeCard'
+import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 const FavoriteList = () => {
-    const dispatch = useDispatch();
-    const { items: favorite, isLoading, error } = useSelector(getFavorite);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getFavoriteOp());
-    }, [dispatch]);
+  const { items: favorite } = useSelector(getFavorite);
 
-    return (
-        <ul>
-            {favorite.map(({ _id, title, description, preview, time }) => (
-                <RecipeCard
-                    id={_id}
-                    title={title}
-                    description={description}
-                    preview={preview}
-                    time={time}
-                />
-            ))}
-        </ul>
-    );
+  useEffect(() => {
+    dispatch(getFavoriteOp());
+  }, [dispatch]);
+  console.log('====================================');
+  console.log(favorite);
+  console.log('====================================');
+  return (
+    <ul>
+      {favorite.map(({ _id, title, description, preview, time }) => (
+        <RecipeCard
+          id={_id}
+          title={title}
+          description={description}
+          preview={preview}
+          time={time}
+        />
+      ))}
+    </ul>
+  );
 };
 
 export default FavoriteList;

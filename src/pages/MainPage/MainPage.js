@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { useTheme } from '@mui/material/styles';
 import { fetchRecipesMain } from '../../Services/Api';
 import { СhooseYourBreakfast } from '../../components/MainPage/СhooseYourBreakfast';
@@ -13,15 +14,31 @@ const MainPage = () => {
   const [recipes, setRecipes] = useState([]);
 
   const [, setSearchParams] = useSearchParams();
-  console.log(theme);
-  //  const isMobile = useMediaQuery({ query: breakpoints.small });
+
+  const isTablet = useMediaQuery({
+    query: `(${theme.device.tablet} and (max-width: 1439px))`,
+  });
+  const isDesktop = useMediaQuery({ query: theme.device.desktop });
+
   const setParams = value => {
     setSearchParams(value);
   };
 
+  const getRecipes = useCallback(async () => {
+    const numberOfRecipes = () => {
+      if (isDesktop) return 4;
+      else if (isTablet) return 2;
+      else return 1;
+    };
+
+    const recipes = await fetchRecipesMain(numberOfRecipes());
+
+    setRecipes(recipes);
+  }, [isTablet, isDesktop]);
+
   useEffect(() => {
-    fetchRecipesMain(1).then(setRecipes);
-  }, []);
+    getRecipes();
+  }, [getRecipes]);
 
   return (
     <div>

@@ -15,13 +15,13 @@ function updateScrollLock() {
 
 const Modal = ({ onClose, children }) => {
   const backdropRef = createRef();
+  console.log(typeof onClose);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-
       updateScrollLock();
     };
   });
@@ -40,11 +40,7 @@ const Modal = ({ onClose, children }) => {
   };
 
   return createPortal(
-    <Overlay
-      ref={backdropRef}
-      onClick={handleBackdropClick}
-      role="presentation"
-    >
+    <Overlay ref={backdropRef} onClick={handleBackdropClick}>
       <ModalW>{children}</ModalW>
     </Overlay>,
     modalRoot

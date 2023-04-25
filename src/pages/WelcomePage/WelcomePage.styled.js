@@ -75,7 +75,6 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   margin-bottom: 14px;
-  margin: 0 auto;
   color: rgba(250, 250, 250, 1);
   font-weight: 600;
   font-size: 24px;
