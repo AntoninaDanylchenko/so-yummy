@@ -16,9 +16,11 @@ import { InputAdornment } from '@mui/material';
 // import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
-// .min(2, 'Must be more than 2 characters')
+
 const schema = object().shape({
+
   username: string()
+    .min(2, 'Must be more than 2 characters')
     .max(32, 'Must be less than 32 characters')
     .required('Pease enter name'),
   email: string().email('Invalid email address').required('Pease enter email'),
