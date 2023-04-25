@@ -11,11 +11,14 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { InputAdornment } from '@mui/material';
 
-import { register } from 'redux/auth/operation';
+// import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
+// import CancelSharpIcon from '@mui/icons-material/CancelSharp';
+// import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
+import { register } from 'redux/auth/operation';
+// .min(2, 'Must be more than 2 characters')
 const schema = object().shape({
   username: string()
-    .min(2, 'Must be more than 2 characters')
     .max(32, 'Must be less than 32 characters')
     .required('Pease enter name'),
   email: string().email('Invalid email address').required('Pease enter email'),
@@ -48,7 +51,7 @@ export const RegisterForm = () => {
       <form onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth
-          id="name"
+          id="username"
           name="username"
           placeholder="Name"
           multiline
@@ -59,10 +62,10 @@ export const RegisterForm = () => {
               </InputAdornment>
             ),
           }}
-          value={formik.values.name}
+          value={formik.values.username}
           onChange={formik.handleChange}
-          error={formik.touched.name && Boolean(formik.errors.name)}
-          helperText={formik.touched.name && formik.errors.name}
+          error={formik.touched.username && Boolean(formik.errors.username)}
+          helperText={formik.touched.username && formik.errors.username}
         />
 
         <TextField
