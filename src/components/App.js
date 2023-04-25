@@ -11,7 +11,7 @@ import { useAuth } from 'hooks/useAuth';
 
 import RestricteRoute from './RestricteRoute';
 import PrivateRoute from './PrivateRoute';
-import { SharedLayout } from './SharedLayout';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Layout } from './Layout';
 import { ThemeProvider } from '@mui/material';
 import { lightTheme, darkTheme } from 'theme/theme';
