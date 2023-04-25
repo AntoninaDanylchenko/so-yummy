@@ -1,21 +1,50 @@
-import React from 'react';
+import {
+  // useEffect,
+  useState,
+} from 'react';
 import { Modal } from './Modal/Modal';
-import { ReactComponent as Pen } from '../../images/icon/pen.svg';
-import { ReactComponent as Arrow } from '../../images/icon/arrow-right.svg';
-import { TextModal,ButtonModal } from './Header.styled';
+import { LogoutBtn } from './LogoutBtn';
+import { TextModal, ButtonModal, IconPen, IconArrow } from './Header.styled';
 
-const UserLogoModal = () => {
+const UserLogoModal = ({ onClose }) => {
+  const [onShow, setOnShow] = useState(false);
+  const [
+    // openNewModal,
+    setOpenNewModal,
+  ] = useState(true);
+
+  // useEffect(() => {
+  //   if (handleLogoutModal) {
+  //     setOnShow(!onShow);
+  //   }
+  // }, []);
+
+  const modalToggle = () => {
+    setOnShow(onShow => !onShow);
+  };
+
+  const handleLogoutModal = openNewModal => {
+    onClose();
+    setOpenNewModal(openNewModal);
+    modalToggle();
+
+    console.log('onShow:', setOpenNewModal);
+  };
+
   return (
-    <Modal>
-      <TextModal>
-        <span>Edit profile</span>
-        <Pen />
-      </TextModal>
-      <ButtonModal>
-        <span>Log out</span>
-        <Arrow />
-      </ButtonModal>
-    </Modal>
+    <>
+      <Modal onClose={onClose}>
+        <TextModal>
+          <span>Edit profile</span>
+          <IconPen />
+        </TextModal>
+        <ButtonModal onClick={handleLogoutModal}>
+          <span>Log out</span>
+          <IconArrow />
+        </ButtonModal>
+      </Modal>
+      {onShow && <LogoutBtn />}
+    </>
   );
 };
 

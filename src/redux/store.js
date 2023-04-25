@@ -26,15 +26,15 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
-// const favoritePersistConfig = {
-//   key: 'fav',
-//   storage,
-// };
+const favoritePersistConfig = {
+  key: 'fav',
+  storage,
+};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    // favorite: persistReducer(favoritePersistConfig, favoriteReducer),
+    favorite: persistReducer(favoritePersistConfig, favoriteReducer),
     recipe: recipeReducer,
     // shoppingList: shoppingListReducer,
     theme: themeReducer,
