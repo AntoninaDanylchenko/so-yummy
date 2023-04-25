@@ -18,7 +18,8 @@ const RecipePage = () => {
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, []);
+  // }, [dispatch]); // передивись чи воно тобі треба, тимчасово вирубив
 
   return (
     <>
