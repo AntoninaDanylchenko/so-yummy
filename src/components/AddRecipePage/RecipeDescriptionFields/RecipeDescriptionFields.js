@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import timeCooking from '../../AddRecipePage/timeCooking.json';
 import imageS from '../../../images/addRecipe/file-input-mob.png';
@@ -17,8 +17,8 @@ import {
   DescrLabel,
   DescrSelect,
   SelectText,
-  CategoryList,
-  CategoryItem,
+  // CategoryList,
+  // CategoryItem,
   TimeList,
   TimeItem,
   OneInputWrap,
@@ -37,12 +37,12 @@ export const RecipeDescriptionFields = ({
   onCategorySet,
   errors,
 }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const categoriesList = useSelector();
 
-  useEffect(() => {
-    dispatch();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch();
+  // }, [dispatch]);
 
   const [image, setImage] = useState('');
   const [timeIsActive, setTimeIsActive] = useState(false);
@@ -75,10 +75,10 @@ export const RecipeDescriptionFields = ({
     setTimeIsActive(false);
   };
 
-  const setCategory = value => {
-    onCategorySet(value);
-    setCategoryIsActive(false);
-  };
+  // const setCategory = value => {
+  //   onCategorySet(value);
+  //   setCategoryIsActive(false);
+  // };
 
   return (
     <DescrWrap>

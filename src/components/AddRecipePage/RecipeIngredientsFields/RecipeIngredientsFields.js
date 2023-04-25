@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectShoppingListError } from '../../../redux/recipe/selectors';
-import { addIngredientToShoppingList } from '../../../redux/recipe/operations';
+import { fetchIngredientsList } from 'redux/ingredients/operations';
+import { getIngredientsList } from 'redux/ingredients/selectors';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import CloseIcon from '@mui/icons-material/Close';
@@ -51,10 +51,10 @@ export const RecipeIngredients = ({
   );
 
   const dispatch = useDispatch();
-  const ingredientsList = useSelector(selectShoppingListError);
+  const ingredientsList = useSelector(getIngredientsList);
 
   useEffect(() => {
-    dispatch(addIngredientToShoppingList());
+    dispatch(fetchIngredientsList());
   }, [dispatch]);
 
   const [filteredIngredients, setFilteredIngredients] =

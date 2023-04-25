@@ -3,10 +3,7 @@ import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipeById } from '../../../redux/recipe/operations';
-import {
-  selectRecipeIsLoading,
-  selectRecipeError,
-} from '../../../redux/recipe/selectors';
+import { selectLoading, selectError } from '../../../redux/addRecipe/selectors';
 import { nanoid } from 'nanoid';
 import { yupSchema } from './yupSchema';
 import { RecipeDescriptionFields } from '../RecipeDescriptionFields/RecipeDescriptionFields';
@@ -129,8 +126,8 @@ export const AddRecipeForm = () => {
   formData.append('instructions', preparation);
 
   const dispatch = useDispatch();
-  const error = useSelector(selectRecipeError);
-  const isLoad = useSelector(selectRecipeIsLoading);
+  const error = useSelector(selectError);
+  const isLoad = useSelector(selectLoading);
 
   const handleSubmit = e => {
     e.preventDefault();

@@ -12,7 +12,7 @@ export const FormSubtitle = styled.p`
   font-size: 24px;
   line-height: 1;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.textSubTitle};
+  color: ${p => p.theme.subtitle};
 `;
 
 export const CountWrap = styled.div`
@@ -77,8 +77,8 @@ export const PlusButton = styled.button`
 
 export const Number = styled.p`
   font-size: ${p => p.theme.fontSizes[3]}px;
-  line-height: ${p => p.theme.lineHeights.heading};
-  color: ${p => p.theme.colors.textTitle};
+  line-height: 1.29;
+  color: ${p => p.theme.primary.userBg};
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[4]};
     line-height: 1.43;
@@ -113,14 +113,14 @@ export const IngrInput = styled.input`
   height: 53px;
   margin-right: 14px;
   padding: 16px;
-  background-color: ${p => p.theme.colors.inputBackground};
+  background-color: '#f5f5f5';
   border-radius: ${p => p.theme.radii[1]};
   border: none;
   outline: none;
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.43;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.mainDark};
+  color: ${p => p.theme.input.input};
   opacity: 0.5;
   @media screen and (min-width: 768px) {
     width: 398px;

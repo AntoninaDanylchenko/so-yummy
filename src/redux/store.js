@@ -10,7 +10,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
 import { authReducer } from './auth/authSlice';
 // import { favoriteReducer } from './favorite/favSlice';
 
@@ -18,6 +17,9 @@ import { recipeReducer } from './recipe/recipeSlice';
 
 // import { shoppingListReducer } from './shoppingList/slice';
 import { themeReducer } from './theme/themeSlice';
+
+import { ownRecipeReduser } from './addRecipe/slice';
+import { ingredientsReducer } from './ingredients/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -36,6 +38,8 @@ export const store = configureStore({
     recipe: recipeReducer,
     // shoppingList: shoppingListReducer,
     theme: themeReducer,
+    ownRecipe: ownRecipeReduser,
+    ingredients: ingredientsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

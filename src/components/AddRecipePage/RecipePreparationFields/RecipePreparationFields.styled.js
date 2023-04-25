@@ -21,7 +21,7 @@ export const RecipeText = styled.textarea`
   font-size: ${p => p.theme.fontSizes[3]};
   line-height: 1;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.colors.mainDark};
+  color: ${p => p.theme.input.input};
   opacity: 0.5;
   ::placeholder {
     font-size: ${p => p.theme.fontSizes[3]};
