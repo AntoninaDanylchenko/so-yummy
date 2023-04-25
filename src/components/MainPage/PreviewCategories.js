@@ -1,16 +1,13 @@
-import { RecipeItem, RecipeTitle, RecipeImg } from './PreviewCategories.styled';
-
+import { RecipesList } from './PreviewCategories.styled';
+import { RecipeСategotyItem } from '../RecipeСategotyItem/RecipeСategotyItem';
 export const PreviewCategories = ({ recipes, category }) => {
   return (
-    <ul>
-      {recipes.map(({ id, title, preview, categoryRecipe }) => {
-        return categoryRecipe === category ? (
-          <RecipeItem to={`/recipe/${id}`} key={id}>
-            <RecipeTitle>{title}</RecipeTitle>
-            <RecipeImg src={preview} alt={title} />
-          </RecipeItem>
+    <RecipesList>
+      {recipes.map(recipe => {
+        return recipe.categoryRecipe === category ? (
+          <RecipeСategotyItem key={recipe.id} recipe={recipe} />
         ) : null;
       })}
-    </ul>
+    </RecipesList>
   );
 };
