@@ -1,11 +1,17 @@
-import { useEffect, useState } from 'react';
+import {
+  // useEffect,
+  useState,
+} from 'react';
 import { Modal } from './Modal/Modal';
 import { LogoutBtn } from './LogoutBtn';
 import { TextModal, ButtonModal, IconPen, IconArrow } from './Header.styled';
 
 const UserLogoModal = ({ onClose }) => {
   const [onShow, setOnShow] = useState(false);
-  const [openNewModal, setOpenNewModal] = useState(true);
+  const [
+    // openNewModal,
+    setOpenNewModal,
+  ] = useState(true);
 
   // useEffect(() => {
   //   if (handleLogoutModal) {
