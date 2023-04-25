@@ -6,6 +6,7 @@ export const GreenLeftSquare = styled.div`
   height: 8px;
   left: 120px;
   top: 76px;
+  z-index: -1;
 
   background: #8baa36;
   border-radius: 3px;
@@ -33,6 +34,8 @@ export const BlackSquare = styled.div`
   background: #22252a;
   border-radius: 50%;
 
+  z-index: -1;
+
   @media (${p => p.theme.device.tablet}) {
     width: 12px;
     height: 12px;
@@ -57,6 +60,9 @@ export const GreenRightSquare = styled.div`
   background: #8baa36;
   border-radius: 3px;
   transform: rotate(-25deg);
+
+  z-index: -1;
+
   @media (${p => p.theme.device.tablet}) {
     width: 14px;
     height: 14px;

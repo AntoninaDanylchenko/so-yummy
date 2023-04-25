@@ -12,7 +12,7 @@ const FavoriteList = () => {
   const { items: favorite } = useSelector(getFavorite);
 
   useEffect(() => {
-    dispatch(getFavoriteOp());
+    dispatch(getFavoriteOp);
   }, [dispatch]);
   console.log('====================================');
   console.log(favorite);
