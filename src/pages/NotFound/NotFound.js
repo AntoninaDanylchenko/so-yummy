@@ -1,17 +1,20 @@
-import { NotFoundSection } from './NotFound.styled';
+import {
+  NotFoundSection,
+  NotFoundSpan,
+  NotFoundSpanBolt,
+  NotFoundText,
+} from './NotFound.styled';
 
 const NotFound = () => {
   return (
     <NotFoundSection>
-      <p>
-        <span>We are sorry,</span>
-        <span>but the page you were looking for can’t be found..</span>
-      </p>
+      <NotFoundText>
+        <NotFoundSpanBolt>We are sorry,</NotFoundSpanBolt>
+        <NotFoundSpan>
+          but the page you were looking for can’t be found..
+        </NotFoundSpan>
+      </NotFoundText>
     </NotFoundSection>
   );
 };
 export default NotFound;
-
-
-
-
