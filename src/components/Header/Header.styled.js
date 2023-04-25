@@ -12,17 +12,23 @@ import MainBgTab2 from '../../images/leafs/pasta-spinach-main_tablet@2x.png';
 
 export const LinkNav = styled(NavLink)`
   text-decoration: none;
-  color: rgba(34, 37, 42, 1);
-  /* font-size */
-  font-family: inherit;
+  color:  ${p => p.theme.primaryText.text };
+  font-family: ${p => p.theme.fonts};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes[3]};
+  line-height:calc((${p => p.theme.fontWeights.medium})/(${p => p.theme.fontSizes[3]}))px;
   margin: 10px;
+
+  &.active {
+    color: rgba(139, 170, 54, 1);
+  }
 `;
 export const IconLogo = styled(LogoIcon)`
   display: block;
   width: 40px;
   height: 40px;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     display: block;
     width: 44px;
     height: 44px;
@@ -34,7 +40,7 @@ export const IconSearch = styled(Search)`
   width: 20px;
   height: 20px;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     display: inline;
     width: 24px;
     height: 24px;
@@ -46,7 +52,7 @@ export const IconPen = styled(Pen)`
   width: 12px;
   height: 12px;
   margin-left: 22px;
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     margin-left: 35px;
   }
 `;
@@ -57,7 +63,7 @@ export const IconArrow = styled(Arrow)`
   height: 18px;
   margin-left: 5px;
   transform: translate(10%, 20%);
-  @media screen and (min-width: 760px) {
+  @media (${p => p.theme.device.tablet}) {
     width: 18px;
     height: 18px;
     margin-left: 7px;
@@ -75,7 +81,7 @@ export const Nav = styled.nav`
 
   padding-top: 21px;
 
-  @media screen and (min-width: 760px) {
+  @media (${p => p.theme.device.tablet}) {
     padding-top: 19px;
   }
 `;
@@ -86,7 +92,10 @@ export const NavBox = styled.div`
   align-items: center;
   gap: 120px;
 
-  @media screen and (min-width: 700px) and (max-width: 900px) {
+  /* @media screen and (min-width: 700px) and (max-width: 900px) {
+    gap: 380px;
+  } */
+  @media (${p => p.theme.device.tablet}) {
     gap: 380px;
   }
 
@@ -131,7 +140,7 @@ export const TogglerBox = styled.div`
   bottom: 18px;
   left: 16px;
 
-  @media screen and (min-width: 700px) {
+  @media (${p => p.theme.device.tablet}) {
     bottom: 32px;
     left: 32px;
   }
@@ -158,7 +167,8 @@ export const ImageBox = styled.div`
       background-image: url('${MainBgMob2}');
     }
   }
-  @media screen and (min-width: 500px) and (max-width: 900px) {
+  /* @media screen and (min-width: 500px) and (max-width: 900px)  */
+  @media (${p => p.theme.device.tablet}) {
     top: 300px;
     left: 240px;
     width: 80%;
@@ -184,7 +194,7 @@ export const NavExBox = styled.div`
   align-items: center;
   margin-bottom: 180px;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     gap: 200px;
   }
 `;
@@ -195,7 +205,7 @@ export const NavEx = styled.nav`
   align-items: center;
   gap: 32px;
 
-  @media screen and (min-width: 768px) {
+  @media (${p => p.theme.device.tablet}) {
     gap: 40px;
   }
 `;
@@ -253,7 +263,7 @@ export const ButtonModal = styled.button`
   border: transparent;
   padding: 12px;
 
-  @media screen and (min-width: 760px) {
+  @media (${p => p.theme.device.tablet}) {
     padding: 18px;
   }
 `;
@@ -267,7 +277,7 @@ export const ButtonUser = styled.button`
   cursor: pointer;
   overflow: hidden;
 
-  @media screen and (min-width: 760px) {
+  @media (${p => p.theme.device.tablet}) {
     width: 44px;
     height: 44px;
   }
