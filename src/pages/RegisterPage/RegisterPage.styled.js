@@ -28,7 +28,7 @@ export const Box = styled.section`
 
   background-image: url(${imgPanaMobile}), url(${bgImgRectangleMobile});
   background-repeat: no-repeat;
-  background-size: 320px, cover;
+  background-size: 285px, cover;
   /* background-size: calc(100vw - 180px), cover; */
   background-position: center top 86px, center top 322px;
 
@@ -53,7 +53,7 @@ export const Box = styled.section`
   @media (${p => p.theme.device.desktop}) {
     background-image: url(${imgPanaDesktop}), url(${bgImgRectangleDesktop});
     background-size: 532px, cover;
-    background-position: left 113px top 115px, center top 384px;
+    background-position: left 113px top 115px, center top 364px;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),

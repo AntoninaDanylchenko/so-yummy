@@ -8,12 +8,15 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 const FavoriteList = () => {
   const dispatch = useDispatch();
+
   const { items: favorite } = useSelector(getFavorite);
 
   useEffect(() => {
     dispatch(getFavoriteOp());
   }, [dispatch]);
-
+  console.log('====================================');
+  console.log(favorite);
+  console.log('====================================');
   return (
     <ul>
       {favorite.map(({ _id, title, description, preview, time }) => (

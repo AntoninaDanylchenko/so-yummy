@@ -15,7 +15,11 @@ import {
 export default function ListItem({ shoppingItem }) {
   const dispatch = useDispatch();
   const { ingredient, measure, id } = shoppingItem;
-  const { thb, ttl } = ingredient;
+  const {
+    // desc,
+    thb,
+    ttl,
+  } = ingredient;
 
   return (
     <Item>

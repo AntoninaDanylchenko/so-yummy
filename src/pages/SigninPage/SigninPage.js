@@ -1,19 +1,27 @@
 // import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Container } from '@mui/material';
 
-import { Title, WrapperForm } from './SigninPage.styled';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { Box, Title, WrapperForm, LinkToSignup } from './SigninPage.styled';
 
 const SigninPage = () => {
   return (
     <>
-      <WrapperForm>
-        <Title>Sign In</Title>
-        {/* <Helmet>
-        </Helmet> */}
-        <LoginForm />
-      </WrapperForm>
-      <Link to="/register">Sign In</Link>
+      <Box>
+        <Container
+          fixed
+          maxWidth="desktop"
+          style={{ background: '#FAFAFA', padding: 0 }}
+        >
+          <WrapperForm>
+            {/* <Helmet> */}
+            <Title>Sign In</Title>
+            {/* </Helmet> */}
+            <LoginForm />
+            <LinkToSignup to="/register">Sign up</LinkToSignup>
+          </WrapperForm>
+        </Container>
+      </Box>
     </>
   );
 };
