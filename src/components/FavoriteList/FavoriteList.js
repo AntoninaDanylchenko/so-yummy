@@ -8,10 +8,8 @@ import RecipeCard from 'components/RecipeCard/RecipeCard';
 
 const FavoriteList = () => {
   const dispatch = useDispatch();
-  const {
-    items: favorite,
-    // isLoading, error
-  } = useSelector(getFavorite);
+
+  const { items: favorite } = useSelector(getFavorite);
 
   useEffect(() => {
     dispatch(getFavoriteOp());

@@ -1,21 +1,25 @@
 import React from 'react';
-import { Nav, NavBarInnerContainer } from './Header.styled';
+import { Nav, NavBox, NavBarInnerContainer, NavBoxUser } from './Header.styled';
 import { Logo } from './Logo';
 import { RightNav } from './RightNav';
 import { BurgerMenu } from './BurgerMenu';
-import { UserLogo } from './UserLogo';
-// import ThemeToggler from './ThemeToggler';
+import UserMenu from 'components/Header/UserMenu';
+import { ThemeToggler } from './ThemeToggler';
 
-const Navigation = ({ extendNavbar }) => {
+const Navigation = () => {
   return (
-    <Nav extendNavbar={extendNavbar}>
-      <NavBarInnerContainer>
-        <Logo />
+    <Nav>
+      <NavBox>
+        <NavBarInnerContainer>
+          <Logo />
+        </NavBarInnerContainer>
         <RightNav />
-        {/* <ThemeToggler/> */}
-        <UserLogo />
+        <UserMenu />
         <BurgerMenu />
-      </NavBarInnerContainer>
+        <NavBoxUser>
+          <ThemeToggler />
+        </NavBoxUser>
+      </NavBox>
     </Nav>
   );
 };
