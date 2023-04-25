@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/so-yummy/static/css/main.ca5630a6.css",
-    "main.js": "/so-yummy/static/js/main.bfb54d27.js",
+    "main.js": "/so-yummy/static/js/main.bd2bfd17.js",
     "static/js/109.70eb6eb8.chunk.js": "/so-yummy/static/js/109.70eb6eb8.chunk.js",
     "static/js/989.61e3b0d6.chunk.js": "/so-yummy/static/js/989.61e3b0d6.chunk.js",
     "static/js/452.70e6d6db.chunk.js": "/so-yummy/static/js/452.70e6d6db.chunk.js",
@@ -37,6 +37,8 @@
     "static/media/ronise-daluz_tablet.jpg": "/so-yummy/static/media/ronise-daluz_tablet.fdeeff34b45e2e89a555.jpg",
     "static/media/flat-lay-assortment_tablet@2x.jpg": "/so-yummy/static/media/flat-lay-assortment_tablet@2x.16b5129bd8948c4ce6ba.jpg",
     "static/media/food-pana_tablet@2x.png": "/so-yummy/static/media/food-pana_tablet@2x.21022214e50fbf41bfa1.png",
+    "static/media/bro_desktop@2x.png": "/so-yummy/static/media/bro_desktop@2x.26bed10c32e23c201499.png",
+    "static/media/bro_tablet@2x.png": "/so-yummy/static/media/bro_tablet@2x.dba7e3e2461d69f5151b.png",
     "static/media/food-pana_desktop@2x.png": "/so-yummy/static/media/food-pana_desktop@2x.fe89cd7ff072e98c52f9.png",
     "static/media/pasta-spinach-dip_desktop.png": "/so-yummy/static/media/pasta-spinach-dip_desktop.a91808570490d8c8351f.png",
     "static/media/food-pana_mobile@2x.png": "/so-yummy/static/media/food-pana_mobile@2x.0132e490ecce6e2a5ea0.png",
@@ -44,11 +46,15 @@
     "static/media/flat-lay-assortment_mobile@2x.jpg": "/so-yummy/static/media/flat-lay-assortment_mobile@2x.ea5e7c9c7ddf09007fbd.jpg",
     "static/media/pasta-spinach-dip_mobile@2x.png": "/so-yummy/static/media/pasta-spinach-dip_mobile@2x.f6f7b940427204bbb5b8.png",
     "static/media/ronise-daluz_mobile.jpg": "/so-yummy/static/media/ronise-daluz_mobile.5797e0c1ccb40c6382a8.jpg",
+    "static/media/bro_mobile@2x.png": "/so-yummy/static/media/bro_mobile@2x.814d1eb0d269b07162a6.png",
+    "static/media/bro_desktop.png": "/so-yummy/static/media/bro_desktop.2db3b2721761418b454a.png",
+    "static/media/bro_tablet.png": "/so-yummy/static/media/bro_tablet.97040dc818540f4799df.png",
     "static/media/food-pana_desktop.png": "/so-yummy/static/media/food-pana_desktop.c7fea0d85c6398d2dff9.png",
     "static/media/food-pana_tablet.png": "/so-yummy/static/media/food-pana_tablet.672eb73406daa05ce896.png",
     "static/media/pasta-spinach-dip_tablet.png": "/so-yummy/static/media/pasta-spinach-dip_tablet.2ee8a367a10093d82a8c.png",
     "static/media/flat-lay-assortment_tablet.jpg": "/so-yummy/static/media/flat-lay-assortment_tablet.78d4e3fd94130472da20.jpg",
     "static/media/food-pana_mobile.png": "/so-yummy/static/media/food-pana_mobile.af5280afeff9dbd3b1f3.png",
+    "static/media/bro_mobile.png": "/so-yummy/static/media/bro_mobile.b08af327d9ce81c18665.png",
     "static/media/flat-lay-assortment_mobile.jpg": "/so-yummy/static/media/flat-lay-assortment_mobile.cf2377363edc63ef0f02.jpg",
     "static/media/rectangle_tablet@2x.png": "/so-yummy/static/media/rectangle_tablet@2x.9f1b401cb8b6c4bafd3e.png",
     "static/media/pasta-spinach-dip_mobile.png": "/so-yummy/static/media/pasta-spinach-dip_mobile.3cce81e195769fa351c3.png",
@@ -61,7 +67,7 @@
     "static/media/x-icon.svg": "/so-yummy/static/media/x-icon.b3e3ee50e09013b860b5aad9a4bac806.svg",
     "static/media/burger.svg": "/so-yummy/static/media/burger.de65b9d92cc4a61b80db5e1766dd4d10.svg",
     "main.ca5630a6.css.map": "/so-yummy/static/css/main.ca5630a6.css.map",
-    "main.bfb54d27.js.map": "/so-yummy/static/js/main.bfb54d27.js.map",
+    "main.bd2bfd17.js.map": "/so-yummy/static/js/main.bd2bfd17.js.map",
     "109.70eb6eb8.chunk.js.map": "/so-yummy/static/js/109.70eb6eb8.chunk.js.map",
     "989.61e3b0d6.chunk.js.map": "/so-yummy/static/js/989.61e3b0d6.chunk.js.map",
     "452.70e6d6db.chunk.js.map": "/so-yummy/static/js/452.70e6d6db.chunk.js.map",
@@ -79,6 +85,6 @@
   },
   "entrypoints": [
     "static/css/main.ca5630a6.css",
-    "static/js/main.bfb54d27.js"
+    "static/js/main.bd2bfd17.js"
   ]
 }
