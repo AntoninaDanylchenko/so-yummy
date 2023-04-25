@@ -139,13 +139,13 @@ export const RecipeIngredients = ({
       <CountWrap>
         <FormSubtitle>Ingredients</FormSubtitle>
         <Counter>
-          <MinusButton type="button" onClick={decrementCount}>
-            <AddIcon />
-          </MinusButton>
-          <Number>{count}</Number>
-          <PlusButton type="button" onClick={incrementCount}>
+          <PlusButton type="button" onClick={decrementCount}>
             <RemoveIcon />
           </PlusButton>
+          <Number>{count}</Number>
+          <MinusButton type="button" onClick={incrementCount}>
+            <AddIcon />
+          </MinusButton>
         </Counter>
       </CountWrap>
       <ul>

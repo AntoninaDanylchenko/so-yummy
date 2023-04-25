@@ -34,7 +34,7 @@ export const AddButton = styled.button`
   height: 46px;
   border-radius: 24px 44px;
   border: none;
-  background-color: '#22252A';
+  background-color: ${p => p.theme.title.addBtnBg};
   color: ${p => p.theme.primary.background};
   font-size: ${p => p.theme.fontSizes[4]};
   line-height: 1.43;
