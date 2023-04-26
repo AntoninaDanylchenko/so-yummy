@@ -17,6 +17,7 @@ import { favoriteReducer } from './favorite/favSlice';
 import { recipeReducer } from './recipe/recipeSlice';
 
 import { shoppingListReducer } from './shoppingList/slice';
+import { categoriesListReducer } from './categories/slice';
 import { themeReducer } from './theme/themeSlice';
 
 const authPersistConfig = {
@@ -31,6 +32,7 @@ export const store = configureStore({
     favorite: favoriteReducer,
     recipe: recipeReducer,
     shoppingList: shoppingListReducer,
+    categoriesList: categoriesListReducer,
     theme: themeReducer,
   },
   middleware: getDefaultMiddleware =>
