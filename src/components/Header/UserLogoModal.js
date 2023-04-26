@@ -24,7 +24,6 @@ const UserLogoModal = ({ onClose }) => {
   };
 
   const handleLogoutModal = openNewModal => {
-    onClose();
     setOpenNewModal(openNewModal);
     modalToggle();
 
