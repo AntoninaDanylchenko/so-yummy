@@ -1,10 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   addIngredientToShoppingList,
-  addRecipeToFavorite,
   getRecipeById,
-  removeIngredientFromShoppingList,
-  removeRecipeFromFavorite,
+  removeIngredientFromShoppingList
 } from './operations';
 
 const initialState = {
@@ -30,7 +28,6 @@ const recipeSlice = createSlice({
         state.recipe.isLoading = false;
         state.recipe.error = null;
         state.recipe.item = action.payload;
-        state.favorite.isFavorite = action.payload.favorite;
       })
       .addCase(getRecipeById.rejected, (state, action) => {
         state.recipe.isLoading = false;
