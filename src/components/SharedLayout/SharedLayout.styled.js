@@ -14,8 +14,20 @@ import pastaSpinachDipTablet2x from '../../images/leafs/pasta-spinach-dip_tablet
 import pastaSpinachDipDesktop from '../../images/leafs/pasta-spinach-dip_desktop.png';
 import pastaSpinachDipDesktop2x from '../../images/leafs/pasta-spinach-dip_desktop@2x.png';
 
+export const Main = styled.main`
+  width: 375px;
+
+  @media ${p => p.theme.device.tablet} {
+    width: 768px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    width: 1440px;
+  }
+  margin: 0 auto;
+`;
+
 export const Box = styled.section`
-  min-width: 100vw;
   min-height: 100vh;
 
   background-image: url(${pastaSpinachDipMobile}), url(${pastaSpinachMobile});
