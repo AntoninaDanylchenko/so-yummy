@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { deleteFavoriteOp } from 'redux/favorite/operation';
+import { deleteMyRecipesOp } from 'redux/myRecipes/operation';
 
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
@@ -19,6 +20,7 @@ const RecipeCard = ({ id, title, description, preview, time }) => {
   const dispatch = useDispatch();
   const onClick = id => {
     dispatch(deleteFavoriteOp(id));
+    dispatch(deleteMyRecipesOp(id));
   };
   return (
     <Card

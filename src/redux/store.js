@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/authSlice';
 import { favoriteReducer } from './favorite/favSlice';
+import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 
 import { recipeReducer } from './recipe/recipeSlice';
 
@@ -30,6 +31,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     favorite: favoriteReducer,
+    myRecipes: myRecipesReducer,
     recipe: recipeReducer,
     shoppingList: shoppingListReducer,
     categoriesList: categoriesListReducer,
