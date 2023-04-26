@@ -13,20 +13,26 @@ const RecipePage = () => {
   const dispatch = useDispatch();
   const { recipeId } = useParams();
   const recipe = useSelector(selectRecipeById);
-  console.log(recipe);
+
+  const { title, description, time, instructions, thumb, ingredients } =
+    recipe?.data?.recipe || {};
 
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [recipeId]);
 
   return (
     <>
       {recipe !== null && (
         <>
-          <RecipePageHero recipe={recipe} />
-          <RecipeInngredientsList ingredients={recipe.recipe.ingredients} />
-          <RecipePreparation recipe={recipe} />
+          <RecipePageHero recipe={recipe.data.recipe} title={title} description={description} time={time} />
+          <RecipeInngredientsList ingredients={ingredients} />
+          <RecipePreparation
+            instructions={instructions}
+            title={title}
+            thumb={thumb}
+          />
         </>
       )}
     </>
