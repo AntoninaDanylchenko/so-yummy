@@ -12,6 +12,7 @@ export const Toggle = styled(props => (
   width: 60,
   height: 26,
   padding: 0,
+
   '& .MuiSwitch-switchBase': {
     padding: 0,
     margin: 2,
@@ -20,7 +21,8 @@ export const Toggle = styled(props => (
       transform: 'translateX(36px)',
       color: '#fff',
       '& + .MuiSwitch-track': {
-        backgroundColor: theme.palette.mode === 'dark' ? '#2ECA45' : 'rgba(139, 170, 54, 1)',
+        backgroundColor:
+          theme.palette.mode === 'light' ? 'rgba(139, 170, 54, 1)' : '#E9E9EA',
         opacity: 1,
         border: 0,
       },
@@ -33,6 +35,7 @@ export const Toggle = styled(props => (
       border: '6px solid #fff',
     },
     '&.Mui-disabled .MuiSwitch-thumb': {
+      boxShadow: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1)',
       color:
         theme.palette.mode === 'light'
           ? theme.palette.grey[100]
@@ -43,13 +46,16 @@ export const Toggle = styled(props => (
     },
   },
   '& .MuiSwitch-thumb': {
+    boxShadow: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1)',
     boxSizing: 'border-box',
     width: 22,
     height: 22,
   },
   '& .MuiSwitch-track': {
     borderRadius: 26 / 2,
-    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    boxShadow: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1)',
+    backgroundColor:
+      theme.palette.mode === 'light' ? '#E9E9EA' : 'rgba(139, 170, 54, 1)',
     opacity: 1,
     transition: theme.transitions.create(['background-color'], {
       duration: 500,
