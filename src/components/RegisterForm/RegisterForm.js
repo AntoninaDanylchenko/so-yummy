@@ -16,17 +16,16 @@ import { InputAdornment } from '@mui/material';
 // import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
+import { FormFormik } from './RegisterForm.styled';
 
 const schema = object().shape({
-
   username: string()
-    .min(2, 'Must be more than 2 characters')
-    .max(32, 'Must be less than 32 characters')
+    .max(16, 'Must be less than 32 characters')
     .required('Pease enter name'),
   email: string().email('Invalid email address').required('Pease enter email'),
   password: string()
     .min(6, 'Password should be min 6 characters')
-    .max(128, 'Password should be max 128 characters')
+    .max(16, 'Password should be max 16 characters')
     .matches(/(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/, 'Password too light')
     .required('Pease enter password'),
 });
@@ -41,16 +40,22 @@ export const RegisterForm = () => {
       password: '',
     },
     validationSchema: schema,
-    onSubmit: (values, formikHelpers) => {
+
+    onSubmit: (values, { setSubmitting }) => {
       console.log(values);
       dispatch(register(values));
-      formikHelpers.resetForm();
+
+      setSubmitting(false);
     },
+
+    //    onChange = {(values, { setSubmitting }) => {
+    //   console.log(values);
+    // }}
   });
 
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
+      <FormFormik onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth
           id="username"
@@ -110,7 +115,7 @@ export const RegisterForm = () => {
         <Button color="primary" variant="contained" fullWidth type="submit">
           Sign up
         </Button>
-      </form>
+      </FormFormik>
     </div>
   );
 };

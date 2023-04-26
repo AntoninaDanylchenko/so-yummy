@@ -62,9 +62,9 @@ export const lightTheme = createTheme(defaultTheme, {
     background: '#FAFAFA',
   },
   secondary: {
-    searchBg: 'FFFFFF',
-    recipeBg: 'FFFFFF',
-    recipePreparation: 'FFFFFF',
+    searchBg: '#FFFFFF',
+    recipeBg: '#FFFFFF',
+    recipePreparation: '#FFFFFF',
   },
   mainBg: '#ECECEC',
 
