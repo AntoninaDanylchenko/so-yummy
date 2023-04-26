@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-// import { Field, Form } from 'formik';
-
 import pastaSpinachMobile from '../../images/leafs/pasta-spinach_mobile.png';
 import pastaSpinachMobile2x from '../../images/leafs/pasta-spinach_mobile@2x.png';
 import pastaSpinachTablet from '../../images/leafs/pasta-spinach_tablet.png';
