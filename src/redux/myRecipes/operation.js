@@ -2,10 +2,10 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const addMyRecipesOp = createAsyncThunk(
-  'favorite/add',
+  'myRecipes/add',
   async (recipeId, thunkAPI) => {
     try {
-      const r = await axios.post('/favorite', { recipeId });
+      const r = await axios.post('/ownRecipes', { recipeId });
       return r.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -14,10 +14,10 @@ export const addMyRecipesOp = createAsyncThunk(
 );
 
 export const getMyRecipesOp = createAsyncThunk(
-  'favorite/get',
+  'myRecipes/get',
   async (_, thunkAPI) => {
     try {
-      const r = await axios.get('/favorite');
+      const r = await axios.get('/ownRecipes');
 
       return r.data.data;
     } catch (e) {
@@ -27,10 +27,10 @@ export const getMyRecipesOp = createAsyncThunk(
 );
 
 export const deleteMyRecipesOp = createAsyncThunk(
-  'favorite/delete',
+  'myRecipes/delete',
   async (recipeId, thunkAPI) => {
     try {
-      const r = await axios.delete('/favorite', { recipeId });
+      const r = await axios.delete(`/ownRecipes/${recipeId}`);
 
       return r.data;
     } catch (e) {
