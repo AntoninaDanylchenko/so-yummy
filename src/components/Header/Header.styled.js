@@ -13,6 +13,20 @@ import MainBgMob2 from '../../images/leafs/pasta-spinach-main_mobile@2x.png';
 import MainBgTab from '../../images/leafs/pasta-spinach-main_tablet.png';
 import MainBgTab2 from '../../images/leafs/pasta-spinach-main_tablet@2x.png';
 
+export const HeaderBox = styled.header`
+  display: flex;
+  justify-content: space-between;
+  width: 375px;
+
+  @media ${p => p.theme.device.tablet} {
+   width: 768px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    width: 1440px;
+  }
+`;
+
 export const LinkNav = styled(NavLink)`
   text-decoration: none;
   color: ${p => p.theme.primaryText.text};
@@ -115,13 +129,14 @@ export const Nav = styled.nav`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-end; */
   align-items: center;
   background-color: ${p => p.theme.mainBg};
   padding-top: 20px;
 
   @media ${p => p.theme.device.tablet} {
     padding-top: 19px;
+    justify-content: center;
   }
 
   @media ${p => p.theme.device.desktop} {
@@ -135,14 +150,24 @@ export const NavBox = styled.div`
   align-items: center;
   gap: 30px;
 
-  @media ${p => p.theme.device.tablet} {
+  /* @media ${p => p.theme.device.tablet} {
     gap: 380px;
-  }
+  } */
 
   @media ${p => p.theme.device.desktop} {
-    gap: 120px;
+    gap: 110px;
   }
 `;
+
+// export const UserBox = styled.div`
+//   display: flex;
+//   align-items: center;
+//   gap: 50px;
+
+//   @media ${p => p.theme.device.tablet} {
+//     gap: 54px;
+//   }
+// `;
 
 export const NavBoxUser = styled.div`
   display: flex;
@@ -156,8 +181,17 @@ export const NavBoxUser = styled.div`
 export const NavBarInnerContainer = styled.div`
   display: flex;
   align-items: center;
-  z-index: 1;
+  z-index: 10;
   position: absolute;
+  left: 16px;
+
+  @media ${p => p.theme.device.tablet} {
+    left: 42px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    left: 80px;
+  }
 `;
 
 export const NavBarExtendedContainer = styled.div`
@@ -171,7 +205,7 @@ export const NavBarExtendedContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${p => p.theme.ligthGreen.deleteBtnBg};
-  z-index: 0;
+  z-index: 5;
   overflow: hidden;
 `;
 
@@ -278,7 +312,7 @@ export const OpenLinksButton = styled.button`
   height: 20px;
   top: 30px;
   right: 54px;
-  z-index: 1;
+  z-index: 10;
   cursor: pointer;
   border: none;
   position: absolute;
