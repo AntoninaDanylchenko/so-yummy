@@ -29,7 +29,7 @@ export const RecipeInngredientsList = ({ ingredients }) => {
         {ingredients.map(ingredient => (
           <Item key={ingredient._id}>
             <Wrapper1>
-              <Image src={ingredient.thb}></Image>
+              <Image src={ingredient.thb} alt={ingredient.ttl} loading="lazy"></Image>
               <Title>{ingredient.ttl}</Title>
             </Wrapper1>
 
