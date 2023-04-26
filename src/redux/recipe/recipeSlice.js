@@ -13,11 +13,6 @@ const initialState = {
     isLoading: false,
     error: null,
   },
-  favorite: {
-    isFavorite: false,
-    isLoading: false,
-    error: null,
-  },
   shoppingList: {
     error: null,
   },
@@ -41,27 +36,6 @@ const recipeSlice = createSlice({
         state.recipe.isLoading = false;
         state.recipe.error = action.payload;
       })
-
-      .addCase(addRecipeToFavorite.pending, state => {
-        state.favorite.isLoading = true;
-      })
-      .addCase(addRecipeToFavorite.fulfilled, state => {
-        state.favorite.isFavorite = true;
-        state.favorite.isLoading = false;
-        state.favorite.error = false;
-      })
-      .addCase(addRecipeToFavorite.rejected, (state, action) => {
-        state.favorite.isLoading = false;
-        state.favorite.error = action.payload;
-      })
-
-      .addCase(removeRecipeFromFavorite.pending)
-      .addCase(removeRecipeFromFavorite.fulfilled, state => {
-        state.favorite.isFavorite = false;
-        state.favorite.isLoading = false;
-        state.favorite.error = false;
-      })
-      .addCase(removeRecipeFromFavorite.rejected)
 
       .addCase(addIngredientToShoppingList.pending)
       .addCase(addIngredientToShoppingList.fulfilled)

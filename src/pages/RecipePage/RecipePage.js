@@ -26,7 +26,12 @@ const RecipePage = () => {
     <>
       {recipe !== null && (
         <>
-          <RecipePageHero recipe={recipe.data.recipe} title={title} description={description} time={time} />
+          <RecipePageHero
+            recipe={recipe.data.recipe}
+            title={title}
+            description={description}
+            time={time}
+          />
           <RecipeInngredientsList ingredients={ingredients} />
           <RecipePreparation
             instructions={instructions}
