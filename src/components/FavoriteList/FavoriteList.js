@@ -11,7 +11,7 @@ const FavoriteList = () => {
   const { items: favorite, isLoading, error } = useSelector(getFavorite);
 
   useEffect(() => {
-    dispatch(getFavoriteOp());
+    dispatch(getFavoriteOp);
   }, [dispatch]);
 
   return (

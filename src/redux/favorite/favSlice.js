@@ -1,9 +1,9 @@
-// import { createSlice } from '@reduxjs/toolkit';
-// import { addFavoriteOp, getFavoriteOp, deleteFavoriteOp } from './operation';
-// import { toast } from 'react-hot-toast';
+import { createSlice } from '@reduxjs/toolkit';
+import { addFavoriteOp, getFavoriteOp, deleteFavoriteOp } from './operation';
+import { toast } from 'react-hot-toast';
 
 export const favoriteSlice = createSlice({
-  name: 'fav',
+  name: 'favorite',
   initialState: {
     items: [],
     isLoading: false,
@@ -23,6 +23,7 @@ export const favoriteSlice = createSlice({
       state.error = action.payload;
       toast.error(action.payload);
     },
+
     [addFavoriteOp.pending](state) {
       state.isLoading = true;
     },
@@ -55,4 +56,4 @@ export const favoriteSlice = createSlice({
   },
 });
 
-// export const favoriteReducer = favoriteSlice.reducer;
+export const favoriteReducer = favoriteSlice.reducer;
