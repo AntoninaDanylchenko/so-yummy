@@ -8,6 +8,7 @@ export const TitleStyle = styled.h2`
   line-height: 44px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-
+  margin-top: 102px;
+  margin-bottom: 50px;
   color: #001833;
 `;
