@@ -70,13 +70,13 @@ export const DescrInput = styled.input`
   font-size: ${p => p.theme.fontSizes[3]};
   line-height: 1.43;
   letter-spacing: -0.02em;
-  color: 'rgba(0, 0, 0, 0.8)';
+  color: ${p => p.theme.input.input};
   opacity: 0.5;
   ::placeholder {
     font-size: ${p => p.theme.fontSizes[3]};
     line-height: 1.43;
     letter-spacing: -0.02em;
-    color: 'rgba(0, 0, 0, 0.8)';
+    color: ${p => p.theme.input.input};
     opacity: 1;
     @media screen and (min-width: 768px) {
       font-size: ${p => p.theme.fontSizes[4]};
@@ -110,7 +110,7 @@ export const DescrLabel = styled.div`
   font-size: ${p => p.theme.fontSizes[3]};
   line-height: 1.43;
   letter-spacing: -0.02em;
-  color: 'rgba(0, 0, 0, 0.8)';
+  color: ${p => p.theme.input.input};
   opacity: 0.5;
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[3]};
@@ -128,7 +128,7 @@ export const DescrSelect = styled.div`
   border: none;
   cursor: pointer;
   svg {
-    color: ${p => p.theme.accent.mainBtnBg};
+    color: ${p => p.theme.accent.iconFollow};
     @media screen and (min-width: 768px) {
       width: 20px;
       height: 20px;
@@ -144,7 +144,7 @@ export const SelectText = styled.span`
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.43;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.primaryText.text};
+  color: ${p => p.theme.input.input};
   cursor: pointer;
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[4]}px;
@@ -154,12 +154,12 @@ export const SelectText = styled.span`
 export const CategoryList = styled.ul`
   width: 123px;
   height: 144px;
-  background-color: ${p => p.theme.title.searchIcon};
+  background-color: ${p => p.theme.secondary.searchBg};
   position: absolute;
   right: 0;
   top: 70%;
   padding: 8px 14px;
-  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+  box-shadow: ${p => p.theme.shadows.select};
   border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   z-index: 3;
@@ -180,7 +180,7 @@ export const CategoryItem = styled.li`
     margin-bottom: 4px;
   }
   :hover {
-    color: ${p => p.theme.accent.mainBtnBg};
+    color: ${p => p.theme.accent.iconFollow};
   }
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[3]}px;
@@ -190,12 +190,12 @@ export const CategoryItem = styled.li`
 export const TimeList = styled.ul`
   width: 98px;
   height: 144px;
-  background-color: ${p => p.theme.title.searchIcon};
+  background-color: ${p => p.theme.secondary.searchBg};
   position: absolute;
   right: 0;
   top: 70%;
   padding: 8px 14px;
-  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+  box-shadow: ${p => p.theme.shadows.select};
   border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   cursor: pointer;
@@ -215,7 +215,7 @@ export const TimeItem = styled.li`
     margin-bottom: 4px;
   }
   :hover {
-    color: ${p => p.theme.accent.mainBtnBg};
+    color: ${p => p.theme.accent.iconFollow};
   }
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[3]}px;
@@ -234,7 +234,7 @@ export const OneInputWrap = styled.div`
 
 export const Error = styled.p`
   margin-top: 8px;
-  color: brown;
+  color: ${p => p.theme.inputError};
   font-size: ${p => p.theme.fontSizes[3]}px;
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[4]}px;

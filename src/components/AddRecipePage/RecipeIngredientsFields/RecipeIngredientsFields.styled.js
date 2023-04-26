@@ -9,7 +9,7 @@ export const IngredientsWrap = styled.div`
 
 export const FormSubtitle = styled.p`
   font-weight: ${p => p.theme.fontWeights.semibold};
-  font-size: 24px;
+  font-size: ${p => p.theme.fontSizes[7]};
   line-height: 1;
   letter-spacing: -0.02em;
   color: ${p => p.theme.subtitle};
@@ -50,7 +50,7 @@ export const MinusButton = styled.button`
   svg {
     height: 14px;
     width: 14px;
-    color: ${p => p.theme.borderIncrement};
+    color: ${p => p.theme.accent.iconFollow};
     @media screen and (min-width: 768px) {
       width: 18px;
       height: 18px;
@@ -67,7 +67,7 @@ export const PlusButton = styled.button`
   svg {
     width: 14px;
     height: 14px;
-    color: ${p => p.theme.accent.mainBtnBg};
+    color: ${p => p.theme.accent.iconFollow};
     @media screen and (min-width: 768px) {
       width: 18px;
       height: 18px;
@@ -78,7 +78,7 @@ export const PlusButton = styled.button`
 export const Number = styled.p`
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.29;
-  color: ${p => p.theme.primary.userBg};
+  color: ${p => p.theme.incrementNumber};
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[4]};
     line-height: 1.43;
@@ -113,14 +113,14 @@ export const IngrInput = styled.input`
   height: 53px;
   margin-right: 14px;
   padding: 16px;
-  background-color: '#f5f5f5';
+  background-color: ${p => p.theme.background.placeholder};
   border-radius: ${p => p.theme.radii[1]};
   border: none;
   outline: none;
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.43;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.input.input};
+  color: ${p => p.theme.primaryText.text};
   opacity: 0.5;
   @media screen and (min-width: 768px) {
     width: 398px;
@@ -135,8 +135,8 @@ export const IngrList = styled.ul`
   height: 154px;
   position: absolute;
   z-index: 3;
-  background: ${p => p.theme.title.serachIcon};
-  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+  background: ${p => p.theme.background.searchText};
+  box-shadow: ${p => p.theme.shadows.select};
   border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   padding: 8px 18px;
@@ -158,7 +158,7 @@ export const IngrItem = styled.li`
   }
   :hover,
   :focus {
-    color: rgba(139, 170, 54, 1);
+    color: ${p => p.theme.accent.iconFollow};
   }
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[3]}px;
@@ -185,7 +185,7 @@ export const NumberInput = styled.input`
   width: 84px;
   height: 53px;
   padding: 16px 0 16px 10px;
-  background-color: ${p => p.theme.select};
+  background-color: ${p => p.theme.background.placeholder};
   outline: none;
   border: none;
   border-radius: ${p => p.theme.radii[1]};
@@ -210,7 +210,7 @@ export const UnitSelect = styled.div`
   justify-content: space-between;
   width: 50px;
   height: 53px;
-  background-color: ${p => p.theme.select};
+  background-color: ${p => p.theme.background.placeholder};
   outline: none;
   border: none;
   border-radius: ${p => p.theme.radii[1]};
@@ -220,7 +220,7 @@ export const UnitSelect = styled.div`
     background-position: 28px 22px;
   }
   svg {
-    color: ${p => p.theme.accent.mainBtnBg};
+    color: ${p => p.theme.accent.iconFollow};
     @media screen and (min-width: 768px) {
       width: 20px;
       height: 20px;
@@ -242,8 +242,8 @@ export const UnitList = styled.ul`
   width: 84px;
   height: 112px;
   padding: 12px 28px;
-  background-color: ${p => p.theme.title.serachIcon};
-  box-shadow: 0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074);
+  background-color: ${p => p.theme.secondary.searchBg};
+  box-shadow: ${p => p.theme.shadows.select};
   border-radius: ${p => p.theme.radii[1]};
   z-index: 5;
   position: absolute;
@@ -264,7 +264,7 @@ export const UnitItem = styled.li`
   }
   :hover,
   :focus {
-    color: rgba(139, 170, 54, 1);
+    color: ${p => p.theme.accent.iconFollow};
   }
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[3]};
@@ -276,17 +276,17 @@ export const DeleteButton = styled.button`
   height: 30px;
   display: flex;
   align-items: center;
-  background-color: transparent;
+  background-color: ${p => p.theme.mainBg};
   border: none;
   cursor: pointer;
   svg {
-    color: ${p => p.theme.primaryText.text};
+    color: ${p => p.theme.incrementNumber};
   }
 `;
 
 export const Error = styled.p`
   margin-top: 4px;
-  color: brown;
+  color: ${p => p.theme.inputError};
   font-size: ${p => p.theme.fontSizes[3]}px;
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[4]};
@@ -296,10 +296,10 @@ export const Error = styled.p`
 
 export const NumberError = styled.p`
   margin-top: 4px;
-  color: brown;
-  font-size: 12px;
+  color: ${p => p.theme.inputError};
+  font-size: ${p => p.theme.fontSizes[2]};
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: ${p => p.theme.fontSizes[3]};
     margin-top: 8px;
   }
 `;

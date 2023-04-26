@@ -106,7 +106,7 @@ export const RecipeIngredients = ({
     updateErrors([`ingredients[${index}].unitNumber`]);
   };
 
-  const onInputChange = (index, value, id) => {
+  const onInputChange = (index, value) => {
     setIngrIsActive(prevState => {
       const newState = [...prevState];
       newState[index] = true;
@@ -115,13 +115,13 @@ export const RecipeIngredients = ({
 
     setFilteredIngredients(
       ingredientsList.filter(item =>
-        item.name.toLowerCase().includes(value.toLowerCase())
+        item.ttl.toLowerCase().includes(value.toLowerCase())
       )
     );
 
-    updateIngredient(index, value, id);
+    updateIngredient(index, value);
 
-    updateErrors([`ingredients[${index}].name`]);
+    updateErrors([`ingredients[${index}].ttl`]);
   };
 
   const setIngredient = (index, value, id) => {

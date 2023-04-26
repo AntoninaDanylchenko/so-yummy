@@ -12,7 +12,7 @@ export const AddRecipeSection = styled.section`
 
 export const Title = styled.h2`
   font-weight: ${p => p.theme.fontWeights.semibold};
-  font-size: 28px;
+  font-size: ${p => p.theme.fontSizes[8]};
   line-height: 1;
   letter-spacing: -0.02em;
   color: ${p => p.theme.title.subtittle};
@@ -20,7 +20,7 @@ export const Title = styled.h2`
   margin-bottom: 72px;
   @media screen and (min-width: 768px) {
     margin-bottom: 100px;
-    font-size: 32px;
+    font-size: ${p => p.theme.fontSizes[9]};
   }
 `;
 
@@ -39,7 +39,7 @@ export const AddButton = styled.button`
   font-size: ${p => p.theme.fontSizes[4]};
   line-height: 1.43;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: ${p => p.theme.transition};
   :hover,
   :focus {
     background-color: ${p => p.theme.accent.mainBtnBg};

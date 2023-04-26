@@ -13,7 +13,6 @@ export const RecipeText = styled.textarea`
   min-height: 154px;
   padding: 10px 16px;
   margin: 24px 0 18px;
-  background-color: 'rgba(217, 217, 217, 0.25)';
   outline: none;
   border: none;
   border-radius: ${p => p.theme.radii[1]};
@@ -27,7 +26,7 @@ export const RecipeText = styled.textarea`
     font-size: ${p => p.theme.fontSizes[3]};
     line-height: 1;
     letter-spacing: -0.02em;
-    color: 'rgba(0, 0, 0, 0.8)';
+    color: ${p => p.theme.background.placeholder};
     opacity: 1;
   }
   @media screen and (min-width: 768px) {
@@ -43,7 +42,7 @@ export const RecipeText = styled.textarea`
 
 export const Error = styled.p`
   margin-bottom: 18px;
-  color: brown;
+  color: ${p => p.theme.inputError};
   font-size: ${p => p.theme.fontSizes[3]};
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes[4]};

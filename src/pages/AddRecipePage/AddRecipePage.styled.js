@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const Section = styled.section`
   padding-top: 114px;
   padding-bottom: 100px;
+  background: ${p => p.theme.mainBg};
   @media screen and (min-width: 1440px) {
     padding-top: 136px;
     padding-bottom: 200px;
@@ -14,17 +15,17 @@ export const Section = styled.section`
 
 export const Title = styled.h2`
   font-weight: ${p => p.theme.fontWeights.semibold};
-  font-size: 28px;
+  font-size: ${p => p.theme.fontSizes[8]};
   line-height: 1;
   letter-spacing: -0.02em;
-  color: '#001833';
+  color: ${p => p.theme.subtitle};
   margin-bottom: 72px;
   @media screen and (min-width: 768px) {
     margin-bottom: 100px;
-    font-size: 32px;
+    font-size: ${p => p.theme.fontSizes[9]};
   }
   @media screen and (min-width: 1440px) {
-    font-size: 44px;
+    font-size: ${p => p.theme.fontSizes[10]};
   }
 `;
 
