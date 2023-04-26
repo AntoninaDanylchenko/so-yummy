@@ -23,7 +23,6 @@ export const Box = styled.section`
   background-image: url(${pastaSpinachDipMobile}), url(${pastaSpinachMobile});
   background-repeat: no-repeat;
   background-size: 290px, 420px;
-  /* background-size: calc(100vw - 180px), cover; */
   background-position: right 0px bottom 0px, left 0px bottom 0px;
 
   @media screen and (min-device-pixel-ratio: 2),
