@@ -1,23 +1,31 @@
-export const RecipePreparation = ({ recipe }) => {
-  const { title, thumb } = recipe.recipe;
+import {
+  Container,
+  Image,
+  Item,
+  List,
+  Title,
+} from './RecipePreparation.styled';
 
-  const instructions = recipe.recipe.instructions
+export const RecipePreparation = ({ title, instructions, thumb }) => {
+  const instruction = instructions
     .split('.')
     .filter(item => Number.isNaN(Number(parseInt(item))))
     .filter(str => str.trim() !== '');
 
   return (
-    <div>
-      <h2>Recipe preparation</h2>
-      <ul>
-        {instructions.map((item, idx) => (
-          <li key={idx}>
-            <span>{idx + 1}</span>
-            <p>{item.trim()}</p>
-          </li>
-        ))}
-      </ul>
-      <img src={thumb} alt={title}></img>
-    </div>
+    <>
+      <Title>Recipe preparation of {title}</Title>
+      <Container>
+        <List>
+          {instruction.map((item, idx) => (
+            <Item key={idx}>
+              <span>{idx + 1}</span>
+              <p>{item.trim()}</p>
+            </Item>
+          ))}
+        </List>
+        <Image src={thumb} alt={title} />
+      </Container>
+    </>
   );
 };
