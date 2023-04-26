@@ -30,11 +30,11 @@ const defaultTheme = createTheme({
   ///////// 0      1      2       3      4        5         6
   radii: ['4px', '6px', '8px', '18px', '26px', '30px', '24px 44px'],
 
-  shadows: {
-    form: '0px 4px 48px rgba(0, 0, 0, 0.1)', //and modal
-    select: '0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074)',
-    pagination: '0px 4px 4px rgba(135, 135, 135, 0.2)',
-  },
+  shadows: [
+    '0px 4px 48px rgba(0, 0, 0, 0.1)',
+    '0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074)',
+    '0px 4px 4px rgba(135, 135, 135, 0.2)',
+  ],
 
   transition: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
 
