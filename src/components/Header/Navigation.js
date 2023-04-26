@@ -1,5 +1,11 @@
 import React from 'react';
-import { Nav, NavBox, NavBarInnerContainer, NavBoxUser } from './Header.styled';
+import {
+  Nav,
+  NavBox,
+  NavBarInnerContainer,
+  NavBoxUser,
+  // UserBox,
+} from './Header.styled';
 import { Logo } from './Logo';
 import { RightNav } from './RightNav';
 import { BurgerMenu } from './BurgerMenu';
@@ -14,11 +20,13 @@ const Navigation = () => {
           <Logo />
         </NavBarInnerContainer>
         <RightNav />
-        <UserMenu />
-        <BurgerMenu />
-        <NavBoxUser>
-          <ThemeToggler />
-        </NavBoxUser>
+        {/* <UserBox> */}
+          <UserMenu />
+          <BurgerMenu />
+          <NavBoxUser>
+            <ThemeToggler />
+          </NavBoxUser>
+        {/* </UserBox> */}
       </NavBox>
     </Nav>
   );
