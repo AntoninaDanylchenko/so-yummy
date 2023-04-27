@@ -13,10 +13,12 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/authSlice';
 import { favoriteReducer } from './favorite/favSlice';
+import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 
 import { recipeReducer } from './recipe/recipeSlice';
 
 import { shoppingListReducer } from './shoppingList/slice';
+import { categoriesListReducer } from './categories/slice';
 import { themeReducer } from './theme/themeSlice';
 
 const authPersistConfig = {
@@ -29,8 +31,10 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     favorite: favoriteReducer,
+    myRecipes: myRecipesReducer,
     recipe: recipeReducer,
     shoppingList: shoppingListReducer,
+    categoriesList: categoriesListReducer,
     theme: themeReducer,
   },
   middleware: getDefaultMiddleware =>
