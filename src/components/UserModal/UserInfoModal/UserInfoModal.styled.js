@@ -1,56 +1,69 @@
 import styled from '@emotion/styled';
-import { ReactComponent as MySVG } from '../../../images/icon/x-icon.svg';
-import { ReactComponent as MySVG } from '../../../images/icon/pen.svg';
 
-export const ModalContainer = styled.div`
-  background: #ECECEC;
+export const UserInfoModalWrapper = styled.div`
+  position: relative;
   width: 480px;
   height: 402px;
+  background: #FAFAFA;
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
   border-radius: 24px;
 `;
 
-export const FormContainer = styled.div`
-  position: relative;
-  padding: 48px 40px 0px;
-`;
-
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
-  gap: 8px;
+export const UserProfileImage = styled.div`
   position: absolute;
-  width: 86px;
-  height: 26.67px;
-  left: 18px;
-  top: 16.74px;
-  color: #8BAA36;
-  font-size: 16px;
+  width: 103px;
+  height: 103px;
+  left: 189px;
+  top: 50px;
+  background: #D9D9D9;
 `;
 
-export const Input = styled.input`
-  font-size: 16px;
-  width: 100%;
+export const UploadPhotoButton = styled.button`
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 258px;
+  top: 131px;
+  background: url(pen.svg) no-repeat;
+`;
+
+export const InputNameWrapper = styled.div`
+  position: absolute;
+  width: 400px;
+  height: 58px;
+  left: 40px;
+  top: 203px;
+`;
+
+export const InputNameIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`;
+
+export const InputName = styled.input`
+  width: 352px;
+  height: 27px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.02em;
+  color: #23262A;
+  opacity: 0.8;
   border: none;
-  background: transparent;
-  color: #8BAA36;
-
-  &:focus {
-    outline: none;
-  }
+  outline: none;
+  padding-left: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 `;
 
-export const EditIcon = styled.img`
-  position: absolute;
-  width: 19px;
-  height: 19px;
-  background-image: url(${pen.svg});
-`;
-
-export const SaveButton = styled.button`
+export const SaveChangesButton = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -61,29 +74,27 @@ export const SaveButton = styled.button`
   width: 400px;
   height: 59px;
   left: 40px;
-  top: 293px;
+  top: 32px;
   background: #8BAA36;
   border-radius: 6px;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
+`;
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
+export const SaveChangesButtonText = styled.span`
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #FFFFFF;
 `;
 
 export const CloseButton = styled.button`
   position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 432px;
-  top: 24px;
-  background: none;
+  right: 20px;
+  top: 20px;
+  width: 32px;
+  height: 32px;
+  background: url(close-icon.svg) no-repeat;
   border: none;
   cursor: pointer;
-  background-image: url(${x-icon.svg});
 `;

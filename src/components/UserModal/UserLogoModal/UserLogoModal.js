@@ -1,42 +1,46 @@
-import React, { useState } from "react"
-import UserInfoModal from "../UserInfoModal/UserInfoModal";
-import LogoutBtn from "../LogoutBtn/LogoutBtn";
-import {   
-  ModalContainer,
-  EditProfileButton,
-  LogoutBtn,
-  FormContainer,
-  FormTitle,
-  FormExample,
-  PencilIcon,
-  FormInput,
-  SaveButton,
-  CloseButton,
-  CloseIcon, } from './UserLogoModal.styled';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Modal, Button } from 'react-bootstrap';
+import UserInfoModal from '../UserInfoModal/';
+import LogoutBtn from '..LogoutBtn/LogoutBtn/';
 
-const UserLogoModal = () => {
-  const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
+const UserLogoModal = ({ user }) => {
+  const [showUserInfoModal, setShowUserInfoModal] = useState(false);
 
-  const handleEditProfileClick = () => {
-    setIsUserInfoModalOpen(true);
+  const handleShowUserInfoModal = () => {
+    setShowUserInfoModal(true);
   };
 
-  const handleLogoutClick = () => {
-    
+  const handleCloseUserInfoModal = () => {
+    setShowUserInfoModal(false);
   };
 
   return (
-    <ModalContainer>
-      <EditProfileButton onClick={handleEditProfileClick}>
-        Edit Profile
-      </EditProfileButton>
-      <LogoutBtn onClick={handleLogoutClick} />
-      {isUserInfoModalOpen && (
-        <UserInfoModal onClose={() => setIsUserInfoModalOpen(false)} />
-      )}
-    </ModalContainer>
+    <>
+      <Button variant="primary" onClick={handleShowUserInfoModal}>
+        {user.name}
+      </Button>
+      <Modal show={showUserInfoModal} onHide={handleCloseUserInfoModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>User Info</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <UserInfoModal user={user} handleCloseUserInfoModal={handleCloseUserInfoModal} />
+        </Modal.Body>
+        <Modal.Footer>
+          <LogoutBtn handleCloseUserInfoModal={handleCloseUserInfoModal} />
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
+UserLogoModal.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    photoUrl: PropTypes.string,
+  }).isRequired,
+};
 
 export default UserLogoModal;
