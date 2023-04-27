@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {  ModalContainer, FormContainer, Form, Field, SubmitButton, ErrorMessage }; 
+import { ModalContainer, FormContainer, InputContainer, Input, EditIcon, SaveButton, CloseButton } from './UserLogoModal.styled';
+
 
 const UserInfoModal = ({ onClose }) => {
   const handleSubmit = async (values, { setSubmitting }) => {

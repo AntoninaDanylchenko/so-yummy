@@ -17,6 +17,7 @@ import { ThemeProvider } from '@mui/material';
 import { lightTheme, darkTheme } from 'theme/theme';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import NotFound  from 'pages/NotFound/NotFound';
+import UserLogoModal from '../components/UserModal/UserLogoModal/UserLogoModal';
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
@@ -81,7 +82,12 @@ const App = () => {
             path="/main"
             element={<PrivateRoute component={MainPage} redirectTo="/" />}
           />
-
+          <Route
+            path="/main"
+              element={<><PrivateRoute component={MainPage} redirectTo="/" />
+            <UserLogoModal />
+            </>}
+          />
           <Route
             path="/categories/:category"
             element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}

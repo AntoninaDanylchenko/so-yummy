@@ -4,15 +4,12 @@ import LogoutButton from './LogoutBtn.styled';
 
 const LogoutBtn = ({ onLogout }) => {
   const handleLogout = async () => {
-    try {
       await fetch('/logout', {
         method: 'POST',
         credentials: 'include',
       });
       onLogout();
-    } catch (error) {
-      console.error(error);
-    }
+    
   };
 
   return (
