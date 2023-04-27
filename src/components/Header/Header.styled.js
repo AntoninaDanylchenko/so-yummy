@@ -19,7 +19,7 @@ export const HeaderBox = styled.header`
   width: 375px;
 
   @media ${p => p.theme.device.tablet} {
-   width: 768px;
+    width: 768px;
   }
 
   @media ${p => p.theme.device.desktop} {
@@ -146,10 +146,10 @@ export const Nav = styled.nav`
 
 export const NavBox = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 30px;
-
+  margin: 0 auto;
   /* @media ${p => p.theme.device.tablet} {
     gap: 380px;
   } */
@@ -159,15 +159,15 @@ export const NavBox = styled.div`
   }
 `;
 
-// export const UserBox = styled.div`
-//   display: flex;
-//   align-items: center;
-//   gap: 50px;
+export const UserBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
 
-//   @media ${p => p.theme.device.tablet} {
-//     gap: 54px;
-//   }
-// `;
+  @media ${p => p.theme.device.tablet} {
+    /* gap: 54px; */
+  }
+`;
 
 export const NavBoxUser = styled.div`
   display: flex;
@@ -186,11 +186,11 @@ export const NavBarInnerContainer = styled.div`
   left: 16px;
 
   @media ${p => p.theme.device.tablet} {
-    left: 42px;
+    left: 32px;
   }
 
   @media ${p => p.theme.device.desktop} {
-    left: 80px;
+    left: 100px;
   }
 `;
 
