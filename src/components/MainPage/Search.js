@@ -14,7 +14,7 @@ export const Search = ({ setParams }) => {
     }
     setParams({ query });
 
-    navigate(`/search?value=${query}`);
+    navigate(`/search?search=${query}&type=title`);
 
     e.currentTarget.reset();
   };
