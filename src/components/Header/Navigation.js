@@ -17,7 +17,7 @@ const Navigation = () => {
     <Nav>
       <NavBox>
         <NavBarInnerContainer>
-          <Logo />
+        <Logo />
         </NavBarInnerContainer>
         <RightNav />
         <UserBox>
