@@ -4,7 +4,7 @@ import {
   NavBox,
   NavBarInnerContainer,
   NavBoxUser,
-  // UserBox,
+  UserBox,
 } from './Header.styled';
 import { Logo } from './Logo';
 import { RightNav } from './RightNav';
@@ -17,16 +17,16 @@ const Navigation = () => {
     <Nav>
       <NavBox>
         <NavBarInnerContainer>
-          <Logo />
+        <Logo />
         </NavBarInnerContainer>
         <RightNav />
-        {/* <UserBox> */}
+        <UserBox>
           <UserMenu />
-          <BurgerMenu />
           <NavBoxUser>
             <ThemeToggler />
           </NavBoxUser>
-        {/* </UserBox> */}
+           </UserBox>
+         <BurgerMenu />
       </NavBox>
     </Nav>
   );

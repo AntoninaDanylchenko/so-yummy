@@ -16,6 +16,17 @@ import MainBgTab2 from '../../images/leafs/pasta-spinach-main_tablet@2x.png';
 export const HeaderBox = styled.header`
   display: flex;
   justify-content: space-between;
+  background-color: ${p => p.theme.mainBg};
+  width: 375px;
+  margin: 0 auto;
+
+  @media ${p => p.theme.device.tablet} {
+    width: 768px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    width: 1440px;
+  }
 `;
 
 export const LinkNav = styled(NavLink)`
@@ -120,9 +131,7 @@ export const Nav = styled.nav`
   width: 100%;
   height: 100%;
   display: flex;
-  /* justify-content: flex-end; */
   align-items: center;
-  background-color: ${p => p.theme.mainBg};
   padding-top: 20px;
 
   @media ${p => p.theme.device.tablet} {
@@ -137,28 +146,28 @@ export const Nav = styled.nav`
 
 export const NavBox = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 30px;
-
+  /* gap: 30px; */
+  margin: 0 auto;
   /* @media ${p => p.theme.device.tablet} {
     gap: 380px;
   } */
 
   @media ${p => p.theme.device.desktop} {
-    gap: 110px;
+    /* gap: 110px; */
   }
 `;
 
-// export const UserBox = styled.div`
-//   display: flex;
-//   align-items: center;
-//   gap: 50px;
+export const UserBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
 
-//   @media ${p => p.theme.device.tablet} {
-//     gap: 54px;
-//   }
-// `;
+  @media ${p => p.theme.device.tablet} {
+    /* gap: 54px; */
+  }
+`;
 
 export const NavBoxUser = styled.div`
   display: flex;
@@ -177,11 +186,11 @@ export const NavBarInnerContainer = styled.div`
   left: 16px;
 
   @media ${p => p.theme.device.tablet} {
-    left: 42px;
+    left: 32px;
   }
 
   @media ${p => p.theme.device.desktop} {
-    left: 80px;
+    left: 100px;
   }
 `;
 
