@@ -4,12 +4,18 @@ import { toast } from 'react-hot-toast';
 
 export const fetchRecipesPopular = createAsyncThunk(
   'recipes/fetchPopular',
-  // https://soyummy-backend-first-team.onrender.com/api-docs/#/Modal/get_modal
   async (limit, thunkAPI) => {
-    const URL = `https://soyummy-backend-first-team.onrender.com/popular-recipe?limit=${limit}`;
     try {
-      const response = await axios.get(URL);
-      return response.data;
+      const response = await axios.get(`popular-recipe?limit=${limit}`);
+      return response.data.map(
+        ({ _id, title, preview, thumb, instructions }) => ({
+          id: _id,
+          title,
+          preview,
+          thumb,
+          desc: instructions.slice(0, 100) + '...',
+        })
+      );
     } catch (error) {
       toast.error('Something wrong. Try again.');
       return thunkAPI.rejectWithValue(error.message);

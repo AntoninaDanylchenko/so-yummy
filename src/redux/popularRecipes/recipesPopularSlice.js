@@ -13,14 +13,14 @@ const recipesPopularSlice = createSlice({
       .addCase(fetchRecipesPopular.pending, state => {
         state.isLoading = true;
       })
-      .addCase(fetchRecipesPopular.fulfilled, (state, action) => {
-        state.recipes = action.payload;
+      .addCase(fetchRecipesPopular.fulfilled, (state, { payload }) => {
+        state.recipes = payload;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(fetchRecipesPopular.rejected, (state, action) => {
+      .addCase(fetchRecipesPopular.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.error = payload;
       });
   },
 });
