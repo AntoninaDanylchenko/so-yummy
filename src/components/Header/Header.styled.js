@@ -16,6 +16,7 @@ import MainBgTab2 from '../../images/leafs/pasta-spinach-main_tablet@2x.png';
 export const HeaderBox = styled.header`
   display: flex;
   justify-content: space-between;
+
   width: 375px;
 
   @media ${p => p.theme.device.tablet} {
@@ -25,6 +26,7 @@ export const HeaderBox = styled.header`
   @media ${p => p.theme.device.desktop} {
     width: 1440px;
   }
+
 `;
 
 export const LinkNav = styled(NavLink)`
