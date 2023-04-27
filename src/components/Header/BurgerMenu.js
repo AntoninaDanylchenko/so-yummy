@@ -16,9 +16,19 @@ import { ThemeToggler } from './ThemeToggler';
 
 const BurgerMenu = () => {
   const [extendNavbar, setExtendNavbar] = useState(false);
+
+  const handleBurger = () => {
+    setExtendNavbar(curr => !curr);
+    if (!extendNavbar) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  };
+
   return (
     <>
-      <OpenLinksButton onClick={() => setExtendNavbar(curr => !curr)}>
+      <OpenLinksButton onClick={handleBurger}>
         {!extendNavbar ? (
           <>
             <IconBurger />
@@ -33,7 +43,7 @@ const BurgerMenu = () => {
         <NavBarExtendedContainer>
           <NavExBox>
             <NavEx>
-              <LinkNav to="/category/:categoryName">Categories</LinkNav>
+              <LinkNav to={`/categories/${'beef'}`}>Categories</LinkNav>
               <LinkNav to="/add">Add recipes</LinkNav>
               <LinkNav to="/my">My recipes</LinkNav>
               <LinkNav to="/favorite">Favorites</LinkNav>

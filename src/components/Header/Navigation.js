@@ -3,7 +3,7 @@ import {
   Nav,
   NavBox,
   NavBarInnerContainer,
-  NavBoxUser,
+  TogglerBoxUser,
   UserBox,
 } from './Header.styled';
 import { Logo } from './Logo';
@@ -14,21 +14,21 @@ import { ThemeToggler } from './ThemeToggler';
 
 const Navigation = () => {
   return (
-    <Nav>
-      <NavBox>
+    <NavBox>
+      <Nav>
         <NavBarInnerContainer>
-        <Logo />
+          <Logo />
         </NavBarInnerContainer>
         <RightNav />
+        <BurgerMenu />
         <UserBox>
           <UserMenu />
-          <NavBoxUser>
+          <TogglerBoxUser>
             <ThemeToggler />
-          </NavBoxUser>
-           </UserBox>
-         <BurgerMenu />
-      </NavBox>
-    </Nav>
+          </TogglerBoxUser>
+        </UserBox>
+      </Nav>
+    </NavBox>
   );
 };
 
