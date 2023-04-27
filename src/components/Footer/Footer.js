@@ -1,4 +1,12 @@
+import { Wrapper } from './Footer.styled';
+import { FooterNav } from './Nav';
+
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <Wrapper>
+      <FooterNav />
+    </Wrapper>
+  );
 };
+
 export { Footer };
