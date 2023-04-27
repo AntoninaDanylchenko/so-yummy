@@ -3,7 +3,7 @@ import {
   useState,
 } from 'react';
 import { Modal } from './Modal/Modal';
-import { LogoutBtn } from './LogoutBtn';
+// import { LogoutBtn } from './LogoutBtn';
 import { TextModal, ButtonModal, IconPen, IconArrow } from './Header.styled';
 
 const UserLogoModal = ({ onClose }) => {
@@ -12,7 +12,9 @@ const UserLogoModal = ({ onClose }) => {
     // openNewModal,
     setOpenNewModal,
   ] = useState(true);
-
+console.log('====================================');
+console.log(onShow);
+console.log('====================================');
   // useEffect(() => {
   //   if (handleLogoutModal) {
   //     setOnShow(!onShow);
@@ -42,7 +44,7 @@ const UserLogoModal = ({ onClose }) => {
           <IconArrow />
         </ButtonModal>
       </Modal>
-      {onShow && <LogoutBtn />}
+      {/* {onShow && <LogoutBtn />} */}
     </>
   );
 };
