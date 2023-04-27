@@ -14,7 +14,7 @@ const UserLogoModal = ({ onClose }) => {
   ] = useState(true);
 console.log('====================================');
 console.log(onShow);
-console.log('====================================');
+
   // useEffect(() => {
   //   if (handleLogoutModal) {
   //     setOnShow(!onShow);
