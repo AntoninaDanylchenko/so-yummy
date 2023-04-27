@@ -86,7 +86,7 @@ export const lightTheme = createTheme(defaultTheme, {
   // grey
   secondaryText: '#BDBDBD',
   select: '#F5F5F5',
-  borderInput: 'rgba(250, 250, 250, 0.2)',
+  borderInput: '#E0E0E0',
   linePopularRecipe: '#707070',
   recipeText: '#7E7E7E',
   checkbox: 'rgba(126, 126, 126, 0.5)',
