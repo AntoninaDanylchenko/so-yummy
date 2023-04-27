@@ -1,21 +1,22 @@
-import React, { useState } from "react";
-import UserInfoModal from "./UserInfoModal";
-import LogoutBtn from "./LogoutBtn";
-import {   ModalContainer, EditProfileButton, LogoutBtn, } from './UserLogoModal.styled';
+// import React, { useState } from "react";
+// import UserInfoModal from "./UserInfoModal";
+// import LogoutBtn from "./LogoutBtn";
+// import {   ModalContainer, EditProfileButton, LogoutBtn, } from './UserLogoModal.styled';
 
 const UserLogoModal = () => {
-  const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
+  // const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
 
-  const handleEditProfileClick = () => {
-    setIsUserInfoModalOpen(true);
-  };
+  // const handleEditProfileClick = () => {
+  //   setIsUserInfoModalOpen(true);
+  // };
 
-  const handleLogoutClick = () => {
+  // const handleLogoutClick = () => {
     
-  };
+  // };
 
   return (
-    <ModalContainer>
+<>
+    {/* <ModalContainer>
       <EditProfileButton onClick={handleEditProfileClick}>
         Edit Profile
       </EditProfileButton>
@@ -23,7 +24,8 @@ const UserLogoModal = () => {
       {isUserInfoModalOpen && (
         <UserInfoModal onClose={() => setIsUserInfoModalOpen(false)} />
       )}
-    </ModalContainer>
+      </ModalContainer> */}
+      </>
   );
 };
 
