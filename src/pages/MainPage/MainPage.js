@@ -6,7 +6,14 @@ import { fetchRecipesMain } from '../../Services/Api';
 import { СhooseYourBreakfast } from '../../components/MainPage/СhooseYourBreakfast';
 import { Search } from '../../components/MainPage/Search';
 import { PreviewCategories } from '../../components/MainPage/PreviewCategories';
-import { ButtonSeeAll, ButtonOther } from './MainPage.styled';
+import {
+  MainSection,
+  RecipeSection,
+  RecipeList,
+  CategoryName,
+  ButtonSeeAll,
+  ButtonOther,
+} from './MainPage.styled';
 
 const MainPage = () => {
   const theme = useTheme();
@@ -41,24 +48,28 @@ const MainPage = () => {
   }, [getRecipes]);
 
   return (
-    <div>
-      <СhooseYourBreakfast />
-      <Search setParams={setParams} />
-      {
-        <ul>
-          {defaultCategory.map(category => (
-            <li key={category}>
-              <h3>{category}</h3>
-              <PreviewCategories recipes={recipes} category={category} />
-              <ButtonSeeAll to={`/categories/${category}`} type="button">
-                See all
-              </ButtonSeeAll>
-            </li>
-          ))}
-        </ul>
-      }
-      <ButtonOther to={`/categories/beef`}>Other categories</ButtonOther>
-    </div>
+    <>
+      <MainSection>
+        <СhooseYourBreakfast />
+        <Search setParams={setParams} />
+      </MainSection>
+      <RecipeSection>
+        {
+          <RecipeList>
+            {defaultCategory.map(category => (
+              <li key={category}>
+                <CategoryName>{category}</CategoryName>
+                <PreviewCategories recipes={recipes} category={category} />
+                <ButtonSeeAll to={`/categories/${category}`} type="button">
+                  See all
+                </ButtonSeeAll>
+              </li>
+            ))}
+          </RecipeList>
+        }
+        <ButtonOther to={`/categories/beef`}>Other categories</ButtonOther>
+      </RecipeSection>
+    </>
   );
 };
 export default MainPage;

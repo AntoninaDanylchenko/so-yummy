@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { Form, Input, ButtonSearch } from './Search.styled';
 
 export const Search = ({ setParams }) => {
   const navigate = useNavigate();
@@ -19,10 +20,10 @@ export const Search = ({ setParams }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="query" placeholder="Search..." />
-      <button type="submit">Search</button>
-    </form>
+    <Form onSubmit={handleSubmit}>
+      <Input type="text" name="query" />
+      <ButtonSearch type="submit">Search</ButtonSearch>
+    </Form>
   );
 };
 
