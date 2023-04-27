@@ -13,14 +13,14 @@ const recipesMainSlice = createSlice({
       .addCase(fetchRecipesMain.pending, state => {
         state.isLoading = true;
       })
-      .addCase(fetchRecipesMain.fulfilled, (state, action) => {
-        state.recipes = action.payload;
+      .addCase(fetchRecipesMain.fulfilled, (state, { payload }) => {
+        state.recipes = payload;
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(fetchRecipesMain.rejected, (state, action) => {
+      .addCase(fetchRecipesMain.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.error = payload;
       });
   },
 });
