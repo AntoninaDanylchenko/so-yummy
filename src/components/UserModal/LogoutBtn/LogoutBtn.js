@@ -1,24 +1,28 @@
-import React from 'react';
-import LogoutButton from './LogoutBtn.styled';
+// import React from 'react';
+// import LogoutButton from './LogoutBtn.styled';
 
 
-const LogoutBtn = ({ onLogout }) => {
-  const handleLogout = async () => {
-    try {
-      await fetch('/logout', {
-        method: 'POST',
-        credentials: 'include',
-      });
-      onLogout();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+const LogoutBtn = (
+  // { onLogout }
+) => {
+  // const handleLogout = async () => {
+  //   try {
+  //     await fetch('/logout', {
+  //       method: 'POST',
+  //       credentials: 'include',
+  //     });
+  //     onLogout();
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
-    <LogoutButton onClick={handleLogout}>
+   <>
+    {/* <LogoutButton onClick={handleLogout}>
       Logout
-    </LogoutButton>
+      </LogoutButton> */}
+      </>
   );
 };
 
