@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import Background from '../../images/main/main-bg_mobile.png';
-import { ReactComponent as ArrowIcon } from '../../images/icon/arrow-main.svg';
+import Background from 'images/main/main-bg_mobile.png';
+import { ReactComponent as ArrowIcon } from 'images/icon/arrow-main.svg';
 
 export const Container = styled.div`
   /* background-image: url('${Background}'); */

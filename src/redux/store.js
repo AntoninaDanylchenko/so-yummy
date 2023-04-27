@@ -16,6 +16,8 @@ import { favoriteReducer } from './favorite/favSlice';
 import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 
 import { recipeReducer } from './recipe/recipeSlice';
+import { recipesMainReducer } from './recipesMain/recipesMainSlice';
+import { recipesPopularReducer } from './popularRecipes/recipesPopularSlice';
 
 import { shoppingListReducer } from './shoppingList/slice';
 import { categoriesListReducer } from './categories/slice';
@@ -33,6 +35,8 @@ export const store = configureStore({
     favorite: favoriteReducer,
     myRecipes: myRecipesReducer,
     recipe: recipeReducer,
+    recipesMain: recipesMainReducer,
+    recipesPopular: recipesPopularReducer,
     shoppingList: shoppingListReducer,
     categoriesList: categoriesListReducer,
     theme: themeReducer,
