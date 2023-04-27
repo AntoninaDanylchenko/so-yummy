@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -34,6 +35,32 @@ const UserInfoModal = ({ onClose }) => {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <h2>User Info</h2>
         <Formik initialValues={{ photo: '', name: '' }} onSubmit={handleSubmit} validationSchema={validationSchema}>
+=======
+import React from "react";
+// import { Formik, Form, Field, ErrorMessage } from "formik";
+// import {  ModalContainer, FormContainer, Field, SubmitButton, ErrorMessage } from 
+
+
+const UserInfoModal = ({ onClose }) => {
+  // const handleSubmit = async (values, { setSubmitting }) => {
+  //     setSubmitting(false);
+  //     onClose();
+  //     setSubmitting(false);
+  // };
+
+  return (
+    <>
+    {/* <ModalContainer onClick={onClose}>
+      <FormContainer onClick={(e) => e.stopPropagation()}>
+        <Formik
+          initialValues={{ name: "", photo: null }}
+          onSubmit={handleSubmit}
+          validate={(values) => {
+            const errors = {};
+            return errors;
+          }}
+        >
+>>>>>>> 96526eab497e1fa4bf77c9df81f72ee1104ed1eb
           {({ isSubmitting }) => (
             <UserInfoModalWrapper>
               <UserProfileImage>
@@ -58,11 +85,17 @@ const UserInfoModal = ({ onClose }) => {
             </UserInfoModalWrapper>
           )}
         </Formik>
+<<<<<<< HEAD
         <CloseButton className="close-btn" onClick={onClose}>
           Close
         </CloseButton>
       </div>
     </div>
+=======
+      </FormContainer>
+      </ModalContainer> */}
+      </>
+>>>>>>> 96526eab497e1fa4bf77c9df81f72ee1104ed1eb
   );
 };
 

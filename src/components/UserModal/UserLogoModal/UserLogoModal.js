@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
@@ -32,6 +33,36 @@ const UserLogoModal = ({ user }) => {
         </Modal.Footer>
       </Modal>
     </>
+=======
+// import React, { useState } from "react";
+// import UserInfoModal from "./UserInfoModal";
+// import LogoutBtn from "./LogoutBtn";
+// import {   ModalContainer, EditProfileButton, LogoutBtn, } from './UserLogoModal.styled';
+
+const UserLogoModal = () => {
+  // const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
+
+  // const handleEditProfileClick = () => {
+  //   setIsUserInfoModalOpen(true);
+  // };
+
+  // const handleLogoutClick = () => {
+    
+  // };
+
+  return (
+<>
+    {/* <ModalContainer>
+      <EditProfileButton onClick={handleEditProfileClick}>
+        Edit Profile
+      </EditProfileButton>
+      <LogoutBtn onClick={handleLogoutClick} />
+      {isUserInfoModalOpen && (
+        <UserInfoModal onClose={() => setIsUserInfoModalOpen(false)} />
+      )}
+      </ModalContainer> */}
+      </>
+>>>>>>> 96526eab497e1fa4bf77c9df81f72ee1104ed1eb
   );
 };
 

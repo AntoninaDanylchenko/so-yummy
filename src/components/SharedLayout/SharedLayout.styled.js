@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-// import { Field, Form } from 'formik';
-
 import pastaSpinachMobile from '../../images/leafs/pasta-spinach_mobile.png';
 import pastaSpinachMobile2x from '../../images/leafs/pasta-spinach_mobile@2x.png';
 import pastaSpinachTablet from '../../images/leafs/pasta-spinach_tablet.png';
@@ -16,8 +14,20 @@ import pastaSpinachDipTablet2x from '../../images/leafs/pasta-spinach-dip_tablet
 import pastaSpinachDipDesktop from '../../images/leafs/pasta-spinach-dip_desktop.png';
 import pastaSpinachDipDesktop2x from '../../images/leafs/pasta-spinach-dip_desktop@2x.png';
 
+export const Main = styled.main`
+  width: 375px;
+
+  @media ${p => p.theme.device.tablet} {
+    width: 768px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    width: 1440px;
+  }
+  margin: 0 auto;
+`;
+
 export const Box = styled.section`
-  min-width: 100vw;
   min-height: 100vh;
 
   background-image: url(${pastaSpinachDipMobile}), url(${pastaSpinachMobile});

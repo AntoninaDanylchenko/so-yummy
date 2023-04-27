@@ -14,10 +14,15 @@ import PrivateRoute from './PrivateRoute';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Layout } from './Layout';
 import { ThemeProvider } from '@mui/material';
-import { lightTheme, darkTheme } from 'theme/theme';
+import { lightTheme, darkTheme } from 'styles/theme';
+import { GlobalStyles } from 'styles/GlobalStyles';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
+<<<<<<< HEAD
 import NotFound  from 'pages/NotFound/NotFound';
 import UserLogoModal from '../components/UserModal/UserLogoModal/UserLogoModal';
+=======
+import NotFound from 'pages/NotFound/NotFound';
+>>>>>>> 96526eab497e1fa4bf77c9df81f72ee1104ed1eb
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
@@ -53,6 +58,7 @@ const App = () => {
     <b>Refreshing contact...</b>
   ) : (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
@@ -73,6 +79,7 @@ const App = () => {
               <RestricteRoute component={SigninPage} redirectTo="/main" />
             }
           />
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Route>
         <Route
           path="/"
@@ -118,9 +125,8 @@ const App = () => {
             path="/search"
             element={<PrivateRoute component={SearchPage} redirectTo="/" />}
           />
-          </Route>
-          <Route path="*" element={<NotFound/>} />
-
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
       <Toaster />
     </ThemeProvider>
