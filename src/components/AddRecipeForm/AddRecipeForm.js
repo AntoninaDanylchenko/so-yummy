@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipeById } from '../../redux/recipe/operations';
+import { addRecipe } from '../../redux/addRecipe/operations';
 import { selectLoading, selectError } from '../../redux/addRecipe/selectors';
 import { nanoid } from 'nanoid';
 import { yupSchema } from './yupSchema';
@@ -117,7 +117,7 @@ export const AddRecipeForm = () => {
   const navigate = useNavigate();
 
   const formData = new FormData();
-  formData.append('image', image);
+  formData.append('thumb', image);
   formData.append('title', title);
   formData.append('description', description);
   formData.append('category', category);
@@ -134,7 +134,7 @@ export const AddRecipeForm = () => {
     yupSchema
       .validate(initialValues, { abortEarly: false })
       .then(() => {
-        dispatch(getRecipeById(formData))
+        dispatch(addRecipe(formData))
           .unwrap()
           .then(() => {
             navigate('/my', { replace: true });
