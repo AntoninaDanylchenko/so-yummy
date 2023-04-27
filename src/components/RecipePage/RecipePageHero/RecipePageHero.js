@@ -17,8 +17,6 @@ import {
 } from './RecipePageHero.styled';
 
 export const RecipePageHero = ({ recipe, title, description, time }) => {
-  console.log(recipe._id);
-
   const dispatch = useDispatch();
   const { items: favorite } = useSelector(getFavorite);
 
@@ -31,7 +29,7 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
   };
 
   const handleRemoveRecipeFromFavorite = () => {
-    const recipeToRemove = favorite.find(fav => fav.recipeId === recipe._id);
+    const recipeToRemove = favorite.find(fav => fav._id === recipe._id);
     dispatch(deleteFavoriteOp(recipeToRemove._id));
   };
 
@@ -41,7 +39,7 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
         <Title>{title}</Title>
         <Description>{description}</Description>
 
-        {favorite?.some(fav => fav.recipeId === recipe._id) ? (
+        {favorite?.some(fav => fav._id === recipe._id) ? (
           <Button type="button" onClick={handleRemoveRecipeFromFavorite}>
             Remove from favorite
           </Button>

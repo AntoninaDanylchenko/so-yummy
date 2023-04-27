@@ -1,5 +1,8 @@
 import React from 'react';
+
 // import BurgerSVG from '../../images/icon/burger-loader.svg';
+
+
 import './loader.styled.js';
 
 const BurgerLoader = () => {

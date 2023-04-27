@@ -1,16 +1,18 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import {  ModalContainer, FormContainer, Form, Field, SubmitButton, ErrorMessage }; 
+// import { Formik, Form, Field, ErrorMessage } from "formik";
+// import {  ModalContainer, FormContainer, Field, SubmitButton, ErrorMessage } from 
+
 
 const UserInfoModal = ({ onClose }) => {
-  const handleSubmit = async (values, { setSubmitting }) => {
-      setSubmitting(false);
-      onClose();
-      setSubmitting(false);
-  };
+  // const handleSubmit = async (values, { setSubmitting }) => {
+  //     setSubmitting(false);
+  //     onClose();
+  //     setSubmitting(false);
+  // };
 
   return (
-    <ModalContainer onClick={onClose}>
+    <>
+    {/* <ModalContainer onClick={onClose}>
       <FormContainer onClick={(e) => e.stopPropagation()}>
         <Formik
           initialValues={{ name: "", photo: null }}
@@ -33,7 +35,8 @@ const UserInfoModal = ({ onClose }) => {
           )}
         </Formik>
       </FormContainer>
-    </ModalContainer>
+      </ModalContainer> */}
+      </>
   );
 };
 

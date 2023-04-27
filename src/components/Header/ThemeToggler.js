@@ -36,6 +36,7 @@ export const Toggle = styled(props => (
     },
     '&.Mui-disabled .MuiSwitch-thumb': {
       boxShadow: 'inset 0px 6px 8px 3px rgba(0, 0, 0, 0.1)',
+      margin: 0,
       color:
         theme.palette.mode === 'light'
           ? theme.palette.grey[100]
