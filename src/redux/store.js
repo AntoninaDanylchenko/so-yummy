@@ -18,7 +18,12 @@ import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 import { ownRecipeReducer } from './addRecipe/slice';
 
 import { recipeReducer } from './recipe/recipeSlice';
+
 import { ingredientsReducer } from './ingredients/slice';
+
+import { recipesMainReducer } from './recipesMain/recipesMainSlice';
+import { recipesPopularReducer } from './popularRecipes/recipesPopularSlice';
+
 import { shoppingListReducer } from './shoppingList/slice';
 import { categoriesListReducer } from './categories/slice';
 import { themeReducer } from './theme/themeSlice';
@@ -35,6 +40,8 @@ export const store = configureStore({
     favorite: favoriteReducer,
     myRecipes: myRecipesReducer,
     recipe: recipeReducer,
+    recipesMain: recipesMainReducer,
+    recipesPopular: recipesPopularReducer,
     shoppingList: shoppingListReducer,
     categoriesList: categoriesListReducer,
     theme: themeReducer,
