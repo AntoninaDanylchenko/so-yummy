@@ -13,9 +13,13 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/authSlice';
 import { favoriteReducer } from './favorite/favSlice';
+
+import { ownRecipeReduser } from './addRecipe/slice';
+import { recipeReducer } from './recipe/recipeSlice';
+import { ingredientsReducer } from './ingredients/slice';
+
 import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 
-import { recipeReducer } from './recipe/recipeSlice';
 import { recipesMainReducer } from './recipesMain/recipesMainSlice';
 import { recipesPopularReducer } from './popularRecipes/recipesPopularSlice';
 
@@ -40,6 +44,8 @@ export const store = configureStore({
     shoppingList: shoppingListReducer,
     categoriesList: categoriesListReducer,
     theme: themeReducer,
+    ownRecipe: ownRecipeReduser,
+    ingredients: ingredientsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
