@@ -30,7 +30,7 @@ export const PopularRecipe = () => {
     <div>
       <h3>Popular recipe</h3>
       <ul>
-        {recipes.map(({ id, title, preview, thumb, desc }) => (
+        {recipes?.map(({ id, title, preview, thumb, desc }) => (
           <li key={id}>
             <div>
               <img src={preview} alt={title} />

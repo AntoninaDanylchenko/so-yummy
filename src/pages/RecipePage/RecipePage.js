@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { getRecipeById } from 'redux/recipe/operations';
 import { selectRecipeById } from 'redux/recipe/selectors';
 
+import { Container } from '../../pages/MainPage/MainPage.styled';
 import { RecipePageHero } from 'components/RecipePage/RecipePageHero/RecipePageHero';
 import { RecipeInngredientsList } from 'components/RecipePage/RecipeIngredientsList/RecipeInngredientsList';
 import { RecipePreparation } from 'components/RecipePage/RecipePreparation/RecipePreparation';
@@ -32,12 +33,14 @@ const RecipePage = () => {
             description={description}
             time={time}
           />
-          <RecipeInngredientsList ingredients={ingredients} />
-          <RecipePreparation
-            instructions={instructions}
-            title={title}
-            thumb={thumb}
-          />
+          <Container>
+            <RecipeInngredientsList ingredients={ingredients} />
+            <RecipePreparation
+              instructions={instructions}
+              title={title}
+              thumb={thumb}
+            />
+          </Container>
         </>
       )}
     </>

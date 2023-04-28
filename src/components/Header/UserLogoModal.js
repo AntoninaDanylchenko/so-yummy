@@ -3,8 +3,8 @@ import {
   useState,
 } from 'react';
 import { Modal } from './Modal/Modal';
-// import { LogoutBtn } from './LogoutBtn';
-import { TextModal, ButtonModal, IconPen, IconArrow } from './Header.styled';
+import { LogoutBtn } from './LogoutBtn';
+import { TextModal, IconPen } from './Header.styled';
 
 const UserLogoModal = ({ onClose }) => {
   const [onShow, setOnShow] = useState(false);
@@ -14,7 +14,7 @@ const UserLogoModal = ({ onClose }) => {
   ] = useState(true);
 console.log('====================================');
 console.log(onShow);
-console.log('====================================');
+
   // useEffect(() => {
   //   if (handleLogoutModal) {
   //     setOnShow(!onShow);
@@ -39,10 +39,7 @@ console.log('====================================');
           <span>Edit profile</span>
           <IconPen />
         </TextModal>
-        <ButtonModal onClick={handleLogoutModal}>
-          <span>Log out</span>
-          <IconArrow />
-        </ButtonModal>
+        <LogoutBtn onClick={handleLogoutModal}/>
       </Modal>
       {/* {onShow && <LogoutBtn />} */}
     </>

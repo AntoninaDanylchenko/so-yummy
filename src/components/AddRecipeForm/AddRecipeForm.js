@@ -99,7 +99,7 @@ export const AddRecipeForm = () => {
       ingredients.map(ingredient => {
         const { id, unitValue, unitNumber } = ingredient;
         const measure = `${unitNumber} ${unitValue}`;
-        return { measure: measure, id: id };
+        return { id: id, measure: measure };
       }),
     [ingredients]
   );

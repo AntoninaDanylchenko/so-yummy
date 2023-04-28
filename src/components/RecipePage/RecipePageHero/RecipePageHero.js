@@ -16,6 +16,8 @@ import {
   Title,
 } from './RecipePageHero.styled';
 
+import { ReactComponent as Clock } from '../../../images/icon/clock.svg';
+
 export const RecipePageHero = ({ recipe, title, description, time }) => {
   const dispatch = useDispatch();
   const { items: favorite } = useSelector(getFavorite);
@@ -49,7 +51,10 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
           </Button>
         )}
 
-        <Time>{time} min</Time>
+        <Time>
+          <Clock />
+          {time} min
+        </Time>
       </Container>
     </>
   );
