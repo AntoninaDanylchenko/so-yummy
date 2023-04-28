@@ -54,4 +54,4 @@ const ownRecipeSlice = createSlice({
 });
 
 export const { setCurrentPage } = ownRecipeSlice.actions;
-export const ownRecipeReduser = ownRecipeSlice.reducer;
+export const ownRecipeReducer = ownRecipeSlice.reducer;

@@ -18,7 +18,7 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const r = await axios.post('/auth/signup', credentials);
-      token.set(r.data.token);
+      await token.set(r.data.token);
       return r.data;
     } catch (error) {
       toast.error('This user is already registered.');
@@ -31,7 +31,7 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const r = await axios.post('/auth/login', credentials);
-      token.set(r.data.token);
+      await token.set(r.data.token);
       return r.data;
     } catch (error) {
       toast.error('Password is incorrect.');
@@ -40,18 +40,20 @@ export const logIn = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk('auth/logout', async () => {
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
-    token.unset();
-  } catch (error) {}
+    await token.unset();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
 });
 
 export const refreshCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const state = await thunkAPI.getState();
+    const persistedToken = await state.auth.token;
     if (!persistedToken) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
