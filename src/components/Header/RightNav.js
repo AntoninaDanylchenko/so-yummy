@@ -12,9 +12,6 @@ const RightNav = () => {
     <RightContainer>
       <RightNavList>
         <RightNavItem>
-          <LinkNav to="/main">Main</LinkNav>
-        </RightNavItem>
-        <RightNavItem>
           <LinkNav to={`/categories/${'beef'}`}>Categories</LinkNav>
         </RightNavItem>
         <RightNavItem>

@@ -8,6 +8,7 @@ import {
   Description,
   DescriptionAccent,
   LinkRecipes,
+  WrapLink,
 } from './СhooseYourBreakfast.styled';
 
 export const СhooseYourBreakfast = () => {
@@ -25,10 +26,12 @@ export const СhooseYourBreakfast = () => {
           <DescriptionAccent>Delicious and healthy </DescriptionAccent>way to
           enjoy a variety of fresh ingredients in one satisfying meal
         </Description>
-        <LinkRecipes to={`/categories/breakfast`}>
-          <p>See recipes</p>
-          <IconArrow />
-        </LinkRecipes>
+        <WrapLink>
+          <LinkRecipes to={`/categories/breakfast`}>
+            <p>See recipes</p>
+            <IconArrow />
+          </LinkRecipes>
+        </WrapLink>
       </ContainerWrap>
     </Container>
   );
