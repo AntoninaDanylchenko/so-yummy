@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
-export const RecipeItem = styled(Link)``;
-
-export const RecipeTitle = styled.h4``;
-
-export const RecipeImg = styled.img``;
+export const RecipesList = styled.ul`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 32px;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 14px;
+  }
+`;

@@ -1,31 +1,46 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import {
   OpenLinksButton,
   NavBarExtendedContainer,
   NavEx,
   NavExBox,
+  LinkNav,
   IconSearch,
+  IconBurger,
+  IconClose,
   ImageBox,
-  TogglerBox
+  TogglerBox,
 } from './Header.styled';
 
-import { ReactComponent as Close } from '../../images/icon/x-icon.svg';
-import { ReactComponent as Burger } from '../../images/icon/burger.svg';
 import { ThemeToggler } from './ThemeToggler';
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ onClose }) => {
   const [extendNavbar, setExtendNavbar] = useState(false);
+
+  const handleBurger = () => {
+    setExtendNavbar(curr => !curr);
+    if (!extendNavbar) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  };
+
+  const handleCloseToLinkModal = () => {
+    setExtendNavbar(false);
+    document.body.style.overflow = 'auto';
+  };
+
   return (
     <>
-      <OpenLinksButton onClick={() => setExtendNavbar(curr => !curr)}>
+      <OpenLinksButton onClick={handleBurger}>
         {!extendNavbar ? (
           <>
-            <Burger />
+            <IconBurger />
           </>
         ) : (
           <>
-            <Close />
+            <IconClose />
           </>
         )}
       </OpenLinksButton>
@@ -33,17 +48,32 @@ const BurgerMenu = () => {
         <NavBarExtendedContainer>
           <NavExBox>
             <NavEx>
-              <NavLink to="/category/:categoryName">Categories</NavLink>
-              <NavLink to="/add">Add recipes</NavLink>
-              <NavLink to="/my">My recipes</NavLink>
-              <NavLink to="/favorite">Favorites</NavLink>
-              <NavLink to="/shopping-list">Shopping list</NavLink>
-              <NavLink to="/search">
+              <LinkNav
+                to={`/categories/${'beef'}`}
+                onClick={handleCloseToLinkModal}
+              >
+                Categories
+              </LinkNav>
+              <LinkNav to="/add" onClick={handleCloseToLinkModal}>
+                Add recipes
+              </LinkNav>
+              <LinkNav to="/my" onClick={handleCloseToLinkModal}>
+                My recipes
+              </LinkNav>
+              <LinkNav to="/favorite" onClick={handleCloseToLinkModal}>
+                Favorites
+              </LinkNav>
+              <LinkNav to="/shopping-list" onClick={handleCloseToLinkModal}>
+                Shopping list
+              </LinkNav>
+              <LinkNav to="/search" onClick={handleCloseToLinkModal}>
                 <IconSearch />
                 <span> Search</span>
-              </NavLink>
+              </LinkNav>
             </NavEx>
-            <TogglerBox><ThemeToggler/></TogglerBox>
+            <TogglerBox>
+              <ThemeToggler />
+            </TogglerBox>
             <ImageBox></ImageBox>
           </NavExBox>
         </NavBarExtendedContainer>

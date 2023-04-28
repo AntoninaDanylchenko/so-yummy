@@ -17,27 +17,31 @@ export const Overlay = styled.div`
 export const ModalW = styled.div`
   position: absolute;
   z-index: 1;
-  top: 72px;
+  top: 80px;
   right: 60px;
   width: 161px;
   height: 130px;
-
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  padding: 18px;
   gap: 28px;
-
   border-radius: 10px;
-  background-color: white;
+  background-color: ${p => p.theme.primary.userBg};
   transform: ${({ isOpen }) =>
     !isOpen ? 'translateY(-10%)' : 'translateY(0)'};
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: ${p => p.theme.transition};
+  border: 1px solid ${p => p.theme.primary.selectBg};
 
-  @media screen and (min-width: 760px) {
-    top: 80px;
-    right: 220px;
+  @media ${p => p.theme.device.tablet} {
+    top: 90px;
+    right: 125px;
     width: 177px;
     height: 144px;
     gap: 32px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    top: 95px;
+    right: 250px;
   }
 `;

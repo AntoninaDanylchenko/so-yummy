@@ -1,24 +1,30 @@
 import { useState } from 'react';
 import { UserLogoModal } from './UserLogoModal';
 import { useSelector } from 'react-redux';
-import { ButtonUser, UserLogoBox } from './Header.styled';
+import { selectIsLoggedIn } from 'redux/auth/selector';
+import { ButtonUser, UserLogoBox, TextUserLogo, ImgUser } from './Header.styled';
 
 const UserLogo = () => {
+  const { isLoggedIn } = useSelector(selectIsLoggedIn);
   const [isOpen, setIsOpen] = useState(false);
   const open = () => setIsOpen(true);
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-  const { username, avatarURL } = useSelector(state => state.auth.user.user);
-
+  const username  = useSelector(state => state.auth.user.user.username);
+  const  avatarURL  = useSelector(state => state.auth.user.user.avatarURL);
   return (
-    <UserLogoBox>
-      <ButtonUser onClick={open}>
-        <img src={avatarURL} alt={username} loading="lazy" />
-      </ButtonUser>
-      <p>{username}</p>
-      {isOpen && <UserLogoModal onClose={toggleModal} />}
-    </UserLogoBox>
+    <>
+      {!isLoggedIn && (
+        <UserLogoBox>
+          <ButtonUser onClick={open}>
+            <ImgUser src={avatarURL} alt={username} loading="lazy" />
+          </ButtonUser>
+          <TextUserLogo>{username}</TextUserLogo>
+          {isOpen && <UserLogoModal onClose={toggleModal} />}
+        </UserLogoBox>
+      )}
+    </>
   );
 };
 

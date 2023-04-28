@@ -1,38 +1,41 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import {
   RightNavList,
   RightNavItem,
   RightContainer,
-  IconSearch,
+  // IconSearch,
+  LinkNav,
 } from './Header.styled';
+
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const RightNav = () => {
   return (
     <RightContainer>
       <RightNavList>
         <RightNavItem>
-          <NavLink to="/main">Main</NavLink>
+          <LinkNav to="/main">Main</LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <NavLink to="/category/:categoryName">Categories</NavLink>
+          <LinkNav to={`/categories/${'beef'}`}>Categories</LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <NavLink to="/add">Add recipes</NavLink>
+          <LinkNav to="/add">Add recipes</LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <NavLink to="/my">My recipes</NavLink>
+          <LinkNav to="/my">My recipes</LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <NavLink to="/favorite">Favorites</NavLink>
+          <LinkNav to="/favorite">Favorites</LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <NavLink to="/shopping-list">Shopping list</NavLink>
+          <LinkNav to="/shopping-list">Shopping list</LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <NavLink to="/search">
-            <IconSearch />
-          </NavLink>
+          <LinkNav to="/search">
+            <SearchIcon />
+          </LinkNav>
         </RightNavItem>
       </RightNavList>
     </RightContainer>
