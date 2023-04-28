@@ -14,7 +14,8 @@ import PrivateRoute from './PrivateRoute';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Layout } from './Layout';
 import { ThemeProvider } from '@mui/material';
-import { lightTheme, darkTheme } from 'theme/theme';
+import { lightTheme, darkTheme } from 'styles/theme';
+import { GlobalStyles } from 'styles/GlobalStyles';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import NotFound from 'pages/NotFound/NotFound';
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
@@ -52,6 +53,7 @@ const App = () => {
     <b>Refreshing contact...</b>
   ) : (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route

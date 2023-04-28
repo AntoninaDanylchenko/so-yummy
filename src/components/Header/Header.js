@@ -1,12 +1,11 @@
 import Navigation from 'components/Header/Navigation';
-// import { useAuth } from 'hooks/useAuth';
+import { HeaderBox } from './Header.styled';
 
 const Header = () => {
-  // const { isLoggedIn } = useAuth();
   return (
-    <header>
+    <HeaderBox>
       <Navigation />
-    </header>
+    </HeaderBox>
   );
 };
 export default Header;
