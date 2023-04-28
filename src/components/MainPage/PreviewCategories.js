@@ -5,7 +5,7 @@ import { fetchRecipesMain } from 'redux/recipesMain/operations';
 import { selectRecipesMain } from 'redux/recipesMain/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { RecipesList } from './PreviewCategories.styled';
-import { RecipeСategotyItem } from '../RecipeСategotyItem/RecipeСategotyItem';
+import { RecipeItem } from '../RecipeItem/RecipeItem';
 
 export const PreviewCategories = ({ category }) => {
   const theme = useTheme();
@@ -33,9 +33,9 @@ export const PreviewCategories = ({ category }) => {
 
   return (
     <RecipesList>
-      {recipes.map(recipe => {
+      {recipes?.map(recipe => {
         return recipe.categoryRecipe === category ? (
-          <RecipeСategotyItem key={recipe.id} recipe={recipe} />
+          <RecipeItem key={recipe.id} recipe={recipe} />
         ) : null;
       })}
     </RecipesList>

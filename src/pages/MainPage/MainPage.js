@@ -1,9 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
-
 import { СhooseYourBreakfast } from '../../components/MainPage/СhooseYourBreakfast';
 import { Search } from '../../components/MainPage/Search';
 import { PreviewCategories } from '../../components/MainPage/PreviewCategories';
 import {
+  Container,
   MainSection,
   RecipeSection,
   RecipeList,
@@ -22,7 +22,7 @@ const MainPage = () => {
   };
 
   return (
-    <>
+    <Container>
       <MainSection>
         <СhooseYourBreakfast />
         <Search setParams={setParams} />
@@ -43,7 +43,7 @@ const MainPage = () => {
         }
         <ButtonOther to={`/categories/beef`}>Other categories</ButtonOther>
       </RecipeSection>
-    </>
+    </Container>
   );
 };
 export default MainPage;
