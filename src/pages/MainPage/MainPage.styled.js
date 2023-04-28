@@ -4,16 +4,18 @@ import { Link } from 'react-router-dom';
 export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 16px;
 
-  @media screen and (min-width: 375px) {
+  @media screen and ${p => p.theme.device.mobile} {
     max-width: 375px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and ${p => p.theme.device.tablet} {
     max-width: 768px;
+    padding: 0 32px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and ${p => p.theme.device.desktop} {
     max-width: 1440px;
+    padding: 0 100px;
   }
 `;
 export const MainSection = styled.section`
