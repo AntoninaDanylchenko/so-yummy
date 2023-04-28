@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -38,19 +39,29 @@ const UserLogoModal = ({ user }) => {
 // import UserInfoModal from "./UserInfoModal";
 // import LogoutBtn from "./LogoutBtn";
 // import {   ModalContainer, EditProfileButton, LogoutBtn, } from './UserLogoModal.styled';
+=======
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import { UserInfoModal } from '../UserInfoModal/UserInfoModal';
+>>>>>>> Stashed changes
 
-const UserLogoModal = () => {
-  // const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
+const UserInfoModal = ({ onClose }) => {
+  const initialValues = {
+    photo: null,
+    name: '',
+  };
 
-  // const handleEditProfileClick = () => {
-  //   setIsUserInfoModalOpen(true);
-  // };
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required('Name is required'),
+  });
 
-  // const handleLogoutClick = () => {
-    
-  // };
+  const handleSubmit = (values, actions) => {
+    actions.setSubmitting(false);
+    onClose();
+  };
 
   return (
+<<<<<<< Updated upstream
 <>
     {/* <ModalContainer>
       <EditProfileButton onClick={handleEditProfileClick}>
@@ -75,3 +86,33 @@ UserLogoModal.propTypes = {
 };
 
 export default UserLogoModal;
+=======
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting, errors, touched }) => (
+            <Form>
+              <label htmlFor="photo">Photo</label>
+              <Field type="file" name="photo" />
+
+              <label htmlFor="name">Name</label>
+              <Field type="text" name="name" placeholder="Olena" />
+              {errors.name && touched.name && <div>{errors.name}</div>}
+
+              <button type="submit" disabled={isSubmitting}>
+                Save
+              </button>
+            </Form>
+          )}
+        </Formik>
+
+        <button onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+};
+>>>>>>> Stashed changes

@@ -37,29 +37,50 @@ const UserInfoModal = ({ onClose }) => {
         <Formik initialValues={{ photo: '', name: '' }} onSubmit={handleSubmit} validationSchema={validationSchema}>
 =======
 import React from "react";
-// import { Formik, Form, Field, ErrorMessage } from "formik";
-// import {  ModalContainer, FormContainer, Field, SubmitButton, ErrorMessage } from 
+import { Modal } from "react-bootstrap";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { ReactComponent as XIcon } from '../../../images/icon/x-icon.svg';
+import {
+  ModalBackdrop,
+  ModalContainer,
+  CloseButton,
+  FormContainer,
+  InputContainer,
+  Input,
+  InputLabel,
+  ExampleName,
+  PenIcon,
+  SaveButton
+} from './UserInfoModal.styled'
 
+const UserInfoModal = ({ show, handleClose, handleFormSubmit }) => {
+  const initialValues = {
+    name: ""
+  };
 
-const UserInfoModal = ({ onClose }) => {
-  // const handleSubmit = async (values, { setSubmitting }) => {
-  //     setSubmitting(false);
-  //     onClose();
-  //     setSubmitting(false);
-  // };
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Required")
+  });
+
+  const handleSubmit = (values, { setSubmitting }) => {
+    handleFormSubmit(values);
+    setSubmitting(false);
+    handleClose();
+  };
 
   return (
-    <>
-    {/* <ModalContainer onClick={onClose}>
-      <FormContainer onClick={(e) => e.stopPropagation()}>
-        <Formik
-          initialValues={{ name: "", photo: null }}
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Edit Profile</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <ModalBackdrop
+          initialValues={initialValues}
+          validationSchema={validationSchema}
           onSubmit={handleSubmit}
-          validate={(values) => {
-            const errors = {};
-            return errors;
-          }}
         >
+<<<<<<< Updated upstream
 >>>>>>> 96526eab497e1fa4bf77c9df81f72ee1104ed1eb
           {({ isSubmitting }) => (
             <UserInfoModalWrapper>
@@ -96,6 +117,53 @@ const UserInfoModal = ({ onClose }) => {
       </ModalContainer> */}
       </>
 >>>>>>> 96526eab497e1fa4bf77c9df81f72ee1104ed1eb
+=======
+          {({ isSubmitting, setFieldValue }) => (
+            <ModalContainer>
+              <FormContainer className="form-group">
+                <InputLabel htmlFor="name">Name</InputLabel>
+                <InputContainer
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  placeholder="Olena"
+                />
+                <ErrorMessage
+                  name="name"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </FormContainer>
+              <div className="form-group">
+                <label htmlFor="photo">Photo</label>
+                <Field
+                  type="file"
+                  name="photo"
+                  className="form-control-file"
+                  onChange={(event) => {
+                    setFieldValue("photo", event.currentTarget.files[0]);
+                  }}
+                />
+                <ErrorMessage
+                  name="photo"
+                  component="div"
+                  className="invalid-feedback"
+                />
+              </div>
+              <SaveButton type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                Save
+              </SaveButton>
+            </ModalContainer>
+          )}
+        </ModalBackdrop>
+      </Modal.Body>
+      <Modal.Footer>
+        <CloseButton className="btn btn-secondary" onClick={handleClose}>
+          Close
+        </CloseButton>
+      </Modal.Footer>
+    </Modal>
+>>>>>>> Stashed changes
   );
 };
 
