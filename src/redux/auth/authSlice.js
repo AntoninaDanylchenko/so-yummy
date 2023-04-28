@@ -10,7 +10,9 @@ const initialStateAuth = {
 };
 
 const handleExitFulfilled = (state, action) => {
-  state.user = action.payload.user;
+  state.user._id = action.payload._id;
+  state.user.name = action.payload.username;
+  state.user.email = action.payload.email;
   state.token = action.payload.token;
   state.isLoggedIn = true;
 };
@@ -33,7 +35,9 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshCurrentUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user.name = action.payload.username;
+        state.user.email = action.payload.email;
+        state.user._id = action.payload._id;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
