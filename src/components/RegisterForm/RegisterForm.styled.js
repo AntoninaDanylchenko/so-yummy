@@ -1,4 +1,5 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 import { Form, Field } from 'formik';
 // import { Button, TextField } from '@mui/material';
 
@@ -14,7 +15,7 @@ export const FormFormik = styled(Form)`
   /* row-gap: 12px;
   margin-bottom: 28px; */
 
-  @media (${p => p.theme.device.tablet}) {
+  @media ${p => p.theme.device.tablet} {
     /* row-gap: 24px;
   margin-bottom: 50px; */
   }
@@ -53,7 +54,7 @@ export const InputFormik = styled(Field)`
   font-size: 14px;
   line-height: 1.39;
   letter-spacing: -0.02em; */
-  margin-bottom: '12px';
+  /* mb: '12px'; */
   /* width: 100%; */
   /* pl: '40px'; */
   /* padding-top: 12px;
@@ -128,19 +129,36 @@ export const IconInput = styled.div`
   }
 `;
 
-export const ButtonFormik = styled.button`
-  font-family: 'Poppins';
+export const ButtonFormik = styled(Button)`
+
+              fontFamily: 'Poppins',
+              width: '100%',
+              height: '45px',
+
+              textTransform: 'none',
+              fontSize: 16,
+              lineHeight: 18,
+
+              backgroundColor: '#8BAA36',
+              color: '#FAFAFA',
+              borderRadius: '6px',
+              flex: 'none',
+              order: 0,
+              flexGrow: 0,
+              
+        
+  /* font-family: 'Poppins'; */
   /* display: flex; */
-  align-items: center;
-  text-align: center;
+  /* align-items: center;
+  text-align: center; */
 
   /* padding-top: 12px */
-  margin-top: 16px;
+  /* margin-top: 16px;
   width: 100%;
-  height: 45px;
+  height: 45px; */
 
   /* gap: 8px; */
-  text-transform: none;
+  /* text-transform: none;
   font-size: 16px;
   line-height: 18px;
 
@@ -161,10 +179,10 @@ export const ButtonFormik = styled.button`
   }
   @media (${p => p.theme.device.tablet}) {
     height: 56px;
-    margin-top: 26px;
+    margin-top: 26px; */
     /* padding: 19px 0x; */
     /* padding: 20.5px 170px; */
-  }
+  /* } */
 `;
 
 export const IconAtention = styled.svg`
