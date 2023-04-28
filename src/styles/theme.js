@@ -34,6 +34,7 @@ const defaultTheme = createTheme({
     '0px 4px 48px rgba(0, 0, 0, 0.1)',
     '0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074)',
     '0px 4px 4px rgba(135, 135, 135, 0.2)',
+    '0px 4px 4px rgba(0, 0, 0, 0.25',
   ],
 
   transition: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
@@ -67,7 +68,7 @@ export const lightTheme = createTheme(defaultTheme, {
     recipePreparation: '#FFFFFF',
   },
   mainBg: '#ECECEC',
-
+ 
   // green
   accent: {
     mainBtnBg: '#8BAA36',

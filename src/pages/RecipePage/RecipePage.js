@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { getRecipeById } from 'redux/recipe/operations';
 import { selectRecipeById } from 'redux/recipe/selectors';
 
+import { Container } from '@mui/material';
 import { RecipePageHero } from 'components/RecipePage/RecipePageHero/RecipePageHero';
 import { RecipeInngredientsList } from 'components/RecipePage/RecipeIngredientsList/RecipeInngredientsList';
 import { RecipePreparation } from 'components/RecipePage/RecipePreparation/RecipePreparation';
@@ -24,22 +25,24 @@ const RecipePage = () => {
 
   return (
     <>
-      {recipe !== null && (
-        <>
-          <RecipePageHero
-            recipe={recipe.data.recipe}
-            title={title}
-            description={description}
-            time={time}
-          />
-          <RecipeInngredientsList ingredients={ingredients} />
-          <RecipePreparation
-            instructions={instructions}
-            title={title}
-            thumb={thumb}
-          />
-        </>
-      )}
+      <Container>
+        {recipe !== null && (
+          <>
+            <RecipePageHero
+              recipe={recipe.data.recipe}
+              title={title}
+              description={description}
+              time={time}
+            />
+            <RecipeInngredientsList ingredients={ingredients} />
+            <RecipePreparation
+              instructions={instructions}
+              title={title}
+              thumb={thumb}
+            />
+          </>
+        )}
+      </Container>
     </>
   );
 };

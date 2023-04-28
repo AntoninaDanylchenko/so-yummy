@@ -13,8 +13,8 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 144px;
   padding-bottom: 90px;
-  /* position: absolute; */
-  /* top: 0; */
+  /* position: absolute;
+  top: 0; */
   background-image: url(${bgImageMobile});
   background-repeat: no-repeat;
   background-position: center;
@@ -51,61 +51,67 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: 'Poppins';
+  font-family: ${p => p.theme.fonts};
   font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: ${p => p.theme.fontWeights.semibold};
+  font-size: ${p => p.theme.fontSizes[7]};
   line-height: 24px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #8baa36;
-  margin: 0 auto 24px auto;
+  color: ${p => p.theme.accent.mainBtnBg};
+  text-align: center;
+  margin-bottom: 18px;
 
   @media (${p => p.theme.device.tablet}) {
-    font-size: 44px;
+    font-size: ${p => p.theme.fontSizes[10]};
     line-height: 44px;
+    margin-bottom: 24px;
   }
 `;
 
 export const Description = styled.p`
-  font-family: 'Poppins';
+  font-family: ${p => p.theme.fonts};
   font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: ${p => p.theme.fontWeights.regular};
+  font-size: ${p => p.theme.fontSizes[2]};
   line-height: 16px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #22252a;
-  margin: 0 auto 24px auto;
+  color: ${p => p.theme.title.userText};
+  text-align: center;
+  padding: 0 38px 0 38px;
+  margin-bottom: 24px;
 
   @media (${p => p.theme.device.tablet}) {
-    font-size: 18px;
+    font-size: ${p => p.theme.fontSizes[5]};
     line-height: 24px;
+    padding: 0 131px 0 131px;
   }
 
   @media (${p => p.theme.device.desktop}) {
     margin-bottom: 30px;
+    padding: 0 392px 0 392px;
   }
 `;
 
 export const Button = styled.button`
-  font-family: 'Poppins';
+  font-family: ${p => p.theme.fonts};
   font-style: normal;
-  font-weight: 400;
-  font-size: 10px;
+  font-weight: ${p => p.theme.regular};
+  font-size: ${p => p.theme.fontSizes[1]};
   line-height: 15px;
-  color: #23262a;
+  color: ${p => p.theme.primaryText.btn};
 
   background-color: transparent;
-  border-radius: 24px 44px;
-  border: 2px solid #8baa36;
+  border-radius: ${p => p.theme.radii[6]};
+  border: 2px solid ${p => p.theme.accent.mainBtnBg};
 
   max-width: 150px;
   padding: 10px 18px;
   margin: 0 auto 42px auto;
 
   @media (${p => p.theme.device.tablet}) {
-    font-size: 16px;
+    font-size: ${p => p.theme.fontSizes[4]};
     line-height: 24px;
 
     max-width: 270px;
@@ -118,23 +124,37 @@ export const Button = styled.button`
   }
   :hover,
   :focus {
-    color: #fafafa;
-    background: #8baa36;
-    transition: all 0.5s ease-out;
+    color: ${p => p.theme.secondary.recipePreparation};
+    background: ${p => p.theme.accent.mainBtnBg};
+    transition: ${p => p.theme.transition};
   }
 `;
 
 export const Time = styled.p`
-  font-family: 'Poppins';
+  display: flex;
+  align-items: center;
+  font-family: ${p => p.theme.fonts};
   font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
+  font-weight: ${p => p.theme.medium};
+  font-size: ${p => p.theme.fontSizes[1]};
   line-height: 14px;
-  color: #23262a;
+  color: ${p => p.theme.primaryText.btn};
   margin: 0 auto;
 
   @media (${p => p.theme.device.tablet}) {
-    font-size: 14px;
+    font-size: ${p => p.theme.fontSizes[3]};
     line-height: 20px;
+  }
+  svg {
+    fill: ${p => p.theme.primaryText.btn};
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+
+    @media (${p => p.theme.device.tablet}) {
+      width: 16px;
+      height: 16px;
+      margin-right: 10px;
+    }
   }
 `;

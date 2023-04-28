@@ -3,17 +3,17 @@ import {
   RightNavList,
   RightNavItem,
   RightContainer,
-  IconSearch,
+  // IconSearch,
   LinkNav,
 } from './Header.styled';
+
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const RightNav = () => {
   return (
     <RightContainer>
       <RightNavList>
-        <RightNavItem>
-          <LinkNav to="/main">Main</LinkNav>
-        </RightNavItem>
         <RightNavItem>
           <LinkNav to={`/categories/${'beef'}`}>Categories</LinkNav>
         </RightNavItem>
@@ -31,7 +31,7 @@ const RightNav = () => {
         </RightNavItem>
         <RightNavItem>
           <LinkNav to="/search">
-            <IconSearch />
+            <SearchIcon />
           </LinkNav>
         </RightNavItem>
       </RightNavList>
