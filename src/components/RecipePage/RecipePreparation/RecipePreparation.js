@@ -1,9 +1,11 @@
 import {
   Container,
-  Image,
-  Item,
-  List,
   Title,
+  List,
+  Item,
+  Amount,
+  Desc,
+  Image,
 } from './RecipePreparation.styled';
 
 export const RecipePreparation = ({ title, instructions, thumb }) => {
@@ -19,8 +21,8 @@ export const RecipePreparation = ({ title, instructions, thumb }) => {
         <List>
           {instruction.map((item, idx) => (
             <Item key={idx}>
-              <span>{idx + 1}</span>
-              <p>{item.trim()}</p>
+              <Amount>{idx + 1}</Amount>
+              <Desc>{item.trim()}</Desc>
             </Item>
           ))}
         </List>
