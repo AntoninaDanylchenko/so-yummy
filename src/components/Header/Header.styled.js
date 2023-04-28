@@ -344,7 +344,6 @@ export const TextUserLogo = styled.p`
   );
 `;
 
-
 export const ModalLogout = styled.div`
   width: 330px;
   height: 179px;
@@ -437,7 +436,7 @@ export const ModalBtnLogout = styled.button`
       (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[4]})
     );
   }
-  
+
   @media ${p => p.theme.device.desktop} {
     width: 114px;
     height: 23px;
@@ -472,8 +471,6 @@ export const ModalLogoutText = styled.p`
   }
 `;
 
-=======
->>>>>>> aafe5be4e15c40926f3f99226a6a5849ab2de07a
 export const IconLogo = styled(LogoIcon)`
   display: block;
   width: 40px;
