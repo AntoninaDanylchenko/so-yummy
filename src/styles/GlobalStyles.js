@@ -46,6 +46,7 @@ export const GlobalStyles = () => {
 
         a {
           text-decoration: none;
+          color: inherit;
           cursor: pointer;
         }
 
