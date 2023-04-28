@@ -30,6 +30,7 @@ export const ModalW = styled.div`
   transform: ${({ isOpen }) =>
     !isOpen ? 'translateY(-10%)' : 'translateY(0)'};
   transition: ${p => p.theme.transition};
+  border: 1px solid ${p => p.theme.primary.selectBg};
 
   @media ${p => p.theme.device.tablet} {
     top: 90px;

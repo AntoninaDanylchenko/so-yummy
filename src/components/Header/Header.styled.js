@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 import { ReactComponent as LogoIcon } from '../../images/icon/logo.svg';
-import { ReactComponent as Search } from '../../images/icon/search.svg';
 import { ReactComponent as Pen } from '../../images/icon/pen.svg';
 import { ReactComponent as Arrow } from '../../images/icon/arrow-right.svg';
-import { ReactComponent as Close } from '../../images/icon/close.svg';
-import { ReactComponent as Burger } from '../../images/icon/burger.svg';
+
+import SearchIcon from '@mui/icons-material/Search';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 import MainBgMob from '../../images/leafs/pasta-spinach-main_mobile.png';
 import MainBgMob2 from '../../images/leafs/pasta-spinach-main_mobile@2x.png';
@@ -16,7 +17,11 @@ import MainBgTab2 from '../../images/leafs/pasta-spinach-main_tablet@2x.png';
 export const HeaderBox = styled.header`
   max-width: 375px;
   margin: 0 auto;
-  background-color: ${p => p.theme.primary.userBg};
+  background-color: transparent;
+
+  /* z-index: 9999;
+   display: block;
+        position: absolute; */
 
   @media ${p => p.theme.device.tablet} {
     max-width: 768px;
@@ -77,9 +82,11 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
+  /* margin-left: auto; */
+  /* gap: 8px; */
   padding-top: 20px;
-  background-color: ${p => p.theme.primary.userBg};
+  background-color: transparent;
+  /* position: absolute; */
 
   @media ${p => p.theme.device.tablet} {
     padding-top: 19px;
@@ -95,15 +102,17 @@ export const Nav = styled.nav`
 export const UserBox = styled.div`
   display: flex;
   align-items: center;
+  flex-shrink: 1;
   gap: 20px;
-  margin-left: 130px;
+  margin-left: auto;
+  margin-right: auto;
 
   @media ${p => p.theme.device.tablet} {
-    margin-left: 480px;
+    margin-right: 36px;
   }
 
   @media ${p => p.theme.device.desktop} {
-    margin-left: 0px;
+    margin-left: auto;
   }
 `;
 
@@ -313,6 +322,10 @@ export const ButtonUser = styled.button`
   }
 `;
 
+export const ImgUser = styled.img`
+  border-radius: 50%;
+`;
+
 export const UserLogoBox = styled.div`
   display: flex;
   align-items: center;
@@ -342,7 +355,7 @@ export const IconLogo = styled(LogoIcon)`
   }
 `;
 
-export const IconSearch = styled(Search)`
+export const IconSearch = styled(SearchIcon)`
   display: inline;
   width: 20px;
   height: 20px;
@@ -382,14 +395,14 @@ export const IconArrow = styled(Arrow)`
   }
 `;
 
-export const IconBurger = styled(Burger)`
+export const IconBurger = styled(MenuIcon)`
   width: 24px;
   height: 24px;
 
   color: ${p => p.theme.title.text};
 `;
 
-export const IconClose = styled(Close)`
+export const IconClose = styled(CloseIcon)`
   width: 20px;
   height: 20px;
   fill: ${p => p.theme.title.text};
