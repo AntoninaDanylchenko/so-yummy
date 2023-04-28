@@ -3,7 +3,8 @@ import {
   SocialWrap,
   Box,
   InnerBox,
-  InfoBox,
+  InfoList,
+  InfoItem,
   FooterNavEx,
   FooterLinkNav,
   SocialIconFacebook,
@@ -21,7 +22,14 @@ const FooterNav = () => {
         <Box>
           <InnerBox>
             <Logo />
-            <InfoBox></InfoBox>
+            <InfoList>
+              <InfoItem>Database of recipes that can be replenished </InfoItem>
+              <InfoItem>
+                Flexible search for desired and unwanted ingredients
+              </InfoItem>
+              <InfoItem>Ability to add your own recipes with photos</InfoItem>
+              <InfoItem>Convenient and easy to use</InfoItem>
+            </InfoList>
           </InnerBox>
           <FooterNavEx>
             <FooterLinkNav to="/categories/beef">Categories</FooterLinkNav>

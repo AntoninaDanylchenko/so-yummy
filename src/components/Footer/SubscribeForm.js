@@ -1,5 +1,8 @@
 import {
   FooterSubscribeWrapper,
+  FooterSubscribeTextWrap,
+  FooterSubscribeTitle,
+  FooterSubscribetext,
   FooterSubscribeLabel,
   FooterSubscribeInput,
   FooterSubscribeInputIcon,
@@ -9,6 +12,13 @@ import {
 const SubscribeForm = () => {
   return (
     <FooterSubscribeWrapper>
+      <FooterSubscribeTextWrap>
+        <FooterSubscribeTitle>Subscribe to our Newsletter</FooterSubscribeTitle>
+        <FooterSubscribetext>
+          Subscribe up to our newsletter. Be in touch with latest news and
+          special offers, etc.
+        </FooterSubscribetext>
+      </FooterSubscribeTextWrap>
       <FooterSubscribeLabel>
         <FooterSubscribeInput placeholder="Enter your email address" />
         <FooterSubscribeInputIcon />

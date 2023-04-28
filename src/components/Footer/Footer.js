@@ -1,11 +1,23 @@
-import { Wrapper } from './Footer.styled';
+import {
+  MainWrapper,
+  Wrapper,
+  BottomTextWrapper,
+  BottomTextReserved,
+  BottomTextService,
+} from './Footer.styled';
 import { FooterNav } from './Nav';
 
 const Footer = () => {
   return (
-    <Wrapper>
-      <FooterNav />
-    </Wrapper>
+    <MainWrapper>
+      <Wrapper>
+        <FooterNav />
+      </Wrapper>
+      <BottomTextWrapper>
+        <BottomTextReserved>© 2023 All Rights Reserved.</BottomTextReserved>
+        <BottomTextService>Terms of Service</BottomTextService>
+      </BottomTextWrapper>
+    </MainWrapper>
   );
 };
 
