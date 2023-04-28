@@ -58,3 +58,14 @@ export const Box = styled.section`
     }
   }
 `;
+
+export const MainWidth = styled.main`
+  min-width: 440px;
+  @media (${p => p.theme.device.tablet}) {
+    min-width: 800px;
+  }
+
+  @media (${p => p.theme.device.desktop}) {
+    min-width: 755px;
+  }
+`;

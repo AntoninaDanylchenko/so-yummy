@@ -3,17 +3,17 @@ import { Suspense } from 'react';
 import Header from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { BgComponent } from '../BgComponents/BgComponent';
-import { Box } from './SharedLayout.styled';
+import { Box, MainWidth } from './SharedLayout.styled';
 export const SharedLayout = () => {
   return (
     <Box>
       <Header />
 
-      <main>
+      <MainWidth>
         <Suspense>
           <Outlet />
         </Suspense>
-      </main>
+      </MainWidth>
       <BgComponent />
       <Footer />
     </Box>
