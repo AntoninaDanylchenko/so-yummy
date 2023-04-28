@@ -13,17 +13,12 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/authSlice';
 import { favoriteReducer } from './favorite/favSlice';
-
+import { recipeReducer } from './recipe/recipeSlice';
+import { ingredientsReducer } from './ingredients/slice';
 import { myRecipesReducer } from './myRecipes/myRecipesSlice';
 import { ownRecipeReducer } from './addRecipe/slice';
-
-import { recipeReducer } from './recipe/recipeSlice';
-
-import { ingredientsReducer } from './ingredients/slice';
-
 import { recipesMainReducer } from './recipesMain/recipesMainSlice';
 import { recipesPopularReducer } from './popularRecipes/recipesPopularSlice';
-
 import { shoppingListReducer } from './shoppingList/slice';
 import { categoriesListReducer } from './categories/slice';
 import { themeReducer } from './theme/themeSlice';
