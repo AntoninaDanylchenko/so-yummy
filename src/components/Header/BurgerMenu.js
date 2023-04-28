@@ -14,7 +14,7 @@ import {
 
 import { ThemeToggler } from './ThemeToggler';
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ onClose }) => {
   const [extendNavbar, setExtendNavbar] = useState(false);
 
   const handleBurger = () => {
@@ -24,6 +24,11 @@ const BurgerMenu = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
+  };
+
+  const handleCloseToLinkModal = () => {
+    setExtendNavbar(false);
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -43,12 +48,25 @@ const BurgerMenu = () => {
         <NavBarExtendedContainer>
           <NavExBox>
             <NavEx>
-              <LinkNav to={`/categories/${'beef'}`}>Categories</LinkNav>
-              <LinkNav to="/add">Add recipes</LinkNav>
-              <LinkNav to="/my">My recipes</LinkNav>
-              <LinkNav to="/favorite">Favorites</LinkNav>
-              <LinkNav to="/shopping-list">Shopping list</LinkNav>
-              <LinkNav to="/search">
+              <LinkNav
+                to={`/categories/${'beef'}`}
+                onClick={handleCloseToLinkModal}
+              >
+                Categories
+              </LinkNav>
+              <LinkNav to="/add" onClick={handleCloseToLinkModal}>
+                Add recipes
+              </LinkNav>
+              <LinkNav to="/my" onClick={handleCloseToLinkModal}>
+                My recipes
+              </LinkNav>
+              <LinkNav to="/favorite" onClick={handleCloseToLinkModal}>
+                Favorites
+              </LinkNav>
+              <LinkNav to="/shopping-list" onClick={handleCloseToLinkModal}>
+                Shopping list
+              </LinkNav>
+              <LinkNav to="/search" onClick={handleCloseToLinkModal}>
                 <IconSearch />
                 <span> Search</span>
               </LinkNav>
