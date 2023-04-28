@@ -14,7 +14,7 @@ import {
 
 import { ThemeToggler } from './ThemeToggler';
 
-const BurgerMenu = ({ onClose }) => {
+const BurgerMenu = () => {
   const [extendNavbar, setExtendNavbar] = useState(false);
 
   const handleBurger = () => {
