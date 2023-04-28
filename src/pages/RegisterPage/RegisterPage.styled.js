@@ -16,12 +16,12 @@ import imgPanaTablet2x from '../../images/form/food-pana_tablet@2x.png';
 import imgPanaDesktop from '../../images/form/food-pana_desktop.png';
 import imgPanaDesktop2x from '../../images/form/food-pana_desktop@2x.png';
 
-export const Probnik111111 = styled.div`
-  @media (${p => p.theme.device.tablet}) {
-  }
-  @media (${p => p.theme.device.desktop}) {
-  }
-`;
+// export const Probnik111111 = styled.div`
+//   @media (${p => p.theme.device.tablet}) {
+//   }
+//   @media (${p => p.theme.device.desktop}) {
+//   }
+// `;
 export const Box = styled.section`
   min-width: 100vw;
   min-height: 100vh;

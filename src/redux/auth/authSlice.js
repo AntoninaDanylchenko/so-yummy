@@ -6,6 +6,7 @@ const initialStateAuth = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  // accessToken: false,
   avatarURL: '',
 };
 
@@ -14,7 +15,8 @@ const handleExitFulfilled = (state, action) => {
   state.user.username = action.payload.resUser.username;
   state.user.email = action.payload.resUser.email;
   state.avatarURL = action.payload.resUser.avatarURL;
-  state.token = action.payload.token;
+
+  state.token = action.payload.refresh_token;
   state.isLoggedIn = true;
 };
 
