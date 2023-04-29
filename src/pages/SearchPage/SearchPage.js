@@ -11,6 +11,7 @@ import { SearchTypeSelector } from 'components/SearchPage/SearchTypeSelector';
 import { RecipeItem } from 'components/RecipeItem/RecipeItem';
 import { SearchWrapper } from 'components/SearchPage/SearchBar.styled';
 import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.styled';
+import NoResult from 'components/NoResult/NoResult';
 
 const SearchPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -83,12 +84,15 @@ const SearchPage = () => {
         <SearchBar onSubmit={onChangeQuery} />
         <SearchTypeSelector onSelectChange={onSelectChange} />
       </SearchWrapper>
-      <SearchedRecipesList>
-        {recipes?.map(recipe => {
-          return <RecipeItem key={recipe.id} recipe={recipe} />;
-        })}
-      </SearchedRecipesList>
-
+      {recipes.length ? (
+        <SearchedRecipesList>
+          {recipes?.map(recipe => {
+            return <RecipeItem key={recipe.id} recipe={recipe} />;
+          })}
+        </SearchedRecipesList>
+      ) : (
+        <NoResult />
+      )}
       {showLoadMore && <Button onClick={loadMore} />}
     </Container>
   );

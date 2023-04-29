@@ -7,7 +7,7 @@ export const SearchWrapper = styled.div`
   align-items: center;
   padding-top: 60;
   padding-bottom: 0;
-  min-height: 500px;
+  /* min-height: 500px; */
 `;
 
 export const Form = styled.form`
@@ -68,8 +68,8 @@ export const SearchBtn = styled.button`
     background-color ${p => p.theme.transition};
   :hover,
   :focus {
-    background-color: ${props => props.theme.title.addBtnBg};
-    color: ${props => props.theme.primary.textFooter};
+    background-color: ${p => p.theme.title.addBtnBg};
+    color: ${p => p.theme.primary.textFooter};
     outline: none;
   }
   @media screen and ${p => p.theme.device.tablet} {

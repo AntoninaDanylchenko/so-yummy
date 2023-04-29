@@ -5,11 +5,11 @@ export const Form = styled.form`
   width: 295px;
   margin: 0 auto;
   /* box-shadow: ${p => p.theme.shadows[3]}; */
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and (${p => p.theme.device.tablet}) {
     margin: 0;
     width: 369px;
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media screen and (${p => p.theme.device.desktop}) {
     width: 510px;
   }
 `;
