@@ -115,6 +115,8 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 3;
 
   @media screen and (max-width: 1439px) {
     display: none;
@@ -249,7 +251,7 @@ export const NavEx = styled.nav`
   gap: 32px;
 
   @media ${p => p.theme.device.tablet} {
-    gap: 40px;
+    gap: 40px;align-self: start;
   }
 `;
 
@@ -258,7 +260,7 @@ export const OpenLinksButton = styled.button`
   height: 20px;
   top: 0;
   left: 244px;
-  z-index: 7;
+  z-index: 10;
   cursor: pointer;
   border: none;
   position: relative;
