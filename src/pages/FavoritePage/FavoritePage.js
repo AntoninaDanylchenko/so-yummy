@@ -1,11 +1,16 @@
 import FavoriteList from 'components/FavoriteList/FavoriteList';
 import Title from '../../components/Title/Title'
 import { Toaster } from 'react-hot-toast';
-import { Container } from '@mui/material';
+
+import { useTheme } from '@mui/material';
+import {
+  Container
+} from '../AddRecipePage/AddRecipePage.styled';
 
 const FavoritePage = () => {
+  const theme = useTheme();
   return (
-    <Container>
+    <Container >
       <Title title="Favorites" />
       <FavoriteList />
       <Toaster />

@@ -1,6 +1,8 @@
 import Title from '../../components/Title/Title';
 import { Toaster } from 'react-hot-toast';
-import { Container } from '@mui/material';
+import {
+  Container
+} from '../AddRecipePage/AddRecipePage.styled';
 import MyRecipesList from '../../components/MyRecipesPage/MyRecipesList';
 
 const MyRecipesPage = () => {
