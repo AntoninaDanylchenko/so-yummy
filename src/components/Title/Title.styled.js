@@ -10,5 +10,5 @@ export const TitleStyle = styled.h2`
   font-feature-settings: 'liga' off;
   margin-top: 102px;
   margin-bottom: 50px;
-  color: #001833;
+  color: ${p => p.theme.subtitle}
 `;

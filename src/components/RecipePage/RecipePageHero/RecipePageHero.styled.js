@@ -13,8 +13,10 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 144px;
   padding-bottom: 90px;
-  /* position: absolute;
-  top: 0; */
+  position: relative;
+  top: -63px;
+  margin-bottom: -63px;
+  z-index: -1;
   background-image: url(${bgImageMobile});
   background-repeat: no-repeat;
   background-position: center;
