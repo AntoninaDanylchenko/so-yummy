@@ -10,6 +10,7 @@ export const Toggle = styled(props => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
   width: 60,
+  zIndex: 1,
   height: 26,
   padding: 0,
 
