@@ -5,6 +5,7 @@ import { getMyRecipes } from 'redux/myRecipes/selector';
 import { getMyRecipesOp } from 'redux/myRecipes/operation';
 // import { Loader } from 'components/Spinner/Spinner';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
+import NoResult from 'components/NoResult/NoResult';
 
 const MyRecipesList = () => {
   const dispatch = useDispatch();
@@ -16,19 +17,25 @@ const MyRecipesList = () => {
   }, [dispatch]);
 
   return (
-    <ul>
-      {myRecipes.map(({ _id, title, description, preview, time }) => (
-        <li key={_id}>
-          <RecipeCard
-            id={_id}
-            title={title}
-            description={description}
-            preview={preview}
-            time={time}
-          />
-        </li>
-      ))}
-    </ul>
+    <>
+      {myRecipes.length ? (
+        <ul>
+          {myRecipes.map(({ _id, title, description, preview, time }) => (
+            <li key={_id}>
+              <RecipeCard
+                id={_id}
+                title={title}
+                description={description}
+                preview={preview}
+                time={time}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <NoResult />
+      )}
+    </>
   );
 };
 
