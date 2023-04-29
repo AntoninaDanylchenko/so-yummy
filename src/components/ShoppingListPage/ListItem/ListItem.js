@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import CloseIcon from '@mui/icons-material/Close';
 import { removeIngredientFromShoppingList } from 'redux/shoppingList/operations';
 import {
   Item,
@@ -9,7 +10,6 @@ import {
   CloseButton,
   MeasureWrapper,
   Measure,
-  DelIcon,
 } from './ListItem.styled';
 
 export default function ListItem({ shoppingItem }) {
@@ -30,9 +30,13 @@ export default function ListItem({ shoppingItem }) {
         <PosterTitle>{ttl}</PosterTitle>
       </PosterWrapper>
       <MeasureWrapper>
-        <Measure>
-          {measure[0]} {measure[1]}
-        </Measure>
+        {measure ? (
+          <Measure>
+            {measure[0]} {measure[1]}
+          </Measure>
+        ) : (
+          <Measure></Measure>
+        )}
       </MeasureWrapper>
       <CloseButton
         aria-label="delete"
@@ -40,7 +44,7 @@ export default function ListItem({ shoppingItem }) {
           dispatch(removeIngredientFromShoppingList(id));
         }}
       >
-        <DelIcon />
+        <CloseIcon color="inherit" fontSize="inherit" />
       </CloseButton>
     </Item>
   );

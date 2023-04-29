@@ -1,12 +1,13 @@
 import {
   InfoWrap,
-  SocialWrap,
   Box,
   InnerBox,
   InfoList,
   InfoItem,
   FooterNavEx,
   FooterLinkNav,
+  SocialWrap,
+  SocialIconLink,
   SocialIconFacebook,
   SocialIconYoutube,
   SocialIconTwitter,
@@ -22,6 +23,7 @@ const FooterNav = () => {
         <Box>
           <InnerBox>
             <Logo />
+
             <InfoList>
               <InfoItem>Database of recipes that can be replenished </InfoItem>
               <InfoItem>
@@ -31,6 +33,7 @@ const FooterNav = () => {
               <InfoItem>Convenient and easy to use</InfoItem>
             </InfoList>
           </InnerBox>
+
           <FooterNavEx>
             <FooterLinkNav to="/categories/beef">Categories</FooterLinkNav>
             <FooterLinkNav to="/add">Add recipes</FooterLinkNav>
@@ -39,13 +42,46 @@ const FooterNav = () => {
             <FooterLinkNav to="/shopping-list">Shopping list</FooterLinkNav>
           </FooterNavEx>
         </Box>
+
         <SubscribeForm />
       </InfoWrap>
+
       <SocialWrap>
-        <SocialIconFacebook />
-        <SocialIconYoutube />
-        <SocialIconTwitter />
-        <SocialIconInstagram />
+        <SocialIconLink
+          href="https://uk-ua.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="facebook"
+        >
+          <SocialIconFacebook />
+        </SocialIconLink>
+
+        <SocialIconLink
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="youtube"
+        >
+          <SocialIconYoutube />
+        </SocialIconLink>
+
+        <SocialIconLink
+          href="https://twitter.com/?lang=uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="twitter"
+        >
+          <SocialIconTwitter />
+        </SocialIconLink>
+
+        <SocialIconLink
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="instagram"
+        >
+          <SocialIconInstagram />
+        </SocialIconLink>
       </SocialWrap>
     </>
   );
