@@ -181,12 +181,28 @@ export const SocialIconLink = styled.a`
   height: 18px;
   margin: 0;
   padding: 0;
+
+  &:hover svg {
+    fill: white;
+  }
 `;
 
-export const SocialIconFacebook = styled(Facebook)``;
-export const SocialIconYoutube = styled(Youtube)``;
-export const SocialIconTwitter = styled(Twitter)``;
-export const SocialIconInstagram = styled(Instagram)``;
+export const SocialIconFacebook = styled(Facebook)`
+  fill: #8baa36;
+  transition: all 300ms linear;
+`;
+export const SocialIconYoutube = styled(Youtube)`
+  fill: #8baa36;
+  transition: all 300ms linear;
+`;
+export const SocialIconTwitter = styled(Twitter)`
+  fill: #8baa36;
+  transition: all 300ms linear;
+`;
+export const SocialIconInstagram = styled(Instagram)`
+  fill: #8baa36;
+  transition: all 300ms linear;
+`;
 
 export const FooterLogoLinkNav = styled(LinkNav)`
   display: flex;
@@ -222,6 +238,11 @@ export const FooterNavEx = styled(NavEx)`
 
 export const FooterLinkNav = styled(LinkNav)`
   color: white;
+  transition: all 300ms linear;
+
+  &:hover {
+    color: #8baa36;
+  }
 
   @media screen and (min-width: 768px) {
     font-weight: 500;
@@ -376,6 +397,11 @@ export const FooterSubscribeButton = styled.button`
   background: #8baa36;
   border: none;
   border-radius: 6px;
+  transition: all 300ms linear;
+
+  &:hover {
+    color: black;
+  }
 
   @media screen and (min-width: 768px) {
     max-width: 171px;
