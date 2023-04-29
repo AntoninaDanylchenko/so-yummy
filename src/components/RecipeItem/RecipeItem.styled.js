@@ -5,35 +5,24 @@ export const StyledItem = styled.li`
   :hover {
     transform: scale(1.05);
   }
+  @media (${p => p.theme.device.tablet}) {
+    width: calc((100% - 32px) / 2);
+  }
+  @media (${p => p.theme.device.desktop}) {
+    width: calc((100% - 42px) / 4);
+  }
 `;
 
 export const Card = styled.div`
   position: relative;
   overflow: hidden;
-  width: 343px;
   height: 323px;
   border-radius: ${p => p.theme.radii[2]};
-  @media (${p => p.theme.device.tablet}) {
-    width: 336px;
-  }
-
-  @media (${p => p.theme.device.desktop}) {
-    width: 300px;
-  }
 `;
 
 export const PrewievImg = styled.img`
-  display: block;
-  width: 343px;
-
-  @media (${p => p.theme.device.tablet}) {
-    width: 336px;
-  }
-
-  @media (${p => p.theme.device.desktop}) {
-    width: 300px;
-    height: 323px;
-  }
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const TitleWrapper = styled.div`

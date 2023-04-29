@@ -1,17 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import Background from 'images/main/main-bg_mobile.png';
-import { ReactComponent as ArrowIcon } from 'images/icon/arrow-main.svg';
 
-export const Container = styled.div`
-  /* background-image: url('${Background}'); */
-  /* background-size: 58px auto, 375px auto; */
-  /* background-position: top right, center;
-  background-repeat: no-repeat; */
-  @media screen and ${p => p.theme.device.tablet} {
-    position: relative;
-  }
-`;
+import { ReactComponent as ArrowIcon } from 'images/icon/arrow-main.svg';
 
 export const TitleWrap = styled.span`
   display: flex;
@@ -48,7 +38,7 @@ export const Title = styled.h2`
   }
 `;
 export const MainText = styled.p`
-  margin: 0 auto 157px auto;
+  margin: 0 auto 364px auto;
   max-width: 248px;
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes[3]};
@@ -71,22 +61,23 @@ export const MainText = styled.p`
 `;
 
 export const ContainerWrap = styled.div`
+  position: absolute;
   max-width: 225px;
-  margin-left: auto;
-  margin-bottom: 115px;
+  top: 435px;
+  right: 34px;
   padding: 8px;
   background-color: ${p => p.theme.primary.background};
   border-radius: ${p => p.theme.radii[2]};
   @media screen and ${p => p.theme.device.tablet} {
-    position: absolute;
     right: 0;
-    margin: 0;
-    bottom: -110px;
+    top: 372px;
+    right: 32px;
     max-width: 260px;
     padding: 12px;
   }
   @media screen and ${p => p.theme.device.desktop} {
-    bottom: -180px;
+    top: 462px;
+    right: 122px;
     padding: 16px;
   }
 `;
