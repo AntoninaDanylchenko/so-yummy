@@ -1,26 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
-import {
-  Formik,
-  Form,
-  // Field
-} from 'formik';
+// import { styled } from '@mui/material/styles';
+import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';
-import { Button, InputAdornment, LinearProgress } from '@mui/material';
+import { InputAdornment, LinearProgress, Button } from '@mui/material';
 
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 // import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
-// import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
-// import CancelSharpIcon from '@mui/icons-material/CancelSharp';
+import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
+import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 // import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
-
-import { InputFormik } from './RegisterForm.styled';
 
 const schema = object().shape({
   username: string()
@@ -54,6 +48,11 @@ export const RegisterForm = () => {
       // alert(JSON.stringify(values, null, 2));
     }, 500);
   };
+  // const handleChange = (values) => {
+  //   if( errors.password && values.password.length > Number(6) && values.password.length < Number(16) ){
+  //           sx ={{color: "yellow" }}
+  //           }
+  // }
   // const { errors, touched, values, handleSubmit, handleChange } = formik;
   return (
     <Formik
@@ -61,40 +60,57 @@ export const RegisterForm = () => {
       validationSchema={schema}
       onSubmit={handleOnSubmit}
     >
-      {({ values, submitForm, resetForm, isSubmitting, touched, errors }) => (
+      {({
+        values,
+        submitForm,
+        resetForm,
+        isSubmitting,
+        touched,
+        errors,
+        // onChange,
+      }) => (
         <Form autoComplete="off">
-          <InputFormik
+          <Field
             component={TextField}
             fullWidth
-            id="outlined-textarea"
+            id="outlined"
             name="username"
             type="text"
             placeholder="Name"
             multiline
-            // sx={{
-            //   mb: '12px',
-            // }}
-            //   fontFamily: 'Poppins',
-            //   fontSize: 14,
-            //   lineHeight: 1.39,
-            //   mb: '12px',
-            //   // height: '45px',
-            //   // p: '12px 0px',
-            //   // backgroundColor: '#8BAA36',
-            //   color: '#fafafa',
-            //   opacity: 0.8,
+            // color="#ED6C02"
+            sx={{
+              fontFamily: 'Poppins',
+              fontSize: 14,
+              lineHeight: 1.39,
+              mb: '12px',
 
-            //   flex: 'none',
-            //   order: 2,
-            //   flexGrow: 0,
+              opacity: 0.8,
 
-            //   borderRadius: '6px',
-            //   border: '1px solid #fafafa',
-            //   '&:hover': {
-            //     color: '#fff',
-            //     border: '2px solid #fff',
-            //   },
-            // }}
+              flex: 'none',
+              order: 2,
+              flexGrow: 0,
+
+              borderRadius: '6px',
+              // border: '1px solid #fafafa',
+              //  border={touched.username && errors.username && "1px solid red"},
+              // {Boolean(errors.username) &&  (border: '1px solid #fafafa')}
+              // border={(Boolean(errors.username)) && "1px solid red"},
+              // onBlur= ({Boolean(touched.username) && Boolean(errors.username) ? sx={..., border: '1px solid  #E74A3B'} : border:`1px solid #3CBC81` })
+              // border:
+              //   Boolean(touched.username) && Boolean(errors.username)
+              //     ? '1px solid #E74A3B'
+              //     : `1px solid #3CBC81`,
+              '@media (min-width: 768px)': {
+                mb: '24px',
+              },
+
+              '& $notchedOutline': {
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderWidth: 3,
+                },
+              },
+            }}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -105,31 +121,51 @@ export const RegisterForm = () => {
                       flex: 'none',
                       order: 1,
                       flexGrow: 0,
-
-                      '&:hover': { color: 'red', backgroundColor: 'red' },
                     }}
                   />
+                </InputAdornment>
+              ),
+              // border: '1px solid #E74A3B'
+              //     : `1px solid #3CBC81`,
+              endAdornment: (
+                <InputAdornment position="end" style={{ outline: 'none' }}>
+                  {errors.username && touched.username && (
+                    <CancelSharpIcon
+                      style={{ color: '#E74A3B' }}
+                      fontSize="default"
+                    ></CancelSharpIcon>
+                  )}
+                  {!errors.username && touched.username && (
+                    <CheckCircleSharpIcon
+                      style={{ color: '#3CBC81' }}
+                      // size=""
+                      fontSize="default"
+                    ></CheckCircleSharpIcon>
+                  )}
                 </InputAdornment>
               ),
             }}
             // value={values.username}
             // onChange={handleChange}
             // error={touched.username && Boolean(errors.username)}
+            error={touched['username'] && !!errors['username']}
+            helperText={touched['username'] && errors['username']}
             // helperText={touched.username && errors.username}
           />
+
           {/* border=
         {touched.email &&
           '2px solid #FFFFFF)' &&
           (errors.email ? '1px solid #E74A3B' : `1px solid #3CBC81`)} */}
-          <InputFormik
+          <Field
             component={TextField}
             fullWidth
-            id="outlined-textarea"
+            id="outlined"
             name="email"
             type="email"
             placeholder="Email"
             multiline
-            // style={{ color: 'white' }}
+            style={{ color: 'white' }}
             // sx={{
             //   fontFamily: 'Poppins',
             //   fontSize: 14,
@@ -162,8 +198,6 @@ export const RegisterForm = () => {
                       flex: 'none',
                       order: 1,
                       flexGrow: 0,
-
-                      '&:hover': { color: 'red', backgroundColor: 'red' },
                     }}
                   />
                 </InputAdornment>
@@ -174,36 +208,16 @@ export const RegisterForm = () => {
             // error={touched.email && Boolean(errors.email)}
             // helperText={touched.email && errors.email}
           />
-          <InputFormik
+          <Field
             component={TextField}
             fullWidth
-            id="outlined-textarea"
+            id="outlined"
             name="password"
             placeholder="Password"
             type="password"
             multiline
-            // sx={{
-            //   fontFamily: 'Poppins',
-            //   fontSize: '14px',
-            //   lineHeight: 1.39,
-            //   mb: '12px',
-            //   // height: '45px',
-            //   // p: '12px 0px',
-            //   // backgroundColor: '#8BAA36',
-            //   color: '#fafafa',
-            //   opacity: 0.8,
-
-            //   flex: 'none',
-            //   order: 2,
-            //   flexGrow: 0,
-
-            //   borderRadius: '6px',
-            //   border: '1px solid #fafafa',
-            //   '&:hover': {
-            //     color: '#fff',
-            //     border: '2px solid #fff',
-            //   },
-            // }}
+            // onChange={handleChange}
+            sx={{}}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -226,7 +240,6 @@ export const RegisterForm = () => {
           />
           {isSubmitting && <LinearProgress />}
           <br />
-
           <Button
             sx={{
               fontFamily: 'Poppins',
@@ -247,6 +260,20 @@ export const RegisterForm = () => {
                 backgroundColor: '#8BAA36',
                 color: '#fff',
               },
+
+              '@media (min-width: 768px)': {
+                width: '80%',
+                height: '56px',
+                borderRadius: '6px',
+                backgroundColor: ' #8BAA36;',
+              },
+
+              '@media (min-width: 1440px)': {
+                width: '100%',
+                height: '59px',
+                borderRadius: '6px',
+                backgroundColor: ' #8BAA36;',
+              },
             }}
             variant="contained"
             fullWidth
@@ -261,3 +288,7 @@ export const RegisterForm = () => {
     </Formik>
   );
 };
+
+// const ButtonFormik = styled(Button){
+//   backgroundColor: ${p=>p.theme.primary.text},
+// };
