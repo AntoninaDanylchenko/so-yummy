@@ -102,15 +102,6 @@ export const InfoWrap = styled.div`
   }
 `;
 
-export const SocialWrap = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 18px;
-  color: white;
-  column-gap: 14px;
-`;
-
 export const Box = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
@@ -172,6 +163,23 @@ export const InfoItem = styled.li`
   }
 `;
 
+export const SocialWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18px;
+  column-gap: 14px;
+`;
+
+export const SocialIconLink = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+`;
+
 export const SocialIconFacebook = styled(Facebook)``;
 export const SocialIconYoutube = styled(Youtube)``;
 export const SocialIconTwitter = styled(Twitter)``;
@@ -204,7 +212,7 @@ export const FooterNavEx = styled(NavEx)`
   }
 
   @media screen and (min-width: 1440px) {
-    max-width: 92px;
+    width: 92px;
     gap: 24px;
   }
 `;
@@ -253,7 +261,7 @@ export const IconLogoText = styled.h3`
   }
 `;
 
-export const FooterSubscribeWrapper = styled.div`
+export const FooterSubscribeWrapper = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
