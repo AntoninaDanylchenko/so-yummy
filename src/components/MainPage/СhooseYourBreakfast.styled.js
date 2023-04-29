@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
-import { ReactComponent as ArrowIcon } from 'images/icon/arrow-main.svg';
+import EastIcon from '@mui/icons-material/East';
 
 export const TitleWrap = styled.span`
   display: flex;
@@ -104,6 +103,10 @@ export const DescriptionAccent = styled.span`
 `;
 
 export const WrapLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 4px;
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes[1]};
   line-height: 1.2;
@@ -117,18 +120,12 @@ export const WrapLink = styled.div`
   }
 `;
 
-export const LinkRecipes = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 4px;
-`;
-export const IconArrow = styled(ArrowIcon)`
-  /* display: block; */
+export const IconArrow = styled(EastIcon)`
   width: 12px;
   height: 9px;
-  /* color: ${p => p.theme.blackText.text}; */
-  /* :hover {
-    color: ${p => p.theme.accent.mainBtnBg};
-  } */
+  fill: ${p => p.theme.blackText.text};
+  transition: fill ${p => p.theme.transition};
+  :hover {
+    fill: ${p => p.theme.accent.mainBtnBg};
+  }
 `;
