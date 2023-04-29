@@ -7,7 +7,7 @@ import {
   ContainerWrap,
   Description,
   DescriptionAccent,
-  LinkRecipes,
+  // LinkRecipes,
   WrapLink,
 } from './СhooseYourBreakfast.styled';
 
