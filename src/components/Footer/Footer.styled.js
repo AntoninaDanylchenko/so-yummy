@@ -10,14 +10,17 @@ import { LinkNav, NavEx } from '../Header/Header.styled';
 export const MainWrapper = styled.footer`
   position: relative;
   bottom: 66px;
+  margin-top: 66px;
   background: #22252a;
 
   @media screen and (min-width: 768px) {
     bottom: 78px;
+    margin-top: 78px;
   }
 
   @media screen and (min-width: 1440px) {
     bottom: 114px;
+    margin-top: 114px;
   }
 `;
 
