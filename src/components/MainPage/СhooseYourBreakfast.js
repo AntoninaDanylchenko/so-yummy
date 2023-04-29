@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import { IconArrow } from './СhooseYourBreakfast.styled';
 import {
-  Container,
   Title,
   TitleWrap,
   MainText,
@@ -13,7 +13,7 @@ import {
 
 export const СhooseYourBreakfast = () => {
   return (
-    <Container>
+    <>
       <TitleWrap>
         So<Title>Yummy</Title>
       </TitleWrap>
@@ -27,12 +27,10 @@ export const СhooseYourBreakfast = () => {
           enjoy a variety of fresh ingredients in one satisfying meal
         </Description>
         <WrapLink>
-          <LinkRecipes to={`/categories/breakfast`}>
-            <p>See recipes</p>
-            <IconArrow />
-          </LinkRecipes>
+          <Link to={`/categories/breakfast`}>See recipes</Link>
+          <IconArrow />
         </WrapLink>
       </ContainerWrap>
-    </Container>
+    </>
   );
 };

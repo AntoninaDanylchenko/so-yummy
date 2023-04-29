@@ -22,6 +22,7 @@ import { recipesPopularReducer } from './popularRecipes/recipesPopularSlice';
 import { shoppingListReducer } from './shoppingList/slice';
 import { categoriesListReducer } from './categories/slice';
 import { themeReducer } from './theme/themeSlice';
+import { subscribeReducer } from './subscribe/subscribeSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -42,6 +43,7 @@ export const store = configureStore({
     theme: themeReducer,
     ownRecipe: ownRecipeReducer,
     ingredients: ingredientsReducer,
+    subscribe: subscribeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
