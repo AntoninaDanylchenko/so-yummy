@@ -78,8 +78,7 @@ export const RegisterForm = () => {
             type="text"
             placeholder="Name"
             multiline
-            // color={{#fafafa}}
-            color="secondary"
+            // color="#ED6C02"
             sx={{
               fontFamily: 'Poppins',
               fontSize: 14,
@@ -93,7 +92,10 @@ export const RegisterForm = () => {
               flexGrow: 0,
 
               borderRadius: '6px',
-              border: '1px solid #fafafa',
+              // border: '1px solid #fafafa',
+              //  border={touched.username && errors.username && "1px solid red"},
+              // {Boolean(errors.username) &&  (border: '1px solid #fafafa')}
+              // border={(Boolean(errors.username)) && "1px solid red"},
               // onBlur= ({Boolean(touched.username) && Boolean(errors.username) ? sx={..., border: '1px solid  #E74A3B'} : border:`1px solid #3CBC81` })
               // border:
               //   Boolean(touched.username) && Boolean(errors.username)
@@ -101,6 +103,12 @@ export const RegisterForm = () => {
               //     : `1px solid #3CBC81`,
               '@media (min-width: 768px)': {
                 mb: '24px',
+              },
+
+              '& $notchedOutline': {
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderWidth: 3,
+                },
               },
             }}
             InputProps={{
@@ -117,6 +125,8 @@ export const RegisterForm = () => {
                   />
                 </InputAdornment>
               ),
+              // border: '1px solid #E74A3B'
+              //     : `1px solid #3CBC81`,
               endAdornment: (
                 <InputAdornment position="end" style={{ outline: 'none' }}>
                   {errors.username && touched.username && (
@@ -128,6 +138,7 @@ export const RegisterForm = () => {
                   {!errors.username && touched.username && (
                     <CheckCircleSharpIcon
                       style={{ color: '#3CBC81' }}
+                      // size=""
                       fontSize="default"
                     ></CheckCircleSharpIcon>
                   )}
