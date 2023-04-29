@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-import { ReactComponent as Del } from '../../../images/icon/x-icon.svg';
-// import delIcon from '../../../images/icon/delete.svg';
 
 export const Item = styled.li`
   position: relative;
@@ -8,7 +6,7 @@ export const Item = styled.li`
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${p => p.theme.borderLine};
   width: 343px;
   height: 84px;
 
@@ -34,16 +32,16 @@ export const PosterContainer = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #ebf3d4;
+  background-color: ${p => p.theme.ligthGreen.ingredientBg};
 
   width: 60px;
   height: 60px;
-  border-radius: 6px;
+  border-radius: ${p => p.theme.radii[1]};
 
   @media (${p => p.theme.device.tablet}) {
     width: 93px;
     height: 97px;
-    border-radius: 8px;
+    border-radius: ${p => p.theme.radii[2]};
   }
 `;
 
@@ -59,17 +57,15 @@ export const Poster = styled.img`
 `;
 
 export const PosterTitle = styled.p`
-  color: #3e4462;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
+  color: ${p => p.theme.blackText.text};
+  font-weight: ${p => p.theme.fontWeights.medium};
   margin-left: 10px;
-  font-size: 10px;
+  font-size: ${p => p.theme.fontSizes[1]};
   line-height: 12px;
 
   @media (${p => p.theme.device.tablet}) {
     margin-left: 16px;
-    font-size: 16px;
+    font-size: ${p => p.theme.fontSizes[4]};
     line-height: 24px;
   }
 `;
@@ -78,14 +74,16 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 0;
   right: 19px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 0;
   padding: 0;
   border: none;
-  border-radius: 6px;
+  border-radius: ${p => p.theme.radii[1]};
   background-color: transparent;
+  text-align: center;
+  vertical-align: middle;
+  color: ${p => p.theme.incrementNumber};
+
+  font-size: ${p => p.theme.fontSizes[3]};
   width: 14px;
   height: 14px;
 
@@ -93,7 +91,8 @@ export const CloseButton = styled.button`
     right: 45px;
     width: 20px;
     height: 20px;
-    border-radius: 8px;
+    font-size: ${p => p.theme.fontSizes[6]};
+    border-radius: ${p => p.theme.radii[2]};
   }
 
   @media (${p => p.theme.device.desktop}) {
@@ -102,11 +101,7 @@ export const CloseButton = styled.button`
 
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    background-color: #8baa36;
-  }
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const MeasureWrapper = styled.div`
@@ -118,8 +113,8 @@ export const MeasureWrapper = styled.div`
   justify-content: center;
   width: 37px;
   height: 23px;
-  border-radius: 4px;
-  background-color: #8baa36;
+  border-radius: ${p => p.theme.radii[0]};
+  background-color: ${p => p.theme.accent.mainBtnBg};
 
   @media (${p => p.theme.device.tablet}) {
     right: 175px;
@@ -135,31 +130,13 @@ export const MeasureWrapper = styled.div`
 export const Measure = styled.p`
   margin: 0;
   padding: 0;
-  color: #fafafa;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
+  color: ${p => p.theme.primary.textFooter};
+  font-weight: ${p => p.theme.fontWeights.semibold};
+  font-size: ${p => p.theme.fontSizes[1]};
   line-height: 15px;
 
   @media (${p => p.theme.device.tablet}) {
-    font-size: 18px;
+    font-size: ${p => p.theme.fontSizes[5]};
     line-height: 27px;
-  }
-`;
-
-export const DelIcon = styled(Del)`
-  stroke: #333333;
-  width: 14px;
-  height: 14px;
-  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  @media (${p => p.theme.device.tablet}) {
-    width: 20px;
-    height: 20px;
-  }
-
-  &:hover {
-    stroke: #ffffff;
   }
 `;

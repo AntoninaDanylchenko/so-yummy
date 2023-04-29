@@ -45,7 +45,7 @@ export const Card = styled.div`
   overflow: hidden;
   width: 343px;
   height: 323px;
-  border-radius: 8px;
+  border-radius: ${p => p.theme.radii[2]};
 
   @media (${p => p.theme.device.tablet}) {
     width: 336px;
@@ -80,8 +80,8 @@ export const TitleWrapper = styled.div`
   padding-left: 16px;
   width: 307px;
   height: 52px;
-  background: #ffffff;
-  border-radius: 8px;
+  background: ${p => p.theme.secondary.recipeBg};
+  border-radius: ${p => p.theme.radii[2]};
 
   @media (${p => p.theme.device.tablet}) {
     width: 300px;
@@ -93,13 +93,11 @@ export const TitleWrapper = styled.div`
 `;
 
 export const Title = styled.p`
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes[4]};
   line-height: 20px;
   letter-spacing: -0.24px;
-  color: #3e4462;
+  color: ${p => p.theme.blackText.text};
 `;
 
 export const StyledLink = styled(Link)`
