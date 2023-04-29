@@ -15,8 +15,11 @@ const handleExitFulfilled = (state, action) => {
   state.user.username = action.payload.resUser.username;
   state.user.email = action.payload.resUser.email;
   state.avatarURL = action.payload.resUser.avatarURL;
+  console.log('====================================');
+  console.log(action.payload);
+  console.log('====================================');
 
-  state.token = action.payload.refresh_token;
+  state.token = action.payload.token;
   state.isLoggedIn = true;
 };
 

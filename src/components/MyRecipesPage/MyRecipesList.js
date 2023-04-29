@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { ButtonDelete, LabelList, LabelListNumber } from './ContactList.styled';
 import { getMyRecipes } from 'redux/myRecipes/selector';
-import { getFavoriteOp } from 'redux/favorite/operation';
+import { getMyRecipesOp } from 'redux/myRecipes/operation';
 // import { Loader } from 'components/Spinner/Spinner';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 
@@ -12,7 +12,7 @@ const MyRecipesList = () => {
   const { items: myRecipes } = useSelector(getMyRecipes);
 
   useEffect(() => {
-    dispatch(getFavoriteOp());
+    dispatch(getMyRecipesOp());
   }, [dispatch]);
 
   return (
