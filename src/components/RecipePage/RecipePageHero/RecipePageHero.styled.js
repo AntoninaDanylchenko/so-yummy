@@ -16,7 +16,7 @@ export const Container = styled.div`
   position: relative;
   top: -63px;
   margin-bottom: -63px;
-  z-index: -1;
+  /* z-index: -1; */
   background-image: url(${bgImageMobile});
   background-repeat: no-repeat;
   background-position: center;
