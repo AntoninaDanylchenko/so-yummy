@@ -6,11 +6,19 @@ const initialStateAuth = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  // accessToken: false,
   avatarURL: '',
 };
 
 const handleExitFulfilled = (state, action) => {
-  state.user = action.payload.user;
+  state.user._id = action.payload.resUser._id;
+  state.user.username = action.payload.resUser.username;
+  state.user.email = action.payload.resUser.email;
+  state.avatarURL = action.payload.resUser.avatarURL;
+  console.log('====================================');
+  console.log(action.payload);
+  console.log('====================================');
+
   state.token = action.payload.token;
   state.isLoggedIn = true;
 };
@@ -23,17 +31,20 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, handleExitFulfilled)
       .addCase(logIn.fulfilled, handleExitFulfilled)
       .addCase(logOut.fulfilled, state => {
-        state.user.name = null;
+        state.user.username = null;
         state.user.email = null;
+        state.avatarURL = null;
         state.token = null;
         state.isLoggedIn = false;
-        // state.avatarURL = null;
       })
       .addCase(refreshCurrentUser.pending, state => {
         state.isRefreshing = true;
       })
       .addCase(refreshCurrentUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user.username = action.payload.resUser.username;
+        state.user.email = action.payload.resUser.email;
+        state.user._id = action.payload.resUser._id;
+        state.avatarURL = action.payload.resUser.avatarURL;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

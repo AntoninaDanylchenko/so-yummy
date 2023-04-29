@@ -13,8 +13,10 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 144px;
   padding-bottom: 90px;
-  /* position: absolute;
-  top: 0; */
+  position: relative;
+  top: -63px;
+  margin-bottom: -63px;
+  z-index: -1;
   background-image: url(${bgImageMobile});
   background-repeat: no-repeat;
   background-position: center;
@@ -51,7 +53,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: ${p => p.theme.fonts};
+  font-family: ${p=>p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes[7]};
@@ -70,7 +72,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  font-family: ${p => p.theme.fonts};
+  font-family: ${p=>p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes[2]};
@@ -95,7 +97,7 @@ export const Description = styled.p`
 `;
 
 export const Button = styled.button`
-  font-family: ${p => p.theme.fonts};
+  font-family: ${p=>p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.regular};
   font-size: ${p => p.theme.fontSizes[1]};
@@ -133,7 +135,7 @@ export const Button = styled.button`
 export const Time = styled.p`
   display: flex;
   align-items: center;
-  font-family: ${p => p.theme.fonts};
+  font-family: ${p=>p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.medium};
   font-size: ${p => p.theme.fontSizes[1]};
