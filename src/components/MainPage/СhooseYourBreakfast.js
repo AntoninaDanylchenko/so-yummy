@@ -1,6 +1,5 @@
 import { IconArrow } from './СhooseYourBreakfast.styled';
 import {
-  Container,
   Title,
   TitleWrap,
   MainText,
@@ -13,7 +12,7 @@ import {
 
 export const СhooseYourBreakfast = () => {
   return (
-    <Container>
+    <>
       <TitleWrap>
         So<Title>Yummy</Title>
       </TitleWrap>
@@ -33,6 +32,6 @@ export const СhooseYourBreakfast = () => {
           </LinkRecipes>
         </WrapLink>
       </ContainerWrap>
-    </Container>
+    </>
   );
 };

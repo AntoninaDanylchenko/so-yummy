@@ -1,5 +1,49 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import BackgroundMob from 'images/main/main-bg_mobile.png';
+import BackgroundDesk from 'images/main/main-bg_desktop.png';
+import BackgroundDesk2 from 'images/main/main-bg_desktop@2x.png';
+
+// import SpinachMob from 'images/leafs/pasta-spinach-main_mobile.png';
+import SpinachDesk from 'images/leafs/pasta-spinach-main_desktop.png';
+import SpinachDesk2 from 'images/leafs/pasta-spinach-main_desktop@2x.png';
+
+// import SpinachLeftMob from 'images/leafs/pasta-spinach-main1_mobile.png';
+import SpinachLeftDesk from 'images/leafs/pasta-spinach-main1_desktop.png';
+import SpinachLeftDesk2 from 'images/leafs/pasta-spinach-main1_desktop@2x.png';
+
+// import PlateMob from 'images/leafs/unsplash_mobile.png';
+import PlateDesk from 'images/leafs/unsplash_desktop.png';
+import PlateDesk2 from 'images/leafs/unsplash_desktop@2x.png';
+
+export const MainSection = styled.section`
+  /* max-width: 1600px; */
+  margin: 0 auto;
+  margin-top: -64px;
+  height: 777px;
+  background: ${p => p.theme.mainBg};
+  /* background-image: url(${BackgroundMob}); */
+
+  background-repeat: no-repeat;
+  @media screen and ${p => p.theme.device.tablet} {
+    height: 640px;
+  }
+  @media screen and ${p => p.theme.device.desktop} {
+    height: 800px;
+    background-image: url('${SpinachLeftDesk}'), url('${PlateDesk}'),
+      url('${SpinachDesk}'), url('${BackgroundDesk}');
+    background-position: left top, right 184px top 126px, right top,
+      right -20px top;
+    /* background-size: auto, auto, auto, auto; */
+    ${p =>
+      p.theme.media(
+        SpinachLeftDesk2,
+        PlateDesk2,
+        SpinachDesk2,
+        BackgroundDesk2
+      )}
+  }
+`;
 
 export const Container = styled.div`
   width: 100%;
@@ -18,18 +62,19 @@ export const Container = styled.div`
     padding: 0 100px;
   }
 `;
-export const MainSection = styled.section`
-  padding-top: 68px;
-  padding-bottom: 83px;
-  @media screen and ${p => p.theme.device.tablet} {
-    padding-top: 140px;
-    padding-bottom: 195px;
+
+export const ContainerHero = styled(Container)`
+  position: relative;
+  padding-top: 132px;
+  height: 100%;
+  @media screen and (${props => props.theme.device.tablet}) {
+    padding-top: 205px;
   }
-  @media screen and ${p => p.theme.device.desktop} {
-    padding-top: 162px;
-    padding-bottom: 267px;
+  @media screen and (${props => props.theme.device.desktop}) {
+    padding-top: 226px;
   }
 `;
+
 export const RecipeSection = styled.section`
   padding-top: 64px;
   padding-bottom: 100px;

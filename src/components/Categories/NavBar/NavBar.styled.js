@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${p => p.theme.borderLine};
   overflow-x: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -77,17 +77,15 @@ export const List = styled.ul`
 
 export const StyledLink = styled(NavLink)`
   text-decoration: none;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  color: #e0e0e0;
-  font-size: 14px;
+  font-weight: ${p => p.theme.fontWeights.regular};
+  color: ${p => p.theme.borderLine};
+  font-size: ${p => p.theme.fontSizes[3]};
   line-height: 14px;
   padding-bottom: 26px;
 
   &.active {
     position: relative;
-    color: #8baa36;
+    color: ${p => p.theme.accent.mainBtnBg};
   }
 
   &.active::after {
@@ -97,16 +95,16 @@ export const StyledLink = styled(NavLink)`
     width: 100%;
     height: 2px;
     content: '';
-    background-color: #8baa36;
+    background-color: ${p => p.theme.accent.mainBtnBg};
   }
 
   @media (${p => p.theme.device.tablet}) {
-    font-size: 18px;
+    font-size: ${p => p.theme.fontSizes[5]};
     line-height: 18px;
     padding-bottom: 24px;
   }
 
   @media (${p => p.theme.device.tablet}) {
-    padding-bottom: 23px;
+    padding-bottom: 24px;
   }
 `;

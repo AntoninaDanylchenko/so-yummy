@@ -4,6 +4,8 @@ import { selectShoppingList } from 'redux/shoppingList/selectors';
 import { fetchShoppingList } from 'redux/shoppingList/operations';
 import { List } from './ShoppingList.styled';
 import ListItem from '../ListItem/ListItem';
+import NoResult from 'components/NoResult/NoResult';
+import { UnderList } from 'components/Categories/CategoriesList/CategoriesList.styled';
 
 export default function ShoppingList() {
   const dispatch = useDispatch();
@@ -12,12 +14,21 @@ export default function ShoppingList() {
   }, [dispatch]);
 
   const shoppingList = useSelector(selectShoppingList);
-
   return (
-    <List>
-      {shoppingList?.map(shoppingItem => (
-        <ListItem key={shoppingItem.id} shoppingItem={shoppingItem}></ListItem>
-      ))}
-    </List>
+    <>
+      {shoppingList.length ? (
+        <List>
+          {shoppingList?.map(shoppingItem => (
+            <ListItem
+              key={shoppingItem.id}
+              shoppingItem={shoppingItem}
+            ></ListItem>
+          ))}
+        </List>
+      ) : (
+        <NoResult />
+      )}
+      <UnderList />
+    </>
   );
 }

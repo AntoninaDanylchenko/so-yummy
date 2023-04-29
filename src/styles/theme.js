@@ -52,6 +52,7 @@ const defaultTheme = createTheme({
       desktop: 1440,
     },
   },
+  media: MainDeviceRatio,
 });
 
 export const lightTheme = createTheme(defaultTheme, {
@@ -67,8 +68,10 @@ export const lightTheme = createTheme(defaultTheme, {
     recipeBg: '#FFFFFF',
     recipePreparation: '#FFFFFF',
   },
+
   mainBg: '#ECECEC',
- 
+
+
   // green
   accent: {
     mainBtnBg: '#8BAA36',
@@ -205,3 +208,10 @@ export const darkTheme = createTheme(defaultTheme, {
   // red
   inputError: '#E74A3B',
 });
+
+function MainDeviceRatio(url1, url2, url3, url4) {
+  return `@media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('${url1}'), url('${url2}'), url('${url3}'), url('${url4}')`;
+}

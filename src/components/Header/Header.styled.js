@@ -331,6 +331,7 @@ export const UserLogoBox = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+  z-index: 1;
 `;
 
 export const TextUserLogo = styled.p`
