@@ -10,7 +10,7 @@ import {
 
 const FavoritePage = () => {
   return (
-    <Container>
+    <Container >
       <Title title="Favorites" />
       {/* <FavoriteList /> */}
       <Toaster />
