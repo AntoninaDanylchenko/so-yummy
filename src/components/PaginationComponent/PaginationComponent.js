@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Loader } from 'components/Spinner/Spinner';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { Box, Pagination } from '@mui/material';
 import usePagination from '../PaginationComponent/Pagination';
+import { useTheme } from '@mui/material';
+
 
 const PaginationComponent = ({ getData, getDataOp }) => {
     const dispatch = useDispatch();
-
-    const { items: favorite } = useSelector(getData); //getFavorite);
+    const theme = useTheme();
+    const { items: favorite } = useSelector(getData);
 
     useEffect(() => {
-        dispatch(getDataOp());   //getFavoriteOp());
+        dispatch(getDataOp());
     }, [dispatch, getDataOp]);
 
     let data = favorite;
@@ -42,8 +43,17 @@ const PaginationComponent = ({ getData, getDataOp }) => {
                     </li>
                 ))}
             </ul>
-            <Box>
-                <Pagination
+            <Box sx={{
+                display: 'flex',
+                justifyContent: 'center',
+            }}>
+                <Pagination sx={{
+                    bgcolor: `${theme.background.pagination}`,
+                    borderRadius: theme.radii[4],
+                    height: '55px',
+                    display: 'flex',
+                    boxShadow: theme.shadows[2],
+                }}
                     count={count}
                     page={page}
                     onChange={handleChange}
