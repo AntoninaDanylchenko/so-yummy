@@ -13,10 +13,9 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 144px;
   padding-bottom: 90px;
-  position: relative;
-  top: -63px;
-  margin-bottom: -63px;
-  /* z-index: -1; */
+  position: absolute;
+  top: 0;
+  height: 455px;
   background-image: url(${bgImageMobile});
   background-repeat: no-repeat;
   background-position: center;
@@ -31,6 +30,7 @@ export const Container = styled.div`
   @media (${p => p.theme.device.tablet}) {
     padding-top: 136px;
     padding-bottom: 32px;
+    height: 585px;
     background-image: url(${bgImageTablet});
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -42,6 +42,7 @@ export const Container = styled.div`
 
   @media (${p => p.theme.device.desktop}) {
     padding-top: 164px;
+    height: 620px;
     background-image: url(${bgImageDesctop});
 
     @media screen and (min-device-pixel-ratio: 2),

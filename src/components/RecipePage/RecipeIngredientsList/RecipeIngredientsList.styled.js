@@ -3,16 +3,17 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 32px;
+  margin-top: 420px;
   margin-bottom: 50px;
 
   @media ${p => p.theme.device.tablet} {
-    margin-top: 50px;
+    margin-top: 540px;
     margin-bottom: 96px;
     
   }
 
   @media ${p => p.theme.device.desktop} {
+    margin-top: 570px;
     margin-bottom: 100px;
   }
 `;
