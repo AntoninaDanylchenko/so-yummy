@@ -5,11 +5,11 @@ export const Form = styled.form`
   width: 295px;
   margin: 0 auto;
   /* box-shadow: ${p => p.theme.shadows[3]}; */
-  @media screen and (${p => p.theme.device.tablet}) {
+  @media ${p => p.theme.device.tablet} {
     margin: 0;
     width: 369px;
   }
-  @media screen and (${p => p.theme.device.desktop}) {
+  @media ${p => p.theme.device.desktop} {
     width: 510px;
   }
 `;
@@ -27,13 +27,13 @@ export const Input = styled.input`
   font-size: ${p => p.theme.fontSizes[2]};
   line-height: 1.5;
   outline: none;
-  @media screen and ${p => p.theme.device.tablet} {
+  @media ${p => p.theme.device.tablet} {
     width: 369px;
     height: 59px;
     padding-right: 165px;
     font-size: ${p => p.theme.fontSizes[4]};
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media ${p => p.theme.device.desktop} {
     width: 510px;
     height: 70px;
   }
@@ -62,12 +62,12 @@ export const ButtonSearch = styled.button`
     color: ${props => props.theme.primary.background};
     outline: none;
   }
-  @media screen and ${p => p.theme.device.tablet} {
+  @media ${p => p.theme.device.tablet} {
     width: 161px;
     height: 59px;
     font-size: ${p => p.theme.fontSizes[4]};
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media ${p => p.theme.device.desktop} {
     height: 70px;
   }
 `;

@@ -19,10 +19,6 @@ export const HeaderBox = styled.header`
   margin: 0 auto;
   background-color: transparent;
 
-  /* z-index: 9999;
-   display: block;
-        position: absolute; */
-
   @media ${p => p.theme.device.tablet} {
     max-width: 768px;
   }
@@ -82,11 +78,8 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* margin-left: auto; */
-  /* gap: 8px; */
   padding-top: 20px;
   background-color: transparent;
-  /* position: absolute; */
 
   @media ${p => p.theme.device.tablet} {
     padding-top: 19px;
@@ -122,6 +115,8 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 3;
 
   @media screen and (max-width: 1439px) {
     display: none;
@@ -256,7 +251,7 @@ export const NavEx = styled.nav`
   gap: 32px;
 
   @media ${p => p.theme.device.tablet} {
-    gap: 40px;
+    gap: 40px;align-self: start;
   }
 `;
 

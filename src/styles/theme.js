@@ -71,7 +71,6 @@ export const lightTheme = createTheme(defaultTheme, {
 
   mainBg: '#ECECEC',
 
-
   // green
   accent: {
     mainBtnBg: '#8BAA36',
@@ -211,6 +210,7 @@ export const darkTheme = createTheme(defaultTheme, {
 
 function MainDeviceRatio(url1, url2, url3, url4) {
   return `@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url('${url1}'), url('${url2}'), url('${url3}'), url('${url4}')`;
