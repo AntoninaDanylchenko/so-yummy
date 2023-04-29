@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchSelectorLabel, stylesSelect } from './SearchTypeSelector.styled';
+import { TypeSelector, TypeSelectorWrapper } from './SearchTypeSelector.styled';
 import Select from 'react-select';
 
 const options = [
@@ -9,21 +9,16 @@ const options = [
 
 export const SearchTypeSelector = ({ onSelectChange }) => {
   const defaultOption = options.find(option => option.value);
-  //   const [typeSearch, setTypeSearch] = useState('title');
-  //   console.log(typeSearch);
 
   return (
-    <>
-      <SearchSelectorLabel htmlFor="search-type">
-        Search by:
-      </SearchSelectorLabel>
+    <TypeSelectorWrapper>
+      <TypeSelector htmlFor="select">Search by:</TypeSelector>
       <Select
-        id="search-type"
+        id="select"
         defaultValue={defaultOption}
         onChange={selectedOption => onSelectChange(selectedOption.value)}
-        styles={stylesSelect}
         options={options}
       />
-    </>
+    </TypeSelectorWrapper>
   );
 };
