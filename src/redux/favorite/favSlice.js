@@ -20,7 +20,6 @@ export const favoriteSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
-        // state.favorite.isFavorite = action.payload.favorite;
       })
       .addCase(getFavoriteOp.rejected, (state, action) => {
         state.isLoading = false;
@@ -46,65 +45,16 @@ export const favoriteSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-          recipe => recipe.id === action.payload.id
+          recipe => recipe._id === action.payload.recipeId
         );
         state.items.splice(index, 1);
       })
       .addCase(deleteFavoriteOp.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload.msg;
-        toast.warning(`${action.payload.contactId} not found`);
+        toast.warn(`${action.payload.recipeId} not found`);
       });
   },
 });
 
 export const favoriteReducer = favoriteSlice.reducer;
-
-//   extraReducers: {
-//     [getFavoriteOp.pending](state) {
-//       state.isLoading = true;
-//     },
-//     [getFavoriteOp.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       state.items = action.payload;
-//     },
-//     [getFavoriteOp.rejected](state, action) {
-//       state.isLoading = false;
-//       state.error = action.payload;
-//       toast.error(action.payload);
-//     },
-
-//     [addFavoriteOp.pending](state) {
-//       state.isLoading = true;
-//     },
-//     [addFavoriteOp.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       state.items.push(action.payload);
-//     },
-//     [addFavoriteOp.rejected](state, action) {
-//       state.isLoading = false;
-//       state.error = action.payload;
-//     },
-
-//     [deleteFavoriteOp.pending](state) {
-//       state.isLoading = true;
-//     },
-//     [deleteFavoriteOp.fulfilled](state, action) {
-//       state.isLoading = false;
-//       state.error = null;
-//       const index = state.items.findIndex(
-//         recipe => recipe.id === action.payload.id
-//       );
-//       state.items.splice(index, 1);
-//     },
-//     [deleteFavoriteOp.rejected](state, action) {
-//       state.isLoading = false;
-//       state.error = action.payload.msg;
-//       toast.warning(`${action.payload.contactId} not found`);
-//     },
-//   },
-// });
-
-// export const favoriteReducer = favoriteSlice.reducer;

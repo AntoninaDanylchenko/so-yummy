@@ -46,14 +46,14 @@ export const myRecipesSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-          recipe => recipe.id === action.payload.id
+          recipe => recipe._id === action.payload.recipeId
         );
         state.items.splice(index, 1);
       })
       .addCase(deleteMyRecipesOp.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload.msg;
-        toast.warning(`${action.payload.contactId} not found`);
+        toast.warn(`${action.payload.recipeId} not found`);
       });
   },
 });

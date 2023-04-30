@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { IconArrow } from './СhooseYourBreakfast.styled';
+import { IconArrow } from './ChooseYourBreakfast.styled';
 import {
   Title,
   TitleWrap,
@@ -7,11 +7,10 @@ import {
   ContainerWrap,
   Description,
   DescriptionAccent,
-  // LinkRecipes,
   WrapLink,
-} from './СhooseYourBreakfast.styled';
+} from './ChooseYourBreakfast.styled';
 
-export const СhooseYourBreakfast = () => {
+export const ChooseYourBreakfast = () => {
   return (
     <>
       <TitleWrap>
