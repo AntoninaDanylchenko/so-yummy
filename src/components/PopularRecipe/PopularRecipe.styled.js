@@ -42,6 +42,10 @@ export const PopularItem = styled(Link)`
   @media screen and (min-width: 1440px) {
     width: 319px;
   }
+  &:hover {
+    transition: ${p => p.theme.transition};
+    transform: scale(1.1);
+  }
 `;
 
 export const PopularImage = styled.img`
@@ -84,11 +88,3 @@ export const PopularText = styled.p`
     width: 196px;
   }
 `;
-
-// export const NotFound = styled.p`
-//   font-weight: ${p => p.theme.fontWeights.medium};
-//   font-size: ${p => p.theme.fontSizes.m}px;
-//   line-height: ${p => p.theme.lineHeights.heading};
-//   letter-spacing: -0.24px;
-//   color: ${p => p.theme.colors.textSubTitle};
-// `;

@@ -49,7 +49,7 @@ export const LinksList = styled.ul`
 export const LinkItem = styled.li`
   svg {
     color: ${p => p.theme.accent.iconFollow};
-    transition: color transition;
+    transition: color ${p => p.theme.transition};
     :hover {
       color: ${p => p.theme.subtitle};
     }
