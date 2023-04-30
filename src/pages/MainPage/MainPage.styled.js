@@ -201,10 +201,12 @@ export const ButtonOther = styled(Link)`
   background-color: transparent;
   border-radius: 24px 44px;
   border: 1px solid ${p => p.theme.accent.mainBtnBg};
-  transition: background-color ${p => p.theme.transition},
+  transition: color ${p => p.theme.transition},
+    background-color ${p => p.theme.transition},
     transform ${p => p.theme.transition};
   :hover,
   :focus {
+    color: ${p => p.theme.primary.userBg};
     background-color: ${p => p.theme.accent.mainBtnBg};
     transform: scale(1.05);
   }
