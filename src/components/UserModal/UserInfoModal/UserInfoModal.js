@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useNavigate } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -19,7 +19,7 @@ import {
 import { yupSchema } from 'components/AddRecipeForm/yupSchema';
 import { userUpdate } from 'redux/auth/operation';
 
-const UserInfoModal = () => {
+const UserInfoModal = ({onClose}) => {
   const userName = useSelector(state => state.auth.user.username);
   const avatarURL = useSelector(state => state.auth.avatarURL);
 
@@ -30,9 +30,7 @@ const UserInfoModal = () => {
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
-
-
-  console.log(setName);
+  const navigate = useNavigate();
 
   const onInputImageSet = event => {
     setImage(event.target.files[0]);
@@ -62,9 +60,7 @@ const UserInfoModal = () => {
       dispatch(userUpdate(formData))
         .unwrap()
         .then(() => {
-          // navigate('/my', { replace: true });
-          // toast.success('Your recipe has been successfully added');
-          console.log('ok');
+          navigate('/my', { replace: true });
         })
         .catch(error => {
           console.log(error);
@@ -75,7 +71,7 @@ const UserInfoModal = () => {
   return (
     <>
       <ModalContainer initialValues={initialValues} onSubmit={handleSubmit}>
-        <CloseButton type="button">
+        <CloseButton type="button" onClick={onClose}>
           <IconClose />
         </CloseButton>
         <div>
@@ -91,7 +87,6 @@ const UserInfoModal = () => {
           <InputContainer>
             <IconUser />
             <Input type="text" name="name" placeholder={userName} />
-
             <IconPencil />
           </InputContainer>
         </div>
