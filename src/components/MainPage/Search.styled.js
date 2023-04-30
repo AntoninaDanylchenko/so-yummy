@@ -4,7 +4,7 @@ export const Form = styled.form`
   position: relative;
   width: 295px;
   margin: 0 auto;
-  /* box-shadow: ${p => p.theme.shadows[3]}; */
+
   @media ${p => p.theme.device.tablet} {
     margin: 0;
     width: 369px;
@@ -22,6 +22,7 @@ export const Input = styled.input`
   color: ${p => p.theme.primaryText.text};
   border-radius: 24px 44px;
   border: 1px solid ${p => p.theme.borderInput};
+  box-shadow: ${p => p.theme.shadows[3]};
 
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes[2]};

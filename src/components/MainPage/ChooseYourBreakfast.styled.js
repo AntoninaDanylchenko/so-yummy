@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-
 import EastIcon from '@mui/icons-material/East';
 
 export const TitleWrap = styled.span`

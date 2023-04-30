@@ -37,7 +37,7 @@ const defaultTheme = createTheme({
     '0px 4px 48px rgba(0, 0, 0, 0.1)',
     '0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074)',
     '0px 4px 4px rgba(135, 135, 135, 0.2)',
-    '0px 4px 4px rgba(0, 0, 0, 0.25',
+    '0px 4px 4px rgba(0, 0, 0, 0.25)',
   ],
 
   transition: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
@@ -240,5 +240,5 @@ function MainDeviceRatio(url1, url2, url3, url4) {
   (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('${url1}'), url('${url2}'), url('${url3}'), url('${url4}')`;
+    background-image: url('${url1}'), url('${url2}'), url('${url3}'), url('${url4}')}`;
 }

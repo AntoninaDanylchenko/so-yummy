@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
+import { getPoster } from '../recipesMain/operations';
 
 export const fetchRecipesPopular = createAsyncThunk(
   'recipes/fetchPopular',
@@ -11,7 +12,7 @@ export const fetchRecipesPopular = createAsyncThunk(
         ({ _id, title, preview, thumb, instructions }) => ({
           id: _id,
           title,
-          preview,
+          preview: getPoster(preview),
           thumb,
           desc: instructions.slice(0, 100) + '...',
         })
