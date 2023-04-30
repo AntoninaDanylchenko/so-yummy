@@ -53,6 +53,11 @@ export const LinkNav = styled(NavLink)`
   line-height: calc(
     (${p => p.theme.fontWeights.medium}) / (${p => p.theme.fontSizes[5]})
   );
+  transition: transform ${p => p.theme.transition};
+
+  &:hover {
+    transform: scale(1.2);
+  }
 
   @media ${p => p.theme.device.tablet} {
     font-size: ${p => p.theme.fontSizes[7]};
@@ -131,6 +136,11 @@ export const RightNavList = styled.ul`
 
 export const RightNavItem = styled.li`
   padding: 10px;
+  transition: transform ${p => p.theme.transition};
+
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 export const TogglerBoxUser = styled.div`
@@ -248,6 +258,11 @@ export const NavEx = styled.nav`
   flex-direction: column;
   align-items: center;
   gap: 32px;
+  transition: transform ${p => p.theme.transition};
+
+  &:hover {
+    transform: scale(1.2);
+  }
 
   @media ${p => p.theme.device.tablet} {
     gap: 40px;
@@ -344,6 +359,12 @@ export const IconLogo = styled(LogoIcon)`
   display: block;
   width: 40px;
   height: 40px;
+  transition: transform ${p => p.theme.transition};
+
+  &:hover {
+    /* transition: all 300ms linear; */
+    transform: scale(1.2);
+  }
 
   @media ${p => p.theme.device.tablet} {
     display: block;
