@@ -31,6 +31,9 @@ const UserInfoModal = () => {
   const [name, setName] = useState('');
   const dispatch = useDispatch();
 
+
+  console.log(setName);
+
   const onInputImageSet = event => {
     setImage(event.target.files[0]);
   };
