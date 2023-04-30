@@ -72,7 +72,7 @@ export const lightTheme = createTheme(defaultTheme, {
     recipePreparation: '#FFFFFF',
   },
   
-  mainBg: "#FAFAFA"
+  mainBg: "#FAFAFA",
 
   // green
   accent: {
