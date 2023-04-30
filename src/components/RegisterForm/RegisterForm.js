@@ -42,11 +42,9 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      setSubmitting(false);
-      dispatch(register(values));
-      // alert(JSON.stringify(values, null, 2));
-    }, 500);
+    setSubmitting(false);
+    dispatch(register(values));
+    // alert(JSON.stringify(values, null, 2));
   };
   // const handleChange = e => {
   //   const dataPassword = e.target.password.values;
@@ -111,9 +109,9 @@ export const RegisterForm = () => {
                 //   Boolean(touched.username) && Boolean(errors.username)
                 //     ? '1px solid #E74A3B'
                 //     : `1px solid #3CBC81`,
-                '@media (min-width: 768px)': {
-                  mb: '24px',
-                },
+                // '@media (min-width: 768px)': {
+                //   mb: '24px',
+                // },
               },
               startAdornment: (
                 <InputAdornment position="start">
