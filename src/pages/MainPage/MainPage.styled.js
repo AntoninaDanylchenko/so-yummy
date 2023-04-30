@@ -55,7 +55,7 @@ export const MainSection = styled.section`
       BackgroundMob2
     )};
 
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and (${p => p.theme.device.tablet} ){
     height: 640px;
     background-size: 67px 323px, 186px 115px, 368px 351px, 583px 640px,
       332px 640px;
@@ -73,7 +73,7 @@ export const MainSection = styled.section`
         BackgroundTab2
       )};
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media screen and (${p => p.theme.device.desktop}) {
     height: 800px;
     background-size: 116px 398px, 220px 148px, 578px 539px, 913px 800px,
       725px 689px;
@@ -98,14 +98,14 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 16px;
 
-  @media screen and ${p => p.theme.device.mobile} {
+  @media screen and (${p => p.theme.device.mobile} ){
     max-width: 375px;
   }
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and ( ${p => p.theme.device.tablet}) {
     max-width: 768px;
     padding: 0 32px;
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media screen and (${p => p.theme.device.desktop} ){
     max-width: 1440px;
     padding: 0 100px;
   }
@@ -126,10 +126,10 @@ export const ContainerHero = styled(Container)`
 export const RecipeSection = styled.section`
   padding-top: 64px;
   padding-bottom: 100px;
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and (${p => p.theme.device.tablet}) {
     padding-top: 72px;
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media screen and (${p => p.theme.device.desktop}) {
     padding-top: 100px;
     padding-bottom: 118px;
   }
@@ -139,10 +139,10 @@ export const RecipeList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and (${p => p.theme.device.tablet}) {
     gap: 50px;
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media screen and (${p => p.theme.device.desktop}) {
     gap: 100px;
   }
 `;
@@ -156,7 +156,7 @@ export const CategoryName = styled.h3`
   text-transform: capitalize;
   color: ${p => p.theme.subtitle};
 
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and (${p => p.theme.device.tablet}) {
     font-size: ${p => p.theme.fontSizes[10]};
   }
 `;
@@ -180,10 +180,10 @@ export const ButtonSeeAll = styled(Link)`
   :focus {
     transform: scale(1.1);
   }
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and (${p => p.theme.device.tablet}) {
     margin-top: 40px;
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media screen and (${p => p.theme.device.desktop}) {
     margin-top: 50px;
   }
 `;
@@ -210,10 +210,10 @@ export const ButtonOther = styled(Link)`
     background-color: ${p => p.theme.accent.mainBtnBg};
     transform: scale(1.05);
   }
-  @media screen and ${p => p.theme.device.tablet} {
+  @media screen and (${p => p.theme.device.tablet}) {
     margin-top: 32px;
   }
-  @media screen and ${p => p.theme.device.desktop} {
+  @media screen and (${p => p.theme.device.desktop}) {
     margin-top: 14px;
   }
 `;
