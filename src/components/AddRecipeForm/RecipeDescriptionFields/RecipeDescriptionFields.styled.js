@@ -62,9 +62,9 @@ export const InputWrap = styled.div`
 export const DescrInput = styled.input`
   width: 343px;
   height: 40px;
-  background-color: transparent;
+  background-color: ${p => p.theme.mainBg};
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${p => p.theme.borderLine};
   padding-bottom: 18px;
   outline: none;
   font-size: ${p => p.theme.fontSizes[3]};
@@ -93,7 +93,7 @@ export const SelectWrap = styled.div`
   width: 343px;
   height: 40px;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${p => p.theme.borderLine};
   padding-bottom: 18px;
   margin-bottom: 24px;
   display: flex;
@@ -124,8 +124,8 @@ export const DescrSelect = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
-  border: none;
+  background-color: ${p => p.theme.mainBg};
+  border-bottom: 1px solid ${p => p.theme.borderLine};
   cursor: pointer;
   svg {
     color: ${p => p.theme.accent.iconFollow};
@@ -154,12 +154,12 @@ export const SelectText = styled.span`
 export const CategoryList = styled.ul`
   width: 123px;
   height: 144px;
-  background-color: ${p => p.theme.secondary.searchBg};
+  background-color: ${p => p.theme.primary.selectBg};
   position: absolute;
   right: 0;
   top: 70%;
   padding: 8px 14px;
-  box-shadow: ${p => p.theme.shadows};
+  box-shadow: ${p => p.theme.shadows[1]};
   border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   z-index: 3;
@@ -190,12 +190,12 @@ export const CategoryItem = styled.li`
 export const TimeList = styled.ul`
   width: 98px;
   height: 144px;
-  background-color: ${p => p.theme.secondary.searchBg};
+  background-color: ${p => p.theme.primary.selectBg};
   position: absolute;
   right: 0;
   top: 70%;
   padding: 8px 14px;
-  box-shadow: ${p => p.theme.shadows};
+  box-shadow: ${p => p.theme.shadows[1]};
   border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   cursor: pointer;

@@ -1,48 +1,42 @@
-import {
-  // useEffect,
-  useState,
-} from 'react';
-import { Modal } from './Modal/Modal';
+// import { useState } from 'react';
+import { ModalW } from './Modal/Modal.styled';
 import { LogoutBtn } from './LogoutBtn';
+import { UserInfoModal } from 'components/UserModal/UserInfoModal/UserInfoModal';
 import { TextModal, IconPen } from './Header.styled';
 
-const UserLogoModal = ({ onClose }) => {
-  const [onShow, setOnShow] = useState(false);
-  const [
-    // openNewModal,
-    setOpenNewModal,
-  ] = useState(true);
-console.log('====================================');
-console.log(onShow);
+import { ModalConsumer } from './context/modal';
 
-  // useEffect(() => {
-  //   if (handleLogoutModal) {
-  //     setOnShow(!onShow);
-  //   }
-  // }, []);
+const UserLogoModal = () => {
+  //   const [show, setShow] = useState(false);
+  //   const [close, setClose] = useState(true);
+  //   const [newModal, setNewModal] = useState(false);
 
-  const modalToggle = () => {
-    setOnShow(onShow => !onShow);
-  };
+  //   const open = () => setShow(true);
+  //   const toggleModal = () => {
+  //     setNewModal(!newModal);
+  // }
 
-  const handleLogoutModal = openNewModal => {
-    setOpenNewModal(openNewModal);
-    modalToggle();
-
-    console.log('onShow:', setOpenNewModal);
-  };
+  //   const openModal = newModal => {
+  //      setNewModal(newModal);
+  //     toggleModal();
+  //   };
 
   return (
-    <>
-      <Modal onClose={onClose}>
-        <TextModal>
-          <span>Edit profile</span>
-          <IconPen />
-        </TextModal>
-        <LogoutBtn onClick={handleLogoutModal}/>
-      </Modal>
-      {/* {onShow && <LogoutBtn />} */}
-    </>
+    <ModalConsumer>
+      {/* <ModalLW onClose={onClose}> */}
+
+      {({ showModal }) => (
+        <>
+          <ModalW>
+            <TextModal>
+              <span>Edit profile</span>
+              <IconPen onClick={()=>showModal(<UserInfoModal/>)} />
+            </TextModal>
+            <LogoutBtn />
+          </ModalW>
+        </>
+      )}
+    </ModalConsumer>
   );
 };
 
