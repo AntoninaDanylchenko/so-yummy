@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import * as yup from 'yup';
 import {
   // ModalBackdrop,
   ModalContainer,
@@ -16,10 +16,10 @@ import {
   UserImage,
   SaveButton,
 } from './UserInfoModal.styled';
-import { yupSchema } from 'components/AddRecipeForm/yupSchema';
+
 import { userUpdate } from 'redux/auth/operation';
 
-const UserInfoModal = () => {
+const UserInfoModal = ({ onClose }) => {
   const userName = useSelector(state => state.auth.user.username);
   const avatarURL = useSelector(state => state.auth.avatarURL);
 
@@ -27,10 +27,13 @@ const UserInfoModal = () => {
     userName,
     avatarURL,
   };
+  const yupSchema = yup.object().shape({
+    userName: yup.string().required(),
+    avatarURL: yup.string(),
+  });
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
-
 
   console.log(setName);
 
@@ -57,28 +60,31 @@ const UserInfoModal = () => {
   formData.append('username', name);
 
   const handleSubmit = e => {
+    console.log('ok');
     e.preventDefault();
+
     yupSchema.validate(initialValues, { abortEarly: false }).then(() => {
+      console.log(formData);
       dispatch(userUpdate(formData))
         .unwrap()
         .then(() => {
-          // navigate('/my', { replace: true });
           // toast.success('Your recipe has been successfully added');
-          console.log('ok');
         })
         .catch(error => {
           console.log(error);
         });
     });
+    onClose();
   };
 
   return (
     <>
-      <ModalContainer initialValues={initialValues} onSubmit={handleSubmit}>
-        <CloseButton type="button">
+      <ModalContainer>
+        <CloseButton type="button" onClick={onClose}>
           <IconClose />
         </CloseButton>
-        <div>
+
+        <form onSubmit={handleSubmit}>
           <FileInputWrap onChange={event => onFileInputChange(event)}>
             <label htmlFor="photo">
               <Image>
@@ -94,8 +100,8 @@ const UserInfoModal = () => {
 
             <IconPencil />
           </InputContainer>
-        </div>
-        <SaveButton type="submit">Save changes</SaveButton>
+          <SaveButton type="submit">Save changes</SaveButton>
+        </form>
       </ModalContainer>
 
       {/* </ModalBackdrop> */}
