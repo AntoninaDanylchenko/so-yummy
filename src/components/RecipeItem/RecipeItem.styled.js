@@ -38,12 +38,14 @@ export const TitleWrapper = styled.div`
   align-items: center;
   bottom: 26px;
   left: 18px;
-
+  text-overflow: ellipsis;
   padding-left: 16px;
   width: 307px;
   height: 52px;
   background: ${p => p.theme.secondary.recipeBg};
   border-radius: ${p => p.theme.radii[2]};
+  transition: transform ${p => p.theme.transition},
+    background ${p => p.theme.transition};
   @media (${p => p.theme.device.tablet}) {
     width: 300px;
   }

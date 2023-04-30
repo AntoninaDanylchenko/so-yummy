@@ -70,19 +70,17 @@ export const Message = styled.p`
   text-align: center;
   vertical-align: middle;
 
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes[3]};
   line-height: 14px;
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
-  color: #000000;
+  color: ${p => p.theme.input.input};
   opacity: 0.5;
 
   @media (${p => p.theme.device.tablet}) {
     margin-top: 32px;
-    font-size: 24px;
+    font-size: ${p => p.theme.fontSizes[7]};
     line-height: 24px;
   }
 `;

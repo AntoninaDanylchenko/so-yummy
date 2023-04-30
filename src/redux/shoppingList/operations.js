@@ -20,7 +20,7 @@ export const addIngredientToShoppingList = createAsyncThunk(
   'shoppingList/add',
   async (ingredient, thunkAPI) => {
     try {
-      const response = await axios.patch('/shopping-list', ingredient);
+      const response = await axios.post('/shopping-list', ingredient);
       return response.data;
     } catch (error) {
       if (error.response.message) {
