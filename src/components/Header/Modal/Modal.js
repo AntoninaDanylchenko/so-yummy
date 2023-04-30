@@ -13,7 +13,7 @@ function updateScrollLock() {
   }
 }
 
-const Modal = ({ onClose, children, active, onSubmit }) => {
+const Modal = ({ onClose, children }) => {
   const backdropRef = createRef();
 
   useEffect(() => {
@@ -32,32 +32,23 @@ const Modal = ({ onClose, children, active, onSubmit }) => {
   };
 
   const handleBackdropClick = e => {
-    if (e.target === e.currentTarget) {
+    if (e.target !== e.currentTarget) {
       return;
     }
     onClose();
   };
 
-  
-  if (!active) {
-    return null;
-  }
-
   return createPortal(
     <Overlay ref={backdropRef} onClick={handleBackdropClick}>
-      <ModalW>
-        <div onClick={event => event.stopPropagation()}>{children}</div>
-      </ModalW>
+      <ModalW>{children}</ModalW>
     </Overlay>,
     modalRoot
   );
 };
 
 Modal.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
-  active: PropTypes.boolean,
 };
 
 export { Modal };

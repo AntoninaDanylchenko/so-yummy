@@ -10,29 +10,13 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0.01, 0.01, 0.01);
-<<<<<<< Updated upstream
-  z-index: 20;
-=======
-  z-index: 100;
->>>>>>> Stashed changes
+  z-index: 1000;
   border-radius: 10px;
 `;
 
 export const ModalW = styled.div`
   position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0.01, 0.01, 0.01);
-  /* z-index: 1; */
-
-
-  /* top: 80px;
+  top: 80px;
   right: 60px;
   width: 161px;
   height: 130px;
@@ -58,5 +42,5 @@ export const ModalW = styled.div`
   @media ${p => p.theme.device.desktop} {
     top: 95px;
     right: 250px;
-  } */
+  }
 `;
