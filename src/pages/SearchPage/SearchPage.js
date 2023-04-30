@@ -1,4 +1,5 @@
-// import { Container } from '@mui/material';
+import { Container } from '../MainPage/MainPage.styled';
+
 import { useState, useEffect } from 'react';
 
 import PageTitle from 'components/ShoppingListPage/Title/PageTitle';
