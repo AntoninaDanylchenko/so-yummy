@@ -10,46 +10,41 @@ import {
   CloseButton,
   IconClose,
 } from './LogoutButtonModal.styled';
-// import { BaseModal } from 'components/Header/context/BaseModal/BaseModal';
 
-// const LogoutButtonModal = ({ onRequestClose, ...otherProps }) => {
-
-const LogoutButtonModal = () => {
+const LogoutButtonModal = ({show}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+
+console.log(showModal);
 
   const handleLogout = async () => {
     try {
       await dispatch(logOut());
-      // setShowModal(false);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const toggleBtnModal = () => {
-    setShowModal(!showModal);
-    // onClose();
-  };
+  // const toggleBtnModal = () => {
+  //   setShowModal(!showModal);
+  // };
 
   return (
     <>
-      {/* <BaseModal  onRequestClose={onRequestClose} {...otherProps}> */}
       <ModalContainer>
         <ModalText>Are you sure you want to logout?</ModalText>
         <ModalButtons>
           <LogoutButton type="button" onClick={handleLogout}>
             Log out
           </LogoutButton>
-          <CancelButton type="button" onClick={() => toggleBtnModal}>
+          <CancelButton type="button" onClick={() => setShowModal(false)}>
             Cancel
           </CancelButton>
         </ModalButtons>
-        <CloseButton type="button" onClick={() => toggleBtnModal}>
+        <CloseButton type="button" onClick={() => setShowModal(false)}>
           <IconClose />
         </CloseButton>
       </ModalContainer>
-      {/* </BaseModal> */}
     </>
   );
 };

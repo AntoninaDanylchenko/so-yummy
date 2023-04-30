@@ -32,7 +32,7 @@ const ModalContainer = styled.div`
   width: 330px;
   height: 179px;
   top: 20px;
-  right: 120px;
+  right: 220px;
   border-radius: 30px;
   padding: 24px 44px;
   background-color: ${p => p.theme.primary.background};

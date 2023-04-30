@@ -211,7 +211,7 @@ export const ImageBox = styled.div`
   }
 
   @media ${p => p.theme.device.tablet} {
-    top: 300px;
+    top: 320px;
     left: 240px;
     width: 80%;
     height: 80%;
@@ -275,36 +275,6 @@ export const OpenLinksButton = styled.button`
 
   @media screen and (min-width: 1439px) {
     display: none;
-  }
-`;
-
-export const ModalBox = styled.div`
-  top: 80px;
-  right: 60px;
-  width: 161px;
-  height: 130px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  border-radius: 10px;
-  background-color: ${p => p.theme.primary.userBg};
-  transform: ${({ isOpen }) =>
-    !isOpen ? 'translateY(-10%)' : 'translateY(0)'};
-  transition: ${p => p.theme.transition};
-  border: 1px solid ${p => p.theme.primary.selectBg};
-
-  @media ${p => p.theme.device.tablet} {
-    top: 90px;
-    right: 125px;
-    width: 177px;
-    height: 144px;
-    gap: 32px;
-  }
-
-  @media ${p => p.theme.device.desktop} {
-    top: 95px;
-    right: 250px;
   }
 `;
 
