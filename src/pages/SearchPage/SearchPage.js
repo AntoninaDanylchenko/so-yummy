@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+// import { Container } from '@mui/material';
 import { useState, useEffect } from 'react';
 
 import PageTitle from 'components/ShoppingListPage/Title/PageTitle';
@@ -12,6 +12,7 @@ import { RecipeItem } from 'components/RecipeItem/RecipeItem';
 import { SearchWrapper } from 'components/SearchPage/SearchBar.styled';
 import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.styled';
 import NoResult from 'components/NoResult/NoResult';
+import { Container } from './MainPage.styled';
 
 const SearchPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -23,6 +24,7 @@ const SearchPage = () => {
 
   const onSelectChange = value => {
     value === 'title' ? setIsTitle(true) : setIsTitle(false);
+    setQuery('');
   };
 
   useEffect(() => {
@@ -34,6 +36,7 @@ const SearchPage = () => {
         const response = isTitle
           ? await fetchRecipesByTitle(query, page)
           : await fetchRecipesByIngredients(query, page);
+
         const dataRecipes = response.data.map(
           ({ _id, title, preview, thumb }) => ({
             id: _id,
