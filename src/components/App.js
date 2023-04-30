@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 import { lazy } from 'react';
 import { useAuth } from 'hooks/useAuth';
-
+import { Loader } from './Loader/Loader';
 import RestricteRoute from './RestricteRoute';
 import PrivateRoute from './PrivateRoute';
 import { SharedLayout } from './SharedLayout/SharedLayout';
@@ -18,7 +18,7 @@ import { lightTheme, darkTheme } from 'styles/theme';
 import { GlobalStyles } from 'styles/GlobalStyles';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import NotFound from 'pages/NotFound/NotFound';
-import { Loader } from './Loader/Loader';
+
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
