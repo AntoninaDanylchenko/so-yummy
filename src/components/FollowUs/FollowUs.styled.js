@@ -34,7 +34,7 @@ export const LinksTitle = styled.h3`
   font-size: 24px;
   line-height: 24px;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.blackText.text};
+  color: ${p => p.theme.subtitle};
   margin-bottom: 40px;
 `;
 
