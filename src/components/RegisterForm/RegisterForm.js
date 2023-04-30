@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-// import { styled } from '@mui/material/styles';
 import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';
@@ -49,6 +48,14 @@ export const RegisterForm = () => {
       // alert(JSON.stringify(values, null, 2));
     }, 500);
   };
+  // const handleChange = e => {
+  //   const dataPassword = e.target.password.values;
+  // if (dataPassword.length > 6 && dataPassword.length < 10) {
+  //   helperText = 'Your password is little secure';
+  //   sx={{color:"white"}}
+
+  // }
+
   // const handleChange = (values) => {
   //   if( errors.password && values.password.length > Number(6) && values.password.length < Number(16) ){
   //           sx ={{color: "yellow" }}
@@ -80,64 +87,34 @@ export const RegisterForm = () => {
             placeholder="Name"
             multiline
             // color="secondary"
-            style={{
-              ...StyleSheet,
-              fontFamily: 'Poppins',
-              fontSize: 14,
-              lineHeight: 1.39,
-              mb: '12px',
 
-              opacity: 0.8,
-              color: '#fff',
-              flex: 'none',
-              order: 2,
-              flexGrow: 0,
-              // border: '0px solid yellow',
-              borderRadius: '6px',
-            }}
-            // sx={{
-            //   MuiInputBase-root
-            //   MuiOutlinedInput-root
-            //   MuiInputBase-colorPrimary
-            //   MuiInputBase-fullWidth
-            //   MuiInputBase-formControl
-            //   MuiInputBase-multiline
-            //   MuiInputBase-adornedStart
-            //   MuiInputBase-adornedEnd
-            // css-uq1dxw-MuiInputBase-root-MuiOutlinedInput-root
-
-            //   fontFamily: 'Poppins',
-            //   fontSize: 14,
-            //   lineHeight: 1.39,
-            //   mb: '12px',
-
-            //   opacity: 0.8,
-
-            //   flex: 'none',
-            //   order: 2,
-            //   flexGrow: 0,
-
-            //   borderRadius: '6px',
-            //   // border: '1px solid #fafafa',
-            //   //  border={touched.username && errors.username && "1px solid red"},
-            //   // {Boolean(errors.username) &&  (border: '1px solid #fafafa')}
-            //   // border={(Boolean(errors.username)) && "1px solid red"},
-            //   // onBlur= ({Boolean(touched.username) && Boolean(errors.username) ? sx={..., border: '1px solid  #E74A3B'} : border:`1px solid #3CBC81` })
-            //   // border:
-            //   //   Boolean(touched.username) && Boolean(errors.username)
-            //   //     ? '1px solid #E74A3B'
-            //   //     : `1px solid #3CBC81`,
-            //   '@media (min-width: 768px)': {
-            //     mb: '24px',
-            //   },
-
-            //   // '& $notchedOutline': {
-            //   //   '& .MuiOutlinedInput-notchedOutline': {
-            //   //     borderWidth: 3,
-            //   //   },
-            //   // },
-            // }}
             InputProps={{
+              style: {
+                fontFamily: 'Poppins',
+                fontSize: 14,
+                lineHeight: 1.39,
+                marginBottom: '12px',
+
+                opacity: 0.8,
+
+                flex: 'none',
+                order: 2,
+                flexGrow: 0,
+
+                borderRadius: '6px',
+                // border: '1px solid #fafafa',
+                //  border={touched.username && errors.username && "1px solid red"},
+                // {Boolean(errors.username) &&  (border: '1px solid #fafafa')}
+                // border={(Boolean(errors.username)) && "1px solid red"},
+                // onBlur= ({Boolean(touched.username) && Boolean(errors.username) ? sx={..., border: '1px solid  #E74A3B'} : border:`1px solid #3CBC81` })
+                // border:
+                //   Boolean(touched.username) && Boolean(errors.username)
+                //     ? '1px solid #E74A3B'
+                //     : `1px solid #3CBC81`,
+                '@media (min-width: 768px)': {
+                  mb: '24px',
+                },
+              },
               startAdornment: (
                 <InputAdornment position="start">
                   <PermIdentityIcon
@@ -174,8 +151,8 @@ export const RegisterForm = () => {
             // value={values.username}
             // onChange={handleChange}
             // error={touched.username && Boolean(errors.username)}
-            error={touched['username'] && !!errors['username']}
-            helperText={touched['username'] && errors['username']}
+            // error={touched['username'] && !!errors['username']}
+            // helperText={touched['username'] && errors['username']}
             // helperText={touched.username && errors.username}
           />
 
