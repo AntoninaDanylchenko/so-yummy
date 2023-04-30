@@ -1,4 +1,5 @@
 import { Container } from '../MainPage/MainPage.styled';
+
 import { useState, useEffect } from 'react';
 
 import PageTitle from 'components/ShoppingListPage/Title/PageTitle';
@@ -11,6 +12,8 @@ import { SearchTypeSelector } from 'components/SearchPage/SearchTypeSelector';
 import { RecipeItem } from 'components/RecipeItem/RecipeItem';
 import { SearchWrapper } from 'components/SearchPage/SearchBar.styled';
 import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.styled';
+import NoResult from 'components/NoResult/NoResult';
+import { Container } from './MainPage.styled';
 
 const SearchPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -22,6 +25,7 @@ const SearchPage = () => {
 
   const onSelectChange = value => {
     value === 'title' ? setIsTitle(true) : setIsTitle(false);
+    setQuery('');
   };
 
   useEffect(() => {
@@ -33,6 +37,7 @@ const SearchPage = () => {
         const response = isTitle
           ? await fetchRecipesByTitle(query, page)
           : await fetchRecipesByIngredients(query, page);
+
         const dataRecipes = response.data.map(
           ({ _id, title, preview, thumb }) => ({
             id: _id,
@@ -83,12 +88,15 @@ const SearchPage = () => {
         <SearchBar onSubmit={onChangeQuery} />
         <SearchTypeSelector onSelectChange={onSelectChange} />
       </SearchWrapper>
-      <SearchedRecipesList>
-        {recipes?.map(recipe => {
-          return <RecipeItem key={recipe.id} recipe={recipe} />;
-        })}
-      </SearchedRecipesList>
-
+      {recipes.length ? (
+        <SearchedRecipesList>
+          {recipes?.map(recipe => {
+            return <RecipeItem key={recipe.id} recipe={recipe} />;
+          })}
+        </SearchedRecipesList>
+      ) : (
+        <NoResult />
+      )}
       {showLoadMore && <Button onClick={loadMore} />}
     </Container>
   );
