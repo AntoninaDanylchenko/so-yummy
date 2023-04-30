@@ -5,7 +5,7 @@ const defaultTheme = createTheme({
     Poppins: "'Poppins', sans-serif",
   },
   typography: {
-    fontFamily: "'Poppins', sans-serif"
+    fontFamily: "'Poppins', sans-serif",
   },
 
   fontSizes: [
@@ -71,8 +71,8 @@ export const lightTheme = createTheme(defaultTheme, {
     recipeBg: '#FFFFFF',
     recipePreparation: '#FFFFFF',
   },
-
-  mainBg: '#ECECEC',
+  
+  mainBg: "#FAFAFA",
 
   // green
   accent: {
@@ -139,24 +139,23 @@ export const lightTheme = createTheme(defaultTheme, {
       styleOverrides: {
         root: {
           '&.Mui-selected': {
-            color: '#22252A',  // working !!!
-            backgroundColor: '#EBF3D4',  // working !!!
+            color: '#22252A', // working !!!
+            backgroundColor: '#EBF3D4', // working !!!
           },
           '&.Mui-disabled&.MuiPaginationItem-previousNext': {
-            opacity: "0.73",  // working
-            color: '#A9A9A9',  // working
+            opacity: '0.73', // working
+            color: '#A9A9A9', // working
           },
         },
         text: {
           fontWeight: 500,
-          color: '#656565'  // used for un-selected pages numbers
+          color: '#656565', // used for un-selected pages numbers
         },
         previousNext: {
-          color: '#A9A9A9',  // used for pagination previous-next buttons
-        }
-      }
+          color: '#A9A9A9', // used for pagination previous-next buttons
+        },
+      },
     },
-
   },
 });
 

@@ -5,8 +5,9 @@ import {
   Wrap,
   SideWrap,
 } from './AddRecipePage.styled';
-import { AddRecipeForm } from '../../components/AddRecipeForm/AddRecipeForm';
+import { AddRecipeForm } from 'components/AddRecipeForm/AddRecipeForm';
 import { PopularRecipe } from 'components/PopularRecipe/PopularRecipe';
+import { FollowUs } from 'components/FollowUs/FollowUs';
 
 const AddRecipePage = () => {
   return (
@@ -16,6 +17,7 @@ const AddRecipePage = () => {
         <Wrap>
           <AddRecipeForm />
           <SideWrap>
+            <FollowUs />
             <PopularRecipe />
           </SideWrap>
         </Wrap>
