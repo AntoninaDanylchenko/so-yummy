@@ -40,11 +40,11 @@ export const PopularRecipe = () => {
       <PopularList>
         {recipes?.map(({ id, title, preview, desc }) => (
           <PopularItem to={`/recipe/${id}`} key={id}>
+            <PopularImage src={preview} alt={title} />
             <div>
-              <PopularImage src={preview} alt={title} />
+              <PopularSubtitle>{title}</PopularSubtitle>
+              <PopularText>{desc}</PopularText>
             </div>
-            <PopularSubtitle>{title}</PopularSubtitle>
-            <PopularText>{desc}</PopularText>
           </PopularItem>
         ))}
       </PopularList>
