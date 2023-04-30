@@ -1,9 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-// import { ModalProvider } from './Header/context/modal';
-// import { ModalRoot } from './Header/context/BaseModal/ModalRoot';
-
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshCurrentUser } from 'redux/auth/operation';
@@ -57,7 +54,6 @@ const App = () => {
   ) : (
     <ThemeProvider theme={theme}>
         <GlobalStyles />
-        {/* <ModalProvider> */}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
@@ -129,9 +125,6 @@ const App = () => {
           </Route>
         </Routes>
         <Toaster />
-        
-        {/* <ModalRoot /> */}
-      {/* </ModalProvider> */}
     </ThemeProvider>
   );
 };

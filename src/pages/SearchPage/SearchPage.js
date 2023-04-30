@@ -12,7 +12,7 @@ import { RecipeItem } from 'components/RecipeItem/RecipeItem';
 import { SearchWrapper } from 'components/SearchPage/SearchBar.styled';
 import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.styled';
 import NoResult from 'components/NoResult/NoResult';
-import { Container } from './MainPage.styled';
+import { Container } from '../MainPage/MainPage.styled';
 
 const SearchPage = () => {
   const [recipes, setRecipes] = useState([]);

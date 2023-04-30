@@ -101,7 +101,7 @@ export const UserBox = styled.div`
   margin-right: auto;
 
   @media ${p => p.theme.device.tablet} {
-    margin-right: 36px;
+    margin-right: 76px;
   }
 
   @media ${p => p.theme.device.desktop} {
@@ -110,8 +110,8 @@ export const UserBox = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  margin-left: 107px;
-  margin-right: auto;
+  margin-left: auto;
+  margin-right: 247px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,7 +211,7 @@ export const ImageBox = styled.div`
   }
 
   @media ${p => p.theme.device.tablet} {
-    top: 300px;
+    top: 320px;
     left: 240px;
     width: 80%;
     height: 80%;
@@ -250,7 +250,8 @@ export const NavEx = styled.nav`
   gap: 32px;
 
   @media ${p => p.theme.device.tablet} {
-    gap: 40px;align-self: start;
+    gap: 40px;
+    align-self: start;
   }
 `;
 
@@ -275,36 +276,6 @@ export const OpenLinksButton = styled.button`
 
   @media screen and (min-width: 1439px) {
     display: none;
-  }
-`;
-
-export const ModalBox = styled.div`
-  top: 80px;
-  right: 60px;
-  width: 161px;
-  height: 130px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  border-radius: 10px;
-  background-color: ${p => p.theme.primary.userBg};
-  transform: ${({ isOpen }) =>
-    !isOpen ? 'translateY(-10%)' : 'translateY(0)'};
-  transition: ${p => p.theme.transition};
-  border: 1px solid ${p => p.theme.primary.selectBg};
-
-  @media ${p => p.theme.device.tablet} {
-    top: 90px;
-    right: 125px;
-    width: 177px;
-    height: 144px;
-    gap: 32px;
-  }
-
-  @media ${p => p.theme.device.desktop} {
-    top: 95px;
-    right: 250px;
   }
 `;
 

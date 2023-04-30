@@ -9,18 +9,15 @@ import { LinkNav, NavEx } from '../Header/Header.styled';
 
 export const MainWrapper = styled.footer`
   position: relative;
-  bottom: 66px;
-  margin-top: 66px;
+  margin-bottom: 66px;
   background: ${p => p.theme.title.addBtnBg};
 
   @media screen and (min-width: 768px) {
-    bottom: 78px;
-    margin-top: 78px;
+    margin-bottom: 78px;
   }
 
   @media screen and (min-width: 1440px) {
-    bottom: 114px;
-    margin-top: 114px;
+    margin-bottom: 114px;
   }
 `;
 
@@ -57,6 +54,12 @@ export const BottomTextWrapper = styled.div`
     bottom: -42px;
     width: 326px;
     column-gap: 28px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    bottom: -64px;
+    width: 338px;
+    height: 14px;
   }
 `;
 

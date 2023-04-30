@@ -8,6 +8,7 @@ export const TypeSelectorWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
   @media (${p => p.theme.device.tablet}) {
     gap: 1.125rem;
     margin-top: 1.75rem;
@@ -22,6 +23,12 @@ export const TypeSelector = styled.label`
   font-size: 12px;
   line-height: 1.3;
   letter-spacing: -0.24px;
+  :hover,
+  :focus {
+    background-color: ${p => p.theme.title.addBtnBg};
+    color: ${p => p.theme.primary.textFooter};
+    outline: none;
+  }
   @media (${p => p.theme.device.tablet}) {
     font-weight: 500;
     font-size: 14px;

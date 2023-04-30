@@ -5,6 +5,7 @@ export const StyledItem = styled.li`
   :hover {
     transform: scale(1.05);
   }
+
   @media (${p => p.theme.device.tablet}) {
     width: calc((100% - 32px) / 2);
   }
@@ -18,6 +19,12 @@ export const Card = styled.div`
   overflow: hidden;
   height: 323px;
   border-radius: ${p => p.theme.radii[2]};
+  :hover {
+    div {
+      transform: scale(1.05);
+      background: ${p => p.theme.accent.mainBtnBg};
+    }
+  }
 `;
 
 export const PrewievImg = styled.img`
@@ -37,7 +44,6 @@ export const TitleWrapper = styled.div`
   height: 52px;
   background: ${p => p.theme.secondary.recipeBg};
   border-radius: ${p => p.theme.radii[2]};
-
   @media (${p => p.theme.device.tablet}) {
     width: 300px;
   }

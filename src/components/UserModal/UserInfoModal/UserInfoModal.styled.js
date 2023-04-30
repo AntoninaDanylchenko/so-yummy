@@ -18,7 +18,7 @@ import { ReactComponent as Pencil } from '../../../images/icon/pen.svg';
 
 export const ModalContainer = styled.div`
   position: absolute;
-  z-index: 1000;
+  z-index: 2000;
   top: 50%;
   left: 50%;
 
@@ -185,6 +185,7 @@ export const Error = styled.p`
 `;
 
 export const SaveButton = styled.button`
+position: absolute;
   cursor: pointer;
   width: 114px;
   height: 21px;

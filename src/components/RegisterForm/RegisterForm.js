@@ -1,11 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-<<<<<<< Updated upstream
 import { Formik, Form, Field } from 'formik';
-=======
-// import { styled } from '@mui/material/styles';
-import { Formik, Form, Field} from 'formik';
->>>>>>> Stashed changes
+
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';
 import { InputAdornment, LinearProgress, Button } from '@mui/material';
@@ -47,11 +43,9 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      setSubmitting(false);
-      dispatch(register(values));
-      // alert(JSON.stringify(values, null, 2));
-    }, 500);
+    setSubmitting(false);
+    dispatch(register(values));
+    // alert(JSON.stringify(values, null, 2));
   };
   // const handleChange = e => {
   //   const dataPassword = e.target.password.values;
@@ -116,9 +110,9 @@ export const RegisterForm = () => {
                 //   Boolean(touched.username) && Boolean(errors.username)
                 //     ? '1px solid #E74A3B'
                 //     : `1px solid #3CBC81`,
-                '@media (min-width: 768px)': {
-                  mb: '24px',
-                },
+                // '@media (min-width: 768px)': {
+                //   mb: '24px',
+                // },
               },
               startAdornment: (
                 <InputAdornment position="start">
