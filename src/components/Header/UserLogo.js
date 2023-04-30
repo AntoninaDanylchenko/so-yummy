@@ -20,7 +20,7 @@ const UserLogo = () => {
   };
 
   const username = useSelector(state => state.auth.user.username);
-  const avatarURL = useSelector(state => state.auth.user.avatarURL);
+  const avatarURL = useSelector(state => state.auth.avatarURL);
   return (
     <>
       <UserLogoBox>
