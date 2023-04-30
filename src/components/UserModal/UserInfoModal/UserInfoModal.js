@@ -1,5 +1,6 @@
-import { useState, useNavigate } from 'react';
+import { useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import {
   ModalContainer,
