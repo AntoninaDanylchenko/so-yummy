@@ -1,8 +1,7 @@
 import { useState, useNavigate } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import * as yup from 'yup';
 import {
-  // ModalBackdrop,
   ModalContainer,
   CloseButton,
   InputContainer,
@@ -16,10 +15,11 @@ import {
   UserImage,
   SaveButton,
 } from './UserInfoModal.styled';
-import { yupSchema } from 'components/AddRecipeForm/yupSchema';
+
 import { userUpdate } from 'redux/auth/operation';
 
 const UserInfoModal = ({onClose}) => {
+
   const userName = useSelector(state => state.auth.user.username);
   const avatarURL = useSelector(state => state.auth.avatarURL);
 
@@ -27,10 +27,16 @@ const UserInfoModal = ({onClose}) => {
     userName,
     avatarURL,
   };
+  const yupSchema = yup.object().shape({
+    userName: yup.string().required(),
+    avatarURL: yup.string(),
+  });
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
+console.log(setName)
   const navigate = useNavigate();
+
 
   const onInputImageSet = event => {
     setImage(event.target.files[0]);
@@ -55,8 +61,11 @@ const UserInfoModal = ({onClose}) => {
   formData.append('username', name);
 
   const handleSubmit = e => {
+    console.log('ok');
     e.preventDefault();
+
     yupSchema.validate(initialValues, { abortEarly: false }).then(() => {
+      console.log(formData);
       dispatch(userUpdate(formData))
         .unwrap()
         .then(() => {
@@ -66,15 +75,17 @@ const UserInfoModal = ({onClose}) => {
           console.log(error);
         });
     });
+    onClose();
   };
 
   return (
     <>
-      <ModalContainer initialValues={initialValues} onSubmit={handleSubmit}>
+      <ModalContainer>
         <CloseButton type="button" onClick={onClose}>
           <IconClose />
         </CloseButton>
-        <div>
+
+        <form onSubmit={handleSubmit}>
           <FileInputWrap onChange={event => onFileInputChange(event)}>
             <label htmlFor="photo">
               <Image>
@@ -89,11 +100,9 @@ const UserInfoModal = ({onClose}) => {
             <Input type="text" name="name" placeholder={userName} />
             <IconPencil />
           </InputContainer>
-        </div>
-        <SaveButton type="submit">Save changes</SaveButton>
+          <SaveButton type="submit">Save changes</SaveButton>
+        </form>
       </ModalContainer>
-
-      {/* </ModalBackdrop> */}
     </>
   );
 };

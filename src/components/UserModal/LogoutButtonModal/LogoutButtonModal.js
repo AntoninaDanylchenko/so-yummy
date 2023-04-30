@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operation';
 import {
@@ -11,9 +10,9 @@ import {
   IconClose,
 } from './LogoutButtonModal.styled';
 
+
 const LogoutButtonModal = ({onClose}) => {
   const dispatch = useDispatch();
-
 
   const handleLogout = async () => {
     try {
@@ -22,8 +21,6 @@ const LogoutButtonModal = ({onClose}) => {
       console.error(error);
     }
   };
-
-  
 
   return (
     <>

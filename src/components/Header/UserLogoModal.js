@@ -14,9 +14,9 @@ const UserLogoModal = ({ onClose }) => {
           <span>Edit profile</span>
           <IconPen onClick={() => setOnShow(true)} />
         </TextModal>
-        <LogoutBtn onClose={ onClose} />
+        <LogoutBtn onClose={onClose} />
       </Modal>
-      {onShow && <UserInfoModal onClose={ onClose}/>}
+      {onShow && <UserInfoModal onClose={onClose} />}
     </>
   );
 };

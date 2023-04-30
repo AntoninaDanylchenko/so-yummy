@@ -4,7 +4,8 @@ export const GreenLeftSquare = styled.div`
   position: absolute;
   width: 8px;
   height: 8px;
-  left: 120px;
+  /* left: 120px; */
+  left: calc(100vw * 1 / 5);
   top: 76px;
   z-index: -1;
 
@@ -15,11 +16,11 @@ export const GreenLeftSquare = styled.div`
     width: 14px;
     height: 14px;
     top: 85px;
-    left: 219px;
+    /* left: 219px; */
   }
 
   @media (${p => p.theme.device.desktop}) {
-    left: 328px;
+    /* left: 328px; */
     top: 117px;
   }
 `;
@@ -27,9 +28,9 @@ export const BlackSquare = styled.div`
   position: absolute;
   width: 8px;
   height: 8px;
-  /* left: 247px; */
+  left: 247px;
   top: 140px;
-  left: calc(100vw * 2 / 3);
+  left: calc(100vw * 3 / 5);
 
   background: ${p => p.theme.title.text};
   border-radius: 50%;
@@ -55,7 +56,8 @@ export const GreenRightSquare = styled.div`
   position: absolute;
   width: 8px;
   height: 8px;
-  right: 23px;
+  /* right: 23px; */
+  right: calc(100vw * 1 / 4);
   top: 108px;
   background: #8baa36;
   border-radius: 3px;
@@ -66,12 +68,12 @@ export const GreenRightSquare = styled.div`
   @media (${p => p.theme.device.tablet}) {
     width: 14px;
     height: 14px;
-    right: 15px;
+    /* right: 15px; */
     top: 98px;
   }
 
   @media (${p => p.theme.device.desktop}) {
-    right: 171px;
+    /* right: 171px; */
     top: 135px;
   }
 `;
