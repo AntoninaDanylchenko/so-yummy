@@ -15,6 +15,8 @@ const LogoutButtonModal = ({show}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
 
+console.log(showModal);
+
   const handleLogout = async () => {
     try {
       await dispatch(logOut());
