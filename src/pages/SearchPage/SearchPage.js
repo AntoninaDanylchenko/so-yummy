@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 
 import PageTitle from 'components/ShoppingListPage/Title/PageTitle';
 import SearchBar from 'components/SearchPage/SearchBar';
-import fetchRecipesByIngredients, {
+import {
+  fetchRecipesByIngredients,
   fetchRecipesByTitle,
 } from 'components/SearchPage/fetchAPI';
 import Button from 'components/SearchPage/ButtonLoad';
@@ -13,7 +14,6 @@ import { RecipeItem } from 'components/RecipeItem/RecipeItem';
 import { SearchWrapper } from 'components/SearchPage/SearchBar.styled';
 import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.styled';
 import NoResult from 'components/NoResult/NoResult';
-import { Container } from './MainPage.styled';
 
 const SearchPage = () => {
   const [recipes, setRecipes] = useState([]);
