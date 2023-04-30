@@ -71,8 +71,8 @@ export const lightTheme = createTheme(defaultTheme, {
     recipeBg: '#FFFFFF',
     recipePreparation: '#FFFFFF',
   },
-  
-  mainBg: "#FAFAFA",
+
+  mainBg: '#FAFAFA',
 
   // green
   accent: {
@@ -235,10 +235,10 @@ export const darkTheme = createTheme(defaultTheme, {
   inputError: '#E74A3B',
 });
 
-function MainDeviceRatio(url1, url2, url3, url4) {
+function MainDeviceRatio(url1, url2, url3, url4, url5) {
   return `@media (min-device-pixel-ratio: 2),
   (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('${url1}'), url('${url2}'), url('${url3}'), url('${url4}')}`;
+    background-image: url('${url1}'), url('${url2}'), url('${url3}'), url('${url4}'), url('${url5}')}`;
 }

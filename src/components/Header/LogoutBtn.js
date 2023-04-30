@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { LogoutButtonModal } from '../UserModal/LogoutButtonModal/LogoutButtonModal';
 import { LogoutButton, IconArrow } from './Header.styled';
 
-const LogoutBtn = () => {
+const LogoutBtn = ({ onClose }) => {
   const [show, setShow] = useState(false);
 
   const toggleModal = () => {
@@ -15,7 +15,7 @@ const LogoutBtn = () => {
         <span>Log out</span>
         <IconArrow />
       </LogoutButton>
-      {show && <LogoutButtonModal />}
+      {show && <LogoutButtonModal onClose={onClose} show={show} />}
     </>
   );
 };
