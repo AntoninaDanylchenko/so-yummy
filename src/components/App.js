@@ -18,6 +18,7 @@ import { lightTheme, darkTheme } from 'styles/theme';
 import { GlobalStyles } from 'styles/GlobalStyles';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import NotFound from 'pages/NotFound/NotFound';
+import { Loader } from './Loader/Loader';
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const SigninPage = lazy(() => import('../pages/SigninPage/SigninPage'));
@@ -50,81 +51,75 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing contact...</b>
+    <Loader />
   ) : (
     <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route
-              index
-              element={
-                <RestricteRoute component={WelcomePage} redirectTo="/main" />
-              }
-            />
-            <Route
-              path="/register"
-              element={
-                <RestricteRoute component={RegisterPage} redirectTo="/main" />
-              }
-            />
-            <Route
-              path="/signin"
-              element={
-                <RestricteRoute component={SigninPage} redirectTo="/main" />
-              }
-            />
-            {/* <Route path="*" element={<NotFound />} /> */}
-          </Route>
+      <GlobalStyles />
+      <Routes>
+        <Route path="/" element={<Layout />}>
           <Route
-            path="/"
-            element={<PrivateRoute component={SharedLayout} redirectTo="/" />}
-          >
-            <Route
-              path="/main"
-              element={<PrivateRoute component={MainPage} redirectTo="/" />}
-            />
+            index
+            element={
+              <RestricteRoute component={WelcomePage} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestricteRoute component={RegisterPage} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <RestricteRoute component={SigninPage} redirectTo="/main" />
+            }
+          />
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Route>
+        <Route
+          path="/"
+          element={<PrivateRoute component={SharedLayout} redirectTo="/" />}
+        >
+          <Route
+            path="/main"
+            element={<PrivateRoute component={MainPage} redirectTo="/" />}
+          />
 
-            <Route
-              path="/categories/:category"
-              element={
-                <PrivateRoute component={CategoriesPage} redirectTo="/" />
-              }
-            />
-            <Route
-              path="/add"
-              element={
-                <PrivateRoute component={AddRecipePage} redirectTo="/" />
-              }
-            />
-            <Route
-              path="/my"
-              element={
-                <PrivateRoute component={MyRecipesPage} redirectTo="/" />
-              }
-            />
-            <Route
-              path="recipe/:recipeId"
-              element={<PrivateRoute component={RecipePage} redirectTo="/" />}
-            />
-            <Route
-              path="/favorite"
-              element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
-            />
-            <Route
-              path="/shopping-list"
-              element={
-                <PrivateRoute component={ShoppingListPage} redirectTo="/" />
-              }
-            />
-            <Route
-              path="/search"
-              element={<PrivateRoute component={SearchPage} redirectTo="/" />}
-            />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-        <Toaster />
+          <Route
+            path="/categories/:category"
+            element={<PrivateRoute component={CategoriesPage} redirectTo="/" />}
+          />
+          <Route
+            path="/add"
+            element={<PrivateRoute component={AddRecipePage} redirectTo="/" />}
+          />
+          <Route
+            path="/my"
+            element={<PrivateRoute component={MyRecipesPage} redirectTo="/" />}
+          />
+          <Route
+            path="recipe/:recipeId"
+            element={<PrivateRoute component={RecipePage} redirectTo="/" />}
+          />
+          <Route
+            path="/favorite"
+            element={<PrivateRoute component={FavoritePage} redirectTo="/" />}
+          />
+          <Route
+            path="/shopping-list"
+            element={
+              <PrivateRoute component={ShoppingListPage} redirectTo="/" />
+            }
+          />
+          <Route
+            path="/search"
+            element={<PrivateRoute component={SearchPage} redirectTo="/" />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+      <Toaster />
     </ThemeProvider>
   );
 };

@@ -111,14 +111,16 @@ export const MeasureWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 37px;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-width: 37px;
   height: 23px;
   border-radius: ${p => p.theme.radii[0]};
   background-color: ${p => p.theme.accent.mainBtnBg};
 
   @media (${p => p.theme.device.tablet}) {
     right: 175px;
-    width: 68px;
+    min-width: 68px;
     height: 35px;
   }
 

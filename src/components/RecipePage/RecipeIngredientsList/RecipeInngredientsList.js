@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   Container,
@@ -18,26 +18,37 @@ import {
 import {
   addIngredientToShoppingList,
   removeIngredientFromShoppingList,
+  fetchShoppingList,
 } from 'redux/shoppingList/operations';
-import { selectShoppingList } from 'redux/shoppingList/selectors';
+import { useState } from 'react';
+import { store } from 'redux/store';
 
 export const RecipeInngredientsList = ({ ingredients }) => {
   const dispatch = useDispatch();
-  const products = useSelector(selectShoppingList);
+  const [isCheck, setChek] = useState(false);
 
-  const handleOnChange = (productId, measure) => {
+  const handleOnChange = (event, ingredientId, measure) => {
+    const ingredient = { ingredientId, measure: [measure] };
 
-    const ingredient = { productId, measure };
-    console.log("ingredient:", ingredient);
-    
-    const isIngredientsInList = products.some(
-      p => p.productId === productId && p.measure.some(m => m === measure)
-    );
-
-    if (isIngredientsInList) {
-      dispatch(removeIngredientFromShoppingList(ingredient));
-    } else {
-      dispatch(addIngredientToShoppingList(ingredient));
+    if (event.target.checked) {
+      event.target.setAttribute('disabled', true);
+      dispatch(addIngredientToShoppingList(ingredient)).then(() => {
+        dispatch(fetchShoppingList()).then(() => {
+          const data = store.getState();
+          const products = data.shoppingList.items;
+          const product = products[products.length - 1];
+          event.target.setAttribute('id', product.id);
+          event.target.removeAttribute('disabled');
+        });
+      });
+      setChek(true);
+      return;
+    }
+    if (!event.target.checked) {
+      const prodId = event.target.getAttribute('id');
+      dispatch(removeIngredientFromShoppingList(prodId));
+      setChek(false);
+      return;
     }
   };
 
@@ -67,9 +78,9 @@ export const RecipeInngredientsList = ({ ingredients }) => {
 
               <Checkbox
                 type="checkbox"
-                checked={products.some(p => p.productId === ingredient._id)}
-                onChange={() =>
-                  handleOnChange(ingredient._id, ingredient.measure)
+                value={isCheck}
+                onChange={event =>
+                  handleOnChange(event, ingredient._id, ingredient.measure)
                 }
               ></Checkbox>
             </Wrapper2>
