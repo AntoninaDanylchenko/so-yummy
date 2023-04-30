@@ -32,6 +32,7 @@ const UserInfoModal = ({ onClose }) => {
     avatarURL: yup.string(),
   });
   const [image, setImage] = useState('');
+  const [url, setUrl] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
 
@@ -48,17 +49,19 @@ const UserInfoModal = ({ onClose }) => {
       const buffer = event.target.result;
       const blob = new Blob([buffer], { type: file.type });
       const url = URL.createObjectURL(blob);
-      setImage(url);
+      setUrl(url);
     });
     reader.readAsArrayBuffer(file);
 
     onInputImageSet(event);
   };
-
+  const onNameInputChange = e => {
+    setName(e.target.value);
+  };
   const formData = new FormData();
-  formData.append('avatars', avatarURL);
+  formData.append('avatar', image);
   formData.append('username', name);
-
+  console.log(formData);
   const handleSubmit = e => {
     console.log('ok');
     e.preventDefault();
@@ -92,11 +95,17 @@ const UserInfoModal = ({ onClose }) => {
               </Image>
             </label>
             <FileInput type="file" accept=".jpg, .jpeg, .png" id="photo" />
-            {image && <UserImage src={image} alt="userImage"></UserImage>}
+            {image && <UserImage src={url} alt="userImage"></UserImage>}
           </FileInputWrap>
           <InputContainer>
             <IconUser />
-            <Input type="text" name="name" placeholder={userName} />
+            <Input
+              type="text"
+              name="name"
+              value={name}
+              placeholder={userName}
+              onChange={onNameInputChange}
+            />
 
             <IconPencil />
           </InputContainer>
