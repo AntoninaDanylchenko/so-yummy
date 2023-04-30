@@ -11,7 +11,7 @@ export const MainWrapper = styled.footer`
   position: relative;
   bottom: 66px;
   margin-top: 66px;
-  background: #22252a;
+  background: ${p => p.theme.title.addBtnBg};
 
   @media screen and (min-width: 768px) {
     bottom: 78px;
@@ -65,7 +65,7 @@ export const BottomTextReserved = styled.p`
   font-size: 10px;
   line-height: 10px;
   letter-spacing: -0.01em;
-  color: #22252a;
+  color: ${p => p.theme.title.text};
   opacity: 0.5;
 
   @media screen and (min-width: 768px) {
@@ -80,7 +80,7 @@ export const BottomTextService = styled.p`
   font-size: 10px;
   line-height: 10px;
   letter-spacing: -0.01em;
-  color: #22252a;
+  color: ${p => p.theme.title.text};
   opacity: 0.5;
 
   @media screen and (min-width: 768px) {
@@ -181,12 +181,28 @@ export const SocialIconLink = styled.a`
   height: 18px;
   margin: 0;
   padding: 0;
+
+  &:hover svg {
+    fill: ${p => p.theme.primary.userBg};
+  }
 `;
 
-export const SocialIconFacebook = styled(Facebook)``;
-export const SocialIconYoutube = styled(Youtube)``;
-export const SocialIconTwitter = styled(Twitter)``;
-export const SocialIconInstagram = styled(Instagram)``;
+export const SocialIconFacebook = styled(Facebook)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
+export const SocialIconYoutube = styled(Youtube)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
+export const SocialIconTwitter = styled(Twitter)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
+export const SocialIconInstagram = styled(Instagram)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
 
 export const FooterLogoLinkNav = styled(LinkNav)`
   display: flex;
@@ -222,6 +238,11 @@ export const FooterNavEx = styled(NavEx)`
 
 export const FooterLinkNav = styled(LinkNav)`
   color: white;
+  transition: all 300ms linear;
+
+  &:hover {
+    color: ${p => p.theme.accent.subscribeBg};
+  }
 
   @media screen and (min-width: 768px) {
     font-weight: 500;
@@ -373,9 +394,14 @@ export const FooterSubscribeButton = styled.button`
   height: 38px;
   padding: 0;
   color: white;
-  background: #8baa36;
+  background: ${p => p.theme.accent.subscribeBg};
   border: none;
   border-radius: 6px;
+  transition: all 300ms linear;
+
+  &:hover {
+    color: ${p => p.theme.title.addBtnBg};
+  }
 
   @media screen and (min-width: 768px) {
     max-width: 171px;
