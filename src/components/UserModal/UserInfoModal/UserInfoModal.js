@@ -1,6 +1,6 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import {
   ModalContainer,
@@ -19,8 +19,7 @@ import {
 
 import { userUpdate } from 'redux/auth/operation';
 
-const UserInfoModal = ({onClose}) => {
-
+const UserInfoModal = ({ onClose }) => {
   const userName = useSelector(state => state.auth.user.username);
   const avatarURL = useSelector(state => state.auth.avatarURL);
 
@@ -36,9 +35,8 @@ const UserInfoModal = ({onClose}) => {
   const [url, setUrl] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
-console.log(setName)
-  const navigate = useNavigate();
 
+  // const navigate = useNavigate();
 
   const onInputImageSet = event => {
     setImage(event.target.files[0]);
@@ -63,17 +61,15 @@ console.log(setName)
   const formData = new FormData();
   formData.append('avatar', image);
   formData.append('username', name);
-  console.log(formData);
+
   const handleSubmit = e => {
-    console.log('ok');
     e.preventDefault();
 
     yupSchema.validate(initialValues, { abortEarly: false }).then(() => {
-      console.log(formData);
       dispatch(userUpdate(formData))
         .unwrap()
         .then(() => {
-          navigate('/my', { replace: true });
+          // navigate('/my', { replace: true });
         })
         .catch(error => {
           console.log(error);
@@ -109,7 +105,6 @@ console.log(setName)
               placeholder={userName}
               onChange={onNameInputChange}
             />
-
 
             <IconPencil />
           </InputContainer>
