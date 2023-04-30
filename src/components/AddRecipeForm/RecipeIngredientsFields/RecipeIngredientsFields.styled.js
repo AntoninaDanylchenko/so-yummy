@@ -115,7 +115,7 @@ export const IngrInput = styled.input`
   padding: 16px;
   background-color: ${p => p.theme.background.placeholder};
   border-radius: ${p => p.theme.radii[1]};
-  border: 1px solid ${p => p.borderInput};
+  border: 1px solid ${p => p.theme.borderInput};
   outline: none;
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.43;
@@ -187,7 +187,7 @@ export const NumberInput = styled.input`
   padding: 16px 0 16px 10px;
   background-color: ${p => p.theme.background.placeholder};
   outline: none;
-  border: 1px solid ${p => p.borderInput};
+  border: 1px solid ${p => p.theme.borderInput};
   border-radius: ${p => p.theme.radii[1]};
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.43;

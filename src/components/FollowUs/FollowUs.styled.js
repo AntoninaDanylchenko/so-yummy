@@ -4,10 +4,22 @@ import { ReactComponent as Youtube } from '../../images/icon/youtube.svg';
 import { ReactComponent as Twitter } from '../../images/icon/twitter.svg';
 import { ReactComponent as Instagram } from '../../images/icon/instagram.svg';
 
-export const SocialIconFacebook = styled(Facebook)``;
-export const SocialIconYoutube = styled(Youtube)``;
-export const SocialIconTwitter = styled(Twitter)``;
-export const SocialIconInstagram = styled(Instagram)``;
+export const SocialIconFacebook = styled(Facebook)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
+export const SocialIconYoutube = styled(Youtube)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
+export const SocialIconTwitter = styled(Twitter)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
+export const SocialIconInstagram = styled(Instagram)`
+  fill: ${p => p.theme.accent.iconFollow};
+  transition: all 300ms linear;
+`;
 
 export const LinksWrap = styled.div`
   display: none;
@@ -43,6 +55,7 @@ export const LinkItem = styled.li`
     }
   }
 `;
+
 export const SocialIconLink = styled.a`
   display: flex;
   justify-content: center;
@@ -50,4 +63,9 @@ export const SocialIconLink = styled.a`
   height: 18px;
   margin: 0;
   padding: 0;
+
+  &:hover svg {
+    fill: ${p => p.theme.title.addBtnBg};
+    transform: scale(1.2);
+  }
 `;
