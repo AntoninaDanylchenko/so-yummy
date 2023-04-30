@@ -110,7 +110,7 @@ export const UserBox = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  margin-left: 107px;
+  margin-left: auto;
   margin-right: auto;
   display: flex;
   justify-content: center;
@@ -251,7 +251,8 @@ export const NavEx = styled.nav`
   gap: 32px;
 
   @media ${p => p.theme.device.tablet} {
-    gap: 40px;align-self: start;
+    gap: 40px;
+    align-self: start;
   }
 `;
 
