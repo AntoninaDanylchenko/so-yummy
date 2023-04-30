@@ -12,7 +12,7 @@ import { RecipeDescriptionFields } from '../AddRecipeForm/RecipeDescriptionField
 import { RecipeIngredients } from '../AddRecipeForm/RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparation } from '../AddRecipeForm/RecipePreparationFields/RecipePreparationFields';
 import { AddRecipeSection, Form, AddButton } from './AddRecipeForm.styled';
-import Loader from '../Loader/Loader';
+import { Loader } from '../Loader/Loader';
 
 export const AddRecipeForm = () => {
   const [image, setImage] = useState('');
