@@ -8,7 +8,6 @@ export const SharedLayout = () => {
   return (
     <Box>
       <Header />
-
       <Main>
         <Suspense>
           <Outlet />

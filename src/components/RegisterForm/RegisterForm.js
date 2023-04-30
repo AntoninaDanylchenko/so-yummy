@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-// import { styled } from '@mui/material/styles';
 import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';
@@ -15,6 +14,7 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 // import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
+// import { yellow } from '@mui/material/colors';
 
 const schema = object().shape({
   username: string()
@@ -48,6 +48,14 @@ export const RegisterForm = () => {
       // alert(JSON.stringify(values, null, 2));
     }, 500);
   };
+  // const handleChange = e => {
+  //   const dataPassword = e.target.password.values;
+  // if (dataPassword.length > 6 && dataPassword.length < 10) {
+  //   helperText = 'Your password is little secure';
+  //   sx={{color:"white"}}
+
+  // }
+
   // const handleChange = (values) => {
   //   if( errors.password && values.password.length > Number(6) && values.password.length < Number(16) ){
   //           sx ={{color: "yellow" }}
@@ -63,7 +71,7 @@ export const RegisterForm = () => {
       {({
         values,
         submitForm,
-        resetForm,
+        // resetForm,
         isSubmitting,
         touched,
         errors,
@@ -78,40 +86,35 @@ export const RegisterForm = () => {
             type="text"
             placeholder="Name"
             multiline
-            // color="#ED6C02"
-            sx={{
-              fontFamily: 'Poppins',
-              fontSize: 14,
-              lineHeight: 1.39,
-              mb: '12px',
+            // color="secondary"
 
-              opacity: 0.8,
+            InputProps={{
+              style: {
+                fontFamily: 'Poppins',
+                fontSize: 14,
+                lineHeight: 1.39,
+                marginBottom: '12px',
 
-              flex: 'none',
-              order: 2,
-              flexGrow: 0,
+                opacity: 0.8,
 
-              borderRadius: '6px',
-              // border: '1px solid #fafafa',
-              //  border={touched.username && errors.username && "1px solid red"},
-              // {Boolean(errors.username) &&  (border: '1px solid #fafafa')}
-              // border={(Boolean(errors.username)) && "1px solid red"},
-              // onBlur= ({Boolean(touched.username) && Boolean(errors.username) ? sx={..., border: '1px solid  #E74A3B'} : border:`1px solid #3CBC81` })
-              // border:
-              //   Boolean(touched.username) && Boolean(errors.username)
-              //     ? '1px solid #E74A3B'
-              //     : `1px solid #3CBC81`,
-              '@media (min-width: 768px)': {
-                mb: '24px',
-              },
+                flex: 'none',
+                order: 2,
+                flexGrow: 0,
 
-              '& $notchedOutline': {
-                '& .MuiOutlinedInput-notchedOutline': {
-                  borderWidth: 3,
+                borderRadius: '6px',
+                // border: '1px solid #fafafa',
+                //  border={touched.username && errors.username && "1px solid red"},
+                // {Boolean(errors.username) &&  (border: '1px solid #fafafa')}
+                // border={(Boolean(errors.username)) && "1px solid red"},
+                // onBlur= ({Boolean(touched.username) && Boolean(errors.username) ? sx={..., border: '1px solid  #E74A3B'} : border:`1px solid #3CBC81` })
+                // border:
+                //   Boolean(touched.username) && Boolean(errors.username)
+                //     ? '1px solid #E74A3B'
+                //     : `1px solid #3CBC81`,
+                '@media (min-width: 768px)': {
+                  mb: '24px',
                 },
               },
-            }}
-            InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
                   <PermIdentityIcon
@@ -148,8 +151,8 @@ export const RegisterForm = () => {
             // value={values.username}
             // onChange={handleChange}
             // error={touched.username && Boolean(errors.username)}
-            error={touched['username'] && !!errors['username']}
-            helperText={touched['username'] && errors['username']}
+            // error={touched['username'] && !!errors['username']}
+            // helperText={touched['username'] && errors['username']}
             // helperText={touched.username && errors.username}
           />
 
@@ -245,6 +248,7 @@ export const RegisterForm = () => {
               fontFamily: 'Poppins',
               width: '100%',
               height: '45px',
+              mt: '28px',
 
               textTransform: 'none',
               fontSize: 16,
@@ -262,23 +266,17 @@ export const RegisterForm = () => {
               },
 
               '@media (min-width: 768px)': {
-                width: '80%',
-                height: '56px',
-                borderRadius: '6px',
-                backgroundColor: ' #8BAA36;',
-              },
-
-              '@media (min-width: 1440px)': {
                 width: '100%',
                 height: '59px',
                 borderRadius: '6px',
                 backgroundColor: ' #8BAA36;',
+                mt: '50px',
               },
             }}
             variant="contained"
             fullWidth
             type="submit"
-            disabled={isSubmitting}
+            // disabled={isSubmitting}
             onClick={submitForm}
           >
             Sign up

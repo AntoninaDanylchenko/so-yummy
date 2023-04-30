@@ -4,6 +4,7 @@ import { Search } from '../../components/MainPage/Search';
 import { PreviewCategories } from '../../components/MainPage/PreviewCategories';
 import {
   Container,
+  ContainerHero,
   MainSection,
   RecipeSection,
   RecipeList,
@@ -22,28 +23,33 @@ const MainPage = () => {
   };
 
   return (
-    <Container>
+    <>
       <MainSection>
-        <СhooseYourBreakfast />
-        <Search setParams={setParams} />
+        <ContainerHero>
+          <СhooseYourBreakfast />
+          <Search setParams={setParams} />
+        </ContainerHero>
       </MainSection>
+
       <RecipeSection>
-        {
-          <RecipeList>
-            {defaultCategory.map(category => (
-              <li key={category}>
-                <CategoryName>{category}</CategoryName>
-                <PreviewCategories category={category} />
-                <ButtonSeeAll to={`/categories/${category}`} type="button">
-                  See all
-                </ButtonSeeAll>
-              </li>
-            ))}
-          </RecipeList>
-        }
-        <ButtonOther to={`/categories/beef`}>Other categories</ButtonOther>
+        <Container>
+          {
+            <RecipeList>
+              {defaultCategory.map(category => (
+                <li key={category}>
+                  <CategoryName>{category}</CategoryName>
+                  <PreviewCategories category={category} />
+                  <ButtonSeeAll to={`/categories/${category}`} type="button">
+                    See all
+                  </ButtonSeeAll>
+                </li>
+              ))}
+            </RecipeList>
+          }
+          <ButtonOther to={`/categories/beef`}>Other categories</ButtonOther>
+        </Container>
       </RecipeSection>
-    </Container>
+    </>
   );
 };
 export default MainPage;

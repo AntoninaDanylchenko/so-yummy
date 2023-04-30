@@ -13,10 +13,11 @@ export const Container = styled.div`
   justify-content: center;
   padding-top: 144px;
   padding-bottom: 90px;
-  position: relative;
-  top: -63px;
-  margin-bottom: -63px;
-  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 455px;
   background-image: url(${bgImageMobile});
   background-repeat: no-repeat;
   background-position: center;
@@ -31,6 +32,7 @@ export const Container = styled.div`
   @media (${p => p.theme.device.tablet}) {
     padding-top: 136px;
     padding-bottom: 32px;
+    height: 570px;
     background-image: url(${bgImageTablet});
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -42,6 +44,7 @@ export const Container = styled.div`
 
   @media (${p => p.theme.device.desktop}) {
     padding-top: 164px;
+    height: 600px;
     background-image: url(${bgImageDesctop});
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -53,7 +56,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: ${p=>p.theme.fonts.Poppins};
+  font-family: ${p => p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes[7]};
@@ -72,7 +75,7 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  font-family: ${p=>p.theme.fonts.Poppins};
+  font-family: ${p => p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes[2]};
@@ -97,7 +100,7 @@ export const Description = styled.p`
 `;
 
 export const Button = styled.button`
-  font-family: ${p=>p.theme.fonts.Poppins};
+  font-family: ${p => p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.regular};
   font-size: ${p => p.theme.fontSizes[1]};
@@ -135,7 +138,7 @@ export const Button = styled.button`
 export const Time = styled.p`
   display: flex;
   align-items: center;
-  font-family: ${p=>p.theme.fonts.Poppins};
+  font-family: ${p => p.theme.fonts.Poppins};
   font-style: normal;
   font-weight: ${p => p.theme.medium};
   font-size: ${p => p.theme.fontSizes[1]};

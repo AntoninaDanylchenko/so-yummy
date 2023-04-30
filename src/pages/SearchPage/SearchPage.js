@@ -1,6 +1,5 @@
 import { Container } from '@mui/material';
 import { useState, useEffect } from 'react';
-// import { toast } from 'react-hot-toast';
 
 import PageTitle from 'components/ShoppingListPage/Title/PageTitle';
 import SearchBar from 'components/SearchPage/SearchBar';
@@ -10,7 +9,8 @@ import fetchRecipesByIngredients, {
 import Button from 'components/SearchPage/ButtonLoad';
 import { SearchTypeSelector } from 'components/SearchPage/SearchTypeSelector';
 import { RecipeItem } from 'components/RecipeItem/RecipeItem';
-// import { RecipeItem } from 'components/RecipeItem/RecipeItem';
+import { SearchWrapper } from 'components/SearchPage/SearchBar.styled';
+import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.styled';
 
 const SearchPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -33,7 +33,6 @@ const SearchPage = () => {
         const response = isTitle
           ? await fetchRecipesByTitle(query, page)
           : await fetchRecipesByIngredients(query, page);
-        // console.log('response', response);
         const dataRecipes = response.data.map(
           ({ _id, title, preview, thumb }) => ({
             id: _id,
@@ -51,15 +50,11 @@ const SearchPage = () => {
         }
       } catch (error) {
         console.log('Something wrong... Try again!');
-        // setError({ error });
       } finally {
         setIsLoading(false);
       }
     })();
   }, [isTitle, query, page]);
-
-  console.log('recipes', recipes);
-  console.log('isTitle', isTitle);
 
   const onChangeQuery = query => {
     setRecipes([]);
@@ -84,13 +79,16 @@ const SearchPage = () => {
   return (
     <Container fixed maxWidth="desktop">
       <PageTitle title="Search" />
-      <SearchBar onSubmit={onChangeQuery} />
-      <SearchTypeSelector onSelectChange={onSelectChange} />
-      <ul>
+      <SearchWrapper>
+        <SearchBar onSubmit={onChangeQuery} />
+        <SearchTypeSelector onSelectChange={onSelectChange} />
+      </SearchWrapper>
+      <SearchedRecipesList>
         {recipes?.map(recipe => {
           return <RecipeItem key={recipe.id} recipe={recipe} />;
         })}
-      </ul>
+      </SearchedRecipesList>
+
       {showLoadMore && <Button onClick={loadMore} />}
     </Container>
   );
