@@ -241,7 +241,7 @@ export const FooterLinkNav = styled(LinkNav)`
   transition: all 300ms linear;
 
   &:hover {
-    color: #8baa36;
+    color: ${p => p.theme.accent.subscribeBg};
   }
 
   @media screen and (min-width: 768px) {
