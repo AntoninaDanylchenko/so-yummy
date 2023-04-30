@@ -30,12 +30,12 @@ import PlateDesk from 'images/leafs/unsplash_desktop.png';
 import PlateDesk2 from 'images/leafs/unsplash_desktop@2x.png';
 
 export const MainSection = styled.section`
-  /* max-width: 1600px; */
   margin: 0 auto;
   margin-top: -64px;
   height: 777px;
   background: ${p => p.theme.mainBg};
   background-repeat: no-repeat;
+  background-size: 48px 202px, 320px 296px, 375px 814px, 269px 678px;
   background-image: url('${SpinachLeftMob}'), url('${PlateMob}'),
     url('${SpinachMob}'), url('${BackgroundMob}');
   background-position: left top 30px, right 27px top 322px, right top 50px,
@@ -43,29 +43,39 @@ export const MainSection = styled.section`
 
   ${p =>
     p.theme.media(SpinachLeftMob2, PlateMob2, SpinachMob2, BackgroundMob2)};
+  /* @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url('${SpinachLeftMob2}'), url('${PlateMob2}'),
+      url('${SpinachMob2}'), url('${BackgroundMob2}');
+  } */
 
   @media screen and ${p => p.theme.device.tablet} {
     height: 640px;
+    background-size: 67px 323px, 368px 351px, 583px 640px, 332px 640px;
     background-image: url('${SpinachLeftTab}'), url('${PlateTab}'),
       url('${SpinachTab}'), url('${BackgroundTab}');
     background-position: left top, right top 159px, right top, right bottom;
+
     ${p =>
-      p.theme.media(SpinachLeftTab2, PlateTab2, SpinachTab2, BackgroundTab2)}
+      p.theme.media(SpinachLeftTab2, PlateTab2, SpinachTab2, BackgroundTab2)};
   }
   @media screen and ${p => p.theme.device.desktop} {
     height: 800px;
+    background-size: 116px 398px, 578px 539px, 913px 800px, 725px 689px;
     background-image: url('${SpinachLeftDesk}'), url('${PlateDesk}'),
       url('${SpinachDesk}'), url('${BackgroundDesk}');
     background-position: left top, right 184px top 126px, right top,
       right -20px top;
-    /* background-size: auto, auto, auto, auto; */
+
     ${p =>
       p.theme.media(
         SpinachLeftDesk2,
         PlateDesk2,
         SpinachDesk2,
         BackgroundDesk2
-      )}
+      )};
   }
 `;
 
@@ -92,7 +102,7 @@ export const ContainerHero = styled(Container)`
   padding-top: 132px;
   height: 100%;
   @media screen and (${props => props.theme.device.tablet}) {
-    padding-top: 205px;
+    padding-top: 204px;
   }
   @media screen and (${props => props.theme.device.desktop}) {
     padding-top: 226px;
@@ -177,10 +187,12 @@ export const ButtonOther = styled(Link)`
   background-color: transparent;
   border-radius: 24px 44px;
   border: 1px solid ${p => p.theme.accent.mainBtnBg};
-  transition: background-color ${p => p.theme.transition};
+  transition: background-color ${p => p.theme.transition},
+    transform ${p => p.theme.transition};
   :hover,
   :focus {
     background-color: ${p => p.theme.accent.mainBtnBg};
+    transform: scale(1.05);
   }
   @media screen and ${p => p.theme.device.tablet} {
     margin-top: 32px;
