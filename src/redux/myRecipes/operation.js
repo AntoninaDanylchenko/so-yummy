@@ -29,9 +29,11 @@ export const deleteMyRecipesOp = createAsyncThunk(
   'myRecipes/delete',
   async (recipeId, thunkAPI) => {
     try {
-      const r = await axios.delete(`/ownRecipes/${recipeId}`);
+      await axios.delete(`/ownRecipes/${recipeId}`);
 
-      return r.data;
+      return {
+        recipeId
+      };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
