@@ -5,7 +5,7 @@ const defaultTheme = createTheme({
     Poppins: "'Poppins', sans-serif",
   },
   typography: {
-    fontFamily: "'Poppins', sans-serif"
+    fontFamily: "'Poppins', sans-serif",
   },
 
   fontSizes: [
@@ -37,7 +37,7 @@ const defaultTheme = createTheme({
     '0px 4px 48px rgba(0, 0, 0, 0.1)',
     '0px 6.51852px 7.82222px rgba(0, 0, 0, 0.0314074)',
     '0px 4px 4px rgba(135, 135, 135, 0.2)',
-    '0px 4px 4px rgba(0, 0, 0, 0.25',
+    '0px 4px 4px rgba(0, 0, 0, 0.25)',
   ],
 
   transition: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
@@ -139,24 +139,23 @@ export const lightTheme = createTheme(defaultTheme, {
       styleOverrides: {
         root: {
           '&.Mui-selected': {
-            color: '#22252A',  // working !!!
-            backgroundColor: '#EBF3D4',  // working !!!
+            color: '#22252A', // working !!!
+            backgroundColor: '#EBF3D4', // working !!!
           },
           '&.Mui-disabled&.MuiPaginationItem-previousNext': {
-            opacity: "0.73",  // working
-            color: '#A9A9A9',  // working
+            opacity: '0.73', // working
+            color: '#A9A9A9', // working
           },
         },
         text: {
           fontWeight: 500,
-          color: '#656565'  // used for un-selected pages numbers
+          color: '#656565', // used for un-selected pages numbers
         },
         previousNext: {
-          color: '#A9A9A9',  // used for pagination previous-next buttons
-        }
-      }
+          color: '#A9A9A9', // used for pagination previous-next buttons
+        },
+      },
     },
-
   },
 });
 
