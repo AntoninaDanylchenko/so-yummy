@@ -61,8 +61,8 @@ export const MainText = styled.p`
 export const ContainerWrap = styled.div`
   position: absolute;
   max-width: 225px;
-  top: 435px;
-  right: 34px;
+  top: 460px;
+  right: 135px;
   padding: 8px;
   background-color: ${p => p.theme.primary.background};
   border-radius: ${p => p.theme.radii[2]};
