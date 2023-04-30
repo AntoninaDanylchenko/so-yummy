@@ -31,7 +31,7 @@ export const BlackSquare = styled.div`
   top: 140px;
   left: calc(100vw * 2 / 3);
 
-  background: #22252a;
+  background: ${p => p.theme.title.text};
   border-radius: 50%;
 
   z-index: -1;
