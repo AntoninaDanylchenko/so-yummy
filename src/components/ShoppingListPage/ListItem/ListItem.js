@@ -15,19 +15,19 @@ import {
 export default function ListItem({ shoppingItem }) {
   const dispatch = useDispatch();
   const { ingredient, measure, id } = shoppingItem;
-  const {
-    // desc,
-    thb,
-    ttl,
-  } = ingredient;
+  // const {
+  //   // desc,
+  //   thb,
+  //   ttl,
+  // } = ingredient;
 
   return (
     <Item>
       <PosterWrapper>
         <PosterContainer>
-          <Poster src={thb} alt={ttl} />
+          <Poster src={ingredient?.thb} alt={ingredient?.ttl} />
         </PosterContainer>
-        <PosterTitle>{ttl}</PosterTitle>
+        <PosterTitle>{ingredient?.ttl}</PosterTitle>
       </PosterWrapper>
       <MeasureWrapper>
         {measure ? (
