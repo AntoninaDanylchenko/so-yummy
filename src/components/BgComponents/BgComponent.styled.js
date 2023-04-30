@@ -8,7 +8,7 @@ export const GreenLeftSquare = styled.div`
   top: 76px;
   z-index: -1;
 
-  background: #8baa36;
+  background: ${p => p.theme.accent.mainBtnBg};
   border-radius: 3px;
   transform: rotate(-25deg);
   @media (${p => p.theme.device.tablet}) {
@@ -31,7 +31,8 @@ export const BlackSquare = styled.div`
   top: 140px;
   left: calc(100vw * 2 / 3);
 
-  background: #22252a;
+  /* background: #22252a; */
+  background: ${p => p.theme.title.text};
   border-radius: 50%;
 
   z-index: -1;
@@ -57,7 +58,7 @@ export const GreenRightSquare = styled.div`
   height: 8px;
   right: 23px;
   top: 108px;
-  background: #8baa36;
+  background: ${p => p.theme.accent.mainBtnBg};
   border-radius: 3px;
   transform: rotate(-25deg);
 

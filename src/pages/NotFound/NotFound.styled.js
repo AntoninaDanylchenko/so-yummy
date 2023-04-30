@@ -57,6 +57,8 @@ export const NotFoundText = styled.p`
   flex-direction: column;
   gap: 8px;
 
+  color: ${p => p.theme.title.text};
+
   text-align: center;
   margin-left: auto;
   margin-right: auto;
