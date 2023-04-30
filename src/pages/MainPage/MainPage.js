@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { СhooseYourBreakfast } from '../../components/MainPage/СhooseYourBreakfast';
+import { ChooseYourBreakfast } from '../../components/MainPage/ChooseYourBreakfast';
 import { Search } from '../../components/MainPage/Search';
 import { PreviewCategories } from '../../components/MainPage/PreviewCategories';
 import {
@@ -26,7 +26,7 @@ const MainPage = () => {
     <>
       <MainSection>
         <ContainerHero>
-          <СhooseYourBreakfast />
+          <ChooseYourBreakfast />
           <Search setParams={setParams} />
         </ContainerHero>
       </MainSection>
