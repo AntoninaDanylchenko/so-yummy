@@ -30,11 +30,7 @@ export const Box = styled.div`
     }
   }
 
-<<<<<<< Updated upstream
-  @media screen and (min-width: 768px) and (max-width: 1200px) {
-=======
   @media ${p => p.theme.device.tablet} {
->>>>>>> Stashed changes
     background-position: center bottom 0;
     width: 100vw;
     height: 100vh;

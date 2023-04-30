@@ -1,11 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-<<<<<<< Updated upstream
 import { Formik, Form, Field } from 'formik';
-=======
-// import { styled } from '@mui/material/styles';
-import { Formik, Form, Field} from 'formik';
->>>>>>> Stashed changes
+
 import { TextField } from 'formik-mui';
 import { object, string } from 'yup';
 import { InputAdornment, LinearProgress, Button } from '@mui/material';
