@@ -2,16 +2,26 @@
 import Button from '@mui/material/Button';
 import { Form, Field } from 'formik';
 // import { Button, TextField } from '@mui/material';
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
 
-const StyledTextField = styled(Field)`
-  & .Mui-disabled .MuiOutlinedInput-notchedOutline (
-  border-color:orange;
-) & {
-    margin-bottom: 12px;
-  }
-`;
+// const StyledTextField = styled(Field)`
+//   & .Mui-disabled .MuiOutlinedInput-notchedOutline (
+//   border-color:orange;
+// ) & {
+//     margin-bottom: 12px;
+//   }
+// `;
 
+// border:
+// normal      color: '#FFFFFF';
+// hover state      color: '#FFFFFF';
+// text: color: #22252A;
+
+// error state      backgr: #E74A3
+// correct state    color: #3CBC81
+// warning state     color: #F6C23E;
+//
+//
 export const FormFormik = styled(Form)`
   font-family: 'Poppins';
   /* display: grid;
