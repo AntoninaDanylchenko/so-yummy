@@ -10,11 +10,9 @@ import {
   IconClose,
 } from './LogoutButtonModal.styled';
 
-const LogoutButtonModal = ({ onClose }) => {
-  const dispatch = useDispatch();
-  // const [showModal, setShowModal] = useState(false);
 
-  // console.log(showModal);
+const LogoutButtonModal = ({onClose}) => {
+  const dispatch = useDispatch();
 
   const handleLogout = async () => {
     try {
@@ -23,10 +21,6 @@ const LogoutButtonModal = ({ onClose }) => {
       console.error(error);
     }
   };
-
-  // const toggleBtnModal = () => {
-  //   setShowModal(!showModal);
-  // };
 
   return (
     <>

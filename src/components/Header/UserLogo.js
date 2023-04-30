@@ -12,8 +12,9 @@ const UserLogo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const open = () => setIsOpen(true);
+
   const toggleModal = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(isOpen => !isOpen);
   };
 
   const username = useSelector(state => state.auth.user.username);

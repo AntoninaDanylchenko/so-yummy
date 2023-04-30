@@ -15,7 +15,7 @@ const LogoutBtn = ({ onClose }) => {
         <span>Log out</span>
         <IconArrow />
       </LogoutButton>
-      {show && <LogoutButtonModal onClose={onClose} show={show} />}
+      {show && <LogoutButtonModal onClose={onClose} />}
     </>
   );
 };

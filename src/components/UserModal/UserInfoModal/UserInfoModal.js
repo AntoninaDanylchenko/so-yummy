@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useNavigate } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import {
-  // ModalBackdrop,
   ModalContainer,
   CloseButton,
   InputContainer,
@@ -19,7 +18,8 @@ import {
 
 import { userUpdate } from 'redux/auth/operation';
 
-const UserInfoModal = ({ onClose }) => {
+const UserInfoModal = ({onClose}) => {
+
   const userName = useSelector(state => state.auth.user.username);
   const avatarURL = useSelector(state => state.auth.avatarURL);
 
@@ -34,8 +34,9 @@ const UserInfoModal = ({ onClose }) => {
   const [image, setImage] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
+console.log(setName)
+  const navigate = useNavigate();
 
-  console.log(setName);
 
   const onInputImageSet = event => {
     setImage(event.target.files[0]);
@@ -68,7 +69,7 @@ const UserInfoModal = ({ onClose }) => {
       dispatch(userUpdate(formData))
         .unwrap()
         .then(() => {
-          // toast.success('Your recipe has been successfully added');
+          navigate('/my', { replace: true });
         })
         .catch(error => {
           console.log(error);
@@ -97,14 +98,11 @@ const UserInfoModal = ({ onClose }) => {
           <InputContainer>
             <IconUser />
             <Input type="text" name="name" placeholder={userName} />
-
             <IconPencil />
           </InputContainer>
           <SaveButton type="submit">Save changes</SaveButton>
         </form>
       </ModalContainer>
-
-      {/* </ModalBackdrop> */}
     </>
   );
 };
