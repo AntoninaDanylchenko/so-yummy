@@ -38,7 +38,7 @@ export const TitleWrapper = styled.div`
   align-items: center;
   bottom: 26px;
   left: 18px;
-
+  text-overflow: ellipsis;
   padding-left: 16px;
   width: 307px;
   height: 52px;

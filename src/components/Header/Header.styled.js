@@ -101,7 +101,7 @@ export const UserBox = styled.div`
   margin-right: auto;
 
   @media ${p => p.theme.device.tablet} {
-    margin-right: 36px;
+    margin-right: 76px;
   }
 
   @media ${p => p.theme.device.desktop} {
@@ -111,7 +111,7 @@ export const UserBox = styled.div`
 
 export const RightContainer = styled.div`
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 247px;
   display: flex;
   justify-content: center;
   align-items: center;

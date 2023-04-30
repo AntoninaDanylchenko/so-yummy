@@ -4,6 +4,14 @@ import { useTheme } from '@mui/material/styles';
 import { fetchRecipesPopular } from 'redux/popularRecipes/operations';
 import { selectRecipesPopular } from 'redux/popularRecipes/selectors';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  Title,
+  PopularList,
+  PopularImage,
+  PopularText,
+  PopularSubtitle,
+  PopularItem,
+} from './PopularRecipe.styled';
 
 export const PopularRecipe = () => {
   const theme = useTheme();
@@ -28,18 +36,18 @@ export const PopularRecipe = () => {
 
   return (
     <div>
-      <h3>Popular recipe</h3>
-      <ul>
-        {recipes?.map(({ id, title, preview, thumb, desc }) => (
-          <li key={id}>
+      <Title>Popular recipe</Title>
+      <PopularList>
+        {recipes?.map(({ id, title, preview, desc }) => (
+          <PopularItem to={`/recipe/${id}`} key={id}>
             <div>
-              <img src={preview} alt={title} />
+              <PopularImage src={preview} alt={title} />
             </div>
-            <h4>{title}</h4>
-            <p>{desc}</p>
-          </li>
+            <PopularSubtitle>{title}</PopularSubtitle>
+            <PopularText>{desc}</PopularText>
+          </PopularItem>
         ))}
-      </ul>
+      </PopularList>
     </div>
   );
 };
