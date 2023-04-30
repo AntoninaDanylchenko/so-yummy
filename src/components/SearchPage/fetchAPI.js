@@ -15,5 +15,3 @@ export const fetchRecipesByIngredients = async (query, page) => {
   );
   return response;
 };
-
-export default fetchRecipesByIngredients;

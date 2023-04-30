@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 
 import PageTitle from 'components/ShoppingListPage/Title/PageTitle';
 import SearchBar from 'components/SearchPage/SearchBar';
-import fetchRecipesByIngredients, {
+import {
+  fetchRecipesByIngredients,
   fetchRecipesByTitle,
 } from 'components/SearchPage/fetchAPI';
 import Button from 'components/SearchPage/ButtonLoad';
