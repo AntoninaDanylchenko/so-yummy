@@ -8,9 +8,6 @@ import {
   ImgUser,
 } from './Header.styled';
 
-import { ButtonUser, UserLogoBox, TextUserLogo, ImgUser } from './Header.styled';
-
-
 const UserLogo = () => {
   const [isOpen, setIsOpen] = useState(false);
 

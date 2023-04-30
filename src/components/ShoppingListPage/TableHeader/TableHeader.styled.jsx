@@ -5,15 +5,15 @@ export const Tableheader = styled.div`
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-
-  width: 359px;
-  height: 38px;
-  padding: 10px;
-  margin-top: 50px;
-  border-radius: 8px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #8baa36;
+  margin-top: 50px;
+  padding: 10px;
+  width: 359px;
+  height: 38px;
+
+  border-radius: ${p => p.theme.radii[2]};
+  background-color: ${p => p.theme.accent.mainBtnBg};
 
   @media (${p => p.theme.device.tablet}) {
     width: 704px;
@@ -49,15 +49,13 @@ export const Interlayer = styled.div`
 `;
 
 export const TableTitle = styled.p`
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: ${p => p.theme.fontWeights.semibold};
+  font-size: ${p => p.theme.fontSizes[2]};
   line-height: 18px;
-  color: #fafafa;
+  color: ${p => p.theme.primary.textFooter};
 
   @media (${p => p.theme.device.tablet}) {
-    font-size: 18px;
+    font-size: ${p => p.theme.fontSizes[5]};
     line-height: 27px;
     letter-spacing: 0.03em;
   }

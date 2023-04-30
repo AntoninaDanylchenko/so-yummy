@@ -15,14 +15,14 @@ import pastaSpinachDipDesktop from '../../images/leafs/pasta-spinach-dip_desktop
 import pastaSpinachDipDesktop2x from '../../images/leafs/pasta-spinach-dip_desktop@2x.png';
 
 export const Main = styled.main`
-  width: 375px;
+  min-height: calc(100vh - 561px);
 
   @media ${p => p.theme.device.tablet} {
-    width: 768px;
+    min-height: calc(100vh - 564px);
   }
 
   @media ${p => p.theme.device.desktop} {
-    width: 1440px;
+    min-height: calc(100vh - 594px);
   }
   margin: 0 auto;
 `;
@@ -33,7 +33,6 @@ export const Box = styled.section`
   background-image: url(${pastaSpinachDipMobile}), url(${pastaSpinachMobile});
   background-repeat: no-repeat;
   background-size: 290px, 420px;
-  /* background-size: calc(100vw - 180px), cover; */
   background-position: right 0px bottom 0px, left 0px bottom 0px;
 
   @media screen and (min-device-pixel-ratio: 2),

@@ -3,12 +3,18 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px 16px 50px 16px;
-  @media screen and (min-width: 768px) {
-    padding: 50px 32px 96px 32px;
+  margin-top: 420px;
+  margin-bottom: 50px;
+
+  @media ${p => p.theme.device.tablet} {
+    margin-top: 540px;
+    margin-bottom: 96px;
+    
   }
-  @media screen and (min-width: 1200px) {
-    padding: 50px 100px 100px 100px;
+
+  @media ${p => p.theme.device.desktop} {
+    margin-top: 570px;
+    margin-bottom: 100px;
   }
 `;
 
@@ -17,12 +23,14 @@ export const Box = styled.div`
   justify-content: space-between;
   padding: 12px 14px;
   margin-bottom: 24px;
-  background: #8baa36;
-  border-radius: 8px;
-  @media screen and (min-width: 768px) {
+  background: ${p => p.theme.accent.mainBtnBg};
+  border-radius: ${p => p.theme.radii[2]};
+
+  @media ${p => p.theme.device.tablet} {
     padding: 21px 32px;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     padding: 21px 40px;
     margin-bottom: 40px;
   }
@@ -31,24 +39,27 @@ export const Box = styled.div`
 export const TitleWrapper = styled.div`
   display: flex;
   gap: 18px;
-  @media screen and (min-width: 768px) {
-    gap: 58px;
+
+  @media ${p => p.theme.device.tablet} {
+    gap: 38px;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     gap: 109px;
   }
 `;
 
 export const Desc = styled.p`
-  font-family: 'Poppins';
+  font-family: ${p => p.theme.fonts.Poppins};
   font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
+  font-weight: ${p => p.theme.fontWeights.semibold};
+  font-size: ${p => p.theme.fontSizes[1]};
   line-height: 15px;
   letter-spacing: 0.03em;
-  color: #fafafa;
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
+  color: ${p => p.theme.secondary.recipePreparation};
+
+  @media ${p => p.theme.device.tablet} {
+    font-size: ${p => p.theme.fontSizes[5]};
     line-height: 27px;
   }
 `;
@@ -57,10 +68,8 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  @media screen and (min-width: 768px) {
+
+  @media ${p => p.theme.device.tablet} {
     gap: 24px;
   }
 `;
@@ -69,23 +78,28 @@ export const Item = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 14px 29px 14px 14px;
-  background: #ebf3d4;
+  background: ${p => p.theme.ligthGreen.ingredientBg};
   border-radius: 8px;
-  @media screen and (min-width: 768px) {
+
+  @media ${p => p.theme.device.tablet} {
     padding: 33px 58px 33px 40px;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     padding: 27px 70px 27px 58px;
   }
 `;
 
 export const Wrapper1 = styled.div`
   display: flex;
+  align-items: center;
   gap: 12px;
-  @media screen and (min-width: 768px) {
+
+  @media ${p => p.theme.device.tablet} {
     gap: 40px;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     gap: 66px;
   }
 `;
@@ -93,56 +107,60 @@ export const Wrapper1 = styled.div`
 export const Image = styled.img`
   width: 57px;
   height: 57px;
-  @media screen and (min-width: 768px) {
+
+  @media ${p => p.theme.device.tablet} {
     width: 112px;
     height: 112px;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     width: 128px;
     height: 128px;
   }
 `;
 
 export const Title = styled.p`
-  font-family: 'Poppins';
+  font-family: ${p => p.theme.fonts.Poppins};
   font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes[2]};
   line-height: 14px;
   letter-spacing: -0.24px;
-  color: #3e4462;
-  margin: auto 0;
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
+  color: ${p => p.theme.blackText.text};
+
+  @media ${p => p.theme.device.tablet} {
+    font-size: ${p => p.theme.fontSizes[7]};
     line-height: 24px;
   }
 `;
 
 export const Wrapper2 = styled.div`
   display: flex;
-  gap: 26px;
-  margin-right: 0;
-  @media screen and (min-width: 768px) {
-    gap: 68px;
+  gap: 38px;
+
+  @media ${p => p.theme.device.tablet} {
+    gap: 78px;
   }
-  @media screen and (min-width: 1200px) {
-    gap: 116px;
+
+  @media ${p => p.theme.device.desktop} {
+    gap: 151px;
   }
 `;
 
 export const Amount = styled.p`
-  font-family: 'Poppins';
+  font-family: ${p => p.theme.fonts.Poppins};
   font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
+  font-weight: ${p => p.theme.fontWeights.semibold};
+  font-size: ${p => p.theme.fontSizes[1]};
   line-height: 15px;
-  color: #fafafa;
+  color: ${p => p.theme.secondary.recipePreparation};
   padding: 4px;
   margin: auto 0;
-  background: #8baa36;
-  border-radius: 4px;
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
+  background: ${p => p.theme.accent.mainBtnBg};
+  border-radius: ${p => p.theme.radii[1]};
+
+  @media ${p => p.theme.device.tablet} {
+    font-size: ${p => p.theme.fontSizes[5]};
     line-height: 27px;
     padding: 4px 8px;
   }
@@ -150,7 +168,8 @@ export const Amount = styled.p`
 
 export const Checkbox = styled.input`
   width: 18px;
-  @media screen and (min-width: 768px) {
+
+  @media ${p => p.theme.device.tablet} {
     width: 35px;
   }
 `;

@@ -19,10 +19,6 @@ export const HeaderBox = styled.header`
   margin: 0 auto;
   background-color: transparent;
 
-  /* z-index: 9999;
-   display: block;
-        position: absolute; */
-
   @media ${p => p.theme.device.tablet} {
     max-width: 768px;
   }
@@ -82,11 +78,8 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* margin-left: auto; */
-  /* gap: 8px; */
   padding-top: 20px;
   background-color: transparent;
-  /* position: absolute; */
 
   @media ${p => p.theme.device.tablet} {
     padding-top: 19px;
@@ -122,6 +115,8 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 3;
 
   @media screen and (max-width: 1439px) {
     display: none;
@@ -199,7 +194,6 @@ export const ImageBox = styled.div`
   width: 80%;
   height: 80%;
   position: absolute;
-
   z-index: -1;
   transform: rotate(20deg);
   background-position: center bottom 0;
@@ -256,7 +250,7 @@ export const NavEx = styled.nav`
   gap: 32px;
 
   @media ${p => p.theme.device.tablet} {
-    gap: 40px;
+    gap: 40px;align-self: start;
   }
 `;
 
@@ -281,6 +275,36 @@ export const OpenLinksButton = styled.button`
 
   @media screen and (min-width: 1439px) {
     display: none;
+  }
+`;
+
+export const ModalBox = styled.div`
+  top: 80px;
+  right: 60px;
+  width: 161px;
+  height: 130px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-radius: 10px;
+  background-color: ${p => p.theme.primary.userBg};
+  transform: ${({ isOpen }) =>
+    !isOpen ? 'translateY(-10%)' : 'translateY(0)'};
+  transition: ${p => p.theme.transition};
+  border: 1px solid ${p => p.theme.primary.selectBg};
+
+  @media ${p => p.theme.device.tablet} {
+    top: 90px;
+    right: 125px;
+    width: 177px;
+    height: 144px;
+    gap: 32px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    top: 95px;
+    right: 250px;
   }
 `;
 
@@ -331,6 +355,7 @@ export const UserLogoBox = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+  z-index: 1;
 `;
 
 export const TextUserLogo = styled.p`
@@ -344,136 +369,6 @@ export const TextUserLogo = styled.p`
   );
 `;
 
-
-export const ModalLogout = styled.div`
-  width: 330px;
-  height: 179px;
-  border-radius: 30px;
-  padding: 24px 44px;
-  background-color: ${p => p.theme.primary.background};
-
-  @media ${p => p.theme.device.tablet} {
-    width: 480px;
-    height: 215px;
-    padding: 40px 50px;
-  }
-
-  @media ${p => p.theme.device.desktop} {
-    width: 500px;
-    height: 215px;
-    padding: 40px 50px;
-  }
-`;
-
-export const ModalBtnCancel = styled.button`
-  cursor: pointer;
-  width: 100px;
-  height: 20px;
-  padding: 14px 18px;
-  border: none;
-  border-radius: 6px;
-  text-align: center;
-  color: rgba(35, 38, 42, 1);
-  background-color: rgba(217, 217, 217, 1);
-  font-family: ${p => p.theme.fonts};
-  font-weight: ${p => p.theme.fontWeights.regular};
-  font-size: ${p => p.theme.fontSizes[3]};
-  line-height: calc(
-    (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[3]})
-  );
-
-  &.active {
-    background-color: #fafafa;
-  }
-
-  @media ${p => p.theme.device.tablet} {
-    width: 114px;
-    height: 23px;
-    padding: 18px 39px;
-    font-size: ${p => p.theme.fontSizes[4]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[4]})
-    );
-  }
-
-  @media ${p => p.theme.device.desktop} {
-    width: 114px;
-    height: 23px;
-    padding: 18px 39px;
-    font-size: ${p => p.theme.fontSizes[4]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[4]})
-    );
-  }
-`;
-
-export const ModalBtnLogout = styled.button`
-  cursor: pointer;
-  width: 100px;
-  height: 20px;
-  padding: 14px 18px;
-  border: none;
-  border-radius: 6px;
-  text-align: center;
-  color: rgba(250, 250, 250, 1);
-  background-color: rgba(139, 170, 54, 1);
-  font-family: ${p => p.theme.fonts};
-  font-weight: ${p => p.theme.fontWeights.regular};
-  font-size: ${p => p.theme.fontSizes[3]};
-  line-height: calc(
-    (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[3]})
-  );
-
-  &.active {
-    background-color: rgba(34, 37, 42, 1);
-  }
-
-  @media ${p => p.theme.device.tablet} {
-    width: 114px;
-    height: 23px;
-    padding: 18px 39px;
-    font-size: ${p => p.theme.fontSizes[4]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[4]})
-    );
-  }
-  
-  @media ${p => p.theme.device.desktop} {
-    width: 114px;
-    height: 23px;
-    padding: 18px 39px;
-    font-size: ${p => p.theme.fontSizes[4]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[4]})
-    );
-  }
-`;
-
-export const ModalLogoutText = styled.p`
-  font-family: ${p => p.theme.fonts};
-  font-weight: ${p => p.theme.fontWeights.regular};
-  font-size: ${p => p.theme.fontSizes[3]};
-  line-height: calc(
-    (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[3]})
-  );
-
-  @media ${p => p.theme.device.tablet} {
-    font-size: ${p => p.theme.fontSizes[5]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[5]})
-    );
-  }
-
-  @media ${p => p.theme.device.desktop} {
-    font-size: ${p => p.theme.fontSizes[5]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[5]})
-    );
-  }
-`;
-
-=======
->>>>>>> aafe5be4e15c40926f3f99226a6a5849ab2de07a
 export const IconLogo = styled(LogoIcon)`
   display: block;
   width: 40px;

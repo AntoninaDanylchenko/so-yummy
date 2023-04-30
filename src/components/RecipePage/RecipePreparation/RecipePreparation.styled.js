@@ -4,29 +4,29 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 31px 16px 100px 16px;
+  margin-bottom: 100px;
 
   @media ${p => p.theme.device.tablet} {
     gap: 53px;
+    margin-bottom: 200px;
   }
   @media ${p => p.theme.device.desktop} {
     flex-direction: row;
-    padding: 33px 100px 200px 100px;
   }
 `;
 
 export const Title = styled.h2`
-  font-family: ${p => p.theme.fonts};
+  font-family: ${p=>p.theme.fonts.Poppins};
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes[7]};
   line-height: 24px;
-  padding: 0px 16px 0px 16px;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
   color: ${p => p.theme.blackText.text};
 
   @media ${p => p.theme.device.desktop} {
     flex-direction: row;
     align-items: center;
-    padding: 0px 100px 0px 100px;
   }
 `;
 
@@ -53,7 +53,7 @@ export const Amount = styled.span`
   border-radius: 50%;
 
   background-color: ${p => p.theme.accent.mainBtnBg};
-  font-family: ${p => p.theme.fonts};
+  font-family: ${p=>p.theme.fonts.Poppins};
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes[3]};
   line-height: 18px;
@@ -61,7 +61,7 @@ export const Amount = styled.span`
 `;
 
 export const Desc = styled.p`
-  font-family: ${p => p.theme.fonts};
+  font-family: ${p=>p.theme.fonts.Poppins};
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes[2]};
   line-height: 14px;
