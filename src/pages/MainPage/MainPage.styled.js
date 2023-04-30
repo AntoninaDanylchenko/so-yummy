@@ -1,18 +1,31 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+
 import BackgroundMob from 'images/main/main-bg_mobile.png';
+import BackgroundMob2 from 'images/main/main-bg_mobile@2x.png';
+import BackgroundTab from 'images/main/main-bg_tablet.png';
+import BackgroundTab2 from 'images/main/main-bg_tablet@2x.png';
 import BackgroundDesk from 'images/main/main-bg_desktop.png';
 import BackgroundDesk2 from 'images/main/main-bg_desktop@2x.png';
 
-// import SpinachMob from 'images/leafs/pasta-spinach-main_mobile.png';
+import SpinachMob from 'images/leafs/pasta-spinach-main_mobile.png';
+import SpinachMob2 from 'images/leafs/pasta-spinach-main_mobile@2x.png';
+import SpinachTab from 'images/leafs/pasta-spinach-main_tablet.png';
+import SpinachTab2 from 'images/leafs/pasta-spinach-main_tablet@2x.png';
 import SpinachDesk from 'images/leafs/pasta-spinach-main_desktop.png';
 import SpinachDesk2 from 'images/leafs/pasta-spinach-main_desktop@2x.png';
 
-// import SpinachLeftMob from 'images/leafs/pasta-spinach-main1_mobile.png';
+import SpinachLeftMob from 'images/leafs/pasta-spinach-main1_mobile.png';
+import SpinachLeftMob2 from 'images/leafs/pasta-spinach-main1_mobile@2x.png';
+import SpinachLeftTab from 'images/leafs/pasta-spinach-main1_tablet.png';
+import SpinachLeftTab2 from 'images/leafs/pasta-spinach-main1_tablet@2x.png';
 import SpinachLeftDesk from 'images/leafs/pasta-spinach-main1_desktop.png';
 import SpinachLeftDesk2 from 'images/leafs/pasta-spinach-main1_desktop@2x.png';
 
-// import PlateMob from 'images/leafs/unsplash_mobile.png';
+import PlateMob from 'images/leafs/unsplash_mobile.png';
+import PlateMob2 from 'images/leafs/unsplash_mobile@2x.png';
+import PlateTab from 'images/leafs/unsplash_tablet.png';
+import PlateTab2 from 'images/leafs/unsplash_tablet@2x.png';
 import PlateDesk from 'images/leafs/unsplash_desktop.png';
 import PlateDesk2 from 'images/leafs/unsplash_desktop@2x.png';
 
@@ -22,11 +35,22 @@ export const MainSection = styled.section`
   margin-top: -64px;
   height: 777px;
   background: ${p => p.theme.mainBg};
-  /* background-image: url(${BackgroundMob}); */
-
   background-repeat: no-repeat;
+  background-image: url('${SpinachLeftMob}'), url('${PlateMob}'),
+    url('${SpinachMob}'), url('${BackgroundMob}');
+  background-position: left top 30px, right 27px top 322px, right top 50px,
+    right bottom -60px;
+
+  ${p =>
+    p.theme.media(SpinachLeftMob2, PlateMob2, SpinachMob2, BackgroundMob2)};
+
   @media screen and ${p => p.theme.device.tablet} {
     height: 640px;
+    background-image: url('${SpinachLeftTab}'), url('${PlateTab}'),
+      url('${SpinachTab}'), url('${BackgroundTab}');
+    background-position: left top, right top 159px, right top, right bottom;
+    ${p =>
+      p.theme.media(SpinachLeftTab2, PlateTab2, SpinachTab2, BackgroundTab2)}
   }
   @media screen and ${p => p.theme.device.desktop} {
     height: 800px;

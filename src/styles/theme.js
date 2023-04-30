@@ -4,6 +4,9 @@ const defaultTheme = createTheme({
   fonts: {
     Poppins: "'Poppins', sans-serif",
   },
+  typography: {
+    fontFamily: "'Poppins', sans-serif",
+  },
 
   fontSizes: [
     '8px', // 0
@@ -69,8 +72,6 @@ export const lightTheme = createTheme(defaultTheme, {
     recipePreparation: '#FFFFFF',
   },
 
-  mainBg: '#FAFAFA',
-
   // green
   accent: {
     mainBtnBg: '#8BAA36',
@@ -130,6 +131,30 @@ export const lightTheme = createTheme(defaultTheme, {
   incrementNumber: '#333333',
   // red
   inputError: '#E74A3B',
+
+  components: {
+    MuiPaginationItem: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            color: '#22252A', // working !!!
+            backgroundColor: '#EBF3D4', // working !!!
+          },
+          '&.Mui-disabled&.MuiPaginationItem-previousNext': {
+            opacity: '0.73', // working
+            color: '#A9A9A9', // working
+          },
+        },
+        text: {
+          fontWeight: 500,
+          color: '#656565', // used for un-selected pages numbers
+        },
+        previousNext: {
+          color: '#A9A9A9', // used for pagination previous-next buttons
+        },
+      },
+    },
+  },
 });
 
 export const darkTheme = createTheme(defaultTheme, {
@@ -210,6 +235,7 @@ export const darkTheme = createTheme(defaultTheme, {
 
 function MainDeviceRatio(url1, url2, url3, url4) {
   return `@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url('${url1}'), url('${url2}'), url('${url3}'), url('${url4}')`;
