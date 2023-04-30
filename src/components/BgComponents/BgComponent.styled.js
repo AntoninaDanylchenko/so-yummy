@@ -1,6 +1,28 @@
 import styled from '@emotion/styled';
+const Square = styled.div`
+  transform: rotate(-25deg);
+  animation: ping 3000ms ease-out infinite;
+  @media (min-width: 768px) {
+    width: 14px;
+    height: 14px;
+  }
+  @keyframes ping {
+    0% {
+      transform: rotate(-25deg);
+      opacity: 1;
+    }
+    50% {
+      transform: rotate(-25deg) scale(1.5);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(-25deg);
+      opacity: 1;
+    }
+  }
+`;
 
-export const GreenLeftSquare = styled.div`
+export const GreenLeftSquare = styled(Square)`
   position: absolute;
   width: 8px;
   height: 8px;
@@ -12,6 +34,8 @@ export const GreenLeftSquare = styled.div`
   background: #8baa36;
   border-radius: 3px;
   transform: rotate(-25deg);
+  animation-delay: 250ms;
+
   @media (${p => p.theme.device.tablet}) {
     width: 14px;
     height: 14px;
@@ -24,7 +48,8 @@ export const GreenLeftSquare = styled.div`
     top: 117px;
   }
 `;
-export const BlackSquare = styled.div`
+
+export const BlackSquare = styled(Square)`
   position: absolute;
   width: 8px;
   height: 8px;
@@ -36,6 +61,8 @@ export const BlackSquare = styled.div`
   border-radius: 50%;
 
   z-index: -1;
+
+  animation-delay: 500ms;
 
   @media (${p => p.theme.device.tablet}) {
     width: 12px;
@@ -52,7 +79,7 @@ export const BlackSquare = styled.div`
   }
 `;
 
-export const GreenRightSquare = styled.div`
+export const GreenRightSquare = styled(Square)`
   position: absolute;
   width: 8px;
   height: 8px;
@@ -64,6 +91,8 @@ export const GreenRightSquare = styled.div`
   transform: rotate(-25deg);
 
   z-index: -1;
+
+  animation-delay: 1000ms;
 
   @media (${p => p.theme.device.tablet}) {
     width: 14px;
