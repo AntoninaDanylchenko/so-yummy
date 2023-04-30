@@ -4,14 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addRecipe } from '../../redux/addRecipe/operations';
 import { selectLoading, selectError } from '../../redux/addRecipe/selectors';
-import { nanoid } from 'nanoid';
+import { v4 as uuidv4 } from 'uuid';
 import { yupSchema } from './yupSchema';
+import { toast } from 'react-hot-toast';
+
 import { RecipeDescriptionFields } from '../AddRecipeForm/RecipeDescriptionFields/RecipeDescriptionFields';
 import { RecipeIngredients } from '../AddRecipeForm/RecipeIngredientsFields/RecipeIngredientsFields';
 import { RecipePreparation } from '../AddRecipeForm/RecipePreparationFields/RecipePreparationFields';
 import { AddRecipeSection, Form, AddButton } from './AddRecipeForm.styled';
-import BurgerLoader from '../Loader/Loader';
-import { toast } from 'react-hot-toast';
+import Loader from '../Loader/Loader';
 
 export const AddRecipeForm = () => {
   const [image, setImage] = useState('');
@@ -20,7 +21,7 @@ export const AddRecipeForm = () => {
   const [category, setCategory] = useState('Breakfast');
   const [cookingTime, setCookingTime] = useState('30 min');
   const [ingredients, setIngredients] = useState([
-    { id: nanoid(), unitValue: 'tbs', unitNumber: '', name: '' },
+    { id: uuidv4(), unitValue: 'tbs', unitNumber: '', name: '' },
   ]);
   const [preparation, setPreparation] = useState('');
 
@@ -55,7 +56,7 @@ export const AddRecipeForm = () => {
   const incrementIngrList = () => {
     setIngredients(prevState => [
       ...prevState,
-      { id: nanoid(), unitValue: 'tbs', unitNumber: '', name: '' },
+      { id: uuidv4(), unitValue: 'tbs', unitNumber: '', name: '' },
     ]);
   };
 
@@ -99,7 +100,7 @@ export const AddRecipeForm = () => {
       ingredients.map(ingredient => {
         const { id, unitValue, unitNumber } = ingredient;
         const measure = `${unitNumber} ${unitValue}`;
-        return { id: id, measure: measure };
+        return { measure: measure, id: id };
       }),
     [ingredients]
   );
@@ -186,7 +187,7 @@ export const AddRecipeForm = () => {
         />
         <AddButton type="submit">Add</AddButton>
       </Form>
-      {isLoad && !error && <BurgerLoader />}
+      {isLoad && !error && <Loader />}
     </AddRecipeSection>
   );
 };

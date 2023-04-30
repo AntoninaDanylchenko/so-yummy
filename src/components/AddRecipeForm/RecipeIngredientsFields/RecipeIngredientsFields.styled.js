@@ -115,7 +115,7 @@ export const IngrInput = styled.input`
   padding: 16px;
   background-color: ${p => p.theme.background.placeholder};
   border-radius: ${p => p.theme.radii[1]};
-  border: none;
+  border: 1px solid ${p => p.borderInput};
   outline: none;
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.43;
@@ -135,8 +135,8 @@ export const IngrList = styled.ul`
   height: 154px;
   position: absolute;
   z-index: 3;
-  background: ${p => p.theme.background.searchText};
-  box-shadow: ${p => p.theme.shadows};
+  background: ${p => p.theme.primary.selectBg};
+  box-shadow: ${p => p.theme.shadows[1]};
   border-radius: ${p => p.theme.radii[1]};
   overflow-y: scroll;
   padding: 8px 18px;
@@ -187,12 +187,12 @@ export const NumberInput = styled.input`
   padding: 16px 0 16px 10px;
   background-color: ${p => p.theme.background.placeholder};
   outline: none;
-  border: none;
+  border: 1px solid ${p => p.borderInput};
   border-radius: ${p => p.theme.radii[1]};
   font-size: ${p => p.theme.fontSizes[3]}px;
   line-height: 1.43;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.primaryText.text};
+  color: ${p => p.theme.input.input};
   @media screen and (min-width: 768px) {
     width: 97px;
     height: 59px;
@@ -212,7 +212,10 @@ export const UnitSelect = styled.div`
   height: 53px;
   background-color: ${p => p.theme.background.placeholder};
   outline: none;
-  border: none;
+  /* border: 1px solid ${p => p.theme.borderInput}; */
+  border-top: 1px solid ${p => p.theme.borderInput};
+  border-right: 1px solid ${p => p.theme.borderInput};
+  border-bottom: 1px solid ${p => p.theme.borderInput};
   border-radius: ${p => p.theme.radii[1]};
   @media screen and (min-width: 768px) {
     width: 55px;
@@ -242,8 +245,8 @@ export const UnitList = styled.ul`
   width: 84px;
   height: 112px;
   padding: 12px 28px;
-  background-color: ${p => p.theme.secondary.searchBg};
-  box-shadow: ${p => p.theme.shadows};
+  background-color: ${p => p.theme.primary.selectBg};
+  box-shadow: ${p => p.theme.shadows[1]};
   border-radius: ${p => p.theme.radii[1]};
   z-index: 5;
   position: absolute;
