@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LogoutModal } from './LogoutModal';
+import { LogoutButtonModal } from '../UserModal/LogoutButtonModal/LogoutButtonModal';
 import { LogoutButton, IconArrow } from './Header.styled';
 
 const LogoutBtn = () => {
@@ -15,7 +15,7 @@ const LogoutBtn = () => {
         <span>Log out</span>
         <IconArrow />
       </LogoutButton>
-      {show && <LogoutModal />}
+      {show && <LogoutButtonModal />}
     </>
   );
 };

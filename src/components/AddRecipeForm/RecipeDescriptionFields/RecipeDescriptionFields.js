@@ -143,8 +143,8 @@ export const RecipeDescriptionFields = ({
           </DescrSelect>
           {timeIsActive && (
             <TimeList>
-              {timeCooking.map(item => (
-                <TimeItem key={item} onClick={() => setTime(item)}>
+              {timeCooking.map((item, index) => (
+                <TimeItem key={index} onClick={() => setTime(item)}>
                   {item}
                 </TimeItem>
               ))}

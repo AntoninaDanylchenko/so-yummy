@@ -1,47 +1,22 @@
-import {
-  // useEffect,
-  useState,
-} from 'react';
+import { useState } from 'react';
 import { Modal } from './Modal/Modal';
 import { LogoutBtn } from './LogoutBtn';
 import { TextModal, IconPen } from './Header.styled';
+import { UserInfoModal } from 'components/UserModal/UserInfoModal/UserInfoModal';
 
 const UserLogoModal = ({ onClose }) => {
   const [onShow, setOnShow] = useState(false);
-  const [
-    // openNewModal,
-    setOpenNewModal,
-  ] = useState(true);
-console.log('====================================');
-console.log(onShow);
-
-  // useEffect(() => {
-  //   if (handleLogoutModal) {
-  //     setOnShow(!onShow);
-  //   }
-  // }, []);
-
-  const modalToggle = () => {
-    setOnShow(onShow => !onShow);
-  };
-
-  const handleLogoutModal = openNewModal => {
-    setOpenNewModal(openNewModal);
-    modalToggle();
-
-    console.log('onShow:', setOpenNewModal);
-  };
 
   return (
     <>
       <Modal onClose={onClose}>
         <TextModal>
           <span>Edit profile</span>
-          <IconPen />
+          <IconPen onClick={() => setOnShow(true)} />
         </TextModal>
-        <LogoutBtn onClick={handleLogoutModal}/>
+        <LogoutBtn />
       </Modal>
-      {/* {onShow && <LogoutBtn />} */}
+      {onShow && <UserInfoModal />}
     </>
   );
 };

@@ -21,6 +21,7 @@ export const Box = styled.div`
   background-position: center;
   background-color: black;
   background-image: url('${RonizeMob}');
+
   @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
     screen and (min-resolution: 192dpi) and (min-width: 320px),
     screen and (min-resolution: 2dppx) and (min-width: 320px) {
@@ -28,12 +29,14 @@ export const Box = styled.div`
       background-image: url('${RonizeMob2}');
     }
   }
-  @media screen and (min-width: 768px) and (max-width: 1200px) {
+
+  @media ${p => p.theme.device.tablet} {
     background-position: center bottom 0;
     width: 100vw;
     height: 100vh;
     background-size: cover;
     background-image: url('${RonizeTab}');
+
     @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1200px),
       screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1200px),
       screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1200px) {
@@ -42,12 +45,14 @@ export const Box = styled.div`
       }
     }
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     background-position: center bottom 0;
     width: 100vw;
     height: 100vh;
     background-size: cover;
     background-image: url('${RonizeDesk}');
+
     @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
       screen and (min-resolution: 192dpi) and (min-width: 1200px),
       screen and (min-resolution: 2dppx) and (min-width: 1200px) {
@@ -57,6 +62,7 @@ export const Box = styled.div`
     }
   }
 `;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -65,10 +71,12 @@ export const Container = styled.div`
   padding: 275px 0;
   text-align: center;
   margin: 0 auto;
+
   @media screen and (min-width: 450px) and (max-width: 1200px) {
     padding: 342px 0;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     padding-top: 214px 0;
   }
 `;
@@ -82,12 +90,14 @@ export const Title = styled.h1`
   line-height: 1;
   text-align: center;
   font-family: inherit;
-  @media screen and (min-width: 768) and (max-width: 1199px) {
+
+  @media ${p => p.theme.device.tablet} {
     font-size: 24px;
     line-height: 1.62;
     font-weight: 600;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     font-size: 24px;
     line-height: 1.36;
     font-weight: 600;
@@ -101,13 +111,15 @@ export const Text = styled.p`
   font-weight: 400;
   width: 305px;
   margin-bottom: 44px;
-  @media screen and (min-width: 768) and (max-width: 1199px) {
+
+  @media ${p => p.theme.device.tablet} {
     font-size: 18px;
     line-height: 1.33;
     width: 505px;
     margin-bottom: 40px;
   }
-  @media screen and (min-width: 1200px) {
+
+  @media ${p => p.theme.device.desktop} {
     font-size: 18px;
     line-height: 1.33;
     width: 540px;
@@ -120,7 +132,8 @@ export const Icon = styled.img`
   width: 54px;
   height: 54px;
   margin: 0 auto 28px;
-  @media screen and (min-width: 768px) {
+
+  @media ${p => p.theme.device.tablet} {
     width: 68px;
     height: 68px;
     display: block;

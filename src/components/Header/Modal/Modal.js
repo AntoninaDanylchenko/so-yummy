@@ -15,7 +15,6 @@ function updateScrollLock() {
 
 const Modal = ({ onClose, children }) => {
   const backdropRef = createRef();
-  console.log(typeof onClose);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);

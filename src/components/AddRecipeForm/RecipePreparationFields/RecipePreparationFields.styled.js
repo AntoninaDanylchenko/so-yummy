@@ -2,10 +2,10 @@ import styled from '@emotion/styled';
 
 export const FormSubtitle = styled.p`
   font-weight: ${p => p.theme.fontWeights.semibold};
-  font-size: 24px;
-  line-height: 1;
+  font-size: ${p => p.theme.fontSizes[7]};
+  line-height: 24px;
   letter-spacing: -0.02em;
-  color: ${p => p.theme.primaryText.text};
+  color: ${p => p.theme.subtitle};
 `;
 
 export const RecipeText = styled.textarea`
@@ -13,20 +13,21 @@ export const RecipeText = styled.textarea`
   min-height: 154px;
   padding: 10px 16px;
   margin: 24px 0 18px;
+  background-color: ${p => p.theme.mainBg};
   outline: none;
-  border: none;
+  border: 1px solid ${p => p.theme.secondary.recipePreparation};
   border-radius: ${p => p.theme.radii[1]};
   resize: none;
   font-size: ${p => p.theme.fontSizes[3]};
-  line-height: 1;
+  line-height: 1.43;
   letter-spacing: -0.02em;
   color: ${p => p.theme.input.input};
   opacity: 0.5;
   ::placeholder {
     font-size: ${p => p.theme.fontSizes[3]};
-    line-height: 1;
+    line-height: 1.43;
     letter-spacing: -0.02em;
-    color: ${p => p.theme.background.placeholder};
+    color: ${p => p.theme.input.input};
     opacity: 1;
   }
   @media screen and (min-width: 768px) {

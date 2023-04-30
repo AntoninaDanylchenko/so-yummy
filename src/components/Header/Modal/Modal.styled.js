@@ -10,13 +10,12 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0.01, 0.01, 0.01);
-  z-index: 20;
+  z-index: 1000;
   border-radius: 10px;
 `;
 
 export const ModalW = styled.div`
   position: absolute;
-  z-index: 1;
   top: 80px;
   right: 60px;
   width: 161px;
