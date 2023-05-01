@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
-import CloseIcon from '@mui/icons-material/Close';
 import { ReactComponent as UserIcon } from '../../../images/icon/name-icon.svg';
 import { ReactComponent as Pencil } from '../../../images/icon/pen.svg';
-
+import CloseIcon from '@mui/icons-material/Close';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 export const ModalContainer = styled.div`
@@ -172,7 +171,12 @@ export const Image = styled.picture`
   left: 0px;
 `;
 
-export const FileInput = styled.input``;
+export const FileInput = styled.input`
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+`;
 
 export const UserImage = styled.img`
   object-fit: cover;
