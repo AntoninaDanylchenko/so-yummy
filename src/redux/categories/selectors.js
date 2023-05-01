@@ -1,2 +1,2 @@
 export const selectCategoriesList = state => state.categoriesList.items;
-export const selectRecipesByCategory = state => state.categoriesList.recipes;
+export const selectRecipesByCategory = state => state.categoriesList.recipes.recipesList;

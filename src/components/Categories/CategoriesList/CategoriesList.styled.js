@@ -10,7 +10,7 @@ export const List = styled.ul`
   margin-top: 32px;
   margin-left: auto;
   margin-right: auto;
-
+ margin-bottom: 50px;
   width: 343px;
   gap: 28px;
 

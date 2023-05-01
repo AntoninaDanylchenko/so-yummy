@@ -1,1 +1,1 @@
-export const getMyRecipes = state => state.myRecipes;
+export const getMyRecipes = state => state.myRecipes.items;

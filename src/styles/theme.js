@@ -89,6 +89,7 @@ export const lightTheme = createTheme(defaultTheme, {
     mainBtnBg: '#8BAA36',
     subscribeBg: '#8BAA36',
     iconFollow: '#8BAA36',
+    seeRecipe: '#8BAA36',
   },
   btnBg: '#8AA936',
   ligthGreen: {
@@ -96,6 +97,7 @@ export const lightTheme = createTheme(defaultTheme, {
     deleteBtnBg: '#EBF3D4',
     pagination: '#EBF3D4',
     ingredientBg: '#EBF3D4',
+    seeBtnBg: '#EBF3D4',
   },
   inputSuccess: '#3CBC81',
 
@@ -189,6 +191,7 @@ export const darkTheme = createTheme(defaultTheme, {
     mainBtnBg: '#8BAA36',
     subscribeBg: '#1E1F28',
     iconFollow: '#FAFAFA',
+    seeRecipe: '#22252A',
   },
   btnBg: '#8AA936',
   ligthGreen: {
@@ -196,6 +199,7 @@ export const darkTheme = createTheme(defaultTheme, {
     deleteBtnBg: '#1E1F28',
     pagination: '#8BAA36',
     ingredientBg: '#2A2C36',
+    seeBtnBg: '#8BAA36',
   },
   inputSuccess: '#3CBC81',
 
@@ -245,6 +249,15 @@ export const darkTheme = createTheme(defaultTheme, {
   inputError: '#E74A3B',
 
   components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#2A2C36',
+          color: '#FAFAFA',
+          text: '#FAFAFA'
+        }
+      },
+    },
     MuiPagination: {
       styleOverrides: {
         root: {
@@ -260,8 +273,8 @@ export const darkTheme = createTheme(defaultTheme, {
             backgroundColor: '#8BAA36', // working !!!
           },
           '&.Mui-selected:hover': {
-            color: 'black', // working !!!
-            backgroundColor: '#EBF3D4', // working !!!
+            color: '#FAFAFA', // working !!!
+            backgroundColor: '#22252A', // working !!!
           },
           '&.Mui-disabled&.MuiPaginationItem-previousNext': {
             opacity: '0.73', // working
