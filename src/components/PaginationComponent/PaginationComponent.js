@@ -12,6 +12,7 @@ const PaginationComponent = ({ getData, //data from backend thought selector
     ListComponent, // react component for <ul>
     CardComponent, //react component for <li>
     perPage = 3,
+    buttonColorBg = '',
 }) => {
     const dispatch = useDispatch();
     const theme = useTheme();
@@ -39,6 +40,7 @@ const PaginationComponent = ({ getData, //data from backend thought selector
                 <ListComponent>
                     {_DATA.currentData().map((item) => (
                         <CardComponent
+                            buttonColorBg={buttonColorBg}
                             {...item}
                         />
                     ))}

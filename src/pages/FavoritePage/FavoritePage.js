@@ -9,8 +9,10 @@ import {
 } from '../AddRecipePage/AddRecipePage.styled';
 import RecipeCard from 'components/RecipeCard/RecipeCard';
 import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
 
 const FavoritePage = () => {
+  const theme = useTheme()
   return (
     <Container >
       <Title title="Favorites" />
@@ -21,6 +23,7 @@ const FavoritePage = () => {
         ListComponent={styled.ul``}
         CardComponent={RecipeCard}
         perPage={4}
+        buttonColorBg={theme.favorite}
       />
     </Container>
   )
