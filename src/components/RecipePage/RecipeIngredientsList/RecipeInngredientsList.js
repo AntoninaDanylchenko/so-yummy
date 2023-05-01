@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { store } from 'redux/store';
 
 import {
   Container,
@@ -20,8 +22,6 @@ import {
   removeIngredientFromShoppingList,
   fetchShoppingList,
 } from 'redux/shoppingList/operations';
-import { useState } from 'react';
-import { store } from 'redux/store';
 
 export const RecipeInngredientsList = ({ ingredients }) => {
   const dispatch = useDispatch();
@@ -76,13 +76,17 @@ export const RecipeInngredientsList = ({ ingredients }) => {
             <Wrapper2>
               <Amount>{ingredient.measure}</Amount>
 
-              <Checkbox
-                type="checkbox"
-                value={isCheck}
-                onChange={event =>
-                  handleOnChange(event, ingredient._id, ingredient.measure)
-                }
-              ></Checkbox>
+              <Checkbox>
+                <input
+                  type="checkbox"
+                  value={isCheck}
+                  onChange={event =>
+                    handleOnChange(event, ingredient._id, ingredient.measure)
+                  }
+                />
+                <label htmlFor={ingredient._id}></label>
+              </Checkbox>
+              
             </Wrapper2>
           </Item>
         ))}
