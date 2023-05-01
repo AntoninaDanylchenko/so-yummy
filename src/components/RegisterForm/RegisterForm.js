@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 
@@ -6,36 +6,33 @@ import { TextField as MuiTextField } from 'formik-mui';
 import { object, string } from 'yup';
 import { InputAdornment, Button } from '@mui/material';
 
-import { styled } from '@mui/material/styles';
-
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
 import CancelSharpIcon from '@mui/icons-material/CancelSharp';
-import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
+import { styled } from '@mui/material/styles';
 import { register } from 'redux/auth/operation';
-
 
 const schema = object().shape({
   username: string()
     .min(1)
     .max(16, 'Must be less than 16 characters')
-    .required('Please enter name')
+    .required('Pease enter name')
     .trim(),
   email: string()
     .email('Invalid email address')
-    .required('Please enter email')
+    .required('Pease enter email')
     .trim(),
   password: string()
     .min(6, 'Password should be min 6 characters')
     .max(16, 'Password should be max 16 characters')
     .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/,
-      'Password must exist (A-a, 1-9)'
+      /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/,
+      'Password too light (A-a, 1-9)'
     )
-    .required('Please enter password')
+    .required('Pease enter password')
     .trim(),
 });
 
@@ -65,6 +62,7 @@ const TextField = styled(MuiTextField)(
     },
   })
 );
+
 const initialValues = {
   username: '',
   email: '',
@@ -72,25 +70,11 @@ const initialValues = {
 };
 
 export const RegisterForm = () => {
-  const [passwordWarn, setPasswordWarn] = useState('');
-  const [showWarning, setShowWarning] = useState(false);
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { setSubmitting }) => {
     setSubmitting(false);
     dispatch(register(values));
-  };
-
-  useEffect(() => {
-    if (passwordWarn.trim().length >= 6 && passwordWarn.trim().length <= 10) {
-      return setShowWarning(true);
-    }
-    return setShowWarning(false);
-  }, [passwordWarn]);
-
-  const handleChange = event => {
-    setPasswordWarn(event.target.value);
-    console.log(passwordWarn);
   };
 
   return (
@@ -104,7 +88,7 @@ export const RegisterForm = () => {
           <Field
             component={TextField}
             fullWidth
-            id="outlined-controlled"
+            id="outlined"
             name="username"
             type="text"
             placeholder="Name"
@@ -123,7 +107,6 @@ export const RegisterForm = () => {
                   border: '2px solid #FAFAFA',
                 },
               },
-
               startAdornment: (
                 <InputAdornment position="start">
                   <PermIdentityIcon
@@ -178,11 +161,10 @@ export const RegisterForm = () => {
           <Field
             component={TextField}
             fullWidth
-            id="outlined-controlled"
+            id="outlined"
             name="email"
             type="email"
             placeholder="Email"
-            variant="outlined"
             InputProps={{
               sx: {
                 border:
@@ -250,21 +232,14 @@ export const RegisterForm = () => {
               ),
             }}
           />
+
           <Field
             component={TextField}
             fullWidth
-            variant="outlined"
+            id="outlined"
             name="password"
-            type="password"
             placeholder="Password"
-            value={passwordWarn}
-            onChange={handleChange}
-            // helperText={
-            //   !errors.password && showWarning
-            //     ? 'Your password is little secure'
-            //     : ' '
-            // }
-            autoComplete="off"
+            type="password"
             InputProps={{
               sx: {
                 border:
@@ -326,24 +301,12 @@ export const RegisterForm = () => {
                       }}
                     ></CheckCircleSharpIcon>
                   )}
-                  {showWarning && !errors.password && (
-                    <ErrorRoundedIcon
-                      sx={{
-                        color: '#F6C23E',
-                        fontSize: 18,
-                        '@media (min-width: 768px)': {
-                          fontSize: 24,
-                        },
-                      }}
-                    ></ErrorRoundedIcon>
-                  )}
                 </InputAdornment>
               ),
             }}
           />
 
           <Button
-            variant="outlined"
             sx={{
               fontFamily: 'Poppins',
               width: '100%',
@@ -372,11 +335,9 @@ export const RegisterForm = () => {
                 mt: '26px',
               },
             }}
-            // variant="contained"
-            disabled
+            variant="contained"
             fullWidth
             type="submit"
-            // onClick={submitForm}
           >
             Sign up
           </Button>
