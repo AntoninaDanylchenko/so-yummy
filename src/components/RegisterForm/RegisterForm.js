@@ -19,6 +19,7 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 
 import { register } from 'redux/auth/operation';
 
+
 const schema = object().shape({
   username: string()
     .min(1)

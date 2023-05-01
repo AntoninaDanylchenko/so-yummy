@@ -360,9 +360,9 @@ export const IconLogo = styled(LogoIcon)`
   width: 40px;
   height: 40px;
   transition: transform ${p => p.theme.transition};
+  cursor: pointer;
 
   &:hover {
-    /* transition: all 300ms linear; */
     transform: scale(1.2);
   }
 
@@ -375,6 +375,7 @@ export const IconLogo = styled(LogoIcon)`
 
 export const IconSearch = styled(SearchIcon)`
   display: inline;
+  cursor: pointer;
   width: 20px;
   height: 20px;
   fill: ${p => p.theme.primaryText.text};
@@ -387,6 +388,7 @@ export const IconSearch = styled(SearchIcon)`
 `;
 
 export const IconPen = styled(Pen)`
+ cursor: pointer; 
   display: inline;
   width: 12px;
   height: 12px;
@@ -400,6 +402,7 @@ export const IconPen = styled(Pen)`
 
 export const IconArrow = styled(Arrow)`
   display: inline;
+  cursor: pointer;
   width: 18px;
   height: 18px;
   margin-left: 5px;
@@ -416,6 +419,7 @@ export const IconArrow = styled(Arrow)`
 export const IconBurger = styled(MenuIcon)`
   width: 24px;
   height: 24px;
+  cursor: pointer;
 
   color: ${p => p.theme.title.text};
 `;
@@ -423,6 +427,7 @@ export const IconBurger = styled(MenuIcon)`
 export const IconClose = styled(CloseIcon)`
   width: 20px;
   height: 20px;
+  cursor: pointer;
   fill: ${p => p.theme.title.text};
 
   @media ${p => p.theme.device.tablet} {

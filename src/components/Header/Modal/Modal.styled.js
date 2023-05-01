@@ -10,7 +10,6 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0.01, 0.01, 0.01);
-  /* z-index: 1000; */
   border-radius: 10px;
 `;
 
@@ -30,6 +29,12 @@ export const ModalW = styled.div`
     !isOpen ? 'translateY(-10%)' : 'translateY(0)'};
   transition: ${p => p.theme.transition};
   border: 1px solid ${p => p.theme.primary.selectBg};
+
+
+  &:hover,
+  .focus {
+    border: 1px solid #8BAA36;
+  }
 
   @media ${p => p.theme.device.tablet} {
     top: 90px;
