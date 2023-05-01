@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectCategoriesList } from 'redux/categories/selectors';
 import { fetchCategoriesList } from 'redux/categories/operations';
-import { List, Wrapper, StyledLink } from './NavBar.styled';
+import { List, Wrapper, StyledLink, ListItem } from './NavBar.styled';
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -16,11 +16,11 @@ export default function NavBar() {
     <Wrapper>
       <List>
         {categoriesList?.map(category => (
-          <li key={category}>
+          <ListItem key={category}>
             <StyledLink to={`/categories/${category.toLowerCase()}`}>
               {category}
             </StyledLink>
-          </li>
+          </ListItem>
         ))}
       </List>
     </Wrapper>
