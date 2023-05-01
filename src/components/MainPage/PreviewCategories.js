@@ -2,15 +2,21 @@ import { useEffect, useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useTheme } from '@mui/material/styles';
 import { fetchRecipesMain } from 'redux/recipesMain/operations';
-import { selectRecipesMain } from 'redux/recipesMain/selectors';
+import {
+  selectRecipesMain,
+  selectIsLoading,
+  selectError,
+} from 'redux/recipesMain/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { RecipesList } from './PreviewCategories.styled';
 import { RecipeItem } from '../RecipeItem/RecipeItem';
+import { Loader } from 'components/Loader/Loader';
 
 export const PreviewCategories = ({ category }) => {
   const theme = useTheme();
-
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const isTablet = useMediaQuery({
     query: `(${theme.device.tablet} and (max-width: 1439px))`,
@@ -38,6 +44,7 @@ export const PreviewCategories = ({ category }) => {
           <RecipeItem key={recipe.id} recipe={recipe} />
         ) : null;
       })}
+      {isLoading && !error && <Loader />}
     </RecipesList>
   );
 };

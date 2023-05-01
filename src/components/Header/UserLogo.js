@@ -7,22 +7,25 @@ import {
   TextUserLogo,
   ImgUser,
 } from './Header.styled';
+import { selectAvatarURL, selectUser } from 'redux/auth/selector';
 
 const UserLogo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const open = () => setIsOpen(true);
+
   const toggleModal = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(isOpen => !isOpen);
   };
 
-  const username = useSelector(state => state.auth.user.username);
-  const avatarURL = useSelector(state => state.auth.avatarURL);
+  const { username } = useSelector(selectUser);
+  const avatarURL = useSelector(selectAvatarURL);
+
   return (
     <>
       <UserLogoBox>
         <ButtonUser onClick={open}>
-          <ImgUser src={avatarURL} alt={username} loading="lazy" />
+          <ImgUser src={avatarURL} alt={username} />
         </ButtonUser>
         <TextUserLogo>{username}</TextUserLogo>
         {isOpen && <UserLogoModal onClose={toggleModal} />}

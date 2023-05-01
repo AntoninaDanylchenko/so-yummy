@@ -41,6 +41,11 @@ export const UnderList = styled.div`
 `;
 
 export const Card = styled.div`
+  transition: transform ${p => p.theme.transition};
+  :hover {
+    transform: scale(1.05);
+  }
+
   position: relative;
   overflow: hidden;
   width: 343px;

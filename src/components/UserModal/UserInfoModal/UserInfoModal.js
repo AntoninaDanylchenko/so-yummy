@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+// import { useNavigate } from 'react-router-dom';
+import * as yup from 'yup';
 import {
-  // ModalBackdrop,
   ModalContainer,
   CloseButton,
   InputContainer,
@@ -16,10 +16,10 @@ import {
   UserImage,
   SaveButton,
 } from './UserInfoModal.styled';
-import { yupSchema } from 'components/AddRecipeForm/yupSchema';
+
 import { userUpdate } from 'redux/auth/operation';
 
-const UserInfoModal = () => {
+const UserInfoModal = ({ onClose }) => {
   const userName = useSelector(state => state.auth.user.username);
   const avatarURL = useSelector(state => state.auth.avatarURL);
 
@@ -27,12 +27,16 @@ const UserInfoModal = () => {
     userName,
     avatarURL,
   };
+  const yupSchema = yup.object().shape({
+    userName: yup.string().required(),
+    avatarURL: yup.string(),
+  });
   const [image, setImage] = useState('');
+  const [url, setUrl] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
 
-
-  console.log(setName);
+  // const navigate = useNavigate();
 
   const onInputImageSet = event => {
     setImage(event.target.files[0]);
@@ -45,40 +49,43 @@ const UserInfoModal = () => {
       const buffer = event.target.result;
       const blob = new Blob([buffer], { type: file.type });
       const url = URL.createObjectURL(blob);
-      setImage(url);
+      setUrl(url);
     });
     reader.readAsArrayBuffer(file);
 
     onInputImageSet(event);
   };
-
+  const onNameInputChange = e => {
+    setName(e.target.value);
+  };
   const formData = new FormData();
-  formData.append('avatars', avatarURL);
+  formData.append('avatar', image);
   formData.append('username', name);
 
   const handleSubmit = e => {
     e.preventDefault();
+
     yupSchema.validate(initialValues, { abortEarly: false }).then(() => {
       dispatch(userUpdate(formData))
         .unwrap()
         .then(() => {
           // navigate('/my', { replace: true });
-          // toast.success('Your recipe has been successfully added');
-          console.log('ok');
         })
         .catch(error => {
           console.log(error);
         });
     });
+    onClose();
   };
 
   return (
     <>
-      <ModalContainer initialValues={initialValues} onSubmit={handleSubmit}>
-        <CloseButton type="button">
+      <ModalContainer>
+        <CloseButton type="button" onClick={onClose}>
           <IconClose />
         </CloseButton>
-        <div>
+
+        <form onSubmit={handleSubmit}>
           <FileInputWrap onChange={event => onFileInputChange(event)}>
             <label htmlFor="photo">
               <Image>
@@ -86,19 +93,24 @@ const UserInfoModal = () => {
               </Image>
             </label>
             <FileInput type="file" accept=".jpg, .jpeg, .png" id="photo" />
-            {image && <UserImage src={image} alt="userImage"></UserImage>}
+            {image && <UserImage src={url} alt="userImage"></UserImage>}
           </FileInputWrap>
           <InputContainer>
             <IconUser />
-            <Input type="text" name="name" placeholder={userName} />
+
+            <Input
+              type="text"
+              name="name"
+              value={name}
+              placeholder={userName}
+              onChange={onNameInputChange}
+            />
 
             <IconPencil />
           </InputContainer>
-        </div>
-        <SaveButton type="submit">Save changes</SaveButton>
+          <SaveButton type="submit">Save changes</SaveButton>
+        </form>
       </ModalContainer>
-
-      {/* </ModalBackdrop> */}
     </>
   );
 };

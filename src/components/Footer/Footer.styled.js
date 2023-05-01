@@ -243,6 +243,10 @@ export const FooterLinkNav = styled(LinkNav)`
   color: white;
   transition: all 300ms linear;
 
+  &.active {
+    color: ${p => p.theme.accent.subscribeBg};
+  }
+
   &:hover {
     color: ${p => p.theme.accent.subscribeBg};
   }

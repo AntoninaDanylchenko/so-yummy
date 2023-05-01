@@ -2,8 +2,13 @@ import { useEffect, useCallback } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useTheme } from '@mui/material/styles';
 import { fetchRecipesPopular } from 'redux/popularRecipes/operations';
-import { selectRecipesPopular } from 'redux/popularRecipes/selectors';
+import {
+  selectRecipesPopular,
+  selectIsLoading,
+  selectError,
+} from 'redux/popularRecipes/selectors';
 import { useDispatch, useSelector } from 'react-redux';
+import { Loader } from 'components/Loader/Loader';
 import {
   Title,
   PopularList,
@@ -15,8 +20,9 @@ import {
 
 export const PopularRecipe = () => {
   const theme = useTheme();
-
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const isTablet = useMediaQuery({
     query: `(${theme.device.tablet} and (max-width: 1439px))`,
@@ -40,13 +46,14 @@ export const PopularRecipe = () => {
       <PopularList>
         {recipes?.map(({ id, title, preview, desc }) => (
           <PopularItem to={`/recipe/${id}`} key={id}>
+            <PopularImage src={preview} alt={title} />
             <div>
-              <PopularImage src={preview} alt={title} />
+              <PopularSubtitle>{title}</PopularSubtitle>
+              <PopularText>{desc}</PopularText>
             </div>
-            <PopularSubtitle>{title}</PopularSubtitle>
-            <PopularText>{desc}</PopularText>
           </PopularItem>
         ))}
+        {isLoading && !error && <Loader />}
       </PopularList>
     </div>
   );

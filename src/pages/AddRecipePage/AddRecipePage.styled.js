@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Section = styled.section`
   padding-top: 114px;
   padding-bottom: 100px;
-  background: ${p => p.theme.mainBg};
+
   @media screen and (min-width: 1440px) {
     padding-top: 136px;
     padding-bottom: 200px;

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operation';
 import {
@@ -11,11 +10,9 @@ import {
   IconClose,
 } from './LogoutButtonModal.styled';
 
-const LogoutButtonModal = ({show}) => {
-  const dispatch = useDispatch();
-  const [showModal, setShowModal] = useState(false);
 
-console.log(showModal);
+const LogoutButtonModal = ({onClose}) => {
+  const dispatch = useDispatch();
 
   const handleLogout = async () => {
     try {
@@ -25,10 +22,6 @@ console.log(showModal);
     }
   };
 
-  // const toggleBtnModal = () => {
-  //   setShowModal(!showModal);
-  // };
-
   return (
     <>
       <ModalContainer>
@@ -37,11 +30,11 @@ console.log(showModal);
           <LogoutButton type="button" onClick={handleLogout}>
             Log out
           </LogoutButton>
-          <CancelButton type="button" onClick={() => setShowModal(false)}>
+          <CancelButton type="button" onClick={onClose}>
             Cancel
           </CancelButton>
         </ModalButtons>
-        <CloseButton type="button" onClick={() => setShowModal(false)}>
+        <CloseButton type="button" onClick={onClose}>
           <IconClose />
         </CloseButton>
       </ModalContainer>
