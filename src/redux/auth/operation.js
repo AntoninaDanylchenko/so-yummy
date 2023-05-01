@@ -15,11 +15,18 @@ const token = {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (credentials, thunkAPI) => {
+  async ({ username, email, password }, thunkAPI) => {
     try {
-      const r = await axios.post('/auth/signup', credentials);
-      token.set(r.data.token);
-      return r.data;
+      await axios.post('/auth/signup', { username, email, password });
+
+      const res = await axios.post('/auth/login', {
+        email,
+        password,
+      });
+
+      token.set(res.data.token);
+
+      return res.data;
     } catch (error) {
       toast.error('User is already use.');
       return thunkAPI.rejectWithValue(error.message);
