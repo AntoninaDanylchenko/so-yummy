@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Form, Input, SearchBtn } from './SearchBar.styled';
+import { toast } from 'react-hot-toast';
 
-export const SearchBar = ({ onSubmit }) => {
-  const [query, setQuery] = useState('');
+export const SearchBar = ({ searchValue, onSubmit }) => {
+  const [query, setQuery] = useState(searchValue ? searchValue : '');
 
   const handleChange = e => {
     setQuery(e.currentTarget.value);
@@ -11,7 +12,9 @@ export const SearchBar = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!query) return;
+    if (!query) {
+      return toast.error('Please enter the item you to search for');
+    }
     onSubmit(query.toLowerCase().trim());
     setQuery('');
   };
