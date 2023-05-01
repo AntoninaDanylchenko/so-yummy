@@ -6,7 +6,10 @@ export const SearchWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 0;
-  /* min-height: 500px; */
+  gap: 24px;
+  @media screen and (${p => p.theme.device.tablet}) {
+    gap: 28px;
+  }
 `;
 
 export const Form = styled.form`
@@ -14,7 +17,6 @@ export const Form = styled.form`
   width: 295px;
   margin-left: auto;
 
-  /* box-shadow: ${p => p.theme.shadows[3]}; */
   @media screen and (${p => p.theme.device.tablet}) {
     margin: 0;
     width: 369px;
@@ -48,7 +50,6 @@ export const Input = styled.input`
     width: 510px;
     height: 70px;
     margin-top: 50px;
-    margin-bottom: 50px;
   }
 `;
 export const SearchBtn = styled.button`

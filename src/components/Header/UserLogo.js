@@ -21,8 +21,6 @@ const UserLogo = () => {
   const { username } = useSelector(selectUser);
   const avatarURL = useSelector(selectAvatarURL);
 
-  console.log(username, avatarURL);
-
   return (
     <>
       <UserLogoBox>
