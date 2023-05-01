@@ -15,7 +15,7 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 // import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
-// import { yellow } from '@mui/material/colors';
+
 
 const schema = object().shape({
   username: string()
