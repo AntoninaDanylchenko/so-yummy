@@ -6,8 +6,12 @@ import PaginationComponent from 'components/PaginationComponent/PaginationCompon
 import {
   Container
 } from '../AddRecipePage/AddRecipePage.styled';
+import RecipeCard from 'components/RecipeCard/RecipeCard';
+import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
 
 const MyRecipesPage = () => {
+  const theme = useTheme()
   return (
     <Container>
       <Title title="My recipes" />
@@ -15,6 +19,9 @@ const MyRecipesPage = () => {
       <PaginationComponent
         getData={getMyRecipes}
         getDataOp={getMyRecipesOp}
+        ListComponent={styled.ul``}
+        CardComponent={RecipeCard}
+        buttonColorBg={theme.myRecipe}
       />
     </Container>
   );

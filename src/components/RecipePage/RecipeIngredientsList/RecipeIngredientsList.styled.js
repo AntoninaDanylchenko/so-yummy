@@ -176,6 +176,13 @@ export const Checkbox = styled.div`
     cursor: pointer;
     opacity: 0;
     position: absolute;
+    width: 18px;
+    height: 18px;
+
+    @media ${p => p.theme.device.tablet} {
+      width: 35px;
+      height: 35px;
+    }
   }
   input:checked {
     & + label::before {
@@ -185,21 +192,25 @@ export const Checkbox = styled.div`
       align-items: center;
       color: ${p => p.theme.accent.mainBtnBg};
       font-weight: bold;
-      font-size: 20px;
+      font-size: 10px;
+
+      @media ${p => p.theme.device.tablet} {
+        font-weight: bold;
+        font-size: 20px;
+      }
     }
   }
   label::before {
     content: '';
     border: 1px solid rgba(126, 126, 126, 0.5);
     border-radius: 4px;
-
     margin-right: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 18px;
     height: 18px;
-    
+
     @media ${p => p.theme.device.tablet} {
       width: 35px;
       height: 35px;

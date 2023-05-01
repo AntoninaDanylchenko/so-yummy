@@ -31,16 +31,25 @@ const ModalContainer = styled.div`
   flex-direction: column;
   width: 330px;
   height: 179px;
+  right: 150px;
   top: 20px;
-  right: 220px;
   border-radius: 30px;
   padding: 24px 44px;
-  background-color: ${p => p.theme.primary.background};
+  border: 1px solid #8baa36;
+  background-color: ${p => p.theme.primary.userBg};
+  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
+
+  &:hover,
+  .focus {
+    border: 1px solid #8baa36;
+  }
 
   @media ${p => p.theme.device.tablet} {
     width: 480px;
     height: 215px;
     padding: 50px 40px;
+    right: 350px;
+    top: 20px;
   }
 
   @media ${p => p.theme.device.desktop} {
@@ -89,8 +98,8 @@ const ModalButtons = styled.div`
 
 const LogoutButton = styled.button`
   cursor: pointer;
-  width: 100px;
-  height: 20px;
+  max-width: 100%;
+  height: 100%;
   padding: 14px 18px;
   border: none;
   border-radius: 6px;
@@ -110,18 +119,7 @@ const LogoutButton = styled.button`
   }
 
   @media ${p => p.theme.device.tablet} {
-    width: 114px;
-    height: 23px;
-    padding: 18px 39px;
-    font-size: ${p => p.theme.fontSizes[4]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[4]})
-    );
-  }
-
-  @media ${p => p.theme.device.desktop} {
-    width: 114px;
-    height: 23px;
+    max-width: 100%;
     padding: 18px 39px;
     font-size: ${p => p.theme.fontSizes[4]};
     line-height: calc(
@@ -132,8 +130,7 @@ const LogoutButton = styled.button`
 
 const CancelButton = styled.button`
   cursor: pointer;
-  width: 100px;
-  height: 20px;
+  max-width: 100%;
   padding: 14px 18px;
   border: none;
   border-radius: 6px;
@@ -153,18 +150,7 @@ const CancelButton = styled.button`
   }
 
   @media ${p => p.theme.device.tablet} {
-    width: 114px;
-    height: 23px;
-    padding: 18px 39px;
-    font-size: ${p => p.theme.fontSizes[4]};
-    line-height: calc(
-      (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[4]})
-    );
-  }
-
-  @media ${p => p.theme.device.desktop} {
-    width: 114px;
-    height: 23px;
+    max-width: 100%;
     padding: 18px 39px;
     font-size: ${p => p.theme.fontSizes[4]};
     line-height: calc(

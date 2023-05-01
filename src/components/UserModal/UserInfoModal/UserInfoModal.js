@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import {
   ModalContainer,
@@ -9,12 +8,14 @@ import {
   Input,
   IconClose,
   IconUser,
+  Plus,
   IconPencil,
   FileInputWrap,
   Image,
   FileInput,
   UserImage,
   SaveButton,
+  FormBox,
 } from './UserInfoModal.styled';
 
 import { userUpdate } from 'redux/auth/operation';
@@ -31,12 +32,11 @@ const UserInfoModal = ({ onClose }) => {
     userName: yup.string().required(),
     avatarURL: yup.string(),
   });
+
   const [image, setImage] = useState('');
   const [url, setUrl] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
-
-  // const navigate = useNavigate();
 
   const onInputImageSet = event => {
     setImage(event.target.files[0]);
@@ -55,9 +55,11 @@ const UserInfoModal = ({ onClose }) => {
 
     onInputImageSet(event);
   };
+
   const onNameInputChange = e => {
     setName(e.target.value);
   };
+
   const formData = new FormData();
   formData.append('avatar', image);
   formData.append('username', name);
@@ -68,9 +70,6 @@ const UserInfoModal = ({ onClose }) => {
     yupSchema.validate(initialValues, { abortEarly: false }).then(() => {
       dispatch(userUpdate(formData))
         .unwrap()
-        .then(() => {
-          // navigate('/my', { replace: true });
-        })
         .catch(error => {
           console.log(error);
         });
@@ -85,19 +84,19 @@ const UserInfoModal = ({ onClose }) => {
           <IconClose />
         </CloseButton>
 
-        <form onSubmit={handleSubmit}>
+        <FormBox onSubmit={handleSubmit}>
           <FileInputWrap onChange={event => onFileInputChange(event)}>
             <label htmlFor="photo">
               <Image>
-                <img src={avatarURL} alt="addphoto" />
+                {!image && <UserImage src={avatarURL} alt="addphoto" loading="lazy"/>}
               </Image>
+              <Plus />
             </label>
             <FileInput type="file" accept=".jpg, .jpeg, .png" id="photo" />
-            {image && <UserImage src={url} alt="userImage"></UserImage>}
+            {image && <UserImage src={url} alt="userImage" loading="lazy"></UserImage>}
           </FileInputWrap>
           <InputContainer>
             <IconUser />
-
             <Input
               type="text"
               name="name"
@@ -105,11 +104,10 @@ const UserInfoModal = ({ onClose }) => {
               placeholder={userName}
               onChange={onNameInputChange}
             />
-
             <IconPencil />
           </InputContainer>
           <SaveButton type="submit">Save changes</SaveButton>
-        </form>
+        </FormBox>
       </ModalContainer>
     </>
   );

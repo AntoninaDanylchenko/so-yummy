@@ -17,6 +17,7 @@ import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
 
+
 const schema = object().shape({
   username: string()
     .min(1)
