@@ -146,6 +146,16 @@ export const lightTheme = createTheme(defaultTheme, {
   // red
   inputError: '#E74A3B',
 
+  // buttons
+  favorite: {
+    bg: '#22252A',
+    hover: '#8BAA36'
+  },
+  myRecipe: {
+    bg: '#8BAA36',
+    hover: '#22252A'
+  },
+
   components: {
     MuiPaginationItem: {
       styleOverrides: {
@@ -247,6 +257,16 @@ export const darkTheme = createTheme(defaultTheme, {
   incrementNumber: '#FAFAFA',
   // red
   inputError: '#E74A3B',
+
+  // buttons
+  favorite: {
+    bg: '#8BAA36',
+    hover: '#22252A'
+  },
+  myRecipe: {
+    bg: '#22252A',
+    hover: '#8BAA36'
+  },
 
   components: {
     MuiCard: {

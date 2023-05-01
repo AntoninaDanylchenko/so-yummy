@@ -17,7 +17,7 @@ import IconButton from '@mui/material/IconButton';
 import { ReactComponent as Delete } from '../../images/icon/delete.svg';
 import { useTheme } from '@emotion/react';
 
-const RecipeCard = ({ _id, title, description, preview, time }) => {
+const RecipeCard = ({ _id, title, description, preview, time, buttonColorBg }) => {
   const theme = useTheme()
   const dispatch = useDispatch();
   const onClick = _id => {
@@ -98,8 +98,9 @@ const RecipeCard = ({ _id, title, description, preview, time }) => {
               <Button
                 // size="small"
                 sx={{
+
                   color: '#FAFAFA',
-                  background: theme.title.addBtnBg,
+                  background: buttonColorBg.bg, //  theme.title.addBtnBg,
                   borderRadius: '24px 44px',
                   minWidth: '160px',
                   height: '54px',
@@ -110,7 +111,7 @@ const RecipeCard = ({ _id, title, description, preview, time }) => {
                   textTransform: 'none',
                   '&:hover': {
                     color: '#FAFAFA',
-                    background: theme.accent.seeRecipe,
+                    background: buttonColorBg.hover, //theme.accent.seeRecipe,
                   },
                 }}
               >
