@@ -18,10 +18,10 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const r = await axios.post('/auth/signup', credentials);
-      await token.set(r.data.token);
+      token.set(r.data.token);
       return r.data;
     } catch (error) {
-      toast.error('This user is already registered.');
+      toast.error('User is already use.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -31,7 +31,7 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const r = await axios.post('/auth/login', credentials);
-      await token.set(r.data.token);
+      token.set(r.data.token);
       return r.data;
     } catch (error) {
       toast.error('Password is incorrect.');
@@ -55,7 +55,7 @@ export const userUpdate = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/auth/logout');
-    await token.unset();
+    token.unset();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
