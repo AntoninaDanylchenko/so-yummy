@@ -20,7 +20,7 @@ import { ReactComponent as Clock } from '../../../images/icon/clock.svg';
 
 export const RecipePageHero = ({ recipe, title, description, time }) => {
   const dispatch = useDispatch();
-  const { items: favorite } = useSelector(getFavorite);
+  const favorite = useSelector(getFavorite);
 
   useEffect(() => {
     dispatch(getFavoriteOp());
