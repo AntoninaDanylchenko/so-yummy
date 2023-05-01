@@ -152,8 +152,8 @@ export const Image = styled.picture`
 `;
 
 export const FileInput = styled.input`
-  width: 279px;
-  height: 260px;
+  width: 50px;
+  height: 50px;
   margin-top: 8px;
 
   @media ${p => p.theme.device.desktop} {
@@ -185,7 +185,7 @@ export const Error = styled.p`
 `;
 
 export const SaveButton = styled.button`
-position: absolute;
+  position: absolute;
   cursor: pointer;
   width: 114px;
   height: 21px;

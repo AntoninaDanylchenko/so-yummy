@@ -55,7 +55,7 @@ export const MainSection = styled.section`
       BackgroundMob2
     )};
 
-  @media screen and (${p => p.theme.device.tablet} ){
+  @media screen and (${p => p.theme.device.tablet}) {
     height: 640px;
     background-size: 67px 323px, 186px 115px, 368px 351px, 583px 640px,
       332px 640px;
@@ -98,14 +98,14 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 16px;
 
-  @media screen and (${p => p.theme.device.mobile} ){
+  @media screen and (${p => p.theme.device.mobile}) {
     max-width: 375px;
   }
-  @media screen and ( ${p => p.theme.device.tablet}) {
+  @media screen and (${p => p.theme.device.tablet}) {
     max-width: 768px;
     padding: 0 32px;
   }
-  @media screen and (${p => p.theme.device.desktop} ){
+  @media screen and (${p => p.theme.device.desktop}) {
     max-width: 1440px;
     padding: 0 100px;
   }

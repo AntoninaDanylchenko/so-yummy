@@ -70,7 +70,7 @@ const ThemeToggler = () => {
   return (
     <>
       <FormControlLabel
-        onClick={() => dispatch(switchTheme())}
+        onChange={() => dispatch(switchTheme())}
         control={<Toggle sx={{ m: 1 }} defaultChecked />}
       />
     </>
