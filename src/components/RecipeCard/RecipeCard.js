@@ -15,8 +15,10 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
 import { ReactComponent as Delete } from '../../images/icon/delete.svg';
+import { useTheme } from '@emotion/react';
 
 const RecipeCard = ({ _id, title, description, preview, time }) => {
+  const theme = useTheme()
   const dispatch = useDispatch();
   const onClick = _id => {
     dispatch(deleteFavoriteOp(_id));
@@ -56,7 +58,7 @@ const RecipeCard = ({ _id, title, description, preview, time }) => {
               <Typography
                 // variant="body2"
                 component="div"
-                color="text.secondary"
+              // color="text.secondary"
               >
                 {description}
               </Typography>
@@ -74,11 +76,11 @@ const RecipeCard = ({ _id, title, description, preview, time }) => {
                   minWidth: '44px',
                   padding: '0px',
                   marginLeft: '79px',
-                  background: '#EBF3D4',
+                  background: theme.ligthGreen.seeBtnBg, //'#EBF3D4',
                   borderRadius: '4px',
                 }}
               >
-                <Delete />
+                <Delete stroke={theme.accent.iconFollow} />
               </IconButton>
             </Tooltip>
           </Box>
@@ -94,19 +96,21 @@ const RecipeCard = ({ _id, title, description, preview, time }) => {
             </Typography>
             <Link to={`/recipe/${_id}`}>
               <Button
-                size="small"
+                // size="small"
                 sx={{
                   color: '#FAFAFA',
-                  background: '#22252A',
+                  background: theme.title.addBtnBg,
                   borderRadius: '24px 44px',
                   minWidth: '160px',
                   height: '54px',
                   padding: '0px',
                   fontFamily: 'Poppins',
-                  fontSize: '14px',
+                  fontSize: '16px',
+                  fontWeight: '400',
+                  textTransform: 'none',
                   '&:hover': {
                     color: '#FAFAFA',
-                    background: '#8BAA36',
+                    background: theme.accent.seeRecipe,
                   },
                 }}
               >
@@ -116,7 +120,7 @@ const RecipeCard = ({ _id, title, description, preview, time }) => {
           </Box>
         </Box>
       </Card>
-    </li>
+    </li >
   );
 };
 export default RecipeCard;

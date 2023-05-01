@@ -38,11 +38,9 @@ const PaginationComponent = ({ getData, //data from backend thought selector
             {count ? (<>
                 <ListComponent>
                     {_DATA.currentData().map((item) => (
-                        <li key={item._id}>
-                            <CardComponent
-                                {...item}
-                            />
-                        </li>
+                        <CardComponent
+                            {...item}
+                        />
                     ))}
                 </ListComponent>
                 <Box sx={{
