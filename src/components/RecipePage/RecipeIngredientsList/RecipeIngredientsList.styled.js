@@ -9,7 +9,6 @@ export const Container = styled.div`
   @media ${p => p.theme.device.tablet} {
     margin-top: 540px;
     margin-bottom: 96px;
-    
   }
 
   @media ${p => p.theme.device.desktop} {
@@ -166,10 +165,55 @@ export const Amount = styled.p`
   }
 `;
 
-export const Checkbox = styled.input`
-  width: 18px;
+export const Checkbox = styled.div`
+  display: flex;
+  align-items: center;
+  label {
+    cursor: pointer;
+    display: flex;
+  }
+  input {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    width: 18px;
+    height: 18px;
 
-  @media ${p => p.theme.device.tablet} {
-    width: 35px;
+    @media ${p => p.theme.device.tablet} {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  input:checked {
+    & + label::before {
+      content: '\\2714';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: ${p => p.theme.accent.mainBtnBg};
+      font-weight: bold;
+      font-size: 10px;
+
+      @media ${p => p.theme.device.tablet} {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+  }
+  label::before {
+    content: '';
+    border: 1px solid rgba(126, 126, 126, 0.5);
+    border-radius: 4px;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+
+    @media ${p => p.theme.device.tablet} {
+      width: 35px;
+      height: 35px;
+    }
   }
 `;

@@ -83,6 +83,11 @@ export const StyledLink = styled(NavLink)`
   line-height: 14px;
   padding-bottom: 26px;
 
+  transition: transform ${p => p.theme.transition};
+  &:hover {
+    transform: scale(1.2);
+  }
+
   &.active {
     position: relative;
     color: ${p => p.theme.accent.mainBtnBg};
@@ -106,5 +111,12 @@ export const StyledLink = styled(NavLink)`
 
   @media (${p => p.theme.device.tablet}) {
     padding-bottom: 24px;
+  }
+`;
+
+export const ListItem = styled.li`
+  transition: transform ${p => p.theme.transition};
+  &:hover {
+    transform: scale(1.2);
   }
 `;

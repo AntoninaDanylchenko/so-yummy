@@ -56,6 +56,16 @@ const defaultTheme = createTheme({
     },
   },
   media: MainDeviceRatio,
+
+  components: {
+    MuiFab: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#8BAA36',
+        }
+      }
+    },
+  },
 });
 
 export const lightTheme = createTheme(defaultTheme, {
@@ -233,6 +243,44 @@ export const darkTheme = createTheme(defaultTheme, {
   incrementNumber: '#FAFAFA',
   // red
   inputError: '#E74A3B',
+
+  components: {
+    MuiPagination: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#2A2C36',
+        }
+      }
+    },
+    MuiPaginationItem: {
+      styleOverrides: {
+        root: {
+          '&.Mui-selected': {
+            color: '#FAFAFA', // working !!!
+            backgroundColor: '#8BAA36', // working !!!
+          },
+          '&.Mui-selected:hover': {
+            color: 'black', // working !!!
+            backgroundColor: '#EBF3D4', // working !!!
+          },
+          '&.Mui-disabled&.MuiPaginationItem-previousNext': {
+            opacity: '0.73', // working
+            color: '#A9A9A9', // working
+            backgroundColor: 'rgba(31, 30, 30, 0.2)',
+          },
+        },
+        text: {
+          fontWeight: 500,
+          color: 'rgba(250, 250, 250, 0.6)', // used for un-selected pages numbers
+
+        },
+        previousNext: {
+          color: 'rgba(250, 250, 250, 0.6)', // used for pagination previous-next buttons
+        },
+      },
+    },
+  },
+
 });
 
 function MainDeviceRatio(url1, url2, url3, url4, url5) {
