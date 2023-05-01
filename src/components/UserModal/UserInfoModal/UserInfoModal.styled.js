@@ -47,7 +47,13 @@ export const Plus = styled(AddCircleOutlineIcon)`
   right: 3px;
   cursor: pointer;
   position: absolute;
+  z-index: 1;
   fill: ${p => p.theme.title.text};
+
+  @media ${p => p.theme.device.tablet} {
+    bottom: 10px;
+    right: 10px;
+  }
 `;
 
 export const IconClose = styled(CloseIcon)`
@@ -80,36 +86,31 @@ export const IconUser = styled(UserIcon)`
   @media ${p => p.theme.device.tablet} {
     width: 24px;
     height: 24px;
-    margin-right: 12px;
+    margin-right: 11px;
   }
 `;
 
 export const IconPencil = styled(Pencil)`
   display: inline;
+  position: absolute;
+  right: 40px;
   width: 12px;
   height: 12px;
-  margin-left: 22px;
   cursor: pointer;
   fill: ${p => p.theme.primaryText.text};
 
   @media ${p => p.theme.device.tablet} {
-    margin-left: 35px;
+    right: 60px;
   }
 `;
 
-export const FormBox = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-`;
+export const FormBox = styled.form``;
 
 export const InputContainer = styled.div`
   width: 282px;
   height: 48px;
   padding: 16px 19px;
   margin-bottom: 24px;
-  /* margin-right: auto;
-  margin-left: auto; */
   border: 1px solid ${p => p.theme.primaryText.text};
   border-radius: 6px;
   text-align: center;
@@ -127,7 +128,6 @@ export const Input = styled.input`
   border: none;
   cursor: pointer;
   padding: 5px;
-  margin: 0;
   color: ${p => p.theme.primaryText.text};
   font-family: ${p => p.theme.fonts};
   font-weight: ${p => p.theme.fontWeights.regular};
@@ -150,8 +150,8 @@ export const FileInputWrap = styled.div`
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  /* margin-left: auto;
-  margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 34px;
   overflow: hidden;
 
@@ -168,35 +168,17 @@ export const FileInputWrap = styled.div`
 
 export const Image = styled.picture`
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 10px;
-  left: 10px;
-  border-radius: 50%;
-  transform: translate(-50% -50%);
+  top: 0px;
+  left: 0px;
 `;
 
-export const FileInput = styled.input`
-  width: 50px;
-  height: 50px;
-  margin-top: 8px;
-
-  @media ${p => p.theme.device.desktop} {
-    width: 357px;
-    height: 335px;
-    margin-top: 9px;
-  }
-`;
+export const FileInput = styled.input``;
 
 export const UserImage = styled.img`
+  object-fit: cover;
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  object-fit: cover;
-  transform: translate(-50% -50%);
-  position: absolute;
-  top: 10px;
-  left: 10px;
 
   @media ${p => p.theme.device.tablet} {
     width: 103px;
@@ -219,8 +201,6 @@ export const SaveButton = styled.button`
   width: 282px;
   height: 48px;
   padding: 14px 89px;
-  margin-right: auto;
-  margin-left: auto;
   border: 1px solid ${p => p.theme.primaryText.text};
   border-radius: 6px;
   text-align: center;

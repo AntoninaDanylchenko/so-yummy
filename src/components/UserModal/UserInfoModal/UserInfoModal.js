@@ -88,12 +88,12 @@ const UserInfoModal = ({ onClose }) => {
           <FileInputWrap onChange={event => onFileInputChange(event)}>
             <label htmlFor="photo">
               <Image>
-                <img src={avatarURL} alt="addphoto" />
+                {!image && <UserImage src={avatarURL} alt="addphoto" loading="lazy"/>}
               </Image>
-               <Plus/>
+              <Plus />
             </label>
             <FileInput type="file" accept=".jpg, .jpeg, .png" id="photo" />
-            {image && <UserImage src={url} alt="userImage"></UserImage>}
+            {image && <UserImage src={url} alt="userImage" loading="lazy"></UserImage>}
           </FileInputWrap>
           <InputContainer>
             <IconUser />
