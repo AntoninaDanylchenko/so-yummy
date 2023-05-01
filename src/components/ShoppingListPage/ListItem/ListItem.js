@@ -12,7 +12,7 @@ import {
   Measure,
 } from './ListItem.styled';
 
-export default function ListItem({ shoppingItem }) {
+export default function ListItem(shoppingItem) {
   const dispatch = useDispatch();
   const { ingredient, measure, id } = shoppingItem;
   // const {
@@ -22,7 +22,7 @@ export default function ListItem({ shoppingItem }) {
   // } = ingredient;
 
   return (
-    <Item>
+    <Item key={id}>
       <PosterWrapper>
         <PosterContainer>
           <Poster src={ingredient?.thb} alt={ingredient?.ttl} />

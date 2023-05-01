@@ -7,16 +7,23 @@ import PaginationComponent from 'components/PaginationComponent/PaginationCompon
 import {
   Container
 } from '../AddRecipePage/AddRecipePage.styled';
+import RecipeCard from 'components/RecipeCard/RecipeCard';
+import styled from '@emotion/styled';
+import { useTheme } from '@emotion/react';
 
 const FavoritePage = () => {
+  const theme = useTheme()
   return (
     <Container >
       <Title title="Favorites" />
-      {/* <FavoriteList /> */}
       <Toaster />
       <PaginationComponent
         getData={getFavorite}
         getDataOp={getFavoriteOp}
+        ListComponent={styled.ul``}
+        CardComponent={RecipeCard}
+        perPage={4}
+        buttonColorBg={theme.favorite}
       />
     </Container>
   )
