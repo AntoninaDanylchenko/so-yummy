@@ -14,16 +14,18 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 
 import { styled } from '@mui/material/styles';
 import { register } from 'redux/auth/operation';
+// import { logIn } from 'redux/auth/operation';
+// import { selectUser } from 'redux/auth/selector';
 
 const schema = object().shape({
   username: string()
     .min(1)
     .max(16, 'Must be less than 16 characters')
-    .required('Pease enter name')
+    .required('Please enter name')
     .trim(),
   email: string()
     .email('Invalid email address')
-    .required('Pease enter email')
+    .required('Please enter email')
     .trim(),
   password: string()
     .min(6, 'Password should be min 6 characters')
@@ -32,7 +34,7 @@ const schema = object().shape({
       /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/,
       'Password too light (A-a, 1-9)'
     )
-    .required('Pease enter password')
+    .required('Please enter password')
     .trim(),
 });
 
@@ -68,6 +70,7 @@ const initialValues = {
   email: '',
   password: '',
 };
+// const user = useSelector(selectUser);
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -75,6 +78,8 @@ export const RegisterForm = () => {
   const handleOnSubmit = (values, { setSubmitting }) => {
     setSubmitting(false);
     dispatch(register(values));
+
+    // dispatch(logIn({ email: values.email, password: values.password }));
   };
 
   return (
