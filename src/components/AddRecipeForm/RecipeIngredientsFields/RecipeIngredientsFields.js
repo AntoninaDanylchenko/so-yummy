@@ -41,7 +41,7 @@ export const RecipeIngredients = ({
   errors,
   updateErrors,
 }) => {
-  const unitValues = ['tbs', 'tsp', 'kg', 'g'];
+  const unitValues = ['tbs', 'tsp', 'kg', 'g', 'ml'];
   const [count, setCount] = useState(1);
   const [unitIsActive, setUnitIsActive] = useState(
     new Array(ingredients.length).fill(false)
@@ -106,7 +106,7 @@ export const RecipeIngredients = ({
     updateErrors([`ingredients[${index}].unitNumber`]);
   };
 
-  const onInputChange = (index, value, id) => {
+  const onInputChange = (index, value, _id) => {
     setIngrIsActive(prevState => {
       const newState = [...prevState];
       newState[index] = true;
@@ -119,7 +119,7 @@ export const RecipeIngredients = ({
       )
     );
 
-    updateIngredient(index, value, id);
+    updateIngredient(index, value, _id);
 
     updateErrors([`ingredients[${index}].name`]);
   };
@@ -151,7 +151,7 @@ export const RecipeIngredients = ({
       <ul>
         {ingredients.map((item, index) => {
           return (
-            <IngredientItem key={item.id}>
+            <IngredientItem key={index}>
               <InputWrap>
                 <div>
                   <IngrInput

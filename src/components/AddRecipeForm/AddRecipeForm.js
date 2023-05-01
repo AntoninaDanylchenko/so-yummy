@@ -81,11 +81,11 @@ export const AddRecipeForm = () => {
     });
   };
 
-  const updateIngredient = (index, value, id) => {
+  const updateIngredient = (index, value, _id) => {
     setIngredients(prevState => {
       const newState = [...prevState];
       newState[index].name = value;
-      newState[index].id = id;
+      newState[index].id = _id;
       return newState;
     });
   };
