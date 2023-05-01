@@ -6,6 +6,10 @@ export const SearchWrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding-bottom: 0;
+  gap: 24px;
+  @media screen and (${p => p.theme.device.tablet}) {
+    gap: 28px;
+  }
 `;
 
 export const Form = styled.form`

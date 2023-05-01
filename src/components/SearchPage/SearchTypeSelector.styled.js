@@ -8,15 +8,12 @@ export const TypeSelectorWrapper = styled.div`
   align-items: center;
   text-align: center;
   gap: 15px;
-  margin-top: 24px;
   margin: 0 auto;
 
   @media (${p => p.theme.device.tablet}) {
     gap: 18px;
-    margin-top: 28px;
   }
   @media (${p => p.theme.device.desktop}) {
-    margin-top: 28px;
     gap: 18px;
   }
 `;
