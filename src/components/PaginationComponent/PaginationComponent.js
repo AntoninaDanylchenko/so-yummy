@@ -19,7 +19,7 @@ const PaginationComponent = ({ getData, getDataOp }) => {
     let data = favorite;
 
     let [page, setPage] = useState(1);
-    const PER_PAGE = 2;
+    const PER_PAGE = 4;
 
     const count = Math.ceil(data.length / PER_PAGE);
     const _DATA = usePagination(data, PER_PAGE);
@@ -30,7 +30,9 @@ const PaginationComponent = ({ getData, getDataOp }) => {
     };
 
     return (
-        <>
+        <Box sx={{
+            marginBottom: '100px'
+        }}>
             {count ? (<>
                 <ul>
                     {_DATA.currentData().map(({ _id, title, description, preview, time }) => (
@@ -50,7 +52,7 @@ const PaginationComponent = ({ getData, getDataOp }) => {
                     justifyContent: 'center',
                 }}>
                     <Pagination sx={{
-                        bgcolor: `${theme.background.pagination}`,
+                        backgroundColor: `${theme.background.pagination}`,
                         borderRadius: theme.radii[4],
                         height: '55px',
                         display: 'flex',
@@ -61,7 +63,7 @@ const PaginationComponent = ({ getData, getDataOp }) => {
                         onChange={handleChange}
                     />
                 </Box></>) : (<NoResult />)}
-        </>
+        </Box>
     );
 };
 
