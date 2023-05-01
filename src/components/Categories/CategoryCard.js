@@ -7,7 +7,7 @@ import {
 } from "./CategoriesList/CategoriesList.styled";
 
 function CategoryCard(recipe) {
-    return (
+    return (<li key={recipe._id}>
         <StyledLink to={`/recipe/${recipe._id}`}>
             <Card>
                 <PrewievImg src={recipe.preview} alt={recipe.title} />
@@ -16,6 +16,7 @@ function CategoryCard(recipe) {
                 </TitleWrapper>
             </Card>
         </StyledLink>
+    </li>
     )
 }
 

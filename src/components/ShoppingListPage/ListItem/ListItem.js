@@ -22,7 +22,7 @@ export default function ListItem(shoppingItem) {
   // } = ingredient;
 
   return (
-    <Item>
+    <Item key={id}>
       <PosterWrapper>
         <PosterContainer>
           <Poster src={ingredient?.thb} alt={ingredient?.ttl} />
