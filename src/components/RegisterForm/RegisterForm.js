@@ -1,10 +1,13 @@
-import React from 'react';
+import React from // { useState }
+'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 
-import { TextField } from 'formik-mui';
+import { TextField as MuiTextField } from 'formik-mui';
 import { object, string } from 'yup';
-import { InputAdornment, LinearProgress, Button } from '@mui/material';
+import { InputAdornment, Button, LinearProgress } from '@mui/material';
+
+import { styled } from '@mui/material/styles';
 
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -15,24 +18,106 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 // import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
-// import { yellow } from '@mui/material/colors';
 
 const schema = object().shape({
   username: string()
     .min(1)
     .max(16, 'Must be less than 16 characters')
-    .required('Pease enter name'),
-  email: string().email('Invalid email address').required('Pease enter email'),
+    .required('Please enter name')
+    .trim(),
+  email: string()
+    .email('Invalid email address')
+    .required('Please enter email')
+    .trim(),
   password: string()
     .min(6, 'Password should be min 6 characters')
     .max(16, 'Password should be max 16 characters')
     .matches(
       /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/,
-      'Password too light (A-a, 1-9)'
+      'Password must exist (A-a, 1-9)'
     )
-    .required('Pease enter password'),
+    .required('Please enter password')
+    .trim(),
 });
 
+// const TextField = styled(MuiTextField)(({ theme, errors, touched, values }) => {
+//   let borderStyle;
+//   if (touched?.username && errors?.username) {
+//     borderStyle = '2px solid #E74A3B';
+//   } else if (touched?.username) {
+//     borderStyle = '5px solid #3CBC81';
+//   } else {
+//     borderStyle = '2px solid #FAFAFA';
+//   }
+//   // inputSuccess
+//   return {
+//     //  " & MuiOutlinedInput-root"
+
+//     '& MuiOutlinedInput-root':
+//       // MuiOutlinedInput-root
+//       // & MuiInputBase-root,
+//       // & MuiInputBase-colorPrimary,
+//       // & MuiInputBase-fullWidth,
+//       // & MuiInputBase - formControl
+
+//       {
+//         fontFamily: 'Poppins',
+//         fontSize: 14,
+//         lineHeight: 1.39,
+//         marginBottom: '12px',
+//         opacity: 0.8,
+//         flex: 'none',
+//         order: 2,
+//         flexGrow: 0,
+//         borderRadius: '6px',
+//         сolor: '#fafafa',
+//         border: borderStyle,
+//         '&:hover': {
+//           borderColor: '2px solid #FAFAFA',
+//         },
+//         '&.Mui-focused': {
+//           borderColor: '2px solid #FAFAFA',
+//         },
+//         // borderColor: ${p => p.theme.inputSuccess},
+//       },
+//   };
+// });
+//  white ? '1px solid #FAFAFA'
+// error    ? '1px solid #E74A3B'
+// green: '1px solid #3CBC81',
+// const ButtonMui = styled(Button)({height: 45px;})
+const TextField = styled(MuiTextField)(
+  ({ theme, errors, touched, values }) => ({
+    '& .MuiInputBase-root': {
+      fontFamily: 'Poppins',
+      fontSize: '14px',
+      height: '45px',
+
+      marginBottom: '12px',
+      py: '12px',
+      opacity: 0.8,
+      flex: 'none',
+      order: 2,
+
+      color: '#fafafa',
+      flexGrow: 0,
+      borderRadius: '6px',
+      border: '1px solid #FAFAFA',
+      '&:hover': {
+        border: '2px solid #FAFAFA',
+      },
+      '&.Mui-focused': {
+        border: '2px solid #FAFAFA',
+      },
+      '& fieldset': { border: 'none' },
+      '@media (min-width: 768px)': {
+        height: '59px',
+        marginBottom: '24px',
+        fontSize: '18px',
+      },
+    },
+  })
+);
 const initialValues = {
   username: '',
   email: '',
@@ -40,168 +125,185 @@ const initialValues = {
 };
 
 export const RegisterForm = () => {
+  // const [passwordWarn, setPasswordWarn] = useState('');
+  // const [showWarning, setShowWarning] = useState(false);
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { setSubmitting }) => {
     setSubmitting(false);
     dispatch(register(values));
-    // alert(JSON.stringify(values, null, 2));
   };
+
+  // e.preventDefault();
+  // console.log(showWarning);
+  // console.log(passwordWarn);
   // const handleChange = e => {
-  //   const dataPassword = e.target.password.values;
-  // if (dataPassword.length > 6 && dataPassword.length < 10) {
-  //   helperText = 'Your password is little secure';
-  //   sx={{color:"white"}}
+  //   setPasswordWarn(e.target.value);
+  //   if (passwordWarn.length > 5 && passwordWarn.length < 17) {
+  //     return setShowWarning(true);
+  //   }
+  //   return setShowWarning(false);
+  // };
 
-  // }
-
-  // const handleChange = (values) => {
-  //   if( errors.password && values.password.length > Number(6) && values.password.length < Number(16) ){
-  //           sx ={{color: "yellow" }}
-  //           }
-  // }
-  // const { errors, touched, values, handleSubmit, handleChange } = formik;
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={handleOnSubmit}
     >
-      {({
-        values,
-        submitForm,
-        // resetForm,
-        isSubmitting,
-        touched,
-        errors,
-        // onChange,
-      }) => (
+      {({ values, submitForm, isSubmitting, touched, errors }) => (
         <Form autoComplete="off">
           <Field
             component={TextField}
             fullWidth
-            id="outlined"
+            // id="outlined"
             name="username"
             type="text"
             placeholder="Name"
             multiline
-            // color="secondary"
-
+            // border={
+            //   touched.username &&
+            //   'rgba(245, 146, 86, 0.5)' &&
+            //   (errors.username
+            //     ? '1px solid rgba(226, 0, 26, 1)'
+            //     : `1px solid rgba(60, 188, 129, 1)`)
+            // }
             InputProps={{
-              style: {
-                fontFamily: 'Poppins',
-                fontSize: 14,
-                lineHeight: 1.39,
-                marginBottom: '12px',
-
-                opacity: 0.8,
-
-                flex: 'none',
-                order: 2,
-                flexGrow: 0,
-
-                borderRadius: '6px',
-                // border: '1px solid #fafafa',
-                //  border={touched.username && errors.username && "1px solid red"},
-                // {Boolean(errors.username) &&  (border: '1px solid #fafafa')}
-                // border={(Boolean(errors.username)) && "1px solid red"},
-                // onBlur= ({Boolean(touched.username) && Boolean(errors.username) ? sx={..., border: '1px solid  #E74A3B'} : border:`1px solid #3CBC81` })
+              sx: {
+                // borderColor:
+                //   errors.username && touched.username
+                //     ? '2px solid #E74A3B'
+                //     : touched.username
+                //     ? '2px solid #3CBC81'
+                //     : '2px solid #fafafa',         =================== працює на іконках
+                //  {errors.username && touched.username} ?? border:'5px solid #E74A3B'
                 // border:
-                //   Boolean(touched.username) && Boolean(errors.username)
-                //     ? '1px solid #E74A3B'
-                //     : `1px solid #3CBC81`,
-                // '@media (min-width: 768px)': {
-                //   mb: '24px',
-                // },
+                //   errors?.username && touched?.username
+                //     ? '2px solid #E74A3B'
+                //     : '2px solid #3CBC81',
               },
+              // sx: {
+              //   border:
+              //     errors.username && touched.username
+              //       ? 'opx solid #E74A3'
+              //       : touched.username
+              //       ? '2px solid #3CBC81'
+              //       : undefined,
+              // },
               startAdornment: (
                 <InputAdornment position="start">
                   <PermIdentityIcon
-                    style={{
-                      color: '#fafafa',
+                    sx={{
+                      fontSize: 20,
+                      color:
+                        errors.username && touched.username
+                          ? '#E74A3B'
+                          : touched.username
+                          ? '#3CBC81'
+                          : '#fafafa',
                       opacity: 0.8,
                       flex: 'none',
                       order: 1,
                       flexGrow: 0,
+                      '@media (min-width: 768px)': {
+                        fontSize: 28,
+                      },
                     }}
                   />
                 </InputAdornment>
               ),
-              // border: '1px solid #E74A3B'
-              //     : `1px solid #3CBC81`,
               endAdornment: (
                 <InputAdornment position="end" style={{ outline: 'none' }}>
                   {errors.username && touched.username && (
                     <CancelSharpIcon
-                      style={{ color: '#E74A3B' }}
-                      fontSize="default"
+                      sx={{
+                        color: '#E74A3B',
+                        fontSize: 18,
+                        '@media (min-width: 768px)': {
+                          fontSize: 24,
+                        },
+                      }}
                     ></CancelSharpIcon>
                   )}
                   {!errors.username && touched.username && (
                     <CheckCircleSharpIcon
-                      style={{ color: '#3CBC81' }}
-                      // size=""
-                      fontSize="default"
+                      sx={{
+                        color: '#3CBC81',
+                        fontSize: 18,
+                        '@media (min-width: 768px)': {
+                          fontSize: 24,
+                        },
+                      }}
                     ></CheckCircleSharpIcon>
                   )}
                 </InputAdornment>
               ),
             }}
-            // value={values.username}
-            // onChange={handleChange}
-            // error={touched.username && Boolean(errors.username)}
-            // error={touched['username'] && !!errors['username']}
-            // helperText={touched['username'] && errors['username']}
-            // helperText={touched.username && errors.username}
           />
 
-          {/* border=
-        {touched.email &&
-          '2px solid #FFFFFF)' &&
-          (errors.email ? '1px solid #E74A3B' : `1px solid #3CBC81`)} */}
           <Field
             component={TextField}
             fullWidth
-            id="outlined"
+            // id="outlined"
             name="email"
             type="email"
             placeholder="Email"
             multiline
-            style={{ color: 'white' }}
-            // sx={{
-            //   fontFamily: 'Poppins',
-            //   fontSize: 14,
-            //   lineHeight: 1.39,
-            //   mb: '12px',
-            //   // height: '45px',
-            //   // p: '12px 0px',
-            //   // backgroundColor: '#8BAA36',
-            //   color: 'white',
-            //   opacity: 0.8,
-
-            //   flex: 'none',
-            //   order: 2,
-            //   flexGrow: 0,
-
-            //   borderRadius: '6px',
-            //   border: '1px solid #fafafa',
-            //   '&:hover': {
-            //     color: '#fff',
-            //     border: '2px solid #fff',
-            //   },
-            // }}
             InputProps={{
+              sx: {
+                // {errors.username && touched.username ?? border:'5px solid #E74A3B'}
+                border:
+                  (!errors?.username && touched?.username) &
+                  '2px solid #3CBC81',
+              },
               startAdornment: (
                 <InputAdornment position="start">
                   <MailOutlineIcon
-                    style={{
-                      color: '#fafafa',
+                    sx={{
+                      fontSize: 20,
+                      color:
+                        errors.email && touched.email
+                          ? '#E74A3B'
+                          : touched.email
+                          ? '#3CBC81'
+                          : '#fafafa',
                       opacity: 0.8,
                       flex: 'none',
                       order: 1,
                       flexGrow: 0,
+                      '@media (min-width: 768px)': {
+                        fontSize: 28,
+                      },
                     }}
                   />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end" style={{ outline: 'none' }}>
+                  {errors.email && touched.email && (
+                    <CancelSharpIcon
+                      sx={{
+                        color: '#E74A3B',
+                        fontSize: 18,
+                        '@media (min-width: 768px)': {
+                          fontSize: 24,
+                        },
+                      }}
+                      fontSize="default"
+                    ></CancelSharpIcon>
+                  )}
+                  {!errors.email && touched.email && (
+                    <CheckCircleSharpIcon
+                      sx={{
+                        color: '#3CBC81',
+                        fontSize: 18,
+                        '@media (min-width: 768px)': {
+                          fontSize: 24,
+                        },
+                      }}
+                      fontSize="default"
+                    ></CheckCircleSharpIcon>
+                  )}
                 </InputAdornment>
               ),
             }}
@@ -213,45 +315,101 @@ export const RegisterForm = () => {
           <Field
             component={TextField}
             fullWidth
-            id="outlined"
+            // id="outlined-password-input"
             name="password"
-            placeholder="Password"
             type="password"
-            multiline
+            // value={passwordWarn}
             // onChange={handleChange}
-            sx={{}}
+            placeholder="Password"
+            multiline
+            autoComplete="off"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
                   <LockOpenIcon
-                    style={{
-                      color: '#FAFAFA',
+                    sx={{
+                      fontSize: 20,
+                      color:
+                        errors.password && touched.password
+                          ? '#E74A3B'
+                          : touched.password
+                          ? '#3CBC81'
+                          : '#fafafa',
                       opacity: 0.8,
                       flex: 'none',
                       order: 1,
                       flexGrow: 0,
+                      '@media (min-width: 768px)': {
+                        fontSize: 28,
+                      },
                     }}
                   />
                 </InputAdornment>
               ),
+              endAdornment: (
+                <InputAdornment position="end" style={{ outline: 'none' }}>
+                  {errors.password && touched.password && (
+                    <CancelSharpIcon
+                      sx={{
+                        color: '#E74A3B',
+                        fontSize: 18,
+                        '@media (min-width: 768px)': {
+                          fontSize: 24,
+                        },
+                      }}
+                    ></CancelSharpIcon>
+                  )}
+                  {!errors.password && touched.password && (
+                    <CheckCircleSharpIcon
+                      sx={{
+                        color: '#3CBC81',
+                        fontSize: 18,
+                        '@media (min-width: 768px)': {
+                          fontSize: 24,
+                        },
+                      }}
+                    ></CheckCircleSharpIcon>
+                  )}
+                  {/* {showWarning && (
+                    <ErrorRoundedIcon
+                      sx={{
+                        color: '#F6C23E',
+                        fontSize: 18,
+                        '@media (min-width: 768px)': {
+                          fontSize: 24,
+                        },
+                      }}
+                    ></ErrorRoundedIcon>
+                  )} */}
+                </InputAdornment>
+              ),
             }}
-            // value={values.password}
+            // values={passwordWarn}
             // onChange={handleChange}
+            // () => {
+            //   setPasswordWarn(values.password);
+            //   if (passwordWarn.length > 5 && passwordWarn.length > 0) {
+            //     return setShowWarning(true);
+            //   }
+            //   return setShowWarning(false);
+            // }
+
             // error={touched.password && Boolean(errors.password)}
             // helperText={touched.password && errors.password}
           />
           {isSubmitting && <LinearProgress />}
           <br />
           <Button
+            variant="outlined"
             sx={{
               fontFamily: 'Poppins',
               width: '100%',
               height: '45px',
-              mt: '28px',
+              mt: '16px',
 
               textTransform: 'none',
               fontSize: 16,
-              lineHeight: 18,
+              // lineHeight: 18,
 
               backgroundColor: '#8BAA36',
               color: '#FAFAFA',
@@ -261,7 +419,7 @@ export const RegisterForm = () => {
               flexGrow: 0,
               [`&:hover`]: {
                 backgroundColor: '#8BAA36',
-                color: '#fff',
+                color: '#FAFAFA',
               },
 
               '@media (min-width: 768px)': {
@@ -269,13 +427,13 @@ export const RegisterForm = () => {
                 height: '59px',
                 borderRadius: '6px',
                 backgroundColor: ' #8BAA36;',
-                mt: '50px',
+                mt: '26px',
               },
             }}
-            variant="contained"
+            // variant="contained"
+            // disabled={isSubmitting}
             fullWidth
             type="submit"
-            // disabled={isSubmitting}
             onClick={submitForm}
           >
             Sign up

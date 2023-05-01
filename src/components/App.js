@@ -18,6 +18,7 @@ import { lightTheme, darkTheme } from 'styles/theme';
 import { GlobalStyles } from 'styles/GlobalStyles';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import NotFound from 'pages/NotFound/NotFound';
+import ScrollToTopFab from 'scrollToTop';
 
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -52,6 +53,7 @@ const App = () => {
 
   return isRefreshing ? (
     <Loader />
+
   ) : (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -120,6 +122,7 @@ const App = () => {
         </Route>
       </Routes>
       <Toaster />
+      <ScrollToTopFab />
     </ThemeProvider>
   );
 };
