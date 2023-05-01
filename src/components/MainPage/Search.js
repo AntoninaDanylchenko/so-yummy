@@ -12,13 +12,10 @@ export const Search = ({ setParams }) => {
     if (!query) {
       return toast.error('Please enter the item you to search for');
     }
-    setParams({ query });
-
+    setParams({ type: 'title', search: query });
     navigate(`/search?search=${query}&type=title`);
-
     e.currentTarget.reset();
   };
-
   return (
     <Form onSubmit={handleSubmit}>
       <Input type="text" name="query" />
@@ -26,7 +23,6 @@ export const Search = ({ setParams }) => {
     </Form>
   );
 };
-
 Search.propTypes = {
   setParams: PropTypes.func.isRequired,
 };

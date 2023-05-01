@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import PageTitle from 'components/ShoppingListPage/Title/PageTitle';
-// import { Container } from '../MainPage/MainPage.styled';
 import SearchBar from 'components/SearchPage/SearchBar';
+import { useSearchParams } from 'react-router-dom';
 import {
   fetchRecipesByIngredients,
   fetchRecipesByTitle,
@@ -14,11 +14,13 @@ import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.s
 import NoResult from 'components/NoResult/NoResult';
 import { Loader } from 'components/Loader/Loader';
 import { UnderList } from 'components/Categories/CategoriesList/CategoriesList.styled';
-// import PaginationComponent from 'components/PaginationComponent/PaginationComponent';
 
 const SearchPage = () => {
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get('search');
+
+  const [query, setQuery] = useState(search ? search : '');
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isTitle, setIsTitle] = useState(true);
 
@@ -36,7 +38,6 @@ const SearchPage = () => {
         const response = isTitle
           ? await fetchRecipesByTitle(query)
           : await fetchRecipesByIngredients(query);
-
         const dataRecipes = response.data.map(
           ({ _id, title, preview, thumb }) => ({
             id: _id,
@@ -60,7 +61,6 @@ const SearchPage = () => {
   };
 
   return (
-    // <Container fixed maxWidth="desktop">
     <Container
       fixed
       maxWidth="desktop"
@@ -68,7 +68,7 @@ const SearchPage = () => {
     >
       <PageTitle title="Search" />
       <SearchWrapper>
-        <SearchBar onSubmit={onChangeQuery} />
+        <SearchBar searchValue={query} onSubmit={onChangeQuery} />
         <SearchTypeSelector onSelectChange={onSelectChange} />
       </SearchWrapper>
       {recipes.length ? (

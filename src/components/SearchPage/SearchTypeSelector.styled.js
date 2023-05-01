@@ -60,8 +60,7 @@ export const Selector = styled(Select)`
     margin-top: 0;
     margin-bottom: 0;
     padding: 4px 8px;
-    /* background-color: ${p => p.theme.background.placeholder}; */
-    background-color: rgba(250, 250, 250, 1);
+    background-color: ${p => p.theme.primary.selectBg};
     height: 76px;
     border-radius: ${p => p.theme.radii[1]};
     font-size: ${p => p.theme.fontSizes[2]};
@@ -78,7 +77,7 @@ export const Selector = styled(Select)`
     border: none;
     height: 28px;
     cursor: pointer;
-    background-color: rgba(250, 250, 250, 1);
+    background-color: ${p => p.theme.primary.selectBg};
     &:hover,
     &:focus {
       background-color: rgba(217, 217, 217, 0.16);
