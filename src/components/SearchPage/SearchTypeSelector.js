@@ -1,6 +1,9 @@
 import React from 'react';
-import { TypeSelector, TypeSelectorWrapper } from './SearchTypeSelector.styled';
-import Select from 'react-select';
+import {
+  Selector,
+  TypeSelector,
+  TypeSelectorWrapper,
+} from './SearchTypeSelector.styled';
 
 const options = [
   { value: 'title', label: 'Title' },
@@ -13,12 +16,45 @@ export const SearchTypeSelector = ({ onSelectChange }) => {
   return (
     <TypeSelectorWrapper>
       <TypeSelector htmlFor="select">Search by:</TypeSelector>
-      <Select
-        id="select"
-        defaultValue={defaultOption}
-        onChange={selectedOption => onSelectChange(selectedOption.value)}
-        options={options}
-      />
+      <div
+        className="type-selector"
+        styles={{
+          control: baseStyles => ({
+            ...baseStyles,
+          }),
+        }}
+      >
+        <Selector
+          classNamePrefix="Selector"
+          defaultValue={defaultOption}
+          onChange={selectedOption => onSelectChange(selectedOption.value)}
+          options={options}
+          styles={{
+            control: baseStyles => ({
+              ...baseStyles,
+            }),
+            singleValue: baseStyles => ({
+              ...baseStyles,
+              paddingTop: '4px',
+              paddingBottom: '4px',
+              color: 'grey',
+            }),
+            menu: baseStyles => ({
+              ...baseStyles,
+            }),
+            option: baseStyles => ({
+              ...baseStyles,
+            }),
+            dropdownIndicator: () => ({
+              color: '#8BAA36',
+            }),
+            indicatorSeparator: baseStyles => ({
+              ...baseStyles,
+              backgroundColor: 'transparent',
+            }),
+          }}
+        />
+      </div>
     </TypeSelectorWrapper>
   );
 };
