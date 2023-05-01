@@ -16,16 +16,16 @@ import IconButton from '@mui/material/IconButton';
 
 import { ReactComponent as Delete } from '../../images/icon/delete.svg';
 
-const RecipeCard = ({ id, title, description, preview, time }) => {
+const RecipeCard = ({ _id, title, description, preview, time }) => {
   const dispatch = useDispatch();
-  const onClick = id => {
-    dispatch(deleteFavoriteOp(id));
-    dispatch(deleteMyRecipesOp(id));
+  const onClick = _id => {
+    dispatch(deleteFavoriteOp(_id));
+    dispatch(deleteMyRecipesOp(_id));
   };
   return (
     <Card
       sx={{ display: 'flex', padding: '20px', marginBottom: '50px' }}
-      key={id}
+      key={_id}
     >
       <CardMedia
         component="img"
@@ -66,8 +66,8 @@ const RecipeCard = ({ id, title, description, preview, time }) => {
             TransitionProps={{ timeout: 600 }}
           >
             <IconButton
-              key={id}
-              onClick={() => onClick(id)}
+              key={_id}
+              onClick={() => onClick(_id)}
               sx={{
                 height: '44px',
                 minWidth: '44px',
@@ -91,7 +91,7 @@ const RecipeCard = ({ id, title, description, preview, time }) => {
           >
             {time} min
           </Typography>
-          <Link to={`/recipe/${id}`}>
+          <Link to={`/recipe/${_id}`}>
             <Button
               size="small"
               sx={{

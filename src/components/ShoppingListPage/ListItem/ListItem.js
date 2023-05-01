@@ -12,7 +12,7 @@ import {
   Measure,
 } from './ListItem.styled';
 
-export default function ListItem({ shoppingItem }) {
+export default function ListItem(shoppingItem) {
   const dispatch = useDispatch();
   const { ingredient, measure, id } = shoppingItem;
   // const {

@@ -6,6 +6,8 @@ import PaginationComponent from 'components/PaginationComponent/PaginationCompon
 import {
   Container
 } from '../AddRecipePage/AddRecipePage.styled';
+import RecipeCard from 'components/RecipeCard/RecipeCard';
+import styled from '@emotion/styled';
 
 const MyRecipesPage = () => {
   return (
@@ -15,6 +17,8 @@ const MyRecipesPage = () => {
       <PaginationComponent
         getData={getMyRecipes}
         getDataOp={getMyRecipesOp}
+        ListComponent={styled.ul``}
+        CardComponent={RecipeCard}
       />
     </Container>
   );

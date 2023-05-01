@@ -1,28 +1,30 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import RecipeCard from 'components/RecipeCard/RecipeCard';
 import { Box, Pagination } from '@mui/material';
 import usePagination from '../PaginationComponent/Pagination';
 import { useTheme } from '@mui/material';
 import NoResult from 'components/NoResult/NoResult';
 
 
-const PaginationComponent = ({ getData, getDataOp }) => {
+const PaginationComponent = ({ getData, //data from backend thought selector 
+    getDataOp, //callback to get data
+    getParam = {},
+    ListComponent, // react component for <ul>
+    CardComponent, //react component for <li>
+    perPage = 3,
+}) => {
     const dispatch = useDispatch();
     const theme = useTheme();
-    const { items: favorite } = useSelector(getData);
+    const items = useSelector(getData);
 
     useEffect(() => {
-        dispatch(getDataOp());
-    }, [dispatch, getDataOp]);
-
-    let data = favorite;
+        dispatch(getDataOp(getParam));
+    }, [dispatch, getDataOp, getParam]);
 
     let [page, setPage] = useState(1);
-    const PER_PAGE = 4;
 
-    const count = Math.ceil(data.length / PER_PAGE);
-    const _DATA = usePagination(data, PER_PAGE);
+    const count = Math.ceil(items?.length / perPage);
+    const _DATA = usePagination(items, perPage);
 
     const handleChange = (e, p) => {
         setPage(p);
@@ -34,19 +36,15 @@ const PaginationComponent = ({ getData, getDataOp }) => {
             marginBottom: '100px'
         }}>
             {count ? (<>
-                <ul>
-                    {_DATA.currentData().map(({ _id, title, description, preview, time }) => (
-                        <li key={_id}>
-                            <RecipeCard
-                                id={_id}
-                                title={title}
-                                description={description}
-                                preview={preview}
-                                time={time}
+                <ListComponent>
+                    {_DATA.currentData().map((item) => (
+                        <li key={item._id}>
+                            <CardComponent
+                                {...item}
                             />
                         </li>
                     ))}
-                </ul>
+                </ListComponent>
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'center',
