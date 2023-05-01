@@ -40,7 +40,6 @@ export const logIn = createAsyncThunk(
   }
 );
 
-
 export const userUpdate = createAsyncThunk(
   'auth/userUpdate',
   async (credentials, thunkAPI) => {
