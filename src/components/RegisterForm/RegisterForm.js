@@ -1,21 +1,19 @@
-import React from // { useState }
-'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 
 import { TextField as MuiTextField } from 'formik-mui';
 import { object, string } from 'yup';
-import { InputAdornment, Button, LinearProgress } from '@mui/material';
+import { InputAdornment, Button } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
 
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-// import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
 import CancelSharpIcon from '@mui/icons-material/CancelSharp';
-// import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
+import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { register } from 'redux/auth/operation';
 
@@ -34,59 +32,13 @@ const schema = object().shape({
     .min(6, 'Password should be min 6 characters')
     .max(16, 'Password should be max 16 characters')
     .matches(
-      /(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]/,
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/,
       'Password must exist (A-a, 1-9)'
     )
     .required('Please enter password')
     .trim(),
 });
 
-// const TextField = styled(MuiTextField)(({ theme, errors, touched, values }) => {
-//   let borderStyle;
-//   if (touched?.username && errors?.username) {
-//     borderStyle = '2px solid #E74A3B';
-//   } else if (touched?.username) {
-//     borderStyle = '5px solid #3CBC81';
-//   } else {
-//     borderStyle = '2px solid #FAFAFA';
-//   }
-//   // inputSuccess
-//   return {
-//     //  " & MuiOutlinedInput-root"
-
-//     '& MuiOutlinedInput-root':
-//       // MuiOutlinedInput-root
-//       // & MuiInputBase-root,
-//       // & MuiInputBase-colorPrimary,
-//       // & MuiInputBase-fullWidth,
-//       // & MuiInputBase - formControl
-
-//       {
-//         fontFamily: 'Poppins',
-//         fontSize: 14,
-//         lineHeight: 1.39,
-//         marginBottom: '12px',
-//         opacity: 0.8,
-//         flex: 'none',
-//         order: 2,
-//         flexGrow: 0,
-//         borderRadius: '6px',
-//         сolor: '#fafafa',
-//         border: borderStyle,
-//         '&:hover': {
-//           borderColor: '2px solid #FAFAFA',
-//         },
-//         '&.Mui-focused': {
-//           borderColor: '2px solid #FAFAFA',
-//         },
-//         // borderColor: ${p => p.theme.inputSuccess},
-//       },
-//   };
-// });
-//  white ? '1px solid #FAFAFA'
-// error    ? '1px solid #E74A3B'
-// green: '1px solid #3CBC81',
-// const ButtonMui = styled(Button)({height: 45px;})
 const TextField = styled(MuiTextField)(
   ({ theme, errors, touched, values }) => ({
     '& .MuiInputBase-root': {
@@ -103,13 +55,7 @@ const TextField = styled(MuiTextField)(
       color: '#fafafa',
       flexGrow: 0,
       borderRadius: '6px',
-      border: '1px solid #FAFAFA',
-      '&:hover': {
-        border: '2px solid #FAFAFA',
-      },
-      '&.Mui-focused': {
-        border: '2px solid #FAFAFA',
-      },
+
       '& fieldset': { border: 'none' },
       '@media (min-width: 768px)': {
         height: '59px',
@@ -126,8 +72,8 @@ const initialValues = {
 };
 
 export const RegisterForm = () => {
-  // const [passwordWarn, setPasswordWarn] = useState('');
-  // const [showWarning, setShowWarning] = useState(false);
+  const [passwordWarn, setPasswordWarn] = useState('');
+  const [showWarning, setShowWarning] = useState(false);
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { setSubmitting }) => {
@@ -135,16 +81,17 @@ export const RegisterForm = () => {
     dispatch(register(values));
   };
 
-  // e.preventDefault();
-  // console.log(showWarning);
-  // console.log(passwordWarn);
-  // const handleChange = e => {
-  //   setPasswordWarn(e.target.value);
-  //   if (passwordWarn.length > 5 && passwordWarn.length < 17) {
-  //     return setShowWarning(true);
-  //   }
-  //   return setShowWarning(false);
-  // };
+  useEffect(() => {
+    if (passwordWarn.trim().length >= 6 && passwordWarn.trim().length <= 10) {
+      return setShowWarning(true);
+    }
+    return setShowWarning(false);
+  }, [passwordWarn]);
+
+  const handleChange = event => {
+    setPasswordWarn(event.target.value);
+    console.log(passwordWarn);
+  };
 
   return (
     <Formik
@@ -152,45 +99,31 @@ export const RegisterForm = () => {
       validationSchema={schema}
       onSubmit={handleOnSubmit}
     >
-      {({ values, submitForm, isSubmitting, touched, errors }) => (
+      {({ touched, errors }) => (
         <Form autoComplete="off">
           <Field
             component={TextField}
             fullWidth
-            // id="outlined"
+            id="outlined-controlled"
             name="username"
             type="text"
             placeholder="Name"
-            multiline
-            // border={
-            //   touched.username &&
-            //   'rgba(245, 146, 86, 0.5)' &&
-            //   (errors.username
-            //     ? '1px solid rgba(226, 0, 26, 1)'
-            //     : `1px solid rgba(60, 188, 129, 1)`)
-            // }
             InputProps={{
               sx: {
-                // borderColor:
-                //   errors.username && touched.username
-                //     ? '2px solid #E74A3B'
-                //     : touched.username
-                //     ? '2px solid #3CBC81'
-                //     : '2px solid #fafafa',         =================== працює на іконках
-                //  {errors.username && touched.username} ?? border:'5px solid #E74A3B'
-                // border:
-                //   errors?.username && touched?.username
-                //     ? '2px solid #E74A3B'
-                //     : '2px solid #3CBC81',
+                border:
+                  errors.username && touched.username
+                    ? '1px solid #E74A3B'
+                    : touched?.username
+                    ? '1px solid #3CBC81'
+                    : '1px solid #FAFAFA',
+                '&:hover': {
+                  border: '2px solid #FAFAFA',
+                },
+                '&.Mui-focused': {
+                  border: '2px solid #FAFAFA',
+                },
               },
-              // sx: {
-              //   border:
-              //     errors.username && touched.username
-              //       ? 'opx solid #E74A3'
-              //       : touched.username
-              //       ? '2px solid #3CBC81'
-              //       : undefined,
-              // },
+
               startAdornment: (
                 <InputAdornment position="start">
                   <PermIdentityIcon
@@ -245,17 +178,25 @@ export const RegisterForm = () => {
           <Field
             component={TextField}
             fullWidth
-            // id="outlined"
+            id="outlined-controlled"
             name="email"
             type="email"
             placeholder="Email"
-            multiline
+            variant="outlined"
             InputProps={{
               sx: {
-                // {errors.username && touched.username ?? border:'5px solid #E74A3B'}
                 border:
-                  (!errors?.username && touched?.username) &
-                  '2px solid #3CBC81',
+                  errors.email && touched.email
+                    ? '1px solid #E74A3B'
+                    : touched?.email
+                    ? '1px solid #3CBC81'
+                    : '1px solid #FAFAFA',
+                '&:hover': {
+                  border: '2px solid #FAFAFA',
+                },
+                '&.Mui-focused': {
+                  border: '2px solid #FAFAFA',
+                },
               },
               startAdornment: (
                 <InputAdornment position="start">
@@ -308,23 +249,37 @@ export const RegisterForm = () => {
                 </InputAdornment>
               ),
             }}
-            // value={values.email}
-            // onChange={handleChange}
-            // error={touched.email && Boolean(errors.email)}
-            // helperText={touched.email && errors.email}
           />
           <Field
             component={TextField}
             fullWidth
-            // id="outlined-password-input"
+            variant="outlined"
             name="password"
             type="password"
-            // value={passwordWarn}
-            // onChange={handleChange}
             placeholder="Password"
-            multiline
+            value={passwordWarn}
+            onChange={handleChange}
+            // helperText={
+            //   !errors.password && showWarning
+            //     ? 'Your password is little secure'
+            //     : ' '
+            // }
             autoComplete="off"
             InputProps={{
+              sx: {
+                border:
+                  errors.password && touched.password
+                    ? '1px solid #E74A3B'
+                    : touched?.password
+                    ? '1px solid #3CBC81'
+                    : '1px solid #FAFAFA',
+                '&:hover': {
+                  border: '2px solid #FAFAFA',
+                },
+                '&.Mui-focused': {
+                  border: '2px solid #FAFAFA',
+                },
+              },
               startAdornment: (
                 <InputAdornment position="start">
                   <LockOpenIcon
@@ -371,7 +326,7 @@ export const RegisterForm = () => {
                       }}
                     ></CheckCircleSharpIcon>
                   )}
-                  {/* {showWarning && (
+                  {showWarning && !errors.password && (
                     <ErrorRoundedIcon
                       sx={{
                         color: '#F6C23E',
@@ -381,25 +336,12 @@ export const RegisterForm = () => {
                         },
                       }}
                     ></ErrorRoundedIcon>
-                  )} */}
+                  )}
                 </InputAdornment>
               ),
             }}
-            // values={passwordWarn}
-            // onChange={handleChange}
-            // () => {
-            //   setPasswordWarn(values.password);
-            //   if (passwordWarn.length > 5 && passwordWarn.length > 0) {
-            //     return setShowWarning(true);
-            //   }
-            //   return setShowWarning(false);
-            // }
-
-            // error={touched.password && Boolean(errors.password)}
-            // helperText={touched.password && errors.password}
           />
-          {isSubmitting && <LinearProgress />}
-          <br />
+
           <Button
             variant="outlined"
             sx={{
@@ -410,7 +352,6 @@ export const RegisterForm = () => {
 
               textTransform: 'none',
               fontSize: 16,
-              // lineHeight: 18,
 
               backgroundColor: '#8BAA36',
               color: '#FAFAFA',
@@ -432,10 +373,10 @@ export const RegisterForm = () => {
               },
             }}
             // variant="contained"
-            // disabled={isSubmitting}
+            disabled
             fullWidth
             type="submit"
-            onClick={submitForm}
+            // onClick={submitForm}
           >
             Sign up
           </Button>
@@ -444,7 +385,3 @@ export const RegisterForm = () => {
     </Formik>
   );
 };
-
-// const ButtonFormik = styled(Button){
-//   backgroundColor: ${p=>p.theme.primary.text},
-// };
