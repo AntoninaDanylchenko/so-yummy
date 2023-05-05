@@ -28,7 +28,16 @@ export const register = createAsyncThunk(
 
       return res.data;
     } catch (error) {
-      toast.error('User is already use.');
+      if (error.response.status === 400) {
+        toast.error('Bad request, enter correct form');
+      } else if (error.response.status === 404) {
+        toast.error('Not found, try again');
+      } else if (error.response.status === 409) {
+        toast.error('User is already use.');
+      } else {
+        toast.error(`${error.message}`);
+      }
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
