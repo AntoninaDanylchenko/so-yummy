@@ -38,8 +38,13 @@ const authSlice = createSlice({
       .addCase(register.rejected, state => {
         state.isLoading = false;
       })
-
+      .addCase(logIn.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(logIn.fulfilled, handleExitFulfilled)
+      .addCase(logIn.rejected, state => {
+        state.isLoading = false;
+      })
       .addCase(logOut.fulfilled, state => {
         state.user.username = null;
         state.user.email = null;

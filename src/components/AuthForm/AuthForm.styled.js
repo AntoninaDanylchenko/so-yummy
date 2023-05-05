@@ -34,7 +34,6 @@ export const TextField = styled(MuiTextField)({
 });
 
 export const ButtonS = styled(Button)({
-  // '& .MuiButtonBase-root': {
   fontFamily: 'Poppins',
   width: '100%',
   height: '45px',

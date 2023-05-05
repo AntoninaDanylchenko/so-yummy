@@ -2,6 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 import { InputAdornment, Typography } from '@mui/material';
 
+import { register } from 'redux/auth/operation';
+import { selectIsLoading } from '../../../redux/auth/selector';
+import { schema } from '../../YupSchema/YupSchemaRegister';
+import { Loader } from 'components/Loader/Loader';
+
 import {
   PermIdentityIconS,
   MailOutlineIconS,
@@ -10,13 +15,7 @@ import {
   CancelSharpIconS,
   ErrorRoundedIconS,
 } from '../Icon.styled';
-
-import { register } from 'redux/auth/operation';
-import { selectIsLoading } from '../../../redux/auth/selector';
-import { schema } from '../../YupSchema/YupSchemaRegister';
-
-import { TextField, ButtonS } from './RegisterFrom.styled';
-import { Loader } from 'components/Loader/Loader';
+import { TextField, ButtonS } from '../AuthForm.styled';
 
 const initialValues = {
   username: '',
@@ -47,13 +46,13 @@ export const RegisterForm = () => {
       validationSchema={schema}
       onSubmit={handleOnSubmit}
     >
-      {({ touched, errors, values, handleBlur, handleChange }) => (
+      {({ touched, errors, values, handleBlur }) => (
         <Form autoComplete="off">
           <Field
             component={TextField}
             fullWidth
             onBlur={handleBlur}
-            id="outlined-controlled"
+            // id="outlined-controlled"
             name="username"
             type="text"
             placeholder="Name"
@@ -94,15 +93,14 @@ export const RegisterForm = () => {
           />
           <Field
             component={TextField}
-            onBlur={handleBlur}
             fullWidth
-            id="outlined-controlled"
+            onBlur={handleBlur}
+            // id="outlined-controlled"
             name="email"
             type="email"
             placeholder="Email"
             variant="outlined"
             autoComplete="off"
-            title="Email must end on .com or .net"
             InputProps={{
               sx: {
                 border:
@@ -116,7 +114,6 @@ export const RegisterForm = () => {
                 <InputAdornment position="start">
                   <MailOutlineIconS
                     sx={{
-                      fontSize: 20,
                       color:
                         errors.email && touched.email
                           ? '#E74A3B'
@@ -156,8 +153,8 @@ export const RegisterForm = () => {
 
           <Field
             component={TextField}
-            onBlur={handleBlur}
             fullWidth
+            onBlur={handleBlur}
             variant="outlined"
             name="password"
             type="password"
@@ -199,7 +196,9 @@ export const RegisterForm = () => {
               ),
             }}
           />
+
           {isLoading && <Loader />}
+
           <ButtonS
             sx={{
               [`&:hover`]: {
