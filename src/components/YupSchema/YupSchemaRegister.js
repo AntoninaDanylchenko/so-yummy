@@ -7,9 +7,10 @@ export const schema = object().shape({
     .required('Please enter name')
     .trim(),
   email: string()
-    .email('Email address must have .com/.net')
+    .email('Invalid email')
     .lowercase()
-    .required('Please enter email')
+    .matches(/.(com|net)$/, 'Email must end with .com or .net')
+    .required('Email is required')
     .trim(),
   password: string()
     .min(6, 'Password should be min 6 characters')
