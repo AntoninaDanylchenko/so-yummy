@@ -13,6 +13,7 @@ const initialStateAuth = {
   isLoggedIn: false,
   isRefreshing: false,
   avatarURL: '',
+  isLoading: false,
 };
 
 const handleExitFulfilled = (state, action) => {
@@ -22,6 +23,7 @@ const handleExitFulfilled = (state, action) => {
   state.avatarURL = action.payload.resUser.avatarURL;
   state.token = action.payload.token;
   state.isLoggedIn = true;
+  state.isLoading = false;
 };
 
 const authSlice = createSlice({
@@ -29,7 +31,14 @@ const authSlice = createSlice({
   initialState: initialStateAuth,
   extraReducers: builder =>
     builder
+      .addCase(register.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(register.fulfilled, handleExitFulfilled)
+      .addCase(register.rejected, state => {
+        state.isLoading = false;
+      })
+
       .addCase(logIn.fulfilled, handleExitFulfilled)
       .addCase(logOut.fulfilled, state => {
         state.user.username = null;
@@ -37,6 +46,7 @@ const authSlice = createSlice({
         state.avatarURL = null;
         state.token = null;
         state.isLoggedIn = false;
+        state.isLoading = false;
       })
       .addCase(refreshCurrentUser.pending, state => {
         state.isRefreshing = true;

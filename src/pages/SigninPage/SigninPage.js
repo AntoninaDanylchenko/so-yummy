@@ -1,7 +1,7 @@
 // import { Helmet } from 'react-helmet-async';
 import { Container } from '@mui/material';
 
-import { LoginForm } from '../../components/LoginForm/LoginForm';
+import { SigninForm } from '../../components/AuthForm/SigninForm/SigninForm';
 import { Box, Title, WrapperForm, LinkToSignup } from './SigninPage.styled';
 
 const SigninPage = () => {
@@ -17,8 +17,8 @@ const SigninPage = () => {
             {/* <Helmet> */}
             <Title>Sign In</Title>
             {/* </Helmet> */}
-            <LoginForm />
-            <LinkToSignup to="/register">Sign up</LinkToSignup>
+            <SigninForm />
+            <LinkToSignup to="/register">Registration</LinkToSignup>
           </WrapperForm>
         </Container>
       </Box>

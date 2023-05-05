@@ -41,7 +41,7 @@ export const logIn = createAsyncThunk(
       token.set(r.data.token);
       return r.data;
     } catch (error) {
-      toast.error('Password is incorrect.');
+      toast.error('Your data is incorrect.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }

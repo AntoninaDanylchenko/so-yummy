@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
 
 import { TextField as MuiTextField } from 'formik-mui';
-import { object, string } from 'yup';
 import { InputAdornment, Button } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
@@ -16,22 +15,7 @@ import CancelSharpIcon from '@mui/icons-material/CancelSharp';
 // import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
 
 import { logIn } from 'redux/auth/operation';
-
-const schema = object().shape({
-  email: string()
-    .email('Invalid email address')
-    .required('Please enter email')
-    .trim(),
-  password: string()
-    .min(6, 'Password should be min 6 characters')
-    .max(16, 'Password should be max 16 characters')
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/,
-      'Password must exist (A-a, 1-9)'
-    )
-    .required('Please enter password')
-    .trim(),
-});
+import { schema } from '../../YupSchema/YupSchemaSignin';
 
 const TextField = styled(MuiTextField)(
   ({ theme, errors, touched, values }) => ({
@@ -64,7 +48,7 @@ const initialValues = {
   password: '',
 };
 
-export const LoginForm = () => {
+export const SigninForm = () => {
   //   const [passwordWarn, setPasswordWarn] = useState('');
   //   const [showWarning, setShowWarning] = useState(false);
   const dispatch = useDispatch();

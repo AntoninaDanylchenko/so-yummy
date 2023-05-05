@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-// import { Field, Form } from 'formik';
 
 import bgImgRectangleMobile from '../../images/form/rectangle_mobile.png';
 import bgImgRectangleMobile2x from '../../images/form/rectangle_mobile@2x.png';
@@ -16,12 +15,6 @@ import imgPanaTablet2x from '../../images/form/food-pana_tablet@2x.png';
 import imgPanaDesktop from '../../images/form/food-pana_desktop.png';
 import imgPanaDesktop2x from '../../images/form/food-pana_desktop@2x.png';
 
-// export const Probnik111111 = styled.div`
-//   @media (${p => p.theme.device.tablet}) {
-//   }
-//   @media (${p => p.theme.device.desktop}) {
-//   }
-// `;
 export const Box = styled.section`
   min-width: 100vw;
   min-height: 100vh;
@@ -100,7 +93,6 @@ export const Title = styled.h2`
   text-align: start;
 
   margin-bottom: 18px;
-  /* identical to box height, or 117% */
 
   letter-spacing: -0.02em;
   font-feature-settings: 'liga' off;
@@ -125,8 +117,6 @@ export const LinkToSignin = styled(Link)`
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  /* identical to box height */
-
   text-decoration-line: underline;
   color: #fafafa;
 
