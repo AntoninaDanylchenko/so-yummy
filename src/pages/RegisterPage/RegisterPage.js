@@ -1,7 +1,7 @@
 // import { Helmet } from 'react-helmet-async';
 import { Container } from '@mui/material';
 
-import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
+import { RegisterForm } from '../../components/AuthForm/RegisterForm/RegisterForm';
 import { Box, Title, WrapperForm, LinkToSignin } from './RegisterPage.styled';
 
 const RegisterPage = () => {
