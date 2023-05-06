@@ -8,6 +8,7 @@ export const Loader = () => {
         position: 'fixed',
         top: 'calc(50% - 40px)',
         left: 'calc(50% - 40px)',
+        zIndex: '10',
       }}
     >
       <ThreeCircles
