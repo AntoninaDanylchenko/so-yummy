@@ -10,7 +10,7 @@ export const List = styled.ul`
   margin-top: 32px;
   margin-left: auto;
   margin-right: auto;
- margin-bottom: 50px;
+  margin-bottom: 50px;
   width: 343px;
   gap: 28px;
 
@@ -58,6 +58,44 @@ export const Card = styled.div`
 
   @media (${p => p.theme.device.desktop}) {
     width: 300px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: -webkit-linear-gradient(
+      left,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+  }
+  &:hover::before {
+    animation: shine 0.75s;
+    animation: shine 0.75s;
+  }
+
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
   }
 `;
 

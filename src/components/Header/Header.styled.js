@@ -47,7 +47,7 @@ export const NavBox = styled.div`
 
 export const LinkNav = styled(NavLink)`
   text-decoration: none;
-  color: ${p => p.theme.primaryText.text};
+  color: ${p=>p.theme.linePopularRecipe};
   font-family: ${p => p.theme.fonts};
   font-size: ${p => p.theme.fontSizes[5]};
   line-height: calc(
@@ -346,7 +346,7 @@ export const UserLogoBox = styled.div`
 
 export const TextUserLogo = styled.p`
   text-decoration: none;
-  color: ${p => p.theme.primaryText.text};
+  color: ${p=>p.theme.linePopularRecipe} ;
   font-family: ${p => p.theme.fonts};
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes[3]};
