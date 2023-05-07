@@ -129,8 +129,9 @@ export const InnerBox = styled.div`
     row-gap: 24px;
   }
 
-  @media screen and (min-width: 768px and max-width: 1440px) {
+  @media screen and (min-width: 768px) and (max-width: 1440px) {
     max-width: 380px;
+  }
 
   @media screen and (min-width: 1440px) {
     row-gap: 40px;

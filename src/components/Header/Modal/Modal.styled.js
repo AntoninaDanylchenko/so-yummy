@@ -30,10 +30,9 @@ export const ModalW = styled.div`
   transition: ${p => p.theme.transition};
   border: 1px solid ${p => p.theme.primary.selectBg};
 
-
   &:hover,
   .focus {
-    border: 1px solid #8BAA36;
+    border: 1px solid #8baa36;
   }
 
   @media ${p => p.theme.device.tablet} {
@@ -42,6 +41,11 @@ export const ModalW = styled.div`
     width: 177px;
     height: 144px;
     gap: 32px;
+  }
+
+  @media (min-width: 1100px) and (max-width: 1200px) {
+    top: 95px;
+    right: 340px;
   }
 
   @media ${p => p.theme.device.desktop} {
