@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import CloseIcon from '@mui/icons-material/Close';
 
-const IconClose = styled(CloseIcon)`
+export const IconClose = styled(CloseIcon)`
+  display: inline-block;
   width: 20px;
   height: 20px;
+  cursor: pointer;
   fill: ${p => p.theme.title.text};
 
   @media ${p => p.theme.device.tablet} {
@@ -12,19 +14,21 @@ const IconClose = styled(CloseIcon)`
   }
 `;
 
-const CloseButton = styled.button`
+export const CloseButton = styled.button`
   position: absolute;
-  top: 18px;
-  left: 18px;
-
-  width: 24px;
-  height: 24px;
+  top: 14px;
+  right: 14px;
   background: transparent;
   border: none;
   cursor: pointer;
+
+  @media ${p => p.theme.device.tablet} {
+    top: 24px;
+    right: 24px;
+  }
 `;
 
-const ModalContainer = styled.div`
+export const ModalContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -34,7 +38,7 @@ const ModalContainer = styled.div`
   right: 150px;
   top: 20px;
   border-radius: 30px;
-  padding: 24px 44px;
+  padding: 44px 24px;
   border: 1px solid #8baa36;
   background-color: ${p => p.theme.primary.userBg};
   box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
@@ -59,7 +63,7 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalText = styled.p`
+export const ModalText = styled.p`
   font-family: ${p => p.theme.fonts};
   font-weight: ${p => p.theme.fontWeights.regular};
   font-size: ${p => p.theme.fontSizes[3]};
@@ -67,6 +71,7 @@ const ModalText = styled.p`
     (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[3]})
   );
   margin-bottom: 24px;
+  color: ${p => p.theme.primaryText.text};
 
   @media ${p => p.theme.device.tablet} {
     font-size: ${p => p.theme.fontSizes[5]};
@@ -85,7 +90,7 @@ const ModalText = styled.p`
   }
 `;
 
-const ModalButtons = styled.div`
+export const ModalButtons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +101,7 @@ const ModalButtons = styled.div`
   }
 `;
 
-const LogoutButton = styled.button`
+export const LogoutButton = styled.button`
   cursor: pointer;
   max-width: 100%;
   height: 100%;
@@ -128,7 +133,7 @@ const LogoutButton = styled.button`
   }
 `;
 
-const CancelButton = styled.button`
+export const CancelButton = styled.button`
   cursor: pointer;
   max-width: 100%;
   padding: 14px 18px;
@@ -159,12 +164,3 @@ const CancelButton = styled.button`
   }
 `;
 
-export {
-  ModalContainer,
-  ModalText,
-  ModalButtons,
-  LogoutButton,
-  CancelButton,
-  CloseButton,
-  IconClose,
-};

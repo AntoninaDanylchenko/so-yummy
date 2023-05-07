@@ -10,8 +10,7 @@ import {
   IconClose,
 } from './LogoutButtonModal.styled';
 
-
-const LogoutButtonModal = ({onClose}) => {
+const LogoutButtonModal = ({ onClose }) => {
   const dispatch = useDispatch();
 
   const handleLogout = async () => {
@@ -25,7 +24,10 @@ const LogoutButtonModal = ({onClose}) => {
   return (
     <>
       <ModalContainer>
-        <ModalText>Are you sure you want to logout?</ModalText>
+        <CloseButton type="button" onClick={onClose}>
+          <IconClose />
+        </CloseButton>
+        <ModalText>Are you sure you want to logout ?</ModalText>
         <ModalButtons>
           <LogoutButton type="button" onClick={handleLogout}>
             Log out
@@ -34,9 +36,6 @@ const LogoutButtonModal = ({onClose}) => {
             Cancel
           </CancelButton>
         </ModalButtons>
-        <CloseButton type="button" onClick={onClose}>
-          <IconClose />
-        </CloseButton>
       </ModalContainer>
     </>
   );

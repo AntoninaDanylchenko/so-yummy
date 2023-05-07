@@ -40,13 +40,14 @@ export const ModalContainer = styled.div`
 `;
 
 export const Plus = styled(AddCircleOutlineIcon)`
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
   width: 24px;
   height: 24px;
   bottom: 10px;
   right: 3px;
-  cursor: pointer;
-  position: absolute;
-  z-index: 1;
   fill: ${p => p.theme.title.text};
 
   @media ${p => p.theme.device.tablet} {
@@ -56,9 +57,10 @@ export const Plus = styled(AddCircleOutlineIcon)`
 `;
 
 export const IconClose = styled(CloseIcon)`
+  display: inline-block;
+  cursor: pointer;
   width: 20px;
   height: 20px;
-  cursor: pointer;
   fill: ${p => p.theme.title.text};
 
   @media ${p => p.theme.device.tablet} {
@@ -69,14 +71,19 @@ export const IconClose = styled(CloseIcon)`
 
 export const CloseButton = styled.button`
   position: absolute;
+  cursor: pointer;
   top: 24px;
   right: 24px;
   background: transparent;
   border: none;
-  cursor: pointer;
 `;
 
 export const IconUser = styled(UserIcon)`
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  left: 20px;
+  transform: translate(-50%);
   width: 18px;
   height: 18px;
   margin-right: 11px;
@@ -85,30 +92,34 @@ export const IconUser = styled(UserIcon)`
   @media ${p => p.theme.device.tablet} {
     width: 24px;
     height: 24px;
-    margin-right: 11px;
+    margin-right: 12px;
+    left: 30px;
   }
 `;
 
 export const IconPencil = styled(Pencil)`
-  display: inline;
+  display: inline-block;
+  cursor: pointer;
   position: absolute;
-  right: 40px;
+  top: 30%;
+  right: 10px;
+  transform: translate(-50%);
   width: 12px;
   height: 12px;
-  cursor: pointer;
   fill: ${p => p.theme.primaryText.text};
 
   @media ${p => p.theme.device.tablet} {
-    right: 60px;
+    right: 20px;
   }
 `;
 
 export const FormBox = styled.form``;
 
 export const InputContainer = styled.div`
+  position: relative;
   width: 282px;
   height: 48px;
-  padding: 16px 19px;
+  padding: 16px 14px;
   margin-bottom: 24px;
   border: 1px solid ${p => p.theme.primaryText.text};
   border-radius: 6px;
@@ -117,16 +128,16 @@ export const InputContainer = styled.div`
   @media ${p => p.theme.device.tablet} {
     width: 400px;
     height: 58px;
-    padding: 16px 14px;
+    padding: 14px 23px;
     margin-bottom: 32px;
   }
 `;
 
 export const Input = styled.input`
+  width: 85%;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 5px;
   color: ${p => p.theme.primaryText.text};
   font-family: ${p => p.theme.fonts};
   font-weight: ${p => p.theme.fontWeights.regular};
@@ -136,10 +147,14 @@ export const Input = styled.input`
   );
 
   @media ${p => p.theme.device.tablet} {
+    width: 90%;
     font-size: ${p => p.theme.fontSizes[5]};
     line-height: calc(
       (${p => p.theme.fontWeights.regular}) / (${p => p.theme.fontSizes[5]})
     );
+  }
+  @media ${p => p.theme.device.desktop} {
+    width: 85%;
   }
 `;
 
