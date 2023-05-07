@@ -34,7 +34,7 @@ const PaginationComponent = ({
     _DATA.jump(p);
   };
 
-  const noResult = count && isLoading;
+  const noResult = count && !isLoading;
 
   return (
     <Box
@@ -47,7 +47,7 @@ const PaginationComponent = ({
         <Loader />
       ) : (
         <>
-          {!noResult ? (
+          {noResult ? (
             <>
               <ListComponent>
                 {_DATA.currentData().map(item => (
