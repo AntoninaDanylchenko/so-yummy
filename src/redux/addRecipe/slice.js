@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchRecipes, addRecipe, removeRecipe } from './operations';
+import {
+  fetchRecipes,
+  addRecipe,
+  removeRecipe,
+  getOwnUserData,
+} from './operations';
 
 const initialState = {
   recipes: [],
@@ -49,7 +54,16 @@ const ownRecipeSlice = createSlice({
         );
         state.recipes.splice(index, 1);
       })
-      .addCase(removeRecipe.rejected, handleRejected);
+      .addCase(removeRecipe.rejected, handleRejected)
+
+      .addCase(getOwnUserData.pending, handlePending)
+      .addCase(getOwnUserData.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.recipes = action.payload.result;
+        state.totalItems = action.payload.totalItems;
+      })
+      .addCase(getOwnUserData.rejected, handleRejected);
   },
 });
 
