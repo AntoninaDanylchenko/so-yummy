@@ -1,20 +1,20 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import {
   StyledItem,
   Card,
-  PrewievImg,
+  PreviewImg,
   TitleWrapper,
   Title,
 } from './RecipeItem.styled';
 
-export const RecipeItem = ({ recipe: { id, title, preview } }) => {
+export function RecipeItem(recipe) {
+  const { _id, preview, title } = recipe;
   return (
-    <StyledItem key={id}>
-      <Link to={`/recipe/${id}`}>
+    <StyledItem key={_id}>
+      <Link to={`/recipe/${_id}`}>
         <Card>
-          <PrewievImg src={preview} alt={title} />
+          <PreviewImg src={preview} alt={title} />
           <TitleWrapper>
             <Title>{title}</Title>
           </TitleWrapper>
@@ -22,12 +22,4 @@ export const RecipeItem = ({ recipe: { id, title, preview } }) => {
       </Link>
     </StyledItem>
   );
-};
-
-RecipeItem.propTypes = {
-  recipe: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    preview: PropTypes.string.isRequired,
-  }),
-};
+}

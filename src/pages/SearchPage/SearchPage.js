@@ -13,7 +13,6 @@ import { SearchWrapper } from 'components/SearchPage/SearchBar.styled';
 import { SearchedRecipesList } from 'components/SearchPage/SearchedRecipesList.styled';
 import NoResult from 'components/NoResult/NoResult';
 import { Loader } from 'components/Loader/Loader';
-import { UnderList } from 'components/Categories/CategoriesList/CategoriesList.styled';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -74,13 +73,13 @@ const SearchPage = () => {
       {recipes.length ? (
         <SearchedRecipesList>
           {recipes?.map(recipe => {
-            return <RecipeItem key={recipe.id} recipe={recipe} />;
+            return <RecipeItem key={recipe.id} {...recipe} />;
           })}
         </SearchedRecipesList>
       ) : (
         <NoResult />
       )}
-      <UnderList />
+
       {isLoading && <Loader />}
     </Container>
   );

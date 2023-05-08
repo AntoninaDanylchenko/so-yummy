@@ -1,4 +1,13 @@
 import { useSearchParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRecipesMain } from 'redux/recipesMain/operations';
+import {
+  selectRecipesMain,
+  selectIsLoading,
+  selectError,
+} from 'redux/recipesMain/selectors';
+import { useEffect } from 'react';
+import { Loader } from 'components/Loader/Loader';
 import { ChooseYourBreakfast } from '../../components/MainPage/ChooseYourBreakfast';
 import { Search } from '../../components/MainPage/Search';
 import { PreviewCategories } from '../../components/MainPage/PreviewCategories';
@@ -14,6 +23,10 @@ import {
 } from './MainPage.styled';
 
 const MainPage = () => {
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const dispatch = useDispatch();
+
   const defaultCategory = ['breakfast', 'miscellaneous', 'chicken', 'dessert'];
 
   const [, setSearchParams] = useSearchParams();
@@ -22,6 +35,14 @@ const MainPage = () => {
     setSearchParams(value);
   };
 
+  useEffect(() => {
+    dispatch(fetchRecipesMain(4));
+  }, [dispatch]);
+
+  const recipes = useSelector(selectRecipesMain);
+  if (recipes.length === 0) {
+    return null;
+  }
   return (
     <>
       <MainSection>
@@ -38,7 +59,7 @@ const MainPage = () => {
               {defaultCategory.map(category => (
                 <li key={category}>
                   <CategoryName>{category}</CategoryName>
-                  <PreviewCategories category={category} />
+                  <PreviewCategories recipes={recipes} category={category} />
                   <ButtonSeeAll to={`/categories/${category}`} type="button">
                     See all
                   </ButtonSeeAll>
@@ -49,6 +70,7 @@ const MainPage = () => {
           <ButtonOther to={`/categories/beef`}>Other categories</ButtonOther>
         </Container>
       </RecipeSection>
+      {isLoading && !error && <Loader />}
     </>
   );
 };
