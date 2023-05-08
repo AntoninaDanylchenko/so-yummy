@@ -47,7 +47,7 @@ export const NavBox = styled.div`
 
 export const LinkNav = styled(NavLink)`
   text-decoration: none;
-  color: ${p=>p.theme.linePopularRecipe};
+  color: ${p => p.theme.linePopularRecipe};
   font-family: ${p => p.theme.fonts};
   font-size: ${p => p.theme.fontSizes[5]};
   line-height: calc(
@@ -222,23 +222,23 @@ export const ImageBox = styled.div`
 
   @media ${p => p.theme.device.tablet} {
     top: 320px;
-    left: 240px;
+    left: 370px;
     width: 80%;
     height: 80%;
     transform: rotate(50deg);
     background-position: bottom 0;
     background-image: url('${MainBgTab}');
 
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 450px) and (max-width: 900px),
-      screen and (min-resolution: 192dpi) and (min-width: 450px) and (max-width: 900px),
-      screen and (min-resolution: 2dppx) and (min-width: 450px) and (max-width: 900px) {
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 546px) and (max-width: 1220px),
+      screen and (min-resolution: 192dpi) and (min-width: 546px) and (max-width: 1220px),
+      screen and (min-resolution: 2dppx) and (min-width: 546px) and (max-width: 1220px) {
       & {
         background-image: url('${MainBgTab2}');
       }
     }
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1220px) {
     background-image: none;
   }
 `;
@@ -346,7 +346,7 @@ export const UserLogoBox = styled.div`
 
 export const TextUserLogo = styled.p`
   text-decoration: none;
-  color: ${p=>p.theme.linePopularRecipe} ;
+  color: ${p => p.theme.linePopularRecipe};
   font-family: ${p => p.theme.fonts};
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes[3]};
@@ -388,7 +388,7 @@ export const IconSearch = styled(SearchIcon)`
 `;
 
 export const IconPen = styled(Pen)`
- cursor: pointer; 
+  cursor: pointer;
   display: inline;
   width: 12px;
   height: 12px;

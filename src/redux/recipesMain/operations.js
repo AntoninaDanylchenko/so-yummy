@@ -9,7 +9,7 @@ export const fetchRecipesMain = createAsyncThunk(
     try {
       const response = await axios.get(`recipes/main-page?limit=${limit}`);
       return response.data.map(({ _id, title, preview, thumb, category }) => ({
-        id: _id,
+        _id,
         title,
         preview: getPoster(preview),
         thumb,

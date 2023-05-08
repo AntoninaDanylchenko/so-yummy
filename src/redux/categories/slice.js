@@ -7,7 +7,9 @@ const categoriesListSlice = createSlice({
     items: [],
     recipes: [],
     error: null,
+    isLoading: false,
   },
+
   extraReducers: builder => {
     builder
       .addCase(fetchCategoriesList.fulfilled, (state, action) => {
@@ -17,12 +19,17 @@ const categoriesListSlice = createSlice({
       .addCase(fetchCategoriesList.rejected, (state, action) => {
         state.error = action.payload;
       })
+      .addCase(fetchRecipesByCategory.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(fetchRecipesByCategory.fulfilled, (state, action) => {
         state.recipes = action.payload;
         state.error = null;
+        state.isLoading = false;
       })
       .addCase(fetchRecipesByCategory.rejected, (state, action) => {
         state.error = action.payload;
+        state.isLoading = false;
       });
   },
 });
