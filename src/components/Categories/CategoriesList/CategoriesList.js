@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import CategoryCard from '../CategoryCard';
+import { RecipeItem } from '../../RecipeItem/RecipeItem';
 import { fetchRecipesByCategory } from 'redux/categories/operations';
 import {
   selectIsLoading,
@@ -22,7 +22,7 @@ export default function CategoriesList() {
       getDataOp={fetchRecipesByCategory}
       getParam={capitalizedCategory}
       ListComponent={List}
-      CardComponent={CategoryCard}
+      CardComponent={RecipeItem}
       perPage={8}
       isLoading={isLoading}
     />
