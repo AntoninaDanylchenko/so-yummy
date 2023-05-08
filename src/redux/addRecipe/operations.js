@@ -38,3 +38,15 @@ export const removeRecipe = createAsyncThunk(
     }
   }
 );
+
+export const getOwnUserData = createAsyncThunk(
+  'fetch/modal',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios('/modal', credentials);
+      return data.result;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -5,10 +5,9 @@ import { fetchRecipesPopular } from 'redux/popularRecipes/operations';
 import {
   selectRecipesPopular,
   selectIsLoading,
-  selectError,
 } from 'redux/popularRecipes/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loader } from 'components/Loader/Loader';
+
 import {
   Title,
   PopularList,
@@ -17,12 +16,12 @@ import {
   PopularSubtitle,
   PopularItem,
 } from './PopularRecipe.styled';
+import { Skeleton } from '@mui/material';
 
 export const PopularRecipe = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   const isTablet = useMediaQuery({
     query: `(${theme.device.tablet} and (max-width: 1439px))`,
@@ -46,14 +45,43 @@ export const PopularRecipe = () => {
       <PopularList>
         {recipes?.map(({ id, title, preview, desc }) => (
           <PopularItem to={`/recipe/${id}`} key={id}>
-            <PopularImage src={preview} alt={title} />
+            {isLoading ? (
+              <Skeleton
+                variant="rectangular"
+                height={85}
+                width={104}
+                sx={{
+                  borderRadius: 4,
+                  boxShadow: 1,
+                  mr: 2,
+                  bgcolor: '#8BAA36',
+                }}
+              />
+            ) : (
+              <PopularImage src={preview} alt={title} />
+            )}
             <div>
-              <PopularSubtitle>{title}</PopularSubtitle>
-              <PopularText>{desc}</PopularText>
+              {isLoading ? (
+                <Skeleton
+                  variant="text"
+                  sx={{ fontSize: '2rem' }}
+                  width={200}
+                />
+              ) : (
+                <PopularSubtitle>{title}</PopularSubtitle>
+              )}
+              {isLoading ? (
+                <Skeleton
+                  variant="text"
+                  sx={{ fontSize: '1rem' }}
+                  width={200}
+                />
+              ) : (
+                <PopularText>{desc}</PopularText>
+              )}
             </div>
           </PopularItem>
         ))}
-        {isLoading && !error && <Loader />}
       </PopularList>
     </div>
   );
