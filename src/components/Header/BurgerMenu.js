@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+
 import {
   OpenLinksButton,
   NavBarExtendedContainer,
@@ -15,6 +17,10 @@ import {
 import { ThemeToggler } from './ThemeToggler';
 
 const BurgerMenu = ({ onClose }) => {
+  const { pathname } = useLocation();
+  console.log(pathname);
+  const recipe = useParams();
+
   const [extendNavbar, setExtendNavbar] = useState(false);
 
   const handleBurger = () => {
@@ -36,7 +42,7 @@ const BurgerMenu = ({ onClose }) => {
       <OpenLinksButton onClick={handleBurger}>
         {!extendNavbar ? (
           <>
-            <IconBurger />
+            <IconBurger pathname={pathname} recipe={recipe} />
           </>
         ) : (
           <>

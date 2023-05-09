@@ -353,6 +353,10 @@ export const TextUserLogo = styled.p`
   line-height: calc(
     (${p => p.theme.fontWeights.semibold}) / (${p => p.theme.fontSizes[3]})
   );
+  @media screen and ${p => p.theme.device.mobile} and (max-width: 1439px) {
+    color: ${p =>
+      p.recipe?.recipeId ? p.theme.title.userText : p.theme.title.text};
+  }
 `;
 
 export const IconLogo = styled(LogoIcon)`
@@ -421,7 +425,14 @@ export const IconBurger = styled(MenuIcon)`
   height: 24px;
   cursor: pointer;
 
-  color: ${p => p.theme.title.text};
+  color: ${p =>
+    p.pathname === '/main' || p.recipe?.recipeId
+      ? p.theme.title.userText
+      : p.theme.title.text};
+  @media screen and ${p => p.theme.device.mobile} and (max-width: 767px) {
+    color: ${p =>
+      p.recipe?.recipeId ? p.theme.title.userText : p.theme.title.text};
+  }
 `;
 
 export const IconClose = styled(CloseIcon)`
