@@ -46,9 +46,8 @@ export const NavBox = styled.div`
 `;
 
 export const LinkNav = styled(NavLink)`
-  text-decoration: none;
-  color: ${p => p.theme.linePopularRecipe};
-  font-family: ${p => p.theme.fonts};
+  color: ${p =>
+    p.recipe?.recipeId ? p.theme.primaryText.btn : p.theme.primaryText.text};
   font-size: ${p => p.theme.fontSizes[5]};
   line-height: calc(
     (${p => p.theme.fontWeights.medium}) / (${p => p.theme.fontSizes[5]})
@@ -345,14 +344,19 @@ export const UserLogoBox = styled.div`
 `;
 
 export const TextUserLogo = styled.p`
-  text-decoration: none;
-  color: ${p => p.theme.linePopularRecipe};
-  font-family: ${p => p.theme.fonts};
+  color: ${p =>
+    p.pathname === '/main' || p.recipe?.recipeId
+      ? p.theme.title.userText
+      : p.theme.title.text};
   font-weight: ${p => p.theme.fontWeights.semibold};
   font-size: ${p => p.theme.fontSizes[3]};
   line-height: calc(
     (${p => p.theme.fontWeights.semibold}) / (${p => p.theme.fontSizes[3]})
   );
+  @media screen and ${p => p.theme.device.mobile} and (max-width: 1439px) {
+    color: ${p =>
+      p.recipe?.recipeId ? p.theme.title.userText : p.theme.title.text};
+  }
 `;
 
 export const IconLogo = styled(LogoIcon)`
@@ -421,7 +425,14 @@ export const IconBurger = styled(MenuIcon)`
   height: 24px;
   cursor: pointer;
 
-  color: ${p => p.theme.title.text};
+  color: ${p =>
+    p.pathname === '/main' || p.recipe?.recipeId
+      ? p.theme.title.userText
+      : p.theme.title.text};
+  @media screen and ${p => p.theme.device.mobile} and (max-width: 767px) {
+    color: ${p =>
+      p.recipe?.recipeId ? p.theme.title.userText : p.theme.title.text};
+  }
 `;
 
 export const IconClose = styled(CloseIcon)`

@@ -147,6 +147,10 @@ export const RecipeList = styled.ul`
   }
 `;
 
+export const CategoryTitle = styled.li`
+  width: 100%;
+`;
+
 export const CategoryName = styled.h3`
   margin-bottom: 32px;
   font-weight: ${p => p.theme.fontWeights.semibold};

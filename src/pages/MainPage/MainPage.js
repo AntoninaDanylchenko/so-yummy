@@ -17,6 +17,7 @@ import {
   MainSection,
   RecipeSection,
   RecipeList,
+  CategoryTitle,
   CategoryName,
   ButtonSeeAll,
   ButtonOther,
@@ -57,13 +58,13 @@ const MainPage = () => {
           {
             <RecipeList>
               {defaultCategory.map(category => (
-                <li key={category}>
+                <CategoryTitle key={category}>
                   <CategoryName>{category}</CategoryName>
                   <PreviewCategories recipes={recipes} category={category} />
                   <ButtonSeeAll to={`/categories/${category}`} type="button">
                     See all
                   </ButtonSeeAll>
-                </li>
+                </CategoryTitle>
               ))}
             </RecipeList>
           }
