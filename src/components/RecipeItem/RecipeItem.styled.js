@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const StyledItem = styled.li`
+  width: 100%;
   transition: transform ${p => p.theme.transition};
   :hover {
     transform: scale(1.05);
@@ -65,6 +66,7 @@ export const Card = styled.div`
 `;
 
 export const PreviewImg = styled.img`
+  width: 100%;
   height: 100%;
   object-fit: cover;
 `;
