@@ -30,6 +30,7 @@ const BurgerMenu = ({ onClose }) => {
     } else {
       document.body.style.overflow = 'auto';
     }
+    onClose();
   };
 
   const handleCloseToLinkModal = () => {
@@ -46,7 +47,7 @@ const BurgerMenu = ({ onClose }) => {
           </>
         ) : (
           <>
-            <IconClose />
+            <IconClose onClick={onClose} />
           </>
         )}
       </OpenLinksButton>
