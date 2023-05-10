@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { refreshCurrentUser } from 'redux/auth/operation';
 import { useSelector } from 'react-redux';
 
@@ -19,8 +19,8 @@ import { GlobalStyles } from 'styles/GlobalStyles';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import NotFound from 'pages/NotFound/NotFound';
 import ScrollToTopFab from 'scrollToTop';
-// import { Modal } from '../components/ModalWindows/ModalWindow';
-// import { Motivation } from './MotivatioContent/MotivationContent';
+import { Modal } from '../components/ModalWindows/ModalWindow';
+import { Motivation } from './MotivatioContent/MotivationContent';
 
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -43,7 +43,7 @@ const ShoppingListPage = lazy(() =>
 const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
 const App = () => {
-  // const [showModal, setShowModal] = useState('false');
+  const [showModal, setShowModal] = useState('false');
   const darkMode = useSelector(state => state.theme.darkMode);
   const theme = darkMode ? darkTheme : lightTheme;
 
@@ -59,7 +59,7 @@ const App = () => {
   ) : (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      {/* <button onClick={() => setShowModal('true')}>Open modal</button> */}
+      <button onClick={() => setShowModal('true')}>Open modal</button>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
@@ -125,11 +125,11 @@ const App = () => {
         </Route>
       </Routes>
       <Toaster />
-      {/* {showModal && (
+      {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <Motivation onClose={() => setShowModal(false)} />
         </Modal>
-      )} */}
+      )}
       <ScrollToTopFab />
     </ThemeProvider>
   );

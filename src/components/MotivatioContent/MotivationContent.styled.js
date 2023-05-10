@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import bg from '../../images/motivations/100daysUsingApp300.jpg';
+import bg from '../../images/motivations/addFirdtRecipeDesktop.jpg';
 
 export const MotivationBox = styled.div`
   width: 500px;
