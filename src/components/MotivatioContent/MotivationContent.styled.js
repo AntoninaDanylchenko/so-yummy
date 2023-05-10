@@ -120,5 +120,5 @@ export const MotivationText = styled.p`
 `;
 
 export const TextAccent = styled.span`
-  color: ${p => p.theme.accent.iconFollow};
+  color: ${p => p.theme.btnBg};
 `;

@@ -14,6 +14,7 @@ export const FileInputWrap = styled.div`
   width: 279px;
   height: 268px;
   margin: 0 auto 32px;
+
   @media screen and (min-width: 768px) {
     margin: 0;
   }

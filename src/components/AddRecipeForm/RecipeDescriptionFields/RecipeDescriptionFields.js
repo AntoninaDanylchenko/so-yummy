@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCategoriesList } from '../../../redux/categories/selectors';
 import { fetchCategoriesList } from '../../../redux/categories/operations';
+import { Modal } from 'components/ModalWindows/ModalWindow';
+import { ReplaseImage } from './AcceptModal';
 import timeCooking from '../../AddRecipeForm/timeCooking.json';
 import imageS from '../../../images/addRecipe/file-input-mob.png';
 import imageL from '../../../images/addRecipe/file-input-desk.png';
@@ -48,7 +50,7 @@ export const RecipeDescriptionFields = ({
   const [image, setImage] = useState('');
   const [timeIsActive, setTimeIsActive] = useState(false);
   const [categoryIsActive, setCategoryIsActive] = useState(false);
-
+  const [showModal, setShowModal] = useState(false);
   const onFileInputChange = event => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -92,8 +94,13 @@ export const RecipeDescriptionFields = ({
           </Image>
         </label>
         <FileInput type="file" accept=".jpg, .jpeg, .png" id="photo" />
-        {image && <RecipeImage src={image} alt="recipeImage"></RecipeImage>}
-        {errors.image && <Error>{errors.image}</Error>}
+        {image && (
+          <RecipeImage
+            src={image}
+            alt="recipeImage"
+            onClick={() => setShowModal(true)}
+          ></RecipeImage>
+        )}
       </FileInputWrap>
 
       <InputWrap>
@@ -152,6 +159,11 @@ export const RecipeDescriptionFields = ({
           )}
         </SelectWrap>
       </InputWrap>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <ReplaseImage />
+        </Modal>
+      )}
     </DescrWrap>
   );
 };
