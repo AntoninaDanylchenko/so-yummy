@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Nav,
   NavBox,
@@ -13,6 +13,14 @@ import UserMenu from 'components/Header/UserMenu';
 import { ThemeToggler } from './ThemeToggler';
 
 const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const open = () => setIsOpen(true);
+
+  const toggleModal = () => {
+    setIsOpen(isOpen => !isOpen);
+  };
+  const modalProps = { isOpen, open, toggleModal };
   return (
     <NavBox>
       <Nav>
@@ -20,9 +28,14 @@ const Navigation = () => {
           <Logo />
         </NavBarInnerContainer>
         <RightNav />
-        <BurgerMenu />
+        <BurgerMenu onClose={toggleModal} />
         <UserBox>
-          <UserMenu />
+          <UserMenu
+            {...modalProps}
+            // isOpen={isOpen}
+            // open={open}
+            // toggleModal={toggleModal}
+          />
           <TogglerBoxUser>
             <ThemeToggler />
           </TogglerBoxUser>

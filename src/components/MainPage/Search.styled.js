@@ -18,8 +18,8 @@ export const Input = styled.input`
   width: 295px;
   height: 52px;
   padding: 17px 115px 17px 32px;
-  background-color: ${p => p.theme.secondary.searchBg};
-  color: ${p => p.theme.primaryText.text};
+  background-color: ${p => p.theme.secondary.recipeBg};
+  color: ${p => p.theme.secondaryText};
   border-radius: 24px 44px;
   border: 1px solid ${p => p.theme.borderInput};
   box-shadow: ${p => p.theme.shadows[3]};

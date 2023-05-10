@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import {
   RightNavList,
   RightNavItem,
@@ -9,28 +10,38 @@ import {
 
 import SearchIcon from '@mui/icons-material/Search';
 
-
 const RightNav = () => {
+  const recipe = useParams();
   return (
     <RightContainer>
       <RightNavList>
         <RightNavItem>
-          <LinkNav to={`/categories/${'beef'}`}>Categories</LinkNav>
+          <LinkNav to={`/categories/${'beef'}`} recipe={recipe}>
+            Categories
+          </LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <LinkNav to="/add">Add recipes</LinkNav>
+          <LinkNav to="/add" recipe={recipe}>
+            Add recipes
+          </LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <LinkNav to="/my">My recipes</LinkNav>
+          <LinkNav to="/my" recipe={recipe}>
+            My recipes
+          </LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <LinkNav to="/favorite">Favorites</LinkNav>
+          <LinkNav to="/favorite" recipe={recipe}>
+            Favorites
+          </LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <LinkNav to="/shopping-list">Shopping list</LinkNav>
+          <LinkNav to="/shopping-list" recipe={recipe}>
+            Shopping list
+          </LinkNav>
         </RightNavItem>
         <RightNavItem>
-          <LinkNav to="/search">
+          <LinkNav to="/search" recipe={recipe}>
             <SearchIcon />
           </LinkNav>
         </RightNavItem>

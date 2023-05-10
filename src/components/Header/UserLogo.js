@@ -1,6 +1,7 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { UserLogoModal } from './UserLogoModal';
 import { useSelector } from 'react-redux';
+import { useLocation, useParams } from 'react-router-dom';
 import {
   ButtonUser,
   UserLogoBox,
@@ -9,17 +10,22 @@ import {
 } from './Header.styled';
 import { selectAvatarURL, selectUser } from 'redux/auth/selector';
 
-const UserLogo = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const UserLogo = propsModal => {
+  const { open, toggleModal, isOpen } = propsModal;
+  const { pathname } = useLocation();
+  const recipe = useParams();
 
-  const open = () => setIsOpen(true);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsOpen(isOpen => !isOpen);
-  };
+  // const open = () => setIsOpen(true);
+
+  // const toggleModal = () => {
+  //   setIsOpen(isOpen => !isOpen);
+  // };
 
   const { username } = useSelector(selectUser);
   const avatarURL = useSelector(selectAvatarURL);
+  console.log('isOpen', isOpen);
 
   return (
     <>
@@ -27,7 +33,9 @@ const UserLogo = () => {
         <ButtonUser onClick={open}>
           <ImgUser src={avatarURL} alt={username} />
         </ButtonUser>
-        <TextUserLogo>{username}</TextUserLogo>
+        <TextUserLogo pathname={pathname} recipe={recipe}>
+          {username}
+        </TextUserLogo>
         {isOpen && <UserLogoModal onClose={toggleModal} />}
       </UserLogoBox>
     </>
