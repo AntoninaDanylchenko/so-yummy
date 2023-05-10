@@ -62,8 +62,8 @@ const defaultTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: '#8BAA36',
-        }
-      }
+        },
+      },
     },
   },
 });
@@ -149,11 +149,11 @@ export const lightTheme = createTheme(defaultTheme, {
   // buttons
   favorite: {
     bg: '#22252A',
-    hover: '#8BAA36'
+    hover: '#8BAA36',
   },
   myRecipe: {
     bg: '#8BAA36',
-    hover: '#22252A'
+    hover: '#22252A',
   },
 
   components: {
@@ -261,11 +261,11 @@ export const darkTheme = createTheme(defaultTheme, {
   // buttons
   favorite: {
     bg: '#8BAA36',
-    hover: '#22252A'
+    hover: '#22252A',
   },
   myRecipe: {
     bg: '#22252A',
-    hover: '#8BAA36'
+    hover: '#8BAA36',
   },
 
   components: {
@@ -274,16 +274,16 @@ export const darkTheme = createTheme(defaultTheme, {
         root: {
           backgroundColor: '#2A2C36',
           color: '#FAFAFA',
-          text: '#FAFAFA'
-        }
+          text: '#FAFAFA',
+        },
       },
     },
     MuiPagination: {
       styleOverrides: {
         root: {
           backgroundColor: '#2A2C36',
-        }
-      }
+        },
+      },
     },
     MuiPaginationItem: {
       styleOverrides: {
@@ -305,7 +305,6 @@ export const darkTheme = createTheme(defaultTheme, {
         text: {
           fontWeight: 500,
           color: 'rgba(250, 250, 250, 0.6)', // used for un-selected pages numbers
-
         },
         previousNext: {
           color: 'rgba(250, 250, 250, 0.6)', // used for pagination previous-next buttons
@@ -313,7 +312,6 @@ export const darkTheme = createTheme(defaultTheme, {
       },
     },
   },
-
 });
 
 function MainDeviceRatio(url1, url2, url3, url4, url5) {

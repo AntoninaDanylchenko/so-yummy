@@ -1,9 +1,17 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { Backdrop, ModalWindow } from './ModalWindow.styled';
+import { Backdrop } from './ModalWindow.styled';
 
 const modalRoot = document.querySelector('#modal-root');
+
+function updateScrollLock() {
+  if (modalRoot.childElementCount > 0) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+}
 
 export const Modal = ({ children, onClose }) => {
   useEffect(() => {
@@ -11,6 +19,7 @@ export const Modal = ({ children, onClose }) => {
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      updateScrollLock();
     };
   });
 
@@ -27,9 +36,7 @@ export const Modal = ({ children, onClose }) => {
   };
 
   return createPortal(
-    <Backdrop onClick={handleBackdropClick}>
-      <ModalWindow>{children}</ModalWindow>
-    </Backdrop>,
+    <Backdrop onClick={handleBackdropClick}>{children}</Backdrop>,
     modalRoot
   );
 };

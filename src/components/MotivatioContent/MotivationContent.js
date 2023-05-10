@@ -4,18 +4,21 @@ import {
   CloseBtn,
   TextAccent,
   MotivationText,
+  Content,
 } from './MotivationContent.styled';
 
 export const Motivation = ({ onClose }) => {
   return (
     <MotivationBox>
-      <MotivationText>
-        <TextAccent>Wow!</TextAccent> You have been using the application for
-        <TextAccent>100</TextAccent> days!
-      </MotivationText>
-      <CloseBtn onClick={onClose}>
-        <CloseIcon />
-      </CloseBtn>
+      <Content>
+        <MotivationText>
+          <TextAccent>Wow!</TextAccent> You have added the first recipe to your
+          favorites!
+        </MotivationText>
+        <CloseBtn onClick={onClose}>
+          <CloseIcon sx={{ color: 'white' }} />
+        </CloseBtn>
+      </Content>
     </MotivationBox>
   );
 };

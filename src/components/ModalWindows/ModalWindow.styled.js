@@ -10,8 +10,5 @@ export const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4);
-`;
-export const ModalWindow = styled.div`
-  border-radius: 30px;
-  background-color: white;
+  z-index: 999;
 `;
