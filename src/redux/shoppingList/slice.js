@@ -10,6 +10,7 @@ const shoppingListSlice = createSlice({
   initialState: {
     items: [],
     error: null,
+    isDeletedIngr: false,
   },
   extraReducers: builder => {
     builder
@@ -27,14 +28,19 @@ const shoppingListSlice = createSlice({
       .addCase(addIngredientToShoppingList.rejected, (state, action) => {
         state.error = action.payload;
       })
+      .addCase(removeIngredientFromShoppingList.pending, state => {
+        state.isDeletedIngr = true;
+      })
       .addCase(removeIngredientFromShoppingList.fulfilled, (state, action) => {
         state.items = state.items.filter(
           ingredient => ingredient.id !== action.payload
         );
         state.error = null;
+        state.isDeletedIngr = false;
       })
       .addCase(removeIngredientFromShoppingList.rejected, (state, action) => {
         state.error = action.payload;
+        state.isDeletedIngr = false;
       });
   },
 });
