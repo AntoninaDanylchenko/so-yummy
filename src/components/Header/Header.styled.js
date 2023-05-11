@@ -293,6 +293,47 @@ export const OpenLinksButton = styled.button`
   }
 `;
 
+export const ModalW = styled.div`
+  position: absolute;
+  top: 80px;
+  right: 60px;
+  width: 161px;
+  height: 130px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-radius: 10px;
+  background-color: ${p => p.theme.primary.userBg};
+  transform: ${({ isOpen }) =>
+    !isOpen ? 'translateY(-10%)' : 'translateY(0)'};
+  transition: ${p => p.theme.transition};
+  border: 1px solid ${p => p.theme.primary.selectBg};
+
+  &:hover,
+  .focus {
+    border: 1px solid #8baa36;
+  }
+
+  @media ${p => p.theme.device.tablet} {
+    top: 90px;
+    right: 125px;
+    width: 177px;
+    height: 144px;
+    gap: 32px;
+  }
+
+  @media (min-width: 1100px) and (max-width: 1200px) {
+    top: 95px;
+    right: 340px;
+  }
+
+  @media ${p => p.theme.device.desktop} {
+    top: 95px;
+    right: 250px;
+  }
+`;
+
 export const TextModal = styled.p`
   font-family: ${p => p.theme.fonts};
   font-weight: ${p => p.theme.fontWeights.medium};
@@ -353,7 +394,8 @@ export const TextUserLogo = styled.p`
   line-height: calc(
     (${p => p.theme.fontWeights.semibold}) / (${p => p.theme.fontSizes[3]})
   );
-  @media screen and ${p => p.theme.device.mobile} and (max-width: 1439px) {
+
+  @media ${p => p.theme.device.mobile} and (max-width: 1439px) {
     color: ${p =>
       p.recipe?.recipeId ? p.theme.title.userText : p.theme.title.text};
   }
@@ -429,7 +471,8 @@ export const IconBurger = styled(MenuIcon)`
     p.pathname === '/main' || p.recipe?.recipeId
       ? p.theme.title.userText
       : p.theme.title.text};
-  @media screen and ${p => p.theme.device.mobile} and (max-width: 767px) {
+
+  @media ${p => p.theme.device.mobile} and (max-width: 767px) {
     color: ${p =>
       p.recipe?.recipeId ? p.theme.title.userText : p.theme.title.text};
   }

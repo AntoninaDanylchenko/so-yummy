@@ -1,4 +1,3 @@
-// import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Formik, Form, Field } from 'formik';
@@ -51,6 +50,14 @@ export const SigninForm = () => {
             autoComplete="off"
             InputProps={{
               sx: {
+                // -webkit-autofill,
+                // -webkit-autofill: focus {
+                //     transition: backgroundColor 600000s 0s, color 600000s 0s;
+                // }
+                // [data-autocompleted] {
+                //     backgroundColor: transparent !important,
+                // }
+
                 border:
                   errors.email && touched.email
                     ? '1px solid #E74A3B'
