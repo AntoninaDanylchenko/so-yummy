@@ -34,7 +34,7 @@ export const AddButton = styled.button`
   height: 46px;
   border-radius: 24px 44px;
   border: none;
-  background-color: ${p => p.theme.title.addBtnBg};
+  background-color: ${p => p.theme.favorite.bg};
   color: ${p => p.theme.primary.background};
   font-size: ${p => p.theme.fontSizes[4]};
   line-height: 1.43;
@@ -42,7 +42,10 @@ export const AddButton = styled.button`
   transition: ${p => p.theme.transition};
   :hover,
   :focus {
-    background-color: ${p => p.theme.accent.mainBtnBg};
+    background-color: ${p => p.theme.favorite.hover};
+    transition: ${p => p.theme.transition};
+    transform: scale(1.05);
+    box-shadow: ${p => p.theme.shadows[2]};
   }
   @media screen and (min-width: 768px) {
     width: 161px;

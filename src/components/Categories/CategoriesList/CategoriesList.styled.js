@@ -23,3 +23,17 @@ export const List = styled.ul`
     gap: 100px 13px;
   }
 `;
+
+export const UnderList = styled.div`
+  width: 343px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (${p => p.theme.device.tablet}) {
+    width: 704px;
+    height: 200px;
+  }
+  @media (${p => p.theme.device.desktop}) {
+    width: 1240px;
+  }
+`;

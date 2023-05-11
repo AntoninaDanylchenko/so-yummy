@@ -1,7 +1,7 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import { Popover, Typography } from '@mui/material';
+import { CircularProgress, Popover, Typography } from '@mui/material';
 import { removeIngredientFromShoppingList } from 'redux/shoppingList/operations';
 import {
   Item,
@@ -13,9 +13,12 @@ import {
   MeasureWrapper,
   Measure,
 } from './ListItem.styled';
+import { selectIsDelete } from 'redux/shoppingList/selectors';
 
 export default function ListItem(shoppingItem) {
   const dispatch = useDispatch();
+  const [currentId, setCurrentId] = useState('');
+  // console.log(shoppingItem);
   const { ingredient, measure, id } = shoppingItem;
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -29,8 +32,10 @@ export default function ListItem(shoppingItem) {
 
   const open = Boolean(anchorEl);
 
+  const isDel = useSelector(selectIsDelete);
+  const onBoolIsDel = isDel && id === currentId;
   return (
-    <Item key={id}>
+    <Item>
       <PosterWrapper
         aria-owns={open ? 'mouse-over-popover' : undefined}
         aria-haspopup="true"
@@ -71,13 +76,22 @@ export default function ListItem(shoppingItem) {
           <Measure></Measure>
         )}
       </MeasureWrapper>
+
       <CloseButton
         aria-label="delete"
         onClick={() => {
           dispatch(removeIngredientFromShoppingList(id));
+          setCurrentId(id);
         }}
       >
         <CloseIcon color="inherit" fontSize="inherit" />
+        {onBoolIsDel && (
+          <CircularProgress
+            color="success"
+            thickness={2}
+            sx={{ position: 'absolute', top: -10, left: -10 }}
+          />
+        )}
       </CloseButton>
     </Item>
   );
