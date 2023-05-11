@@ -17,8 +17,15 @@ import IconButton from '@mui/material/IconButton';
 import { ReactComponent as Delete } from '../../images/icon/delete.svg';
 import { useTheme } from '@emotion/react';
 
-const RecipeCard = ({ _id, title, description, preview, time, buttonColorBg }) => {
-  const theme = useTheme()
+const RecipeCard = ({
+  _id,
+  title,
+  description,
+  preview,
+  time,
+  buttonColorBg,
+}) => {
+  const theme = useTheme();
   const dispatch = useDispatch();
   const onClick = _id => {
     dispatch(deleteFavoriteOp(_id));
@@ -27,7 +34,17 @@ const RecipeCard = ({ _id, title, description, preview, time, buttonColorBg }) =
   return (
     <li key={_id}>
       <Card
-        sx={{ display: 'flex', padding: '20px', marginBottom: '50px' }}
+        sx={{
+          display: 'flex',
+          padding: '20px',
+          marginBottom: '50px',
+          '@media (min-width: 375px)': {
+            flexDirection: 'column',
+          },
+          '@media (min-width: 768px)': {
+            flexDirection: 'row',
+          },
+        }}
         key={_id}
       >
         <CardMedia
@@ -58,7 +75,7 @@ const RecipeCard = ({ _id, title, description, preview, time, buttonColorBg }) =
               <Typography
                 // variant="body2"
                 component="div"
-              // color="text.secondary"
+                // color="text.secondary"
               >
                 {description}
               </Typography>
@@ -98,7 +115,6 @@ const RecipeCard = ({ _id, title, description, preview, time, buttonColorBg }) =
               <Button
                 // size="small"
                 sx={{
-
                   color: '#FAFAFA',
                   background: buttonColorBg.bg, //  theme.title.addBtnBg,
                   borderRadius: '24px 44px',
@@ -121,7 +137,7 @@ const RecipeCard = ({ _id, title, description, preview, time, buttonColorBg }) =
           </Box>
         </Box>
       </Card>
-    </li >
+    </li>
   );
 };
 export default RecipeCard;
