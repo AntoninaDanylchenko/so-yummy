@@ -19,8 +19,6 @@ import { GlobalStyles } from 'styles/GlobalStyles';
 import WelcomePage from '../pages/WelcomePage/WelcomePage';
 import NotFound from 'pages/NotFound/NotFound';
 import ScrollToTopFab from 'scrollToTop';
-// import { Modal } from '../components/ModalWindows/ModalWindow';
-// import { Motivation } from './MotivatioContent/MotivationContent';
 
 // const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -43,7 +41,6 @@ const ShoppingListPage = lazy(() =>
 const SearchPage = lazy(() => import('../pages/SearchPage/SearchPage'));
 
 const App = () => {
-  // const [showModal, setShowModal] = useState('false');
   const darkMode = useSelector(state => state.theme.darkMode);
   const theme = darkMode ? darkTheme : lightTheme;
 
@@ -59,7 +56,6 @@ const App = () => {
   ) : (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      {/* <button onClick={() => setShowModal('true')}>Open modal</button> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
@@ -125,11 +121,6 @@ const App = () => {
         </Route>
       </Routes>
       <Toaster />
-      {/* {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <Motivation onClose={() => setShowModal(false)} />
-        </Modal>
-      )} */}
       <ScrollToTopFab />
     </ThemeProvider>
   );
