@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -18,7 +18,12 @@ import {
 
 import { ReactComponent as Clock } from '../../../images/icon/clock.svg';
 
-export const RecipePageHero = ({ recipe, title, description, time }) => {
+import { Motivation } from 'components/MotivatioContent/MotivationContent';
+import { ModalWindow } from 'components/ModalWindow/ModalWindow';
+// import { getOwnUserData } from 'redux/addRecipe/operations';
+
+export const RecipePageHero = ({ recipe, title, description, time, data }) => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const favorite = useSelector(getFavorite);
 
@@ -28,6 +33,7 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
 
   const handleAddRecipeToFavorite = () => {
     dispatch(addFavoriteOp(recipe._id));
+    setShowModal(true);
   };
 
   const handleRemoveRecipeFromFavorite = () => {
@@ -55,6 +61,11 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
           <Clock />
           {time} min
         </Time>
+        {showModal && (
+          <ModalWindow onClose={() => setShowModal(false)}>
+            <Motivation onClose={() => setShowModal(false)} />
+          </ModalWindow>
+        )}
       </Container>
     </>
   );

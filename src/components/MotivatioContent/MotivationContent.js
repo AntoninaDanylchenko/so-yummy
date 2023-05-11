@@ -1,5 +1,5 @@
 import CloseIcon from '@mui/icons-material/Close';
-import { ModalWindow } from '../ModalWindow/ModalWindow';
+
 import {
   MotivationBox,
   CloseBtn,
@@ -10,19 +10,17 @@ import {
 
 export const Motivation = ({ onClose }) => {
   return (
-    <ModalWindow>
-      <MotivationBox>
-        <Content>
-          <MotivationText>
-            <TextAccent>Wow!</TextAccent>You have added the first recipe to your
-            favorites!
-          </MotivationText>
-          <CloseBtn onClick={onClose}>
-            <CloseIcon sx={{ color: 'white' }} />
-          </CloseBtn>
-        </Content>
-      </MotivationBox>
-    </ModalWindow>
+    <MotivationBox>
+      <Content>
+        <MotivationText>
+          <TextAccent>Wow!</TextAccent>You have added the first recipe to your
+          favorites!
+        </MotivationText>
+        <CloseBtn onClick={onClose}>
+          <CloseIcon sx={{ color: 'white' }} />
+        </CloseBtn>
+      </Content>
+    </MotivationBox>
   );
 };
 
