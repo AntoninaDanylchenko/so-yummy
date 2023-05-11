@@ -1,5 +1,5 @@
 import CloseIcon from '@mui/icons-material/Close';
-import { Modal } from '../ModalWindows/ModalWindow';
+import { ModalWindow } from '../ModalWindow/ModalWindow';
 import {
   MotivationBox,
   CloseBtn,
@@ -10,7 +10,7 @@ import {
 
 export const Motivation = ({ onClose }) => {
   return (
-    <Modal>
+    <ModalWindow>
       <MotivationBox>
         <Content>
           <MotivationText>
@@ -22,7 +22,7 @@ export const Motivation = ({ onClose }) => {
           </CloseBtn>
         </Content>
       </MotivationBox>
-    </Modal>
+    </ModalWindow>
   );
 };
 

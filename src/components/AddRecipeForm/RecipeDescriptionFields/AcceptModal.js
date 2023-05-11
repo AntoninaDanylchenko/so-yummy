@@ -1,19 +1,16 @@
 import { AddButton } from '../AddRecipeForm.styled';
 import { Box, Content, Text, ButtonBox } from './AcceptModal.styled';
-import { Modal } from 'components/ModalWindows/ModalWindow';
 
-export const ReplaseImage = ({ onClose }) => {
+export const ResetImage = ({ onClose, onResetImage }) => {
   return (
-    <Modal>
-      <Box>
-        <Content>
-          <Text>Are you sure you want to change the image?</Text>
-          <ButtonBox>
-            <AddButton onClick={() => console.log('yes')}>Continue</AddButton>
-            <AddButton onClick={onClose}>Censel</AddButton>
-          </ButtonBox>
-        </Content>
-      </Box>
-    </Modal>
+    <Box>
+      <Content>
+        <Text>Are you sure you want to change the image?</Text>
+        <ButtonBox>
+          <AddButton onClick={onResetImage}>Continue</AddButton>
+          <AddButton onClick={onClose}>Cancel</AddButton>
+        </ButtonBox>
+      </Content>
+    </Box>
   );
 };

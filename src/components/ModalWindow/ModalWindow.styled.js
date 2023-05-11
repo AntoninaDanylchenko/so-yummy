@@ -10,5 +10,7 @@ export const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 999;
+  transition: ${p => p.theme.transition};
+  box-shadow: ${p => p.theme.shadows[1]};
+  z-index: 100;
 `;

@@ -1,4 +1,11 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+
+const opacity = keyframes`
+  0% {
+    opacity: 0;
+    transform: rotate(180deg) }
+`;
 
 export const Box = styled.div`
   display: flex;
@@ -8,9 +15,9 @@ export const Box = styled.div`
   width: 300px;
   height: 300px;
   background-color: ${p => p.theme.mainBg};
-
   border-radius: 30px;
-
+  box-shadow: ${p => p.theme.shadows[3]};
+  animation: ${opacity} ${p => p.theme.transition};
   @media ${p => p.theme.device.mobile} {
     width: 375px;
     height: 812px;
@@ -76,5 +83,5 @@ export const Text = styled.p`
 `;
 export const ButtonBox = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 `;

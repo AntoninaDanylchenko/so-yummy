@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCategoriesList } from '../../../redux/categories/selectors';
 import { fetchCategoriesList } from '../../../redux/categories/operations';
-import { Modal } from 'components/ModalWindows/ModalWindow';
-import { ReplaseImage } from './AcceptModal';
+import { ModalWindow } from 'components/ModalWindow/ModalWindow';
+// import { Motivation } from 'components/MotivatioContent/MotivationContent';
+import { ResetImage } from './AcceptModal';
 import timeCooking from '../../AddRecipeForm/timeCooking.json';
 import imageS from '../../../images/addRecipe/file-input-mob.png';
 import imageL from '../../../images/addRecipe/file-input-desk.png';
@@ -83,6 +84,10 @@ export const RecipeDescriptionFields = ({
     setCategoryIsActive(false);
   };
 
+  const resetImage = () => {
+    setImage('');
+    setShowModal(false);
+  };
   return (
     <DescrWrap>
       <FileInputWrap onChange={event => onFileInputChange(event)}>
@@ -160,9 +165,12 @@ export const RecipeDescriptionFields = ({
         </SelectWrap>
       </InputWrap>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <ReplaseImage />
-        </Modal>
+        <ModalWindow onClose={() => setShowModal(false)}>
+          <ResetImage
+            onResetImage={() => resetImage()}
+            onClose={() => setShowModal(false)}
+          />
+        </ModalWindow>
       )}
     </DescrWrap>
   );
