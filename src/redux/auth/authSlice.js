@@ -67,6 +67,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshCurrentUser.rejected, state => {
         state.isRefreshing = false;
+        state.isLoggedIn = false;
       })
       .addCase(userUpdate.fulfilled, (state, action) => {
         state.user.username = action.payload.resUser.username;
