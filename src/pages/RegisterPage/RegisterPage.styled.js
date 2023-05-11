@@ -19,6 +19,7 @@ export const Box = styled.section`
   min-width: 100vw;
   min-height: 100vh;
 
+  background-color: #fafafa;
   background-image: url(${imgPanaMobile}), url(${bgImgRectangleMobile});
   background-repeat: no-repeat;
   background-size: 285px, cover;

@@ -4,6 +4,10 @@ import { Button } from '@mui/material';
 
 export const TextField = styled(MuiTextField)({
   '& .MuiInputBase-root': {
+    '&:-webkit-autofill': {
+      transitionDelay: '9999s',
+      transitionProperty: 'background-color, color',
+    },
     fontFamily: 'Poppins',
     fontSize: '14px',
     height: '45px',
@@ -37,7 +41,7 @@ export const ButtonS = styled(Button)({
   fontFamily: 'Poppins',
   width: '100%',
   height: '45px',
-  mt: '16px',
+  marginTop: '16px',
 
   textTransform: 'none',
   fontSize: 16,

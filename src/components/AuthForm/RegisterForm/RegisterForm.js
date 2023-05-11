@@ -210,7 +210,7 @@ export const RegisterForm = () => {
                 height: '59px',
                 borderRadius: '6px',
                 backgroundColor: ' #8BAA36;',
-                mt: '26px',
+                marginTop: '26px',
               },
             }}
             variant="contained"

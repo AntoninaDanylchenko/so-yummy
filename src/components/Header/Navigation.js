@@ -30,7 +30,7 @@ const Navigation = () => {
           <Logo />
         </NavBarInnerContainer>
         <RightNav />
-        <BurgerMenu onClose={toggleModal} />
+        <BurgerMenu onClose={() => setIsOpen(false)} />
         <UserBox>
           <UserMenu {...modalProps} />
           <TogglerBoxUser>
