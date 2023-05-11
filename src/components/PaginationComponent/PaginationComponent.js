@@ -50,11 +50,12 @@ const PaginationComponent = ({
           {noResult ? (
             <>
               <ListComponent>
-                {_DATA.currentData().map(item => (
+                {_DATA.currentData().map((item, index) => (
                   <CardComponent
                     key={item._id}
                     buttonColorBg={buttonColorBg}
                     {...item}
+                    index={index}
                   />
                 ))}
               </ListComponent>
