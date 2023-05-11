@@ -1,17 +1,16 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import SearchIcon from '@mui/icons-material/Search';
 import {
   RightNavList,
   RightNavItem,
   RightContainer,
-  // IconSearch,
   LinkNav,
 } from './Header.styled';
 
-import SearchIcon from '@mui/icons-material/Search';
-
 const RightNav = () => {
   const recipe = useParams();
+
   return (
     <RightContainer>
       <RightNavList>
