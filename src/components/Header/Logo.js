@@ -6,8 +6,10 @@ const Logo = () => {
   const location = useLocation();
   const backLink = location.state?.from ?? '/';
 
+  
+
   return (
-    <LinkNav to="/" state={{ from: backLink }}>
+    <LinkNav to="/" state={{ from: backLink }} >
       <IconLogo />
     </LinkNav>
   );

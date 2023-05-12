@@ -11,6 +11,8 @@ import {
 } from './ChooseYourBreakfast.styled';
 
 export const ChooseYourBreakfast = () => {
+  document.body.style.overflow = 'auto';
+
   return (
     <>
       <TitleWrap>
