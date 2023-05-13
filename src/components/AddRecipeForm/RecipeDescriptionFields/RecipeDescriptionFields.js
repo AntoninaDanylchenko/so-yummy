@@ -52,6 +52,7 @@ export const RecipeDescriptionFields = ({
   const [timeIsActive, setTimeIsActive] = useState(false);
   const [categoryIsActive, setCategoryIsActive] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
   const onFileInputChange = event => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -88,6 +89,7 @@ export const RecipeDescriptionFields = ({
     setImage('');
     setShowModal(false);
   };
+
   return (
     <DescrWrap>
       <FileInputWrap onChange={event => onFileInputChange(event)}>

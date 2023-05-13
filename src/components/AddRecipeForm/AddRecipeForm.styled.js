@@ -42,7 +42,6 @@ export const AddButton = styled.button`
   transition: ${p => p.theme.transition};
   :hover,
   :focus {
-    background-color: ${p => p.theme.favorite.hover};
     transition: ${p => p.theme.transition};
     transform: scale(1.05);
     box-shadow: ${p => p.theme.shadows[2]};

@@ -7,7 +7,8 @@ import {
   getFavoriteOp,
 } from 'redux/favorite/operation';
 import { getFavorite } from 'redux/favorite/selector';
-
+import { ModalWindow } from 'components/ModalWindow/ModalWindow';
+import { Motivation } from 'components/MotivatioContent/MotivationContent';
 import {
   Button,
   Container,
@@ -18,11 +19,7 @@ import {
 
 import { ReactComponent as Clock } from '../../../images/icon/clock.svg';
 
-import { Motivation } from 'components/MotivatioContent/MotivationContent';
-import { ModalWindow } from 'components/ModalWindow/ModalWindow';
-// import { getOwnUserData } from 'redux/addRecipe/operations';
-
-export const RecipePageHero = ({ recipe, title, description, time, data }) => {
+export const RecipePageHero = ({ recipe, title, description, time }) => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const favorite = useSelector(getFavorite);
@@ -46,7 +43,6 @@ export const RecipePageHero = ({ recipe, title, description, time, data }) => {
       <Container>
         <Title>{title}</Title>
         <Description>{description}</Description>
-
         {favorite?.some(fav => fav._id === recipe._id) ? (
           <Button type="button" onClick={handleRemoveRecipeFromFavorite}>
             Remove from favorite
@@ -56,7 +52,6 @@ export const RecipePageHero = ({ recipe, title, description, time, data }) => {
             Add to favorite
           </Button>
         )}
-
         <Time>
           <Clock />
           {time} min
