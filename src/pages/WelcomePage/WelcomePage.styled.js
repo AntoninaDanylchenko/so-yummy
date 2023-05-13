@@ -32,9 +32,9 @@ export const Box = styled.div`
 
   @media ${p => p.theme.device.tablet} {
     background-position: center bottom 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
+    /* width: 100vw;
+    height: 100vh; */
+    /* background-size: cover; */
     background-image: url('${RonizeTab}');
 
     @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1200px),
@@ -47,10 +47,10 @@ export const Box = styled.div`
   }
 
   @media ${p => p.theme.device.desktop} {
-    background-position: center bottom 0;
-    width: 100vw;
+    /* background-position: center bottom 0; */
+    /* width: 100vw;
     height: 100vh;
-    background-size: cover;
+    background-size: cover; */
     background-image: url('${RonizeDesk}');
 
     @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px),
@@ -68,16 +68,16 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  padding: 275px 0;
+  padding: calc(50vh - 120px) 0;
   text-align: center;
   margin: 0 auto;
 
   @media screen and (min-width: 450px) and (max-width: 1200px) {
-    padding: 342px 0;
+    /* padding: 342px 0; */
   }
 
   @media ${p => p.theme.device.desktop} {
-    padding-top: 214px 0;
+    /* padding-top: 214px 0; */
   }
 `;
 
