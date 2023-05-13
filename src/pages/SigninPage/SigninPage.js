@@ -9,17 +9,25 @@ const SigninPage = () => {
     <>
       <Box>
         <Container
-          fixed
+          // fixed
           maxWidth="desktop"
-          style={{ background: '#FAFAFA', padding: 0 }}
+          sx={{
+            paddingTop: 'calc(50vh - 70px)',
+            '@media (min-width: 768px)': {
+              paddingTop: 'calc(50vh - 100px)',
+            },
+            '@media (min-width: 1440px)': {
+              paddingTop: '15vh',
+            },
+          }}
         >
           <WrapperForm>
             {/* <Helmet> */}
             <Title>Sign In</Title>
             {/* </Helmet> */}
             <SigninForm />
-            <LinkToSignup to="/register">Registration</LinkToSignup>
           </WrapperForm>
+          <LinkToSignup to="/register">Registration</LinkToSignup>
         </Container>
       </Box>
     </>

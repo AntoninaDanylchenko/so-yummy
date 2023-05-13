@@ -18,7 +18,6 @@ import { ThemeToggler } from './ThemeToggler';
 
 const BurgerMenu = ({ onClose }) => {
   const { pathname } = useLocation();
-  console.log(pathname);
   const recipe = useParams();
 
   const [extendNavbar, setExtendNavbar] = useState(false);

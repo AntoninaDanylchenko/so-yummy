@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-// import { Field, Form } from 'formik';
 
 import bgImgRectangleMobile from '../../images/form/rectangle_mobile.png';
 import bgImgRectangleMobile2x from '../../images/form/rectangle_mobile@2x.png';
@@ -16,22 +15,17 @@ import imgPanaTablet2x from '../../images/form/food-pana_tablet@2x.png';
 import imgPanaDesktop from '../../images/form/food-pana_desktop.png';
 import imgPanaDesktop2x from '../../images/form/food-pana_desktop@2x.png';
 
-export const Probnik111111 = styled.div`
-  @media (${p => p.theme.device.tablet}) {
-  }
-  @media (${p => p.theme.device.desktop}) {
-  }
-`;
 export const Box = styled.section`
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
   background-color: #fafafa;
   background-image: url(${imgPanaMobile}), url(${bgImgRectangleMobile});
   background-repeat: no-repeat;
-  background-size: 285px, cover;
   /* background-size: calc(100vw - 180px), cover; */
-  background-position: center top 86px, center top 322px;
+  background-size: 285px, cover;
+
+  background-position: center bottom calc(50vh + 30px), center bottom -400px;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
@@ -42,7 +36,7 @@ export const Box = styled.section`
   @media (${p => p.theme.device.tablet}) {
     background-image: url(${imgPanaTablet}), url(${bgImgRectangleTablet});
     background-size: 409px, cover;
-    background-position: center top 96px, center top 322px;
+    background-position: center bottom calc(50vh + 40px), center bottom -450px;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -54,7 +48,7 @@ export const Box = styled.section`
   @media (${p => p.theme.device.desktop}) {
     background-image: url(${imgPanaDesktop}), url(${bgImgRectangleDesktop});
     background-size: 532px, cover;
-    background-position: left 113px top 115px, center top 364px;
+    background-position: left calc(5vw + 175px) top 115px, center top 364px;
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
@@ -66,13 +60,14 @@ export const Box = styled.section`
 `;
 
 export const WrapperForm = styled.div`
-  position: absolute;
+  /* position: absolute; */
   max-width: 335px;
-  margin-top: 305px;
+  /* margin-top: 305px; */
   margin-left: auto;
   margin-right: auto;
-  left: 0;
-  right: 0;
+  /* margin-bottom: 70px; //proof margin */
+  /* left: 0;
+  right: 0; */
   text-align: center;
 
   padding: 32px 28px 40px;
@@ -83,12 +78,12 @@ export const WrapperForm = styled.div`
 
   @media (${p => p.theme.device.tablet}) {
     max-width: 500px;
-    margin-top: 444px;
+    /* margin-top: 444px; */
     padding: 44px 50px;
   }
   @media (${p => p.theme.device.desktop}) {
-    margin-right: 180px;
-    margin-top: 122px;
+    margin-right: calc(5vw + 65px);
+    /* margin-top: 122px; */
   }
 `;
 
@@ -117,10 +112,18 @@ export const Title = styled.h2`
 `;
 
 export const LinkToSignup = styled(Link)`
-  position: absolute;
+  /* position: absolute;
   bottom: -50px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+
+  display: block;
+
+  margin-top: 32px;
+  /* margin-left: auto;
+  margin-right: auto; */
+
+  text-align: center;
 
   font-style: normal;
   font-weight: 400;
@@ -130,9 +133,17 @@ export const LinkToSignup = styled(Link)`
 
   text-decoration-line: underline;
   color: #fafafa;
+  /* color: red; */
 
   @media (${p => p.theme.device.tablet}) {
     font-size: 16px;
     line-height: 24px;
+    /* margin-left: auto;
+    margin-right: 180px; */
+  }
+  @media (${p => p.theme.device.desktop}) {
+    display: flex;
+    margin-right: 380px;
+    justify-content: end;
   }
 `;
