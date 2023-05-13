@@ -12,5 +12,4 @@ export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   transition: ${p => p.theme.transition};
   box-shadow: ${p => p.theme.shadows[1]};
-  z-index: 100;
 `;

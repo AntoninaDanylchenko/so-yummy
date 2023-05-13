@@ -476,6 +476,15 @@ export const IconBurger = styled(MenuIcon)`
     color: ${p =>
       p.recipe?.recipeId ? p.theme.title.userText : p.theme.title.text};
   }
+
+    @media screen and (min-width: 830px) and (max-width: 890px){
+       color: #8baa36;
+  }
+
+  @media screen and (min-width: 890px) and (max-width: 1439px){
+       color: #fafafa;
+  }
+
 `;
 
 export const IconClose = styled(CloseIcon)`

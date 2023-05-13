@@ -23,6 +23,8 @@ const Navigation = () => {
 
   const modalProps = { isOpen, open, toggleModal };
 
+
+
   return (
     <NavBox>
       <Nav>
