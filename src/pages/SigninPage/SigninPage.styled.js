@@ -17,7 +17,7 @@ import imgPanaDesktop2x from '../../images/form/food-pana_desktop@2x.png';
 
 export const Box = styled.section`
   width: 100vw;
-  height: 100%;
+  height: 100vh;
 
   background-color: #fafafa;
   background-image: url(${imgPanaMobile}), url(${bgImgRectangleMobile});
