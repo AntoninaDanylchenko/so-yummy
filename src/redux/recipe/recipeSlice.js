@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   addIngredientToShoppingList,
   getRecipeById,
-  removeIngredientFromShoppingList
+  removeIngredientFromShoppingList,
 } from './operations';
 
 const initialState = {
@@ -22,6 +22,7 @@ const recipeSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getRecipeById.pending, state => {
+        state.recipe.item = null;
         state.recipe.isLoading = true;
       })
       .addCase(getRecipeById.fulfilled, (state, action) => {

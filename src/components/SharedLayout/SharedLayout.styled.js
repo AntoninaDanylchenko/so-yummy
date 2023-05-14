@@ -15,14 +15,14 @@ import pastaSpinachDipDesktop from '../../images/leafs/pasta-spinach-dip_desktop
 import pastaSpinachDipDesktop2x from '../../images/leafs/pasta-spinach-dip_desktop@2x.png';
 
 export const Main = styled.main`
-  min-height: calc(100vh - 561px);
+  min-height: 561px;
 
   @media ${p => p.theme.device.tablet} {
-    min-height: calc(100vh - 564px);
+    min-height: 564px;
   }
 
   @media ${p => p.theme.device.desktop} {
-    min-height: calc(100vh - 594px);
+    min-height: 594px;
   }
   margin: 0 auto;
 `;

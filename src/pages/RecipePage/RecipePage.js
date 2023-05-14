@@ -3,29 +3,36 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { getRecipeById } from 'redux/recipe/operations';
-import { selectRecipeById } from 'redux/recipe/selectors';
+import {
+  selectRecipeById,
+  selectRecipeIsLoading,
+} from 'redux/recipe/selectors';
 
 import { Container } from '../../pages/MainPage/MainPage.styled';
 import { RecipePageHero } from 'components/RecipePage/RecipePageHero/RecipePageHero';
 import { RecipeInngredientsList } from 'components/RecipePage/RecipeIngredientsList/RecipeInngredientsList';
 import { RecipePreparation } from 'components/RecipePage/RecipePreparation/RecipePreparation';
+import { Loader } from 'components/Loader/Loader';
 
 const RecipePage = () => {
   const dispatch = useDispatch();
   const { recipeId } = useParams();
-  const recipe = useSelector(selectRecipeById);
-
-  const { title, description, time, instructions, thumb, ingredients } =
-    recipe?.data?.recipe || {};
 
   useEffect(() => {
     dispatch(getRecipeById(recipeId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recipeId]);
+  const recipe = useSelector(selectRecipeById);
+  const isLoadingRecipe = useSelector(selectRecipeIsLoading);
+
+  const { title, description, time, instructions, thumb, ingredients } =
+    recipe?.data?.recipe || {};
 
   return (
     <>
-      {recipe !== null && (
+      {isLoadingRecipe ? (
+        <Loader />
+      ) : (
         <>
           <RecipePageHero
             recipe={recipe.data.recipe}
