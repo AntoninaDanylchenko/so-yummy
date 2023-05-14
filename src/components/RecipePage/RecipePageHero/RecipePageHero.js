@@ -8,7 +8,8 @@ import {
 } from 'redux/favorite/operation';
 import { getFavorite } from 'redux/favorite/selector';
 import { ModalWindow } from 'components/ModalWindow/ModalWindow';
-import { Motivation } from 'components/MotivatioContent/MotivationContent';
+import { Motivation } from 'components/MotivationContent/MotivationContent';
+
 import {
   Button,
   Container,
@@ -18,6 +19,7 @@ import {
 } from './RecipePageHero.styled';
 
 import { ReactComponent as Clock } from '../../../images/icon/clock.svg';
+import { MotivationModalText } from 'components/MotivationContent/MotivationModalText';
 
 export const RecipePageHero = ({ recipe, title, description, time }) => {
   const [showModal, setShowModal] = useState(false);
@@ -30,12 +32,19 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
 
   const handleAddRecipeToFavorite = () => {
     dispatch(addFavoriteOp(recipe._id));
-    setShowModal(true);
+    showMotivation();
   };
 
   const handleRemoveRecipeFromFavorite = () => {
     const recipeToRemove = favorite.find(fav => fav._id === recipe._id);
     dispatch(deleteFavoriteOp(recipeToRemove._id));
+  };
+
+  const showMotivation = () => {
+    if (favorite.length === 0) {
+      setShowModal(true);
+    }
+    return;
   };
 
   return (
@@ -58,7 +67,10 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
         </Time>
         {showModal && (
           <ModalWindow onClose={() => setShowModal(false)}>
-            <Motivation onClose={() => setShowModal(false)} />
+            <Motivation
+              onClose={() => setShowModal(false)}
+              children={MotivationModalText.addFirstFavorit}
+            />
           </ModalWindow>
         )}
       </Container>
