@@ -122,7 +122,7 @@ export const AddRecipeForm = () => {
   formData.append('title', title);
   formData.append('description', description);
   formData.append('category', category);
-  formData.append('time', cookingTime);
+  formData.append('time', cookingTime.slice(0, cookingTime.indexOf(' ')));
   formData.append('ingredients', JSON.stringify(updatedIngredients));
   formData.append('instructions', preparation);
 

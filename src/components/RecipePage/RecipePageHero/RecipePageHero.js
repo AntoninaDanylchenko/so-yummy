@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -7,6 +7,8 @@ import {
   getFavoriteOp,
 } from 'redux/favorite/operation';
 import { getFavorite } from 'redux/favorite/selector';
+import { ModalWindow } from 'components/ModalWindow/ModalWindow';
+import { Motivation } from 'components/MotivationContent/MotivationContent';
 
 import {
   Button,
@@ -17,8 +19,10 @@ import {
 } from './RecipePageHero.styled';
 
 import { ReactComponent as Clock } from '../../../images/icon/clock.svg';
+import { MotivationModalText } from 'components/MotivationContent/MotivationModalText';
 
 export const RecipePageHero = ({ recipe, title, description, time }) => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const favorite = useSelector(getFavorite);
 
@@ -28,6 +32,7 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
 
   const handleAddRecipeToFavorite = () => {
     dispatch(addFavoriteOp(recipe._id));
+    showMotivation();
   };
 
   const handleRemoveRecipeFromFavorite = () => {
@@ -35,12 +40,18 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
     dispatch(deleteFavoriteOp(recipeToRemove._id));
   };
 
+  const showMotivation = () => {
+    if (favorite.length === 0) {
+      setShowModal(true);
+    }
+    return;
+  };
+
   return (
     <>
       <Container>
         <Title>{title}</Title>
         <Description>{description}</Description>
-
         {favorite?.some(fav => fav._id === recipe._id) ? (
           <Button type="button" onClick={handleRemoveRecipeFromFavorite}>
             Remove from favorite
@@ -50,11 +61,18 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
             Add to favorite
           </Button>
         )}
-
         <Time>
           <Clock />
           {time} min
         </Time>
+        {showModal && (
+          <ModalWindow onClose={() => setShowModal(false)}>
+            <Motivation
+              onClose={() => setShowModal(false)}
+              children={MotivationModalText.addFirstFavorit}
+            />
+          </ModalWindow>
+        )}
       </Container>
     </>
   );

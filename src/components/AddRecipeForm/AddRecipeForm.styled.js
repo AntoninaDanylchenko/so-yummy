@@ -33,20 +33,23 @@ export const AddButton = styled.button`
   width: 129px;
   height: 46px;
   border-radius: 24px 44px;
-  border: none;
-  background-color: ${p => p.theme.favorite.bg};
-  color: ${p => p.theme.primary.background};
+  border: transparent;
+  background-color: ${p => p.theme.title.addBtnBg};
+  color: ${p => p.theme.primary.textFooter};
   font-size: ${p => p.theme.fontSizes[4]};
   line-height: 1.43;
   cursor: pointer;
-  transition: ${p => p.theme.transition};
+  transition: color ${p => p.theme.transition},
+    background-color ${p => p.theme.transition};
+
   :hover,
   :focus {
-    background-color: ${p => p.theme.favorite.hover};
-    transition: ${p => p.theme.transition};
+    background-color: ${p => p.theme.accent.iconFollow};
+    color: ${p => p.theme.primary.background};
     transform: scale(1.05);
-    box-shadow: ${p => p.theme.shadows[2]};
+    outline: none;
   }
+
   @media screen and (min-width: 768px) {
     width: 161px;
     height: 52px;
