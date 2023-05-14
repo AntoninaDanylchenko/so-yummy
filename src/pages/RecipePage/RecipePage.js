@@ -28,14 +28,18 @@ const RecipePage = () => {
   const { title, description, time, instructions, thumb, ingredients } =
     recipe?.data?.recipe || {};
 
+  const isLoader = recipe === null || isLoadingRecipe;
+
+  console.log(isLoader);
+
   return (
     <>
-      {isLoadingRecipe ? (
+      {isLoader ? (
         <Loader />
       ) : (
         <>
           <RecipePageHero
-            recipe={recipe.data.recipe}
+            recipe={recipe?.data?.recipe}
             title={title}
             description={description}
             time={time}
