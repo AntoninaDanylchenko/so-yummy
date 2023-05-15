@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addRecipe } from '../../redux/addRecipe/operations';
 import { selectLoading, selectError } from '../../redux/addRecipe/selectors';
 import { v4 as uuidv4 } from 'uuid';
-import { yupSchema } from './yupSchema';
+import { yupSchema } from '../YupSchema/yupSchema';
 import { toast } from 'react-hot-toast';
 
 import { RecipeDescriptionFields } from '../AddRecipeForm/RecipeDescriptionFields/RecipeDescriptionFields';

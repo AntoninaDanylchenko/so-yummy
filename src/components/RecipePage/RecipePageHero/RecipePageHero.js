@@ -41,7 +41,7 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
   };
 
   const showMotivation = () => {
-    if (favorite.length === 0) {
+    if (favorite.length === 0 || favorite.length === 10) {
       setShowModal(true);
     }
     return;
@@ -67,10 +67,11 @@ export const RecipePageHero = ({ recipe, title, description, time }) => {
         </Time>
         {showModal && (
           <ModalWindow onClose={() => setShowModal(false)}>
-            <Motivation
-              onClose={() => setShowModal(false)}
-              children={MotivationModalText.addFirstFavorit}
-            />
+            <Motivation onClose={() => setShowModal(false)}>
+              {favorite?.some(fav => fav.langth === 0)
+                ? MotivationModalText.addFirstFavorit
+                : MotivationModalText.addTenFavorit}
+            </Motivation>
           </ModalWindow>
         )}
       </Container>

@@ -3,10 +3,10 @@ import addMob from '../../images/motivations/addFirstRecipeMobile.jpg';
 import addTab from '../../images/motivations/addFirstRecipeTablet.jpg';
 import addDesk from '../../images/motivations/addFirstRecipeDesktop.jpg';
 import add300 from '../../images/motivations/addFirstRecipe300.jpg';
-import VectorMobMin from '../../images/motivations/VectorMobMin.png';
-import VectorMob from '../../images/motivations/VectorMob.png';
-import VectorTab from '../../images/motivations/VectorTab.png';
-import VectorDesk from '../../images/motivations/VectorDesk.png';
+// import VectorMobMin from '../../images/motivations/VectorMobMin.png';
+// import VectorMob from '../../images/motivations/VectorMob.png';
+// import VectorTab from '../../images/motivations/VectorTab.png';
+// import VectorDesk from '../../images/motivations/VectorDesk.png';
 
 export const MotivationBox = styled.div`
   display: flex;
@@ -45,28 +45,30 @@ export const Content = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
-  background-image: url('${VectorMobMin}');
+  background: rgba(217, 217, 217, 0.138);
+  backdrop-filter: blur(27.9764px);
+  border-radius: 30px;
   position: relative;
   top: 40px;
 
   @media ${p => p.theme.device.mobile} {
     width: 299px;
     height: 269px;
-    background-image: url('${VectorMob}');
+
     top: 130px;
   }
 
   @media ${p => p.theme.device.tablet} {
     width: 268px;
     height: 242px;
-    background-image: url('${VectorTab}');
+
     top: 60px;
   }
 
   @media ${p => p.theme.device.desktop} {
     width: 268px;
     height: 242px;
-    background-image: url('${VectorDesk}');
+
     top: 90px;
   }
 `;

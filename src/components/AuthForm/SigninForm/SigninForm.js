@@ -104,6 +104,7 @@ export const SigninForm = () => {
                     : touched?.password
                     ? '1px solid #3CBC81'
                     : '1px solid #FAFAFA',
+                p: 0,
               },
               startAdornment: (
                 <InputAdornment position="start">
